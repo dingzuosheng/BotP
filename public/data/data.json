@@ -1,0 +1,1171 @@
+{
+    "Carbon_Dioxide": {
+        "name": "Carbon Dioxide",
+        "path": "/game/co2",
+        "causes": [
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            },
+            {
+                "name": "Forest Clearing",
+                "path": "/game/forest-clearing"
+            },
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            },
+            {
+                "name": "Natural Gas Use",
+                "path": "/game/natural-gas-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Global Temperature",
+                "path": "/game/global-temperature"
+            }
+        ]
+    },
+    "Coal_Tax": {
+        "name": "Coal Tax",
+        "path": "/game/coal-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            }
+        ]
+    },
+    "Coal_Use": {
+        "name": "Coal Use",
+        "path": "/game/coal-use",
+        "causes": [
+            {
+                "name": "Coal Price",
+                "path": "/game/coal-price"
+            },
+            {
+                "name": "Coal Tax",
+                "path": "/game/coal-tax"
+            },
+            {
+                "name": "Energy Demand",
+                "path": "/game/energy-demand"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Carbon Dioxide",
+                "path": "/game/co2"
+            },
+            {
+                "name": "Coal Price",
+                "path": "/game/coal-price"
+            },
+            {
+                "name": "Nitrous Dioxide",
+                "path": "/game/no2"
+            },
+            {
+                "name": "Sulfur Dioxide",
+                "path": "/game/so2"
+            },
+            {
+                "name": "Nonrenewable Energy",
+                "path": "/game/nonrenewable-energy"
+            }
+        ]
+    },
+    "Coal_Price": {
+        "name": "Coal Price",
+        "path": "/game/coal-price",
+        "causes": [
+            {
+                "name": "Coal Supply",
+                "path": "/game/coal-supply"
+            },
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            }
+        ]
+    },
+    "Coal_Supply": {
+        "name": "Coal Supply",
+        "path": "/game/coal-supply",
+        "causes": [
+            {
+                "name": "Total Coal Use",
+                "path": "/game/total-coal-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Coal Price",
+                "path": "/game/coal-price"
+            }
+        ]
+    },
+    "Total_Coal_Use": {
+        "name": "Total Coal Use",
+        "path": "/game/total-coal-use",
+        "causes": [
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Coal Supply",
+                "path": "/game/coal-supply"
+            }
+        ]
+    },
+    "Energy_Demand": {
+        "name": "Energy Demand",
+        "path": "/game/energy-demand",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            },
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            },
+            {
+                "name": "Natural Gas Use",
+                "path": "/game/natural-gas-use"
+            },
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            },
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            },
+            {
+                "name": "Solar Energy Use",
+                "path": "/game/solar-energy-use"
+            }
+        ]
+    },
+    "Oil_Use": {
+        "name": "Oil Use",
+        "path": "/game/oil-use",
+        "causes": [
+            {
+                "name": "Energy Demand",
+                "path": "/game/energy-demand"
+            },
+            {
+                "name": "Oil Price",
+                "path": "/game/oil-price"
+            },
+            {
+                "name": "Oil Tax",
+                "path": "/game/oil-tax"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Carbon Dioxide",
+                "path": "/game/co2"
+            },
+            {
+                "name": "Nitrous Dioxide",
+                "path": "/game/no2"
+            },
+            {
+                "name": "Nonrenewable Energy",
+                "path": "/game/nonrenewable-energy"
+            },
+            {
+                "name": "Oil Price",
+                "path": "/game/oil-price"
+            },
+            {
+                "name": "Oil Spills",
+                "path": "/game/oil-spills"
+            },
+            {
+                "name": "Total Oil Use",
+                "path": "/game/total-oil-use"
+            }
+        ]
+    },
+    "Oil_Tax": {
+        "name": "Oil Tax",
+        "path": "/game/oil-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            }
+        ]
+    },
+    "Oil_Price": {
+        "name": "Oil Price",
+        "path": "/game/oil-price",
+        "causes": [
+            {
+                "name": "Oil Supply",
+                "path": "/game/oil-supply"
+            },
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Oil Supply",
+                "path": "/game/oil-supply"
+            },
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            }
+        ]
+    },
+    "Oil_Supply": {
+        "name": "Oil Supply",
+        "path": "/game/oil-supply",
+        "causes": [
+            {
+                "name": "Oil Price",
+                "path": "/game/oil-price"
+            },
+            {
+                "name": "Total Oil Use",
+                "path": "/game/total-oil-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Oil Price",
+                "path": "/game/oil-price"
+            }
+        ]
+    },
+    "Total_Oil_Use": {
+        "name": "Total Oil Use",
+        "path": "/game/total-oil-use",
+        "causes": [
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Oil Supply",
+                "path": "/game/oil-supply"
+            }
+        ]
+    },
+    "Natural_Gas_Use": {
+        "name": "Natural Gas Use",
+        "path": "/game/natural-gas-use",
+        "causes": [
+            {
+                "name": "Energy Demand",
+                "path": "/game/energy-demand"
+            },
+            {
+                "name": "Natural Gas Price",
+                "path": "/game/natural-gas-price"
+            },
+            {
+                "name": "Natural Gax Tax",
+                "path": "/game/natural-gas-tax"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Carbon Dioxide",
+                "path": "/game/co2"
+            },
+            {
+                "name": "Natural Gas Price",
+                "path": "/game/natural-gas-price"
+            },
+            {
+                "name": "Nonrenewable Energy",
+                "path": "/game/nonrenewable-energy"
+            },
+            {
+                "name": "Total Nat Gas Use",
+                "path": "/game/total-nat-gas-use"
+            }
+        ]
+    },
+    "Natural_Gas_Tax": {
+        "name": "Natural Gas Tax",
+        "path": "/game/natural-gas-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Natural Gas Use",
+                "path": "/game/natural-gas-use"
+            }
+        ]
+    },
+    "Total_Natural_Gas_Use": {
+        "name": "Total Natural Gas Use",
+        "path": "/game/total-nat-gas-use",
+        "causes": [
+            {
+                "name": "Natural Gas Use",
+                "path": "/game/natural-gas-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Natural Gas Supply",
+                "path": "/game/natural-gas-supply"
+            }
+        ]
+    },
+    "Natural_Gas_Supply": {
+        "name": "Natural Gas Supply",
+        "path": "/game/natural-gas-supply",
+        "causes": [
+            {
+                "name": "Natural Gas Price",
+                "path": "/game/natural-gas-price"
+            },
+            {
+                "name": "Natural Gas Use",
+                "path": "/game/natural-gas-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Natural Gas Price",
+                "path": "/game/natural-gas-price"
+            }
+        ]
+    },
+    "Natural_Gas_Price": {
+        "name": "Natural Gas Price",
+        "path": "/game/natural-gas-price",
+        "causes": [
+            {
+                "name": "Natural Gas Supply",
+                "path": "/game/natural-gas-supply"
+            },
+            {
+                "name": "Natural Gas Use",
+                "path": "/game/natural-gas-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Natural Gas Supply",
+                "path": "/game/natural-gas-supply"
+            },
+            {
+                "name": "Natural Gas Use",
+                "path": "/game/natural-gas-use"
+            }
+        ]
+    },
+    "Dam_Use": {
+        "name": "Dam Use",
+        "path": "/game/dam-use",
+        "causes": [
+            {
+                "name": "Dam Price",
+                "path": "/game/dam-price"
+            },
+            {
+                "name": "Energy Demand",
+                "path": "/game/energy-demand"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Dam Price",
+                "path": "/game/dam-price"
+            },
+            {
+                "name": "Renewable Energy",
+                "path": "/game/renewable-energy"
+            }
+        ]
+    },
+    "Dam_Price": {
+        "name": "Dam Price",
+        "path": "/game/dam-price",
+        "causes": [
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            }
+        ]
+    },
+    "Nuclear_Use": {
+        "name": "Nuclear Use",
+        "path": "/game/nuclear-use",
+        "causes": [
+            {
+                "name": "Nuclear Price",
+                "path": "/game/nuclear-price"
+            },
+            {
+                "name": "Energy Demand",
+                "path": "/game/energy-demand"
+            },
+            {
+                "name": "Nuclear Tax",
+                "path": "/game/nuclear-tax"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Nonrenewable Energy",
+                "path": "/game/nonrenewable-energy"
+            },
+            {
+                "name": "Nuclear Accidents",
+                "path": "/game/nuclear-accidents"
+            },
+            {
+                "name": "Nuclear Price",
+                "path": "/game/nuclear-price"
+            },
+            {
+                "name": "Radiation",
+                "path": "/game/radiation"
+            },
+            {
+                "name": "Radioactive Waste",
+                "path": "/game/radioactive-waste"
+            },
+            {
+                "name": "Total Nuclear Use",
+                "path": "/game/total-nuclear-use"
+            }
+        ]
+    },
+    "Total_Nuclear_Use": {
+        "name": "Total Nuclear Use",
+        "path": "/game/total-nuclear-use",
+        "causes": [
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Nuclear Supply",
+                "path": "/game/nuclear-supply"
+            }
+        ]
+    },
+    "Nuclear_Tax": {
+        "name": "Nuclear Tax",
+        "path": "/game/nuclear-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            }
+        ]
+    },
+    "Nuclear_Price": {
+        "name": "Nuclear Price",
+        "path": "/game/nuclear-price",
+        "causes": [
+            {
+                "name": "Nuclear Supply",
+                "path": "/game/nuclear-supply"
+            },
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Nuclear Supply",
+                "path": "/game/nuclear-supply"
+            },
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            }
+        ]
+    },
+    "Nuclear_Supply": {
+        "name": "Nuclear Supply",
+        "path": "/game/nuclear-supply",
+        "causes": [
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Total Nuclear Use",
+                "path": "/game/total-nuclear-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Nuclear Price",
+                "path": "/game/nuclear-price"
+            }
+        ]
+    },
+    "Solar_Energy_Price": {
+        "name": "Solar Energy Price",
+        "path": "/game/solar-energy-price",
+        "causes": [
+            {
+                "name": "Solar Energy Use",
+                "path": "/game/solar-energy-use"
+            },
+            {
+                "name": "Solar Energy Technology",
+                "path": "/game/solar-technology"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Solar Energy Use",
+                "path": "/game/solar-energy-use"
+            }
+        ]
+    },
+    "Solar_Energy": {
+        "name": "Solar Energy Subsidy",
+        "path": "/game/solar-energy",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Solar Energy Use",
+                "path": "/game/solar-energy-use"
+            }
+        ]
+    },
+    "Solar_Energy_Use": {
+        "name": "Solar Energy Use",
+        "path": "/game/solar-energy-use",
+        "causes": [
+            {
+                "name": "Energy Demand",
+                "path": "/game/energy-demand"
+            },
+            {
+                "name": "Solar Energy $",
+                "path": "/game/solar-energy"
+            },
+            {
+                "name": "Solar Energy Price",
+                "path": "/game/solar-energy-price"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Falls from Roofs",
+                "path": "/game/falls-from-roofs"
+            },
+            {
+                "name": "Renewable Energy",
+                "path": "/game/renewable-energy"
+            },
+            {
+                "name": "Solar Energy Price",
+                "path": "/game/solar-energy-price"
+            }
+        ]
+    },
+    "Ave_Energy_Price": {
+        "name": "Average Energy Price",
+        "path": "/game/ave-energy-price",
+        "causes": [
+            {
+                "name": "Coal Price",
+                "path": "/game/coal-price"
+            },
+            {
+                "name": "Dam Price",
+                "path": "/game/dam-price"
+            },
+            {
+                "name": "Natural Gas Price",
+                "path": "/game/natural-gas-price"
+            },
+            {
+                "name": "Nuclear Price",
+                "path": "/game/nuclear-price"
+            },
+            {
+                "name": "Oil Price",
+                "path": "/game/oil-price"
+            },
+            {
+                "name": "Solar Energy Price",
+                "path": "/game/solar-energy-price"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Energy Conservation",
+                "path": "/game/energy-conservation"
+            }
+        ]
+    },
+    "Solar_Energy_Technology": {
+        "name": "Solar Energy Technology",
+        "path": "/game/solar-energy-technology",
+        "causes": [
+            {
+                "name": "Basic Research",
+                "path": "/game/basic-research"
+            },
+            {
+                "name": "Solar Research",
+                "path": "/game/solar-research"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Solar Energy Price",
+                "path": "/game/solar-energy-price"
+            }
+        ]
+    },
+    "Solar_Research": {
+        "name": "Solar Research",
+        "path": "/game/solar-research",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Solar Energy Technology",
+                "path": "/game/solar-energy-technology"
+            }
+        ]
+    },
+    "Basic_Research": {
+        "name": "Basic Research",
+        "path": "/game/basic-research",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Biotechnology",
+                "path": "/game/biotechnology"
+            },
+            {
+                "name": "Coal Technology",
+                "path": "/game/coal-technology"
+            },
+            {
+                "name": "Nuclear Technology",
+                "path": "/game/nuclear-technology"
+            },
+            {
+                "name": "Oil Technology",
+                "path": "/game/oil-technology"
+            },
+            {
+                "name": "Solar Technology",
+                "path": "/game/solar-technology"
+            }
+        ]
+    },
+    "Bio_Research": {
+        "name": "Bio Research",
+        "path": "/game/bioresearch",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Biotechnology",
+                "path": "/game/biotechnology"
+            }
+        ]
+    },
+    "Bio_Technology": {
+        "name": "Bio Technology",
+        "path": "/game/biotechnology",
+        "causes": [
+            {
+                "name": "Basic Research",
+                "path": "/game/basic-research"
+            },
+            {
+                "name": "Bio Research",
+                "path": "/game/bioresearch"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Crop Strains",
+                "path": "/game/crop-strains"
+            },
+            {
+                "name": "Medicines",
+                "path": "/game/medicines"
+            }
+        ]
+    },
+    "Oil_Research": {
+        "name": "Oil Research",
+        "path": "/game/oil-research",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Oil Technology",
+                "path": "/game/oil-technology"
+            }
+        ]
+    },
+    "Oil_Technology": {
+        "name": "Oil Technology",
+        "path": "/game/oil-technology",
+        "causes": [
+            {
+                "name": "Basic Research",
+                "path": "/game/basic-research"
+            },
+            {
+                "name": "Oil Research",
+                "path": "/game/oil-research"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Nitrous Dioxide",
+                "path": "/game/no2"
+            }
+        ]
+    },
+    "Nuclear_Research": {
+        "name": "Nuclear Research",
+        "path": "/game/nuclear-research",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Nuclear Technology",
+                "path": "/game/nuclear-technology"
+            }
+        ]
+    },
+    "Nuclear_Technology": {
+        "name": "Nuclear Technology",
+        "path": "/game/nuclear-technology",
+        "causes": [
+            {
+                "name": "Basic Research",
+                "path": "/game/basic-research"
+            },
+            {
+                "name": "nuclear Research",
+                "path": "/game/nuclear-research"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Nuclear Accidents",
+                "path": "/game/nuclear-accidents"
+            },
+            {
+                "name": "Radiation",
+                "path": "/game/radiation"
+            },
+            {
+                "name": "Radioactive Waste",
+                "path": "/game/radioactive-waste"
+            }
+        ]
+    },
+    "Coal_Research": {
+        "name": "Coal Research",
+        "path": "/game/coal-research",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Coal Technology",
+                "path": "/game/coal-technology"
+            }
+        ]
+    },
+    "Coal_Technology": {
+        "name": "Coal Technology",
+        "path": "/game/coal-technology",
+        "causes": [
+            {
+                "name": "Coal Research",
+                "path": "/game/coal-research"
+            },
+            {
+                "name": "Basic Research",
+                "path": "/game/basic-research"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Nitrous Dioxide",
+                "path": "/game/no2"
+            },
+            {
+                "name": "Sulfur Dioxide",
+                "path": "/game/so2"
+            }
+        ]
+    },
+    "Nitrous_Dioxide": {
+        "name": "Nitrous Dioxide",
+        "path": "/game/no2",
+        "causes": [
+            {
+                "name": "Coal Technology",
+                "path": "/game/coal-technology"
+            },
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            },
+            {
+                "name": "Oil Technology",
+                "path": "/game/oil-technology"
+            },
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Acid Rain",
+                "path": "/game/acid-rain"
+            },
+            {
+                "name": "Lung Disease Death",
+                "path": "/game/lung-disease-death"
+            },
+            {
+                "name": "Property Damage $",
+                "path": "/game/property-damage"
+            }
+        ]
+    },
+    "Sulfur_Dioxide": {
+        "name": "Sulfur Dioxide",
+        "path": "/game/so2",
+        "causes": [
+            {
+                "name": "Coal Technology",
+                "path": "/game/coal-technology"
+            },
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Acid Rain",
+                "path": "/game/acid-rain"
+            },
+            {
+                "name": "Lung Disease Death",
+                "path": "/game/lung-disease-death"
+            },
+            {
+                "name": "Property Damage $",
+                "path": "/game/property-damage"
+            }
+        ]
+    },
+    "Nonrenewable_Energy": {
+        "name": "Nonrenewable Energy",
+        "path": "/game/nonrenewable-energy",
+        "causes": [
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            },
+            {
+                "name": "Natural Gas Use",
+                "path": "/game/natural-gas-use"
+            },
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            },
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Net Energy",
+                "path": "/game/net-energy"
+            },
+            {
+                "name": "Sustainability",
+                "path": "/game/sustainability"
+            }
+        ]
+    },
+    "Global_Temperature": {
+        "name": "Global Temperature",
+        "path": "/game/global-temperature",
+        "causes": [
+            {
+                "name": "Carbon Dioxide",
+                "path": "/game/co2"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Sea Level",
+                "path": "/game/sea-level"
+            }
+        ]
+    },
+    "Sea_Level": {
+        "name": "Sea Level",
+        "path": "/game/sea-level",
+        "causes": [
+            {
+                "name": "Global Temperature",
+                "path": "/game/global-temperature"
+            }
+        ],
+        "effects": []
+    },
+    "Energy_Conservation": {
+        "name": "Energy Conservation",
+        "path": "/game/energy-conservation",
+        "causes": [
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Net Energy",
+                "path": "/game/net-energy"
+            }
+        ]
+    },
+    "Net_Energy": {
+        "name": "Net Energy",
+        "path": "/game/net-energy",
+        "causes": [
+            {
+                "name": "Energy Conservation",
+                "path": "/game/energy-conservation"
+            },
+            {
+                "name": "Nonrenewable Energy",
+                "path": "/game/nonrenewable-energy"
+            },
+            {
+                "name": "Renewable Energy",
+                "path": "/game/renewable-energy"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Lifestyle",
+                "path": "/game/lifestyle"
+            }
+        ]
+    },
+    "Lifestyle": {
+        "name": "Lifestyle",
+        "path": "/game/lifestyle",
+        "causes": [
+            {
+                "name": "Net Energy",
+                "path": "/game/net-energy"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Quality of Life",
+                "path": "/game/quality-of-life"
+            }
+        ]
+    },
+    "Quality_of_Life": {
+        "name": "Quality of Life",
+        "path": "/game/quality-of-life",
+        "causes": [
+            {
+                "name": "Lifestyle",
+                "path": "/game/lifestyle"
+            },
+            {
+                "name": "Population",
+                "path": "/game/population"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Birth Rate",
+                "path": "/game/birth-rate"
+            },
+            {
+                "name": "Quality of Life Points",
+                "path": "/game/quality-of-life-points"
+            }
+        ]
+    },
+    "Renewable_Energy": {
+        "name": "Renewable Energy",
+        "path": "/game/renewable-energy",
+        "causes": [
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            },
+            {
+                "name": "Solar Energy Use",
+                "path": "/game/solar-energy-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Net Energy",
+                "path": "/game/net-energy"
+            },
+            {
+                "name": "Sustainability",
+                "path": "/game/sustainability"
+            }
+        ]
+    },
+    "Sustainability": {
+        "name": "Sustainability",
+        "path": "/game/sustainability",
+        "causes": [
+            {
+                "name": "Birth Rate",
+                "path": "/game/birth-rate"
+            },
+            {
+                "name": "Nonrenewable Energy",
+                "path": "/game/nonrenewable-energy"
+            },
+            {
+                "name": "renewable Energy",
+                "path": "/game/renewable-energy"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Sustainability Pts",
+                "path": "/game/sustainability-pts"
+            }
+        ]
+    },
+    "Sustainability_Pts": {
+        "name": "Sustainability Pts",
+        "path": "/game/sustainability-pts",
+        "causes": [
+            {
+                "name": "Sustainability",
+                "path": "/game/sustainability"
+            }
+        ],
+        "effects": []
+    },
+    "Birth_Rate": {
+        "name": "Birth Rate",
+        "path": "/game/birth-rate",
+        "causes": [
+            {
+                "name": "Quality of Life",
+                "path": "/game/quality-of-life"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Population",
+                "path": "/game/population"
+            },
+            {
+                "name": "Sustainability",
+                "path": "/game/sustainability"
+            }
+        ]
+    },
+    "Population": {
+        "name": "Population",
+        "path": "/game/population",
+        "causes": [
+            {
+                "name": "Birth Rate",
+                "path": "/game/birth-rate"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Quality of Life",
+                "path": "/game/quality-of-life"
+            }
+        ]
+    },
+    "Quality_of_Life_Points": {
+        "name": "Quality of Life Points",
+        "path": "/game/quality-of-life-points",
+        "causes": [
+            {
+                "name": "Quality of Life",
+                "path": "/game/quality-of-life"
+            }
+        ],
+        "effects": []
+    }
+}
