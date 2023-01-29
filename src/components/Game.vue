@@ -15,6 +15,7 @@
         <button>Quit</button>
         <button @click="showSimulation">Run Simulation</button>
         <button @click="stopSimulation">Stop Simulation</button>
+        <button @click="execute">Execute</button>
     </div>
     <div>
         <router-view v-slot="{ Component }" :show="show" :energyDemand1995="energyDemand1995" :energyDemand2000="energyDemand2000" :energyDemand2005="energyDemand2005" :energyDemand2010="energyDemand2010" :energyDemand2015="energyDemand2015" :energyDemand2020="energyDemand2020" :energyDemand2025="energyDemand2025" :energyDemand2030="energyDemand2030" :energyDemand2035="energyDemand2035" :energyDemand2040="energyDemand2040" :energyDemand2045="energyDemand2045" :energyDemand2050="energyDemand2050" @changeCoalTaxRate="updateCoalTaxRate($event)" :coalTaxRate="coalTaxRate" @changeCoalUserate="updateCoalUserate($event)" :coalUse="coalUse" :coalUse1995="coalUse1995" :totalCoalUse="totalCoalUse" @changeCoalPriceFactor="updateCoalPrice($event)" :coalPrice="coalPrice" @changeCoalSupply="updateCoalSupply($event)" :coalSupply="coalSupply" @changeOilTaxRate="updateOilTaxRate($event)" :oilTaxRate="oilTaxRate" @changeOilUseRate="updateOilUseRate($event)" :oilUse="oilUse" @changeOilPriceFactor="updateOilPrice($event)" :oilPrice="oilPrice" @changeOilSupply="updateOilSupply($event)" :oilSupply="oilSupply" :totalOilUse="totalOilUse" @changeNaturalGasTaxRate="updateNaturalGasTaxRate($event)" :naturalGasTaxRate="naturalGasTaxRate" @changeNaturalGasUseRate="updateNaturalGasUseRate($event)" :naturalGasUse="naturalGasUse" @changeNaturalGasPriceFactor="updateNaturalGasPrice($event)" :naturalGasPrice="naturalGasPrice" @changeNaturalGasSupply="updateNaturalGasSupply($event)" :naturalGasSupply="naturalGasSupply" :totalNaturalGasUse="totalNaturalGasUse" @changeNuclearTaxRate="updateNuclearTaxRate($event)" :nuclearTaxRate="nuclearTaxRate" @changeNuclearUseRate="updateNulearUseRate($event)" :nuclearUse="nuclearUse" @changeNuclearPriceFactor="updateNuclearPrice($event)" :nuclearPrice="nuclearPrice" @changeNuclearSupply="updateNuclearSupply($event)" :nuclearSupply="nuclearSupply" :totalNuclearUse="totalNuclearUse" @changeSolarEnergySubsidyPercent="updateSolarEnergySubsidy($event)" :solarEnergySubsidy="solarEnergySubsidy" @changeSolarUseRate="updateSolarUseRate($event)" :solarUse="solarUse" :solarEnergyTreasury="solarEnergyTreasury" @changeSoalrEnergyPotential="updateSolarEnergyPrice($event)" :solarPrice="solarPrice" @changeSolarOptimism="updateSolarTechnology($event)" :solarTechnology="solarTechnology" :solarResearchTreasury="solarResearchTreasury" @changeSolarResearchSubsidy="updateSolarResearchSubsidy($event)" :solarResearch="solarResearch" @changeBasicResearchSubsidy="updateBasicResearchSubsidy($event)" :basicResearch="basicResearch" :basicResearchTreasury="basicResearchTreasury" @changeBioResearchSubsidy="updateBioResearchSubsidy($event)" :bioResearch="bioResearch" @changeBioOptimism="updateBioTechnology($event)" :bioTechnology="bioTechnology" :bioResearchTreasury="bioResearchTreasury" @changeCoalResearchSubsidy="updateCoalResearchSubsidy($event)" :coalResearch="coalResearch" @changeCoalOptimism="updateCoalTechnology($event)" :coalTechnology="coalTechnology" :coalResearchTreasury="coalResearchTreasury" @changeOilResearchSubsidy="updateOilResearchSubsidy($event)" :oilResearch="oilResearch" @changeOilOptimism="updateOilTechnology($event)" :oilTechnology="oilTechnology" :oilResearchTreasury="oilResearchTreasury" @changeNuclearResearchSubsidy="updateNuclearResearchSubsidy($event)" :nuclearResearch="nuclearResearch" @changeNuclearOptimism="updateNuclearTechnology($event)" :nuclearTechnology="nuclearTechnology" :nuclearResearchTreasury="nuclearResearchTreasury" @changeDamSubsidy="updateDamSubsidy($event)" :damUseTreasury="damUseTreasury" :damSubsidy="damSubsidy" @changeDamUseRate="updateDamUseRate($event)" :damUse="damUse" @changeDamPotential="updateDamPrice($event)" :damPrice="damPrice" @changeCO2Quantity="updateCO2Quantity($event)" :co2="co2" @changeTemperature="updateGlobalTemperature($event)" :globalTemperature="globalTemperature" @changeCO2Eff="updateCO2Eff($event)" :co2Eff="co2Eff" @changeBasicTemperature="updateBasicTemperature($event)" :basicTemperature="basicTemperature" @changeMeltingRate="updateSeeLevel($event)" :seeLevel="seeLevel" @changeC1Quantity="updateC1Quantity($event)" @changeNO2Quantity="updateNO2Quantity($event)" :no2="no2" @changeSulfurContent="updateSO2Quantity($event)" :so2="so2" :energyDemand="energyDemand" :aveEnergyPrice="aveEnergyPrice" @changePriceElasticity="updatePriceElasticity($event)" :energyConservation="energyConservation" :netEnergy="netEnergy" @changeLifestyle="updateLifestyle($event)" :lifestyle="lifestyle" @changeLifeValue="updateQualityOfLife($event)" :qualityOfLife="qualityOfLife" @changeBirthRate="updateBirthRate($event)" :birthRate="birthRate" :population="population" :nonrenewableEnergy="nonrenewableEnergy" :sustainability="sustainability" @changeSustainabilityPts="updateSustainabilityPts($event)" :sustainabilityPts="sustainabilityPts" @changeValueOfQualityOfLife="updateQualityPoints($event)" :qualityPoints="qualityPoints">
@@ -786,22 +787,307 @@ export default {
         showSimulation() {
             this.show = true;
             /* hier werden alle Variablen mit jeweiligen Formeln berechnet */
-            this.energyDemand1995 = this.energyDemand * Math.pow(1.01,5);
-            this.energyDemand2000 = this.energyDemand1995 * Math.pow(1.01,5);
-            this.energyDemand2005 = this.energyDemand2000 * Math.pow(1.01,5);
-            this.energyDemand2010 = this.energyDemand2005 * Math.pow(1.01,5);
-            this.energyDemand2015 = this.energyDemand2005 * Math.pow(1.01,5);
-            this.energyDemand2020 = this.energyDemand2015 * Math.pow(1.01,5);
-            this.energyDemand2025 = this.energyDemand2020 * Math.pow(1.01,5);
-            this.energyDemand2030 = this.energyDemand2025 * Math.pow(1.01,5);
-            this.energyDemand2035 = this.energyDemand2030 * Math.pow(1.01,5);
-            this.energyDemand2040 = this.energyDemand2035 * Math.pow(1.01,5);
-            this.energyDemand2045 = this.energyDemand2040 * Math.pow(1.01,5);
-            this.energyDemand2050 = this.energyDemand2045 * Math.pow(1.01,5);
+            // this.energyDemand1995 = this.energyDemand * Math.pow(1.01,5);
+            // this.energyDemand2000 = this.energyDemand1995 * Math.pow(1.01,5);
+            // this.energyDemand2005 = this.energyDemand2000 * Math.pow(1.01,5);
+            // this.energyDemand2010 = this.energyDemand2005 * Math.pow(1.01,5);
+            // this.energyDemand2015 = this.energyDemand2005 * Math.pow(1.01,5);
+            // this.energyDemand2020 = this.energyDemand2015 * Math.pow(1.01,5);
+            // this.energyDemand2025 = this.energyDemand2020 * Math.pow(1.01,5);
+            // this.energyDemand2030 = this.energyDemand2025 * Math.pow(1.01,5);
+            // this.energyDemand2035 = this.energyDemand2030 * Math.pow(1.01,5);
+            // this.energyDemand2040 = this.energyDemand2035 * Math.pow(1.01,5);
+            // this.energyDemand2045 = this.energyDemand2040 * Math.pow(1.01,5);
+            // this.energyDemand2050 = this.energyDemand2045 * Math.pow(1.01,5);
 
         },
         stopSimulation() {
             this.show = false;
+        },
+        execute(){
+            this.energyDemand1995 = this.energyDemand * Math.pow(1.01,5);
+            /*coal*/
+            this.coalUse1995 = this.coaluserate * this.energyDemand1995 * this.aveEnergyPrice1995 / (this.coalPrice1995 + this.coalTaxRate);
+            this.coalUse2000 = this.coaluserate * this.energyDemand2000 * this.aveEnergyPrice2000 / (this.coalPrice2000 + this.coalTaxRate);
+            this.coalUse2005 = this.coaluserate * this.energyDemand2005 * this.aveEnergyPrice2005 / (this.coalPrice2005 + this.coalTaxRate);
+            this.coalUse2010 = this.coaluserate * this.energyDemand2010 * this.aveEnergyPrice2010 / (this.coalPrice2010 + this.coalTaxRate);
+            this.coalUse2015 = this.coaluserate * this.energyDemand2015 * this.aveEnergyPrice2015 / (this.coalPrice2015 + this.coalTaxRate);
+            this.coalUse2020 = this.coaluserate * this.energyDemand2020 * this.aveEnergyPrice2020 / (this.coalPrice2020 + this.coalTaxRate);
+            this.coalUse2025 = this.coaluserate * this.energyDemand2025 * this.aveEnergyPrice2025 / (this.coalPrice2025 + this.coalTaxRate);
+            this.coalUse2030 = this.coaluserate * this.energyDemand2030 * this.aveEnergyPrice2030 / (this.coalPrice2030 + this.coalTaxRate);
+            this.coalUse2035 = this.coaluserate * this.energyDemand2035 * this.aveEnergyPrice2035 / (this.coalPrice2035 + this.coalTaxRate);
+            this.coalUse2040 = this.coaluserate * this.energyDemand2040 * this.aveEnergyPrice2040 / (this.coalPrice2040 + this.coalTaxRate);
+            this.coalUse2045 = this.coaluserate * this.energyDemand2045 * this.aveEnergyPrice2045 / (this.coalPrice2045 + this.coalTaxRate);
+            this.coalUse2050 = this.coaluserate * this.energyDemand2050 * this.aveEnergyPrice2050 / (this.coalPrice2050 + this.coalTaxRate);
+            console.log(typeof(this.coalPrice1995)+this.coalUse1995 + this.coalPrice1995)
+
+            this.coalPrice1995 = this.coalPriceFactor * this.coalUse1995 / this.coalSupply1995;
+            this.coalPrice2000 = this.coalPriceFactor * this.coalUse2000 / this.coalSupply2000;
+            this.coalPrice2005 = this.coalPriceFactor * this.coalUse2005 / this.coalSupply2005;
+            this.coalPrice2010 = this.coalPriceFactor * this.coalUse2010 / this.coalSupply2010;
+            this.coalPrice2015 = this.coalPriceFactor * this.coalUse2015 / this.coalSupply2015;
+            this.coalPrice2020 = this.coalPriceFactor * this.coalUse2020 / this.coalSupply2020;
+            this.coalPrice2025 = this.coalPriceFactor * this.coalUse2025 / this.coalSupply2025;
+            this.coalPrice2030 = this.coalPriceFactor * this.coalUse2030 / this.coalSupply2030;
+            this.coalPrice2035 = this.coalPriceFactor * this.coalUse2035 / this.coalSupply2035;
+            this.coalPrice2040 = this.coalPriceFactor * this.coalUse2040 / this.coalSupply2040;
+            this.coalPrice2045 = this.coalPriceFactor * this.coalUse2045 / this.coalSupply2045;
+            this.coalPrice2050 = this.coalPriceFactor * this.coalUse2050 / this.coalSupply2050;
+
+            this.coalSupply1995 = this.coalSupplyElasticity * this.coalPrice1995 - this.totalCoalUse1995;
+            this.coalSupply2000 = this.coalSupplyElasticity * this.coalPrice2000 - this.totalCoalUse2000;
+            this.coalSupply2005 = this.coalSupplyElasticity * this.coalPrice2005 - this.totalCoalUse2005;
+            this.coalSupply2010 = this.coalSupplyElasticity * this.coalPrice2010 - this.totalCoalUse2010;
+            this.coalSupply2015 = this.coalSupplyElasticity * this.coalPrice2015 - this.totalCoalUse2015;
+            this.coalSupply2020 = this.coalSupplyElasticity * this.coalPrice2020 - this.totalCoalUse2020;
+            this.coalSupply2025 = this.coalSupplyElasticity * this.coalPrice2025 - this.totalCoalUse2025;
+            this.coalSupply2030 = this.coalSupplyElasticity * this.coalPrice2030 - this.totalCoalUse2030;
+            this.coalSupply2035 = this.coalSupplyElasticity * this.coalPrice2035 - this.totalCoalUse2035;
+            this.coalSupply2040 = this.coalSupplyElasticity * this.coalPrice2040 - this.totalCoalUse2040;
+            this.coalSupply2045 = this.coalSupplyElasticity * this.coalPrice2045 - this.totalCoalUse2045;
+            this.coalSupply2050 = this.coalSupplyElasticity * this.coalPrice2050 - this.totalCoalUse2050;
+
+            this.totalCoalUse1995 = this.totalCoalUse + this.coalUse1995;
+            this.totalCoalUse2000 = this.totalCoalUse1995 + this.coalUse2000;
+            this.totalCoalUse2005 = this.totalCoalUse2000 + this.coalUse2005;
+            this.totalCoalUse2010 = this.totalCoalUse2005 + this.coalUse2010;
+            this.totalCoalUse2015 = this.totalCoalUse2010 + this.coalUse2015;
+            this.totalCoalUse2020 = this.totalCoalUse2015 + this.coalUse2020;
+            this.totalCoalUse2025 = this.totalCoalUse2020 + this.coalUse2025;
+            this.totalCoalUse2030 = this.totalCoalUse2025 + this.coalUse2030;
+            this.totalCoalUse2035 = this.totalCoalUse2030 + this.coalUse2035;
+            this.totalCoalUse2040 = this.totalCoalUse2035 + this.coalUse2040;
+            this.totalCoalUse2045 = this.totalCoalUse2040 + this.coalUse2045;
+            this.totalCoalUse2050 = this.totalCoalUse2045 + this.coalUse2050;
+
+            /*oil */
+            this.oilUse1995 = this.oiluserate * this.energyDemand1995 * this.aveEnergyPrice1995 / (this.oilPrice1995 + this.oilTaxRate);
+            this.oilUse2000 = this.oiluserate * this.energyDemand2000 * this.aveEnergyPrice2000 / (this.oilPrice2000 + this.oilTaxRate);
+            this.oilUse2005 = this.oiluserate * this.energyDemand2005 * this.aveEnergyPrice2005 / (this.oilPrice2005 + this.oilTaxRate);
+            this.oilUse2010 = this.oiluserate * this.energyDemand2010 * this.aveEnergyPrice2010 / (this.oilPrice2010 + this.oilTaxRate);
+            this.oilUse2015 = this.oiluserate * this.energyDemand2015 * this.aveEnergyPrice2015 / (this.oilPrice2015 + this.oilTaxRate);
+            this.oilUse2020 = this.oiluserate * this.energyDemand2020 * this.aveEnergyPrice2020 / (this.oilPrice2020 + this.oilTaxRate);
+            this.oilUse2025 = this.oiluserate * this.energyDemand2025 * this.aveEnergyPrice2025 / (this.oilPrice2025 + this.oilTaxRate);
+            this.oilUse2030 = this.oiluserate * this.energyDemand2030 * this.aveEnergyPrice2030 / (this.oilPrice2030 + this.oilTaxRate);
+            this.oilUse2035 = this.oiluserate * this.energyDemand2035 * this.aveEnergyPrice2035 / (this.oilPrice2035 + this.oilTaxRate);
+            this.oilUse2040 = this.oiluserate * this.energyDemand2040 * this.aveEnergyPrice2040 / (this.oilPrice2040 + this.oilTaxRate);
+            this.oilUse2045 = this.oiluserate * this.energyDemand2045 * this.aveEnergyPrice2045 / (this.oilPrice2045 + this.oilTaxRate);
+            this.oilUse2050 = this.oiluserate * this.energyDemand2050 * this.aveEnergyPrice2050 / (this.oilPrice2050 + this.oilTaxRate);
+
+            this.oilPrice1995 = this.oilPriceFactor * this.oilUse1995 / this.oilSupply1995;
+            this.oilPrice2000 = this.oilPriceFactor * this.oilUse2000 / this.oilSupply2000;
+            this.oilPrice2005 = this.oilPriceFactor * this.oilUse2005 / this.oilSupply2005;
+            this.oilPrice2010 = this.oilPriceFactor * this.oilUse2010 / this.oilSupply2010;
+            this.oilPrice2015 = this.oilPriceFactor * this.oilUse2015 / this.oilSupply2015;
+            this.oilPrice2020 = this.oilPriceFactor * this.oilUse2020 / this.oilSupply2020;
+            this.oilPrice2025 = this.oilPriceFactor * this.oilUse2025 / this.oilSupply2025;
+            this.oilPrice2030 = this.oilPriceFactor * this.oilUse2030 / this.oilSupply2030;
+            this.oilPrice2035 = this.oilPriceFactor * this.oilUse2035 / this.oilSupply2035;
+            this.oilPrice2040 = this.oilPriceFactor * this.oilUse2040 / this.oilSupply2040;
+            this.oilPrice2045 = this.oilPriceFactor * this.oilUse2045 / this.oilSupply2045;
+            this.oilPrice2050 = this.oilPriceFactor * this.oilUse2050 / this.oilSupply2050;
+
+            this.oilSupply1995 = this.oilSupplyElasticity * this.oilPrice1995 - this.totalOilUse1995;
+            this.oilSupply2000 = this.oilSupplyElasticity * this.oilPrice2000 - this.totalOilUse2000;
+            this.oilSupply2005 = this.oilSupplyElasticity * this.oilPrice2005 - this.totalOilUse2005;
+            this.oilSupply2010 = this.oilSupplyElasticity * this.oilPrice2010 - this.totalOilUse2010;
+            this.oilSupply2015 = this.oilSupplyElasticity * this.oilPrice2015 - this.totalOilUse2015;
+            this.oilSupply2020 = this.oilSupplyElasticity * this.oilPrice2020 - this.totalOilUse2020;
+            this.oilSupply2025 = this.oilSupplyElasticity * this.oilPrice2025 - this.totalOilUse2025;
+            this.oilSupply2030 = this.oilSupplyElasticity * this.oilPrice2030 - this.totalOilUse2030;
+            this.oilSupply2035 = this.oilSupplyElasticity * this.oilPrice2035 - this.totalOilUse2035;
+            this.oilSupply2040 = this.oilSupplyElasticity * this.oilPrice2040 - this.totalOilUse2040;
+            this.oilSupply2045 = this.oilSupplyElasticity * this.oilPrice2045 - this.totalOilUse2045;
+            this.oilSupply2050 = this.oilSupplyElasticity * this.oilPrice2050 - this.totalOilUse2050;
+
+            this.totalOilUse1995 = this.totalOilUse + this.oilUse1995;
+            this.totalOilUse2000 = this.totalOilUse1995 + this.oilUse2000;
+            this.totalOilUse2005 = this.totalOilUse2000 + this.oilUse2005;
+            this.totalOilUse2010 = this.totalOilUse2005 + this.oilUse2010;
+            this.totalOilUse2015 = this.totalOilUse2010 + this.oilUse2015;
+            this.totalOilUse2020 = this.totalOilUse2015 + this.oilUse2020;
+            this.totalOilUse2025 = this.totalOilUse2020 + this.oilUse2025;
+            this.totalOilUse2030 = this.totalOilUse2025 + this.oilUse2030;
+            this.totalOilUse2035 = this.totalOilUse2030 + this.oilUse2035;
+            this.totalOilUse2040 = this.totalOilUse2035 + this.oilUse2040;
+            this.totalOilUse2045 = this.totalOilUse2040 + this.oilUse2045;
+            this.totalOilUse2050 = this.totalOilUse2045 + this.oilUse2050;
+
+            /* Natural Gas */
+            this.naturalGasUse1995 = this.naturalGasuserate * this.energyDemand1995 * this.aveEnergyPrice1995 / (this.naturalGasPrice1995 + this.naturalGasTaxRate);
+            this.naturalGasUse2000 = this.naturalGasuserate * this.energyDemand2000 * this.aveEnergyPrice2000 / (this.naturalGasPrice2000 + this.naturalGasTaxRate);
+            this.naturalGasUse2005 = this.naturalGasuserate * this.energyDemand2005 * this.aveEnergyPrice2005 / (this.naturalGasPrice2005 + this.naturalGasTaxRate);
+            this.naturalGasUse2010 = this.naturalGasuserate * this.energyDemand2010 * this.aveEnergyPrice2010 / (this.naturalGasPrice2010 + this.naturalGasTaxRate);
+            this.naturalGasUse2015 = this.naturalGasuserate * this.energyDemand2015 * this.aveEnergyPrice2015 / (this.naturalGasPrice2015 + this.naturalGasTaxRate);
+            this.naturalGasUse2020 = this.naturalGasuserate * this.energyDemand2020 * this.aveEnergyPrice2020 / (this.naturalGasPrice2020 + this.naturalGasTaxRate);
+            this.naturalGasUse2025 = this.naturalGasuserate * this.energyDemand2025 * this.aveEnergyPrice2025 / (this.naturalGasPrice2025 + this.naturalGasTaxRate);
+            this.naturalGasUse2030 = this.naturalGasuserate * this.energyDemand2030 * this.aveEnergyPrice2030 / (this.naturalGasPrice2030 + this.naturalGasTaxRate);
+            this.naturalGasUse2035 = this.naturalGasuserate * this.energyDemand2035 * this.aveEnergyPrice2035 / (this.naturalGasPrice2035 + this.naturalGasTaxRate);
+            this.naturalGasUse2040 = this.naturalGasuserate * this.energyDemand2040 * this.aveEnergyPrice2040 / (this.naturalGasPrice2040 + this.naturalGasTaxRate);
+            this.naturalGasUse2045 = this.naturalGasuserate * this.energyDemand2045 * this.aveEnergyPrice2045 / (this.naturalGasPrice2045 + this.naturalGasTaxRate);
+            this.naturalGasUse2050 = this.naturalGasuserate * this.energyDemand2050 * this.aveEnergyPrice2050 / (this.naturalGasPrice2050 + this.naturalGasTaxRate);
+
+            this.naturalGasPrice1995 = this.naturalGasPriceFactor * this.naturalGasUse1995 / this.naturalGasSupply1995;
+            this.naturalGasPrice2000 = this.naturalGasPriceFactor * this.naturalGasUse2000 / this.naturalGasSupply2000;
+            this.naturalGasPrice2005 = this.naturalGasPriceFactor * this.naturalGasUse2005 / this.naturalGasSupply2005;
+            this.naturalGasPrice2010 = this.naturalGasPriceFactor * this.naturalGasUse2010 / this.naturalGasSupply2010;
+            this.naturalGasPrice2015 = this.naturalGasPriceFactor * this.naturalGasUse2015 / this.naturalGasSupply2015;
+            this.naturalGasPrice2020 = this.naturalGasPriceFactor * this.naturalGasUse2020 / this.naturalGasSupply2020;
+            this.naturalGasPrice2025 = this.naturalGasPriceFactor * this.naturalGasUse2025 / this.naturalGasSupply2025;
+            this.naturalGasPrice2030 = this.naturalGasPriceFactor * this.naturalGasUse2030 / this.naturalGasSupply2030;
+            this.naturalGasPrice2035 = this.naturalGasPriceFactor * this.naturalGasUse2035 / this.naturalGasSupply2035;
+            this.naturalGasPrice2040 = this.naturalGasPriceFactor * this.naturalGasUse2040 / this.naturalGasSupply2040;
+            this.naturalGasPrice2045 = this.naturalGasPriceFactor * this.naturalGasUse2045 / this.naturalGasSupply2045;
+            this.naturalGasPrice2050 = this.naturalGasPriceFactor * this.naturalGasUse2050 / this.naturalGasSupply2050;
+
+            this.naturalGasSupply1995 = this.naturalGasSupplyElasticity * this.naturalGasPrice1995 - this.totalNaturalGasUse1995;
+            this.naturalGasSupply2000 = this.naturalGasSupplyElasticity * this.naturalGasPrice2000 - this.totalNaturalGasUse2000;
+            this.naturalGasSupply2005 = this.naturalGasSupplyElasticity * this.naturalGasPrice2005 - this.totalNaturalGasUse2005;
+            this.naturalGasSupply2010 = this.naturalGasSupplyElasticity * this.naturalGasPrice2010 - this.totalNaturalGasUse2010;
+            this.naturalGasSupply2015 = this.naturalGasSupplyElasticity * this.naturalGasPrice2015 - this.totalNaturalGasUse2015;
+            this.naturalGasSupply2020 = this.naturalGasSupplyElasticity * this.naturalGasPrice2020 - this.totalNaturalGasUse2020;
+            this.naturalGasSupply2025 = this.naturalGasSupplyElasticity * this.naturalGasPrice2025 - this.totalNaturalGasUse2025;
+            this.naturalGasSupply2030 = this.naturalGasSupplyElasticity * this.naturalGasPrice2030 - this.totalNaturalGasUse2030;
+            this.naturalGasSupply2035 = this.naturalGasSupplyElasticity * this.naturalGasPrice2035 - this.totalNaturalGasUse2035;
+            this.naturalGasSupply2040 = this.naturalGasSupplyElasticity * this.naturalGasPrice2040 - this.totalNaturalGasUse2040;
+            this.naturalGasSupply2045 = this.naturalGasSupplyElasticity * this.naturalGasPrice2045 - this.totalNaturalGasUse2045;
+            this.naturalGasSupply2050 = this.naturalGasSupplyElasticity * this.naturalGasPrice2050 - this.totalNaturalGasUse2050;
+
+            this.totalNaturalGasUse1995 = this.totalNaturalGasUse + this.naturalGasUse1995;
+            this.totalNaturalGasUse2000 = this.totalNaturalGasUse1995 + this.naturalGasUse2000;
+            this.totalNaturalGasUse2005 = this.totalNaturalGasUse2000 + this.naturalGasUse2005;
+            this.totalNaturalGasUse2010 = this.totalNaturalGasUse2005 + this.naturalGasUse2010;
+            this.totalNaturalGasUse2015 = this.totalNaturalGasUse2010 + this.naturalGasUse2015;
+            this.totalNaturalGasUse2020 = this.totalNaturalGasUse2015 + this.naturalGasUse2020;
+            this.totalNaturalGasUse2025 = this.totalNaturalGasUse2020 + this.naturalGasUse2025;
+            this.totalNaturalGasUse2030 = this.totalNaturalGasUse2025 + this.naturalGasUse2030;
+            this.totalNaturalGasUse2035 = this.totalNaturalGasUse2030 + this.naturalGasUse2035;
+            this.totalNaturalGasUse2040 = this.totalNaturalGasUse2035 + this.naturalGasUse2040;
+            this.totalNaturalGasUse2045 = this.totalNaturalGasUse2040 + this.naturalGasUse2045;
+            this.totalNaturalGasUse2050 = this.totalNaturalGasUse2045 + this.naturalGasUse2050;
+
+            /*nuclear*/
+            this.nuclearUse1995 = this.nuclearUseRate * this.energyDemand1995 * this.aveEnergyPrice1995 / (this.nuclearPrice1995 + this.nuclearTaxRate);
+            this.nuclearUse2000 = this.nuclearUseRate * this.energyDemand2000 * this.aveEnergyPrice2000 / (this.nuclearPrice2000 + this.nuclearTaxRate);
+            this.nuclearUse2005 = this.nuclearUseRate * this.energyDemand2005 * this.aveEnergyPrice2005 / (this.nuclearPrice2005 + this.nuclearTaxRate);
+            this.nuclearUse2010 = this.nuclearUseRate * this.energyDemand2010 * this.aveEnergyPrice2010 / (this.nuclearPrice2010 + this.nuclearTaxRate);
+            this.nuclearUse2015 = this.nuclearUseRate * this.energyDemand2015 * this.aveEnergyPrice2015 / (this.nuclearPrice2015 + this.nuclearTaxRate);
+            this.nuclearUse2020 = this.nuclearUseRate * this.energyDemand2020 * this.aveEnergyPrice2020 / (this.nuclearPrice2020 + this.nuclearTaxRate);
+            this.nuclearUse2025 = this.nuclearUseRate * this.energyDemand2025 * this.aveEnergyPrice2025 / (this.nuclearPrice2025 + this.nuclearTaxRate);
+            this.nuclearUse2030 = this.nuclearUseRate * this.energyDemand2030 * this.aveEnergyPrice2030 / (this.nuclearPrice2030 + this.nuclearTaxRate);
+            this.nuclearUse2035 = this.nuclearUseRate * this.energyDemand2035 * this.aveEnergyPrice2035 / (this.nuclearPrice2035 + this.nuclearTaxRate);
+            this.nuclearUse2040 = this.nuclearUseRate * this.energyDemand2040 * this.aveEnergyPrice2040 / (this.nuclearPrice2040 + this.nuclearTaxRate);
+            this.nuclearUse2045 = this.nuclearUseRate * this.energyDemand2045 * this.aveEnergyPrice2045 / (this.nuclearPrice2045 + this.nuclearTaxRate);
+            this.nuclearUse2050 = this.nuclearUseRate * this.energyDemand2050 * this.aveEnergyPrice2050 / (this.nuclearPrice2050 + this.nuclearTaxRate);
+
+            this.nuclearPrice1995 = this.nuclearPriceFactor * this.nuclearUse1995 / this.nuclearSupply1995;
+            this.nuclearPrice2000 = this.nuclearPriceFactor * this.nuclearUse2000 / this.nuclearSupply2000;
+            this.nuclearPrice2005 = this.nuclearPriceFactor * this.nuclearUse2005 / this.nuclearSupply2005;
+            this.nuclearPrice2010 = this.nuclearPriceFactor * this.nuclearUse2010 / this.nuclearSupply2010;
+            this.nuclearPrice2015 = this.nuclearPriceFactor * this.nuclearUse2015 / this.nuclearSupply2015;
+            this.nuclearPrice2020 = this.nuclearPriceFactor * this.nuclearUse2020 / this.nuclearSupply2020;
+            this.nuclearPrice2025 = this.nuclearPriceFactor * this.nuclearUse2025 / this.nuclearSupply2025;
+            this.nuclearPrice2030 = this.nuclearPriceFactor * this.nuclearUse2030 / this.nuclearSupply2030;
+            this.nuclearPrice2035 = this.nuclearPriceFactor * this.nuclearUse2035 / this.nuclearSupply2035;
+            this.nuclearPrice2040 = this.nuclearPriceFactor * this.nuclearUse2040 / this.nuclearSupply2040;
+            this.nuclearPrice2045 = this.nuclearPriceFactor * this.nuclearUse2045 / this.nuclearSupply2045;
+            this.nuclearPrice2050 = this.nuclearPriceFactor * this.nuclearUse2050 / this.nuclearSupply2050;
+
+            this.nuclearSupply1995 = this.nuclearSupplyElasticity * this.nuclearPrice1995 - this.totalNuclearUse1995;
+            this.nuclearSupply2000 = this.nuclearSupplyElasticity * this.nuclearPrice2000 - this.totalNuclearUse2000;
+            this.nuclearSupply2005 = this.nuclearSupplyElasticity * this.nuclearPrice2005 - this.totalNuclearUse2005;
+            this.nuclearSupply2010 = this.nuclearSupplyElasticity * this.nuclearPrice2010 - this.totalNuclearUse2010;
+            this.nuclearSupply2015 = this.nuclearSupplyElasticity * this.nuclearPrice2015 - this.totalNuclearUse2015;
+            this.nuclearSupply2020 = this.nuclearSupplyElasticity * this.nuclearPrice2020 - this.totalNuclearUse2020;
+            this.nuclearSupply2025 = this.nuclearSupplyElasticity * this.nuclearPrice2025 - this.totalNuclearUse2025;
+            this.nuclearSupply2030 = this.nuclearSupplyElasticity * this.nuclearPrice2030 - this.totalNuclearUse2030;
+            this.nuclearSupply2035 = this.nuclearSupplyElasticity * this.nuclearPrice2035 - this.totalNuclearUse2035;
+            this.nuclearSupply2040 = this.nuclearSupplyElasticity * this.nuclearPrice2040 - this.totalNuclearUse2040;
+            this.nuclearSupply2045 = this.nuclearSupplyElasticity * this.nuclearPrice2045 - this.totalNuclearUse2045;
+            this.nuclearSupply2050 = this.nuclearSupplyElasticity * this.nuclearPrice2050 - this.totalNuclearUse2050;
+
+            this.totalNuclearUse1995 = this.totalNuclearUse + this.nuclearUse1995;
+            this.totalNuclearUse2000 = this.totalNuclearUse1995 + this.nuclearUse2000;
+            this.totalNuclearUse2005 = this.totalNuclearUse2000 + this.nuclearUse2005;
+            this.totalNuclearUse2010 = this.totalNuclearUse2005 + this.nuclearUse2010;
+            this.totalNuclearUse2015 = this.totalNuclearUse2010 + this.nuclearUse2015;
+            this.totalNuclearUse2020 = this.totalNuclearUse2015 + this.nuclearUse2020;
+            this.totalNuclearUse2025 = this.totalNuclearUse2020 + this.nuclearUse2025;
+            this.totalNuclearUse2030 = this.totalNuclearUse2025 + this.nuclearUse2030;
+            this.totalNuclearUse2035 = this.totalNuclearUse2030 + this.nuclearUse2035;
+            this.totalNuclearUse2040 = this.totalNuclearUse2035 + this.nuclearUse2040;
+            this.totalNuclearUse2045 = this.totalNuclearUse2040 + this.nuclearUse2045;
+            this.totalNuclearUse2050 = this.totalNuclearUse2045 + this.nuclearUse2050;
+
+            /*dam*/
+            this.damUse1995 = (this.damUseRate * this.energyDemand1995 * this.aveEnergyPrice1995 + this.damUseTreasury1995) / this.damPrice1995;
+            this.damUse2000 = (this.damUseRate * this.energyDemand2000 * this.aveEnergyPrice2000 + this.damUseTreasury2000) / this.damPrice2000;
+            this.damUse2005 = (this.damUseRate * this.energyDemand2005 * this.aveEnergyPrice2005 + this.damUseTreasury2005) / this.damPrice2005;
+            this.damUse2010 = (this.damUseRate * this.energyDemand2010 * this.aveEnergyPrice2010 + this.damUseTreasury2010) / this.damPrice2010;
+            this.damUse2015 = (this.damUseRate * this.energyDemand2015 * this.aveEnergyPrice2015 + this.damUseTreasury2015) / this.damPrice2015;
+            this.damUse2020 = (this.damUseRate * this.energyDemand2020 * this.aveEnergyPrice2020 + this.damUseTreasury2020) / this.damPrice2020;
+            this.damUse2025 = (this.damUseRate * this.energyDemand2025 * this.aveEnergyPrice2025 + this.damUseTreasury2025) / this.damPrice2025;
+            this.damUse2030 = (this.damUseRate * this.energyDemand2030 * this.aveEnergyPrice2030 + this.damUseTreasury2030) / this.damPrice2030;
+            this.damUse2035 = (this.damUseRate * this.energyDemand2035 * this.aveEnergyPrice2035 + this.damUseTreasury2035) / this.damPrice2035;
+            this.damUse2040 = (this.damUseRate * this.energyDemand2040 * this.aveEnergyPrice2040 + this.damUseTreasury2040) / this.damPrice2040;
+            this.damUse2045 = (this.damUseRate * this.energyDemand2045 * this.aveEnergyPrice2045 + this.damUseTreasury2045) / this.damPrice2045;
+            this.damUse2050 = (this.damUseRate * this.energyDemand2050 * this.aveEnergyPrice2050 + this.damUseTreasury2050) / this.damPrice2050;
+            
+            this.damPrice1995 = this.damUse1995 / this.damPotential;
+            this.damPrice2000 = this.damUse2000 / this.damPotential;
+            this.damPrice2005 = this.damUse2005 / this.damPotential;
+            this.damPrice2010 = this.damUse2010 / this.damPotential;
+            this.damPrice2015 = this.damUse2015 / this.damPotential;
+            this.damPrice2020 = this.damUse2020 / this.damPotential;
+            this.damPrice2025 = this.damUse2025 / this.damPotential;
+            this.damPrice2030 = this.damUse2030 / this.damPotential;
+            this.damPrice2035 = this.damUse2035 / this.damPotential;
+            this.damPrice2040 = this.damUse2040 / this.damPotential;
+            this.damPrice2045 = this.damUse2045 / this.damPotential;
+            this.damPrice2050 = this.damUse2050 / this.damPotential;
+
+            /*solar */
+            this.solarUse1995 = (this.solarUseRate * this.energyDemand1995 * this.aveEnergyPrice1995  + this.solarEnergyTreasury1995) / this.solarEnergyPrice1995;
+            this.solarUse2000 = (this.solarUseRate * this.energyDemand2000 * this.aveEnergyPrice2000  + this.solarEnergyTreasury2000) / this.solarEnergyPrice2000;
+            this.solarUse2005 = (this.solarUseRate * this.energyDemand2005 * this.aveEnergyPrice2005  + this.solarEnergyTreasury2005) / this.solarEnergyPrice2005;
+            this.solarUse2010 = (this.solarUseRate * this.energyDemand2010 * this.aveEnergyPrice2010  + this.solarEnergyTreasury2010) / this.solarEnergyPrice2010;
+            this.solarUse2015 = (this.solarUseRate * this.energyDemand2015 * this.aveEnergyPrice2015  + this.solarEnergyTreasury2015) / this.solarEnergyPrice2015;
+            this.solarUse2020 = (this.solarUseRate * this.energyDemand2020 * this.aveEnergyPrice2020  + this.solarEnergyTreasury2020) / this.solarEnergyPrice2020;
+            this.solarUse2025 = (this.solarUseRate * this.energyDemand2025 * this.aveEnergyPrice2025  + this.solarEnergyTreasury2025) / this.solarEnergyPrice2025;
+            this.solarUse2030 = (this.solarUseRate * this.energyDemand2030 * this.aveEnergyPrice2030  + this.solarEnergyTreasury2030) / this.solarEnergyPrice2030;
+            this.solarUse2035 = (this.solarUseRate * this.energyDemand2035 * this.aveEnergyPrice2035  + this.solarEnergyTreasury2035) / this.solarEnergyPrice2035;
+            this.solarUse2040 = (this.solarUseRate * this.energyDemand2040 * this.aveEnergyPrice2040  + this.solarEnergyTreasury2040) / this.solarEnergyPrice2040;
+            this.solarUse2045 = (this.solarUseRate * this.energyDemand2045 * this.aveEnergyPrice2045  + this.solarEnergyTreasury2045) / this.solarEnergyPrice2045;
+            this.solarUse2050 = (this.solarUseRate * this.energyDemand2050 * this.aveEnergyPrice2050  + this.solarEnergyTreasury2050) / this.solarEnergyPrice2050;
+
+            this.solarPrice1995 = this.solarUse1995 / (this.solarEnergyPotential * this.solarTechnology1995);
+            this.solarPrice2000 = this.solarUse2000 / (this.solarEnergyPotential * this.solarTechnology2000);
+            this.solarPrice2005 = this.solarUse2005 / (this.solarEnergyPotential * this.solarTechnology2005);
+            this.solarPrice2010 = this.solarUse2010 / (this.solarEnergyPotential * this.solarTechnology2010);
+            this.solarPrice2015 = this.solarUse2015 / (this.solarEnergyPotential * this.solarTechnology2015);
+            this.solarPrice2020 = this.solarUse2020 / (this.solarEnergyPotential * this.solarTechnology2020);
+            this.solarPrice2025 = this.solarUse2025 / (this.solarEnergyPotential * this.solarTechnology2025);
+            this.solarPrice2030 = this.solarUse2030 / (this.solarEnergyPotential * this.solarTechnology2030);
+            this.solarPrice2035 = this.solarUse2035 / (this.solarEnergyPotential * this.solarTechnology2035);
+            this.solarPrice2040 = this.solarUse2040 / (this.solarEnergyPotential * this.solarTechnology2040);
+            this.solarPrice2045 = this.solarUse2045 / (this.solarEnergyPotential * this.solarTechnology2045);
+            this.solarPrice2050 = this.solarUse2050 / (this.solarEnergyPotential * this.solarTechnology2050);
+
+            /* average energy price */
+            this.aveEnergyPrice = ((this.coalPrice + this.coalTaxRate)* this.coalUse + (this.oilPrice + this.oilTaxRate)* this.oilUse + (this.naturalGasPrice + this.naturalGasTaxRate)*this.naturalGasUse + (this.nuclearPrice + this.nuclearTaxRate)*this.nuclearUse + this.solarPrice*this.solarUse + this.damPrice*this.damUse)/(this.coalUse + this.oilUse + this.naturalGasUse + this.nuclearUse + this.solarUse + this.damUse);
+            this.aveEnergyPrice1995 = ((this.coalPrice1995 + this.coalTaxRate)* this.coalUse1995 + (this.oilPrice1995 + this.oilTaxRate)* this.oilUse1995 + (this.naturalGasPrice1995 + this.naturalGasTaxRate)*this.naturalGasUse1995 + (this.nuclearPrice1995 + this.nuclearTaxRate)*this.nuclearUse1995 + this.solarPrice1995*this.solarUse1995 + this.damPrice1995*this.damUse1995)/(this.coalUse1995 + this.oilUse1995 + this.naturalGasUse1995 + this.nuclearUse1995 + this.solarUse1995 + this.damUse1995);
+            this.aveEnergyPrice2000 = ((this.coalPrice2000 + this.coalTaxRate)* this.coalUse2000 + (this.oilPrice2000 + this.oilTaxRate)* this.oilUse2000 + (this.naturalGasPrice2000 + this.naturalGasTaxRate)*this.naturalGasUse2000 + (this.nuclearPrice2000 + this.nuclearTaxRate)*this.nuclearUse2000 + this.solarPrice2000*this.solarUse2000 + this.damPrice2000*this.damUse2000)/(this.coalUse2000 + this.oilUse2000 + this.naturalGasUse2000 + this.nuclearUse2000 + this.solarUse2000 + this.damUse2000);
+            this.aveEnergyPrice2005 = ((this.coalPrice2005 + this.coalTaxRate)* this.coalUse2005 + (this.oilPrice2005 + this.oilTaxRate)* this.oilUse2005 + (this.naturalGasPrice2005 + this.naturalGasTaxRate)*this.naturalGasUse2005 + (this.nuclearPrice2005 + this.nuclearTaxRate)*this.nuclearUse2005 + this.solarPrice2005*this.solarUse2005 + this.damPrice2005*this.damUse2005)/(this.coalUse2005 + this.oilUse2005 + this.naturalGasUse2005 + this.nuclearUse2005 + this.solarUse2005 + this.damUse2005);
+            this.aveEnergyPrice2010 = ((this.coalPrice2010 + this.coalTaxRate)* this.coalUse2010 + (this.oilPrice2010 + this.oilTaxRate)* this.oilUse2010 + (this.naturalGasPrice2010 + this.naturalGasTaxRate)*this.naturalGasUse2010 + (this.nuclearPrice2010 + this.nuclearTaxRate)*this.nuclearUse2010 + this.solarPrice2010*this.solarUse2010 + this.damPrice2010*this.damUse2010)/(this.coalUse2010 + this.oilUse2010 + this.naturalGasUse2010 + this.nuclearUse2010 + this.solarUse2010 + this.damUse2010);
+            this.aveEnergyPrice2015 = ((this.coalPrice2015 + this.coalTaxRate)* this.coalUse2015 + (this.oilPrice2015 + this.oilTaxRate)* this.oilUse2015 + (this.naturalGasPrice2015 + this.naturalGasTaxRate)*this.naturalGasUse2015 + (this.nuclearPrice2015 + this.nuclearTaxRate)*this.nuclearUse2015 + this.solarPrice2015*this.solarUse2015 + this.damPrice2015*this.damUse2015)/(this.coalUse2015 + this.oilUse2015 + this.naturalGasUse2015 + this.nuclearUse2015 + this.solarUse2015 + this.damUse2015);
+            this.aveEnergyPrice2020 = ((this.coalPrice2020 + this.coalTaxRate)* this.coalUse2020 + (this.oilPrice2020 + this.oilTaxRate)* this.oilUse2020 + (this.naturalGasPrice2020 + this.naturalGasTaxRate)*this.naturalGasUse2020 + (this.nuclearPrice2020 + this.nuclearTaxRate)*this.nuclearUse2020 + this.solarPrice2020*this.solarUse2020 + this.damPrice2020*this.damUse2020)/(this.coalUse2020 + this.oilUse2020 + this.naturalGasUse2020 + this.nuclearUse2020 + this.solarUse2020 + this.damUse2020);
+            this.aveEnergyPrice2025 = ((this.coalPrice2025 + this.coalTaxRate)* this.coalUse2025 + (this.oilPrice2025 + this.oilTaxRate)* this.oilUse2025 + (this.naturalGasPrice2025 + this.naturalGasTaxRate)*this.naturalGasUse2025 + (this.nuclearPrice2025 + this.nuclearTaxRate)*this.nuclearUse2025 + this.solarPrice2025*this.solarUse2025 + this.damPrice2025*this.damUse2025)/(this.coalUse2025 + this.oilUse2025 + this.naturalGasUse2025 + this.nuclearUse2025 + this.solarUse2025 + this.damUse2025);
+            this.aveEnergyPrice2030 = ((this.coalPrice2030 + this.coalTaxRate)* this.coalUse2030 + (this.oilPrice2030 + this.oilTaxRate)* this.oilUse2030 + (this.naturalGasPrice2030 + this.naturalGasTaxRate)*this.naturalGasUse2030 + (this.nuclearPrice2030 + this.nuclearTaxRate)*this.nuclearUse2030 + this.solarPrice2030*this.solarUse2030 + this.damPrice2030*this.damUse2030)/(this.coalUse2030 + this.oilUse2030 + this.naturalGasUse2030 + this.nuclearUse2030 + this.solarUse2030 + this.damUse2030);
+            this.aveEnergyPrice2035 = ((this.coalPrice2035 + this.coalTaxRate)* this.coalUse2035 + (this.oilPrice2035 + this.oilTaxRate)* this.oilUse2035 + (this.naturalGasPrice2035 + this.naturalGasTaxRate)*this.naturalGasUse2035 + (this.nuclearPrice2035 + this.nuclearTaxRate)*this.nuclearUse2035 + this.solarPrice2035*this.solarUse2035 + this.damPrice2035*this.damUse2035)/(this.coalUse2035 + this.oilUse2035 + this.naturalGasUse2035 + this.nuclearUse2035 + this.solarUse2035 + this.damUse2035);
+            this.aveEnergyPrice2040 = ((this.coalPrice2040 + this.coalTaxRate)* this.coalUse2040 + (this.oilPrice2040 + this.oilTaxRate)* this.oilUse2040 + (this.naturalGasPrice2040 + this.naturalGasTaxRate)*this.naturalGasUse2040 + (this.nuclearPrice2040 + this.nuclearTaxRate)*this.nuclearUse2040 + this.solarPrice2040*this.solarUse2040 + this.damPrice2040*this.damUse2040)/(this.coalUse2040 + this.oilUse2040 + this.naturalGasUse2040 + this.nuclearUse2040 + this.solarUse2040 + this.damUse2040);
+            this.aveEnergyPrice2045 = ((this.coalPrice2045 + this.coalTaxRate)* this.coalUse2045 + (this.oilPrice2045 + this.oilTaxRate)* this.oilUse2045 + (this.naturalGasPrice2045 + this.naturalGasTaxRate)*this.naturalGasUse2045 + (this.nuclearPrice2045 + this.nuclearTaxRate)*this.nuclearUse2045 + this.solarPrice2045*this.solarUse2045 + this.damPrice2045*this.damUse2045)/(this.coalUse2045 + this.oilUse2045 + this.naturalGasUse2045 + this.nuclearUse2045 + this.solarUse2045 + this.damUse2045);
+            this.aveEnergyPrice2050 = ((this.coalPrice2050 + this.coalTaxRate)* this.coalUse2050 + (this.oilPrice2050 + this.oilTaxRate)* this.oilUse2050 + (this.naturalGasPrice2050 + this.naturalGasTaxRate)*this.naturalGasUse2050 + (this.nuclearPrice2050 + this.nuclearTaxRate)*this.nuclearUse2050 + this.solarPrice2050*this.solarUse2050 + this.damPrice2050*this.damUse2050)/(this.coalUse2050 + this.oilUse2050 + this.naturalGasUse2050 + this.nuclearUse2050 + this.solarUse2050 + this.damUse2050);
+
         },
         /* coal */
         updateCoalTaxRate(coalTaxRate) {
@@ -814,11 +1100,9 @@ export default {
         updateCoalPrice(coalPriceFactor) {
             this.coalPriceFactor = coalPriceFactor;
             this.coalPrice = coalPriceFactor * this.coalUse / this.coalSupply;
-            this.coalPrice1995 = coalPriceFactor * this.coalUse1995 / this.coalSupply1995;
         },
         updateCoalSupply(coalSupplyElasticity) {
             this.coalSupplyElasticity = coalSupplyElasticity;
-            this.coalSupply1995 = coalSupplyElasticity * this.coalPrice1995 - this.totalCoalUse1995;
         },
         /* oil */
         updateOilTaxRate(oilTaxRate) {
@@ -827,18 +1111,14 @@ export default {
         updateOilUseRate(oilUseRate) {
             this.oiluserate = oilUseRate;
             this.oilUse = oilUseRate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate);
-            this.oilUse1995 = oilUseRate * this.energyDemand1995 * this.aveEnergyPrice1995 / (this.oilPrice1995 + this.oilTaxRate1995);
-            this.totalOilUse1995 = this.totalOilUse + this.oilUse1995;
         },
         updateOilPrice(oilPriceFactor) {
             this.oilPriceFactor = oilPriceFactor;
             this.oilPrice = oilPriceFactor * this.oilUse / this.oilSupply;
-            this.oilPrice1995 = oilPriceFactor * this.oilUse1995 / this.oilSupply1995;
         },
         updateOilSupply(oilSupplyElasticity) {
             this.oilSupplyElasticity = oilSupplyElasticity;
             this.oilSupply = oilSupplyElasticity * this.oilPrice - this.totalOilUse;
-            this.oilSupply1995 = oilSupplyElasticity * this.oilPrice1995 - this.totalOilUse1995;
         },
         /*natural gas */
         updateNaturalGasTaxRate(naturalGasTaxRate) {
@@ -847,19 +1127,14 @@ export default {
         updateNaturalGasUseRate(naturalGasUseRate) {
             this.naturalGasuserate = naturalGasUseRate;
             this.naturalGasUse = naturalGasUseRate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate);
-            this.naturalGasUse1995 = naturalGasUseRate * this.energyDemand1995 * this.aveEnergyPrice1995 / (this.naturalGasPrice1995 + this.naturalGasTaxRate);
-            this.totalNaturalGasUse1995 = this.totalNaturalGasUse + this.naturalGasUse1995;
         },
         updateNaturalGasPrice(naturalGasPriceFactor) {
             this.naturalGasPriceFactor = naturalGasPriceFactor;
             this.naturalGasPrice = naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply;
-            this.naturalGasPrice1995 = naturalGasPriceFactor * this.naturalGasUse1995 / this.naturalGasSupply1995;
         },
         updateNaturalGasSupply(naturalGasSupplyElasticity) {
             this.naturalGasSupply = naturalGasSupplyElasticity;
             this.naturalGasSupply = naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse;
-            
-            this.naturalGasSupply1995 = naturalGasSupplyElasticity * this.naturalGasPrice1995 - this.totalNaturalGasUse1995;
         },
         /*nuclear */
         updateNuclearTaxRate(nuclearTaxRate) {
@@ -868,19 +1143,14 @@ export default {
         updateNulearUseRate(nuclearUseRate) {
             this.nuclearUseRate = nuclearUseRate;
             this.nuclearUse = nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate);
-            this.nuclearUse1995 = nuclearUseRate * this.energyDemand1995 * this.aveEnergyPrice1995 / (this.nuclearPrice1995 + this.nuclearTaxRate);
-            this.totalNuclearUse1995 = this.totalNuclearUse + this.nuclearUse1995;
         },
         updateNuclearPrice(nuclearPriceFactor) {
             this.nuclearPriceFactor = nuclearPriceFactor;
             this.nuclearPrice = nuclearPriceFactor * this.nuclearUse / this.nuclearSupply;
-            this.nuclearPrice1995 = nuclearPriceFactor * this.nuclearUse1995 / this.nuclearSupply1995;
         },
         updateNuclearSupply(nuclearSupplyElasticity) {
             this.nuclearSupplyElasticity = nuclearSupplyElasticity;
             this.nuclearSupply = nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse;
-            
-            this.nuclearSupply1995 = nuclearSupplyElasticity * this.nuclearPrice1995 - this.totalNuclearUse1995;
         },
         /*dam */
         updateDamSubsidy(damSubsidy) {
@@ -889,12 +1159,10 @@ export default {
         updateDamUseRate(damUseRate) {
             this.damUseRate = damUseRate;
             this.damUse = (damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseTreasury) / this.damPrice;
-            this.damUse1995 = (damUseRate * this.energyDemand1995 * this.aveEnergyPrice1995 + this.damUseTreasury1995) / this.damPrice1995;
         },
         updateDamPrice(damPotential) {
             this.damPotential = damPotential;
             this.damPrice = this.damUse / damPotential;
-            this.damPrice1995 = this.damUse1995 / damPotential;
         },
         /*solar */
         updateSolarEnergySubsidy(solarEnergySubsidy) {
@@ -903,12 +1171,10 @@ export default {
         updateSolarUseRate(solarUseRate) {
             this.solarUseRate = solarUseRate;
             this.solarUse = (solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarEnergyPrice;
-            this.solarUse1995 = (solarUseRate * this.energyDemand1995 * this.aveEnergyPrice1995 + this.solarEnergyTreasury1995) / this.solarEnergyPrice1995;
         },
         updateSolarEnergyPrice(solarEnergyPotential) {
             this.solarEnergyPotential = solarEnergyPotential;
             this.solarPrice = this.solarUse / (solarEnergyPotential * this.solarTechnology);
-            this.solarPrice1995 = this.solarUse1995 / (solarEnergyPotential * this.solarTechnology1995);
         },
         /*research and technology*/
         updateSolarTechnology(solarOptimism) {
