@@ -70,7 +70,7 @@ export default {
         },
         changeSolarEnergySusidyPercent(){
             this.solarEnergySubsidy = parseInt(this.percent * 100) / 100;
-            this.$emit('changeSolarEnergySubsidyPercent',this.solarEnergySubsidy);
+            this.$emit('changeSolarEnergySubsidy',this.solarEnergySubsidy);
         }
     }
 }
