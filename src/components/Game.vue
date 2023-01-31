@@ -18,7 +18,68 @@
         <button @click="execute">Execute</button>
     </div>
     <div>
-        <router-view v-slot="{ Component }" :show="show" :energyDemand1995="energyDemand1995" :energyDemand2000="energyDemand2000" :energyDemand2005="energyDemand2005" :energyDemand2010="energyDemand2010" :energyDemand2015="energyDemand2015" :energyDemand2020="energyDemand2020" :energyDemand2025="energyDemand2025" :energyDemand2030="energyDemand2030" :energyDemand2035="energyDemand2035" :energyDemand2040="energyDemand2040" :energyDemand2045="energyDemand2045" :energyDemand2050="energyDemand2050" @changeCoalTaxRate="updateCoalTaxRate($event)" :coalTaxRate="coalTaxRate" @changeCoalUserate="updateCoalUserate($event)" :coalUse="coalUse" :coalUse1995="coalUse1995" :totalCoalUse="totalCoalUse" @changeCoalPriceFactor="updateCoalPrice($event)" :coalPrice="coalPrice" @changeCoalSupply="updateCoalSupply($event)" :coalSupply="coalSupply" @changeOilTaxRate="updateOilTaxRate($event)" :oilTaxRate="oilTaxRate" @changeOilUseRate="updateOilUseRate($event)" :oilUse="oilUse" @changeOilPriceFactor="updateOilPrice($event)" :oilPrice="oilPrice" @changeOilSupply="updateOilSupply($event)" :oilSupply="oilSupply" :totalOilUse="totalOilUse" @changeNaturalGasTaxRate="updateNaturalGasTaxRate($event)" :naturalGasTaxRate="naturalGasTaxRate" @changeNaturalGasUseRate="updateNaturalGasUseRate($event)" :naturalGasUse="naturalGasUse" @changeNaturalGasPriceFactor="updateNaturalGasPrice($event)" :naturalGasPrice="naturalGasPrice" @changeNaturalGasSupply="updateNaturalGasSupply($event)" :naturalGasSupply="naturalGasSupply" :totalNaturalGasUse="totalNaturalGasUse" @changeNuclearTaxRate="updateNuclearTaxRate($event)" :nuclearTaxRate="nuclearTaxRate" @changeNuclearUseRate="updateNulearUseRate($event)" :nuclearUse="nuclearUse" @changeNuclearPriceFactor="updateNuclearPrice($event)" :nuclearPrice="nuclearPrice" @changeNuclearSupply="updateNuclearSupply($event)" :nuclearSupply="nuclearSupply" :totalNuclearUse="totalNuclearUse" @changeSolarEnergySubsidyPercent="updateSolarEnergySubsidy($event)" :solarEnergySubsidy="solarEnergySubsidy" @changeSolarUseRate="updateSolarUseRate($event)" :solarUse="solarUse" :solarEnergyTreasury="solarEnergyTreasury" @changeSoalrEnergyPotential="updateSolarEnergyPrice($event)" :solarPrice="solarPrice" @changeSolarOptimism="updateSolarTechnology($event)" :solarTechnology="solarTechnology" :solarResearchTreasury="solarResearchTreasury" @changeSolarResearchSubsidy="updateSolarResearchSubsidy($event)" :solarResearch="solarResearch" @changeBasicResearchSubsidy="updateBasicResearchSubsidy($event)" :basicResearch="basicResearch" :basicResearchTreasury="basicResearchTreasury" @changeBioResearchSubsidy="updateBioResearchSubsidy($event)" :bioResearch="bioResearch" @changeBioOptimism="updateBioTechnology($event)" :bioTechnology="bioTechnology" :bioResearchTreasury="bioResearchTreasury" @changeCoalResearchSubsidy="updateCoalResearchSubsidy($event)" :coalResearch="coalResearch" @changeCoalOptimism="updateCoalTechnology($event)" :coalTechnology="coalTechnology" :coalResearchTreasury="coalResearchTreasury" @changeOilResearchSubsidy="updateOilResearchSubsidy($event)" :oilResearch="oilResearch" @changeOilOptimism="updateOilTechnology($event)" :oilTechnology="oilTechnology" :oilResearchTreasury="oilResearchTreasury" @changeNuclearResearchSubsidy="updateNuclearResearchSubsidy($event)" :nuclearResearch="nuclearResearch" @changeNuclearOptimism="updateNuclearTechnology($event)" :nuclearTechnology="nuclearTechnology" :nuclearResearchTreasury="nuclearResearchTreasury" @changeDamSubsidy="updateDamSubsidy($event)" :damUseTreasury="damUseTreasury" :damSubsidy="damSubsidy" @changeDamUseRate="updateDamUseRate($event)" :damUse="damUse" @changeDamPotential="updateDamPrice($event)" :damPrice="damPrice" @changeCO2Quantity="updateCO2Quantity($event)" :co2="co2" @changeTemperature="updateGlobalTemperature($event)" :globalTemperature="globalTemperature" @changeCO2Eff="updateCO2Eff($event)" :co2Eff="co2Eff" @changeBasicTemperature="updateBasicTemperature($event)" :basicTemperature="basicTemperature" @changeMeltingRate="updateSeeLevel($event)" :seeLevel="seeLevel" @changeC1Quantity="updateC1Quantity($event)" @changeNO2Quantity="updateNO2Quantity($event)" :no2="no2" @changeSulfurContent="updateSO2Quantity($event)" :so2="so2" :energyDemand="energyDemand" :aveEnergyPrice="aveEnergyPrice" @changePriceElasticity="updatePriceElasticity($event)" :energyConservation="energyConservation" :netEnergy="netEnergy" @changeLifestyle="updateLifestyle($event)" :lifestyle="lifestyle" @changeLifeValue="updateQualityOfLife($event)" :qualityOfLife="qualityOfLife" @changeBirthRate="updateBirthRate($event)" :birthRate="birthRate" :population="population" :nonrenewableEnergy="nonrenewableEnergy" :sustainability="sustainability" @changeSustainabilityPts="updateSustainabilityPts($event)" :sustainabilityPts="sustainabilityPts" @changeValueOfQualityOfLife="updateQualityPoints($event)" :qualityPoints="qualityPoints">
+        <router-view v-slot="{ Component }" :show="show" 
+                    @changeCoalTaxRate="changeCoalTaxRate($event)" @changeCoalUserate="changeCoalUserate($event)" 
+                    @changeCoalPriceFactor="changeCoalPriceFactor($event)" @changeCoalSupplyElasticity="changeCoalSupplyElasticity($event)"
+                    :coalUse="coalUse" :totalCoalUse="totalCoalUse" :coalPrice="coalPrice" :coalSupply="coalSupply" :coalTaxRate="coalTaxRate"
+                    
+                    @changeOilTaxRate="changeOilTaxRate($event)" @changeOilUseRate="changeOilUseRate($event)"  
+                    @changeOilPriceFactor="changeOilPriceFactor($event)" @changeOilSupplyElasticity="changeOilSupplyElasticity($event)" 
+                    :oilTaxRate="oilTaxRate" :oilSupply="oilSupply" :totalOilUse="totalOilUse" :oilPrice="oilPrice" :oilUse="oilUse"
+                     
+                    @changeNaturalGasTaxRate="changeNaturalGasTaxRate($event)" @changeNaturalGasUseRate="changeNaturalGasUseRate($event)"
+                    @changeNaturalGasPriceFactor="changeNaturalGasPriceFactor($event)" @changeNaturalGasSupply="changeNaturalGasSupplyElasticity($event)"
+                    :naturalGasTaxRate="naturalGasTaxRate"  :naturalGasUse="naturalGasUse" :naturalGasPrice="naturalGasPrice" :naturalGasSupply="naturalGasSupply" :totalNaturalGasUse="totalNaturalGasUse" 
+
+                    @changeNuclearTaxRate="changeNuclearTaxRate($event)" @changeNuclearUseRate="changeNulearUseRate($event)"
+                    @changeNuclearPriceFactor="changeNuclearPriceFactor($event)" @changeNuclearSupplyElasticity="changeNuclearSupplyElasticity($event)"
+                    :nuclearTaxRate="nuclearTaxRate"  :nuclearUse="nuclearUse" :nuclearPrice="nuclearPrice"  :nuclearSupply="nuclearSupply" :totalNuclearUse="totalNuclearUse" 
+                    
+                    :coalTaxIncome="coalTaxIncome" :oilTaxIncome="oilTaxIncome" :naturalGasTaxIncome="naturalGasTaxIncome" :nuclearTaxIncome="nuclearTaxIncome"
+
+                    @changeSolarEnergySubsidy="changeSolarEnergySubsidy($event)" @changeSolarUseRate="changeSolarUseRate($event)" @changeSoalrEnergyPotential="changeSolarEnergyPotential($event)"
+                    :solarEnergySubsidy="solarEnergySubsidy"  :solarUse="solarUse" :solarEnergyTreasury="solarEnergyTreasury" :solarPrice="solarPrice"
+
+                    @changeSolarOptimism="changeSolarOptimism($event)" @changeSolarResearchSubsidy="changeSolarResearchSubsidy($event)"
+                    @changeBasicResearchSubsidy="changeBasicResearchSubsidy($event)" @changeBioResearchSubsidy="changeBioResearchSubsidy($event)"
+                    @changeBioOptimism="changeBioOptimism($event)"  @changeCoalResearchSubsidy="changeCoalResearchSubsidy($event)" 
+                    @changeCoalOptimism="changeCoalOptimism($event)"  @changeOilResearchSubsidy="changeOilResearchSubsidy($event)" 
+                    @changeOilOptimism="changeOilOptimism($event)" @changeNuclearResearchSubsidy="changeNuclearResearchSubsidy($event)"
+                    @changeNuclearOptimism="changeNuclearOptimism($event)"  @changeDamSubsidy="changeDamSubsidy($event)"
+                    :solarTechnology="solarTechnology" :solarResearchTreasury="solarResearchTreasury" :solarResearch="solarResearch" 
+                    :basicResearch="basicResearch" :basicResearchTreasury="basicResearchTreasury" :bioResearch="bioResearch"  
+                    :bioTechnology="bioTechnology" :bioResearchTreasury="bioResearchTreasury" :coalResearch="coalResearch"  
+                    :coalTechnology="coalTechnology" :coalResearchTreasury="coalResearchTreasury" :oilResearch="oilResearch" 
+                    :oilTechnology="oilTechnology" :oilResearchTreasury="oilResearchTreasury"  :nuclearResearch="nuclearResearch"  
+                    :nuclearTechnology="nuclearTechnology" :nuclearResearchTreasury="nuclearResearchTreasury" 
+                   
+                    @changeDamUseRate="changeDamUseRate($event)" @changeDamPotential="changeDamPotential($event)"
+                    :damUseTreasury="damUseTreasury" :damSubsidy="damSubsidy" :damUse="damUse" :damPrice="damPrice" 
+                    
+                    @changeCO2Quantity="changeCO2Quantity($event)" @changeTemperatureT0="changeTemperatureT0($event)" 
+                    @changeCO2Eff="changeCO2Eff($event)" @changeBasicTemperature="changeBasicTemperature($event)"
+                    :co2Eff="co2Eff" :basicTemperature="basicTemperature" :globalTemperature="globalTemperature" :co2="co2"
+
+                    @changeMeltingRate="changeMeltingRate($event)" 
+                    :seeLevel="seeLevel" 
+                    @changeC1Quantity="changeC1Quantity($event)" @changeNO2Quantity="changeNO2Quantity($event)" 
+                    :no2="no2" 
+                    @changeSulfurContent="changeSO2Quantity($event)" :so2="so2" 
+
+                    :energyDemand="energyDemand" :aveEnergyPrice="aveEnergyPrice" 
+                    @changePriceElasticity="changePriceElasticity($event)" 
+
+                    :energyConservation="energyConservation" :netEnergy="netEnergy" 
+                    
+                    @changeC4Value="changeC4Value($event)" :lifestyle="lifestyle" 
+                    @changeLifeValue="changeLifeValue($event)" :qualityOfLife="qualityOfLife" 
+                    
+                    @changeBirthRate="changeBirthRate($event)" :birthRate="birthRate" :population="population" 
+                    
+                    :nonrenewableEnergy="nonrenewableEnergy" :sustainability="sustainability"
+                    @changeSustainability="changeSustainability($event)" :sustainabilityPts="sustainabilityPts" 
+                    
+                    @changeValueOfQualityOfLife="changeQualityOfLife($event)" :qualityPoints="qualityPoints">
             <keep-alive>
                 <component :is="Component" />
             </keep-alive>
@@ -41,46 +102,52 @@ export default {
             coalUse: 76.3, //fertig
             coaluserate: 1,
             coalPrice: 24.9 * Math.pow(10, 9),
-            coalPriceFactor: 0,
+            coalPriceFactor: Math.pow(10,13),
             coalSupply: 299000, //fertig
-            coalSupplyElasticity: 0,
+            coalSupplyElasticity: 1.2*Math.pow(10,-5),
             /***Oil***/
             oilTaxRate: 1.0001 * Math.pow(10, 9),
             oilUse: 178,
-            oiluserate: 0,
+            oiluserate: 0.6,
             oilPrice: 25.1 * Math.pow(10, 9),
-            oilPriceFactor: 0,
+            oilPriceFactor: 1000*Math.pow(10,9),
             oilSupply: 9.880,
-            oilSupplyElasticity: 0,
+            oilSupplyElasticity: 7.6*Math.pow(10,-7),
             totalOilUse: 9180,
             /*Natural Gas */
             naturalGasTaxRate: 1.0001 * Math.pow(10, 9),
             naturalGasUse: 65.3,
-            naturalGasuserate: 0,
+            naturalGasuserate: 0.263,
             naturalGasPrice: 25.0 * Math.pow(10, 9),
-            naturalGasPriceFactor: 0,
+            naturalGasPriceFactor: 1000*Math.pow(10,9),
             naturalGasSupply: 7430,
-            naturalGasSupplyElasticity: 0,
+            naturalGasSupplyElasticity: Math.pow(10,-7),
             totalNaturalGasUse: 2070,
             /*nuclear*/
             nuclearTaxRate: 2.37 * Math.pow(10, 9),
             nuclearUse: 8.91,
-            nuclearUseRate: 0,
+            nuclearUseRate: 0.215,
             nuclearPrice: 24.9 * Math.pow(10, 9),
-            nuclearPriceFactor: 0,
+            nuclearPriceFactor: 23000*Math.pow(10,9),
             nuclearSupply: 11900,
-            nuclearSupplyElasticity: 0,
+            nuclearSupplyElasticity: Math.pow(10,-7),
             totalNuclearUse: 108,
+
+            /*research Income*/
+            coalTaxIncome:162.93*Math.pow(10,9),
+            oilTaxIncome:625.99*Math.pow(10,9),
+            naturalGasTaxIncome:616.71*Math.pow(10,9),
+            nuclearTaxIncome:556*Math.pow(10,9),
+
             /*solar */
             solarEnergySubsidy: 0.08,
             solarUse: 12.1,
-            solarUseRate: 0,
+            solarUseRate: 0.12,
             solarPrice: 24.8 * Math.pow(10, 9),
-            solarEnergyPotential: 0,
+            solarEnergyPotential: Math.pow(10,-11),
             solarEnergyTreasury: 109 * Math.pow(10, 9),
             /*technology*/
             solarTechnology: 1.02,
-
             bioTechnology: 1.02,
             coalTechnology: 1.01,
             oilTechnology: 1.01,
@@ -102,9 +169,9 @@ export default {
             damUseTreasury: 109 * Math.pow(10, 9),
             damSubsidy: 0.08,
             damUse: 18,
-            damUseRate: 0,
+            damUseRate: 0.12,
             damPrice: 25.0 * Math.pow(10, 9),
-            damPotential: 0,
+            damPotential: Math.pow(10,-11),
             /*common*/
             co2: 2 * Math.pow(10, 6),
             globalTemperature: 56,
@@ -115,20 +182,26 @@ export default {
             c1: 10000,
             c2: 100000,
             so2: 58.9 * Math.pow(10, 6),
-            energyDemand: 303,
+            energyDemand: 303*Math.pow(1.01,1),
             aveEnergyPrice: 25.2 * Math.pow(10, 9), //如何调用一个没有方法的变量
             priceElasticity: 0.0001,
             energyConservation: 60.3,
             netEnergy: 419, //公式尚未套用
             nonrenewableEnergy: 328, //公式尚未套用
-            //renewableEnergy:30.1, //公式尚未套用
+            renewableEnergy:30.1, //公式尚未套用
             lifestyle: 2.12 * Math.pow(10, 9),
+            c4:100*Math.pow(10,3),
             qualityOfLife: 1.03,
             population: 5.26 * Math.pow(10, 9), //公式尚未套用
+            starvation:41.4*Math.pow(10,6),//应该进行变化
             birthRate: 1.97,
             sustainability: 0.170, //公式尚未套用
             sustainabilityPts: 681,
+            valueOfSustainability:100,
             qualityPoints: 7.70 * Math.pow(10, 3),
+            valueOfQualityOfLife:100,
+
+            year:1989,
         }
     },
     methods: {
@@ -150,181 +223,284 @@ export default {
         },
         showSimulation() {
             this.show = true;
-        
 
         },
         stopSimulation() {
             this.show = false;
         },
-        execute(){
+        execute() {
+            /*formula execute*/
+            this.coalUse = this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate);
+            this.coalPrice = this.coalPriceFactor * this.coalUse / this.coalSupply;
+            this.coalSupply = this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse;
+            this.totalCoalUse = this.totalCoalUse + this.coalUse;
+
+            this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate);
+            this.oilPrice = this.oilPriceFactor * this.oilUse / this.oilSupply;
+            this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse;
+            this.totalOilUse = this.totalOilUse + this.oilUse;
+
+            this.naturalGasUse = this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate);
+            this.naturalGasPrice = this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply;
+            this.naturalGasSupply = this.naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse;
+            this.totalNaturalGasUse = this.totalNaturalGasUse + this.naturalGasUse;
+
+            this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate);
+            this.nuclearPrice = this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply;
+            this.nuclearSupply = this.nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse;
+            this.totalNuclearUse = this.totalNuclearUse + this.nuclearUse;
+
+            this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseTreasury) / this.damPrice;
+            this.damPrice = this.damUse / this.damPotential;
+
+            this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarPrice;
+            this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology);
+
+            this.solarTechnology = this.solarTechnology + this.solarOptimism * this.solarResearchTreasury * this.basicResearchTreasury;
+            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(this.bioResearchTreasury * this.basicResearchTreasury);
+            this.coalTechnology = this.coalTechnology + this.coalOptimism * this.coalResearchTreasury * this.basicResearchTreasury;
+            this.oilTechnology = this.oilTechnology + this.oilOptimism * this.oilResearchTreasury * this.basicResearchTreasury;
+            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * this.nuclearResearchTreasury * this.basicResearchTreasury;
+
+            this.co2 = this.co2 + this.co2Quantity * (this.coalUse + this.oilUse + this.naturalGasUse);
+            this.globalTemperature = this.t0 + this.co2Eff * this.co2;
+            this.seeLevel = (this.globalTemperature - this.basicTemperature) * this.meltingRate;
+            this.no2 = (this.c1 * this.coalUse / this.coalTechnology) + (this.c2 * this.oilUse / this.oilTechnology);
+            this.so2 = this.sulfurContent * this.coalUse / this.coalTechnology;
+            this.energyConservation = this.priceElasticity * Math.sqrt(this.aveEnergyPrice);
+            this.lifestyle = this.c4 * this.netEnergy;
+            this.qualityOfLife = this.lifeValue * this.lifestyle / this.population;//NaN 
+            this.birthRate = this.maximalBirthRate / (1 + this.qualityOfLife);
+            this.sustainabilityPts = this.valueOfSustainability * this.sustainability;
+            this.qualityPoints = this.valueOfQualityOfLife * this.qualityOfLife;//NaN
+
+            /**
+             *Population = Population * (1 + Birth Rate/100) - Starvation
+             */
+            this.population = this.population * (1 + this.birthRate/100) - this.starvation;
+
+            /**
+             * average energy price
+             */
+            this.aveEnergyPrice = ((this.coalPrice + this.coalTaxRate) * this.coalUse 
+                                + (this.oilPrice + this.oilTaxRate) * this.oilUse 
+                                + (this.naturalGasPrice + this.naturalGasTaxIncome) * this.naturalGasUse
+                                + (this.nuclearPrice + this.nuclearTaxRate) * this.nuclearUse 
+                                + (this.solarPrice + 0) * this.solarUse 
+                                + (this.damPrice + 0) * this.damUse) 
+                                / (this.coalUse + this.oilUse + this.naturalGasUse + this.solarUse + this.damUse);
+             
+            /**
+             * renewable energy
+             */
+            this.renewableEnergy = this.solarUse + this.damUse;
+             /**
+              * nonrenewable energy
+              */
+            this.nonrenewableEnergy = this.coalUse + this.oilUse + this.naturalGasUse + this.nuclearUse;
             
+            /**
+             * Net Energy = Energy Conservation + Renewable Energy + Nonrenewable Energy
+             */
+            this.netEnergy = this.energyConservation + this.renewableEnergy + this.nonrenewableEnergy;
+            /**
+             * Sustainability = Renewable Energy * (4 - Birth Rate) / (Renewable Energy + Nonrenewable Energy)
+             */
+            this.sustainability = this.renewableEnergy * (4 - this.birthRate) / (this.renewableEnergy + this.nonrenewableEnergy);//NaN
+
+
+
+            this.coalTaxIncome = this.coalTaxRate * this.coalUse;
+            this.oilTaxIncome = this.oilTaxRate * this.oilUse;
+            this.naturalGasTaxIncome = this.naturalGasTaxRate * this.naturalGasUse;
+            this.nuclearTaxIncome = this.nuclearTaxRate * this.nuclearUse;
+
+            this.year++;
+            console.log("Year "+ this.year);
+
+            this.energyDemand = this.energyDemand * 1.01;
+            console.log("energyDemand: "+this.energyDemand);
+
+            console.log("execute:coalUse:"+this.coalUse);
+            console.log("execute:coalPrice:"+this.coalPrice);
+            console.log("execute:coalSupply:"+this.coalSupply);
+            console.log("execute:totalCoalUse:"+this.totalCoalUse);
+
+            console.log("execute:oilUse:"+this.oilUse);
+            console.log("execute:oilPrice:"+this.oilPrice);
+            console.log("execute:oilSupply:"+this.oilSupply);
+            console.log("execute:totalOilUse:"+this.totalOilUse);
+
+            console.log("execute:naturalGasUse:"+this.naturalGasUse);
+            console.log("execute:naturalGasPrice:"+this.naturalGasPrice);
+            console.log("execute:naturalGasSupply:"+this.naturalGasSupply);
+            console.log("execute:totalNaturalGasUse:"+this.totalNaturalGasUse);
+
+            console.log("execute:solarUse:"+this.solarUse);
+            console.log("execute:solarPrice:"+this.solarPrice);
+
+            console.log("execute:damUse:"+this.damUse);
+            console.log("execute:damPrice:"+this.damPrice);
+
+            console.log("execute:energyDemand:"+this.energyDemand);
+            console.log("execute:aveEnergyPrice:"+this.aveEnergyPrice);
+
+            console.log("execute:qualityPoints:"+this.qualityPoints);
+            console.log("quality of life:"+this.qualityOfLife);
+            console.log("execute:sustainabilityPoints:"+this.sustainabilityPts);
+            console.log("sustainability: " + this.sustainability);
+            console.log("net energy: " + this.netEnergy);
+            console.log("nonrenewable Energy: " + this.nonrenewableEnergy);
+            console.log("renewable Energy: " + this.renewableEnergy);
         },
         /* coal */
-        updateCoalTaxRate(coalTaxRate) {
+        changeCoalTaxRate(coalTaxRate) {
             this.coalTaxRate = coalTaxRate * Math.pow(10, 9);
         },
-        updateCoalUserate(coaluserate) {
+        changeCoalUserate(coaluserate) {
             this.coaluserate = coaluserate;
-            this.coalUse = coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate);
         },
-        updateCoalPrice(coalPriceFactor) {
+        changeCoalPriceFactor(coalPriceFactor) {
             this.coalPriceFactor = coalPriceFactor;
-            this.coalPrice = coalPriceFactor * this.coalUse / this.coalSupply;
         },
-        updateCoalSupply(coalSupplyElasticity) {
+        changeCoalSupplyElasticity(coalSupplyElasticity) {
             this.coalSupplyElasticity = coalSupplyElasticity;
         },
         /* oil */
-        updateOilTaxRate(oilTaxRate) {
+        changeOilTaxRate(oilTaxRate) {
             this.oilTaxRate = oilTaxRate * Math.pow(10, 9);
         },
-        updateOilUseRate(oilUseRate) {
+        changeOilUseRate(oilUseRate) {
             this.oiluserate = oilUseRate;
-            this.oilUse = oilUseRate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate);
         },
-        updateOilPrice(oilPriceFactor) {
+        changeOilPriceFactor(oilPriceFactor) {
             this.oilPriceFactor = oilPriceFactor;
-            this.oilPrice = oilPriceFactor * this.oilUse / this.oilSupply;
         },
-        updateOilSupply(oilSupplyElasticity) {
+        changeOilSupplyElasticity(oilSupplyElasticity) {
             this.oilSupplyElasticity = oilSupplyElasticity;
-            this.oilSupply = oilSupplyElasticity * this.oilPrice - this.totalOilUse;
         },
         /*natural gas */
-        updateNaturalGasTaxRate(naturalGasTaxRate) {
+        changeNaturalGasTaxRate(naturalGasTaxRate) {
             this.naturalGasTaxRate = naturalGasTaxRate * Math.pow(10, 9);
         },
-        updateNaturalGasUseRate(naturalGasUseRate) {
+        changeNaturalGasUseRate(naturalGasUseRate) {
             this.naturalGasuserate = naturalGasUseRate;
-            this.naturalGasUse = naturalGasUseRate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate);
         },
-        updateNaturalGasPrice(naturalGasPriceFactor) {
+        changeNaturalGasPriceFactor(naturalGasPriceFactor) {
             this.naturalGasPriceFactor = naturalGasPriceFactor;
-            this.naturalGasPrice = naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply;
         },
-        updateNaturalGasSupply(naturalGasSupplyElasticity) {
-            this.naturalGasSupply = naturalGasSupplyElasticity;
-            this.naturalGasSupply = naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse;
+        changeNaturalGasSupplyElasticity(naturalGasSupplyElasticity) {
+            this.naturalGasSupplyElasticity = naturalGasSupplyElasticity;
         },
         /*nuclear */
-        updateNuclearTaxRate(nuclearTaxRate) {
+        changeNuclearTaxRate(nuclearTaxRate) {
             this.nuclearTaxRate = nuclearTaxRate * Math.pow(10, 9);
         },
-        updateNulearUseRate(nuclearUseRate) {
+        changeNulearUseRate(nuclearUseRate) {
             this.nuclearUseRate = nuclearUseRate;
-            this.nuclearUse = nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate);
         },
-        updateNuclearPrice(nuclearPriceFactor) {
+        changeNuclearPriceFactor(nuclearPriceFactor) {
             this.nuclearPriceFactor = nuclearPriceFactor;
-            this.nuclearPrice = nuclearPriceFactor * this.nuclearUse / this.nuclearSupply;
         },
-        updateNuclearSupply(nuclearSupplyElasticity) {
+        updateNuclearSupplyElasticity(nuclearSupplyElasticity) {
             this.nuclearSupplyElasticity = nuclearSupplyElasticity;
-            this.nuclearSupply = nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse;
         },
         /*dam */
-        updateDamSubsidy(damSubsidy) {
+        changeDamSubsidy(damSubsidy) {
             this.damSubsidy = damSubsidy;
         },
-        updateDamUseRate(damUseRate) {
+        changeDamUseRate(damUseRate) {
             this.damUseRate = damUseRate;
-            this.damUse = (damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseTreasury) / this.damPrice;
         },
-        updateDamPrice(damPotential) {
+        changeDamPotential(damPotential) {
             this.damPotential = damPotential;
-            this.damPrice = this.damUse / damPotential;
         },
         /*solar */
-        updateSolarEnergySubsidy(solarEnergySubsidy) {
+        changeSolarEnergySubsidy(solarEnergySubsidy) {
             this.solarEnergySubsidy = solarEnergySubsidy;
         },
-        updateSolarUseRate(solarUseRate) {
+        changeSolarUseRate(solarUseRate) {
             this.solarUseRate = solarUseRate;
-            this.solarUse = (solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarEnergyPrice;
         },
-        updateSolarEnergyPrice(solarEnergyPotential) {
+        changeSolarEnergyPotential(solarEnergyPotential) {
             this.solarEnergyPotential = solarEnergyPotential;
-            this.solarPrice = this.solarUse / (solarEnergyPotential * this.solarTechnology);
         },
         /*research and technology*/
-        updateSolarTechnology(solarOptimism) {
-            this.solarTechnology = this.solarTechnology + solarOptimism * this.solarResearchTreasury * this.basicResearchTreasury;
+        changeSolarOptimism(solarOptimism) {
+            this.solarOptimism = solarOptimism;
         },
-        updateSolarResearchSubsidy(solarResearchSubsidy) {
+        changeSolarResearchSubsidy(solarResearchSubsidy) {
             this.solarResearch = solarResearchSubsidy;
         },
-        updateBasicResearchSubsidy(basicResearchSubsidy) {
+        changeBasicResearchSubsidy(basicResearchSubsidy) {
             this.basicResearch = basicResearchSubsidy;
         },
-        updateBioResearchSubsidy(bioResearchSubsidy) {
+        changeBioResearchSubsidy(bioResearchSubsidy) {
             this.bioResearch = bioResearchSubsidy;
         },
-        updateBioTechnology(bioOptimism) {
-            this.bioTechnology = this.bioTechnology + bioOptimism * Math.log(this.bioResearchTreasury * this.basicResearchTreasury);
+        changeBioOptimism(bioOptimism) {
+            this.bioOptimism = bioOptimism;
         },
-        updateCoalResearchSubsidy(coalResearchSubsidy) {
+        changeCoalResearchSubsidy(coalResearchSubsidy) {
             this.coalResearch = coalResearchSubsidy;
         },
-        updateCoalTechnology(coalOptimism) {
-            /* 计算公式似乎不对，因为coalTechnology不可能那么大 */
-            this.coalTechnology = this.coalTechnology + coalOptimism * this.coalResearchTreasury * this.basicResearchTreasury;
+        changeCoalOptimism(coalOptimism) {
+            this.coalOptimism = coalOptimism;
         },
-        updateOilResearchSubsidy(coalResearchSubsidy) {
+        changeOilResearchSubsidy(coalResearchSubsidy) {
             this.coalResearch = coalResearchSubsidy;
         },
-        updateOilTechnology(oilOptimism) {
-            this.oilTechnology = this.oilTechnology + oilOptimism * this.oilResearchTreasury * this.basicResearchTreasury;
+        changeOilOptimism(oilOptimism) {
+            this.oilOptimism = oilOptimism;
         },
-        updateNuclearResearchSubsidy(nuclearResearchSubsidy) {
+        changeNuclearResearchSubsidy(nuclearResearchSubsidy) {
             this.nuclearResearch = nuclearResearchSubsidy;
         },
-        updateNuclearTechnology(nuclearOptimism) {
-            this.nuclearTechnology = this.nuclearTechnology + nuclearOptimism * this.nuclearResearchTreasury * this.basicResearchTreasury;
+        changeNuclearOptimism(nuclearOptimism) {
+            this.nuclearOptimism = nuclearOptimism;
         },
         /*common*/
-        updateCO2Quantity(co2Quantity) {
-            this.co2 = this.co2 + co2Quantity * (this.coalUse + this.oilUse + this.naturalGasUse);
+        changeCO2Quantity(co2Quantity) {
+            this.co2Quantity = co2Quantity;
         },
-        updateGlobalTemperature(t0) {
-            this.globalTemperature = t0 + this.co2Eff * this.co2;
+        changeTemperatureT0(t0) {
+            this.t0 = t0;
         },
-        updateCO2Eff(co2Eff) {
+        changeCO2Eff(co2Eff) {
             this.co2Eff = co2Eff;
         },
-        updateBasicTemperature(basicTemperature) {
+        changeBasicTemperature(basicTemperature) {
             this.basicTemperature = basicTemperature;
         },
-        updateSeeLevel(meltingRate) {
-            this.seeLevel = (this.globalTemperature - this.basicTemperature) * meltingRate;
+        changeMeltingRate(meltingRate) {
+            this.meltingRate = meltingRate;
         },
-        updateC1Quantity(c1) {
+        changeC1Quantity(c1) {
             this.c1 = c1;
         },
-        updateNO2Quantity(c2) {
+        changeNO2Quantity(c2) {
             this.c2 = c2;
-            this.no2 = (this.c1 * this.coalUse / this.coalTechnology) + (this.c2 * this.oilUse / this.oilTechnology);
         },
-        updateSO2Quantity(sulfurContent) {
-            this.so2 = sulfurContent * this.coalUse / this.coalTechnology;
+        changeSO2Quantity(sulfurContent) {
+            this.sulfurContent = sulfurContent;
         },
-        updatePriceElasticity(priceElasticity) {
+        changePriceElasticity(priceElasticity) {
             this.priceElasticity = priceElasticity;
-            this.energyConservation = this.priceElasticity * Math.sqrt(this.aveEnergyPrice);
         },
-        updateLifestyle(c4) {
-            this.lifestyle = c4 * this.netEnergy;
+        changeC4Value(c4) {
+            this.c4 = c4;
         },
-        updateQualityOfLife(lifeValue) {
-            this.qualityOfLife = lifeValue * this.lifestyle / this.population;
+        changeLifeValue(lifeValue) {
+            this.lifeValue = lifeValue;
         },
-        updateBirthRate(maximalBirthRate) {
-            this.birthRate = maximalBirthRate / (1 + this.qualityOfLife);
+        changeBirthRate(maximalBirthRate) {
+            this.maximalBirthRate = maximalBirthRate;
         },
-        updateSustainabilityPts(valueOfSustainability) {
-            this.sustainabilityPts = valueOfSustainability * this.sustainability;
+        changeSustainability(valueOfSustainability) {
+            this.valueOfSustainability = valueOfSustainability;
         },
-        updateQualityPoints(valueOfQualityOfLife) {
-            this.qualityPoints = valueOfQualityOfLife * this.qualityOfLife;
+        changeQualityOfLife(valueOfQualityOfLife) {
+            this.valueOfQualityOfLife = valueOfQualityOfLife;
         }
     }
 }

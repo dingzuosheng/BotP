@@ -60,6 +60,7 @@ export default {
             this.name = toRaw(res.data.Coal_Tax.name);
             this.causes = toRaw(res.data.Coal_Tax.causes);
             this.effects = toRaw(res.data.Coal_Tax.effects);
+            console.log()
         }) 
     },
     methods:{

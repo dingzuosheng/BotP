@@ -112,6 +112,7 @@ export default {
             this.causes = toRaw(res.data.Coal_Use.causes);
             this.effects = toRaw(res.data.Coal_Use.effects);
         })
+        
     },
     methods: {
         toPage(item) {

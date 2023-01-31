@@ -86,7 +86,7 @@ export default {
         },
         changeCoalSupplyElasticity(){
             this.coalSupplyElasticity = parseInt(this.elasticity*Math.pow(10,6))/Math.pow(10,6);
-            this.$emit('changeCoalSupply',this.coalSupplyElasticity)
+            this.$emit('changeCoalSupplyElasticity',this.coalSupplyElasticity)
         }
     }
 }

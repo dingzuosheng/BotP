@@ -86,7 +86,7 @@ export default {
         },
         changeNaturalGasSupplyElasticity(){
             this.naturalGasSupplyElasticity = parseInt(this.elasticity*Math.pow(10,7))/Math.pow(10,7);
-            this.$emit('changeNaturalGasSupply',this.naturalGasSupplyElasticity)
+            this.$emit('changeNaturalGasSupplyElasticity',this.naturalGasSupplyElasticity)
         }
     }
 }

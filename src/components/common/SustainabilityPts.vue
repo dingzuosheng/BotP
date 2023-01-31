@@ -82,7 +82,7 @@ export default {
         },
         changeValueOfSustainability(){
             this.valueOfSustainability = parseInt(this.value);
-            this.$emit('changeSustainabilityPts',this.valueOfSustainability);
+            this.$emit('changeSustainability',this.valueOfSustainability);
         }
     }
 }

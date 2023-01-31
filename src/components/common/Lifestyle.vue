@@ -82,7 +82,7 @@ export default {
         },
         changeC4Value(){
             this.c4 = parseInt(this.quantity)*1000;
-            this.$emit('changeLifestyle',this.c4);
+            this.$emit('changeC4Value',this.c4);
         }
     }
 }

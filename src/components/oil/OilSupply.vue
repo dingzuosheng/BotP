@@ -86,7 +86,7 @@ export default {
         },
         changeOilSupplyElasticity(){
             this.oilSupplyElasticity = parseInt(this.elasticity*Math.pow(10,8))/Math.pow(10,8);
-            this.$emit('changeOilSupply',this.oilSupplyElasticity)
+            this.$emit('changeOilSupplyElasticity',this.oilSupplyElasticity)
         }
     }
 }

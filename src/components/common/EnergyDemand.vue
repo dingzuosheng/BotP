@@ -69,28 +69,16 @@ export default {
     },
     props: {
         energyDemand: Number,
-        energyDemand1995: Number,
-        energyDemand2000: Number,
-        energyDemand2005: Number,
-        energyDemand2010: Number,
-        energyDemand2015: Number,
-        energyDemand2020: Number,
-        energyDemand2025: Number,
-        energyDemand2030: Number,
-        energyDemand2035: Number,
-        energyDemand2040: Number,
-        energyDemand2045: Number,
-        energyDemand2050: Number,
         show:Boolean
     },
     mounted() {
         const ctx = document.getElementById('energyDemandChart');
-        const labels = [1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050];
+        const labels = [1990];
         const data = {
             labels: labels,
             datasets: [{
                 label: 'Energy Demand Dataset',
-                data: [this.energyDemand,this.energyDemand1995,this.energyDemand2000,this.energyDemand2005,this.energyDemand2010,this.energyDemand2015,this.energyDemand2020,this.energyDemand2025,this.energyDemand2030,this.energyDemand2035,this.energyDemand2040,this.energyDemand2045,this.energyDemand2050],
+                data: [this.energyDemand],
                 fill:false,
                 borderCorlor:'rgb(75,192,192)',
                 tension:0.1

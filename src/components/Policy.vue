@@ -17,22 +17,22 @@
                     <tr>
                         <td><router-link :to="{path:'/game/coal-tax'}">Coal Tax</router-link></td>
                         <td><router-link :to="{path:'/game/coal-tax'}">{{ this.coalTaxRate/Math.pow(10,9)}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">${{162.93}}</router-link></td>
+                        <td><router-link :to="{path:'/game/coal-tax'}">${{this.coalTaxIncome/Math.pow(10,9)}} billion</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/natural-gas-tax'}">Natural Gas Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/natural-gas-tax'}">{{ this.naturalGasTaxRate /Math.pow(10,9)}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/natural-gas-tax'}">${{ 616.71 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/natural-gas-tax'}">{{ this.naturalGasTaxRate/Math.pow(10,9)}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/natural-gas-tax'}">${{ this.naturalGasTaxIncome /Math.pow(10,9) }} billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/nuclear-tax'}">Nuclear Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-tax'}">{{ this.nuclearTaxRate/Math.pow(10,9)}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-tax'}">${{ 556 }} </router-link></td>
+                        <td><router-link :to="{path:'/game/nuclear-tax'}">{{ this.nuclearTaxRate /Math.pow(10,9)}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/nuclear-tax'}">${{ this.nuclearTaxIncome/Math.pow(10,9)}} billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/oil-tax'}">Oil Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/oil-tax'}">{{ this.oilTaxRate/Math.pow(10,9) }} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/oil-tax'}">${{ 625.99 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/oil-tax'}">{{ this.oilTaxRate /Math.pow(10,9)}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/oil-tax'}">${{ this.oilTaxIncome/Math.pow(10,9) }} billion</router-link></td>
                     </tr>
                 </tbody>
             </table>
@@ -87,7 +87,7 @@
         </div>
     </div>
     <div>
-        <h1><strong>Treasury: {{ }} billion</strong></h1>
+        <h1><strong>Treasury: {{ 1.6}} billion</strong></h1>
     </div>
 </div>
 </template>
@@ -105,18 +105,30 @@ export default {
         oilTaxRate:Number,
         naturalGasTaxRate:Number,
         nuclearTaxRate:Number,
+
+        coalTaxIncome:Number,
+        oilTaxIncome:Number,
+        naturalGasTaxIncome:Number,
+        nuclearTaxIncome:Number,
+
         basicResearch:Number,
         basicResearchTreasury:Number,
+
         bioResearch:Number,
         bioResearchTreasury:Number,
+
         coalResearch:Number,
         coalResearchTreasury:Number,
+
         damSubsidy:Number,
         damUseTreasury:Number,
+
         nuclearResearch:Number,
         nuclearResearchTreasury:Number,
+
         oilResearch:Number,
         oilResearchTreasury:Number,
+
         solarResearch:Number,
         solarResearchTreasury:Number,
     },

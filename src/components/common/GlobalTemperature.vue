@@ -87,7 +87,7 @@ export default {
         },
         changeTemperature(){
             this.t0 = parseInt(this.temperature);
-            this.$emit('changeGlobalTemperature',this.t0);
+            this.$emit('changeTemperatureT0',this.t0);
         },
         changeCO2Eff(){
             this.co2Eff = parseInt(this.eff) * Math.pow(10,-13);
