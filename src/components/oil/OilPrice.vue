@@ -15,13 +15,13 @@
                     Where:<br />
                     <div class="formula">
                         <div class="row-formula">
-                            <span>Oil Price Factor</span> <span>= {{ oilPriceFactor }}</span> <span><input type="range" min="100" max="10000" step="100" v-model="factor" @change="changeOilPriceFactor" /></span>
+                            <span>Oil Price Factor</span> <span>= {{ oilPriceFactor }} billion</span> <span><input type="range" min="100" max="10000" step="100" v-model="factor" @change="changeOilPriceFactor" /></span>
                         </div>
                         <div class="row-formula">
                             <span>Oil Use</span> <span>= {{ this.oilUse }}</span> <span>(Exajoules)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Oil Supply</span> <span>= {{ this.oilSupply }}</span> <span>(Exajoules)</span>
+                            <span>Oil Supply</span> <span>= {{ this.oilSupply/1000 }} thousand</span> <span>(Exajoules)</span>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'OilPrice',

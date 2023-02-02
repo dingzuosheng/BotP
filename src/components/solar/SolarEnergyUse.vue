@@ -21,13 +21,13 @@
                             <span>Energy Demand</span> <span>= {{ this.energyDemand }}</span> <span>(Exajoules)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Ave Energy Price</span> <span>= {{ this.aveEnergyPrice }}</span> <span>($/Exajoules)</span>
+                            <span>Ave Energy Price</span> <span>= {{ this.aveEnergyPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoules)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Solar Energy $</span> <span>= {{ this.solarEnergyTreasury}}</span> <span>($)</span>
+                            <span>Solar Energy $</span> <span>= {{ this.solarEnergyTreasury/Math.pow(10,9)}} billion</span> <span>($)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Solar Energy Price</span> <span>= {{ this.solarPrice}}</span> <span>($/Exajoules)</span>
+                            <span>Solar Energy Price</span> <span>= {{ this.solarPrice/Math.pow(10,9)}} billion</span> <span>($/Exajoules)</span>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'SolarEnergyUse',

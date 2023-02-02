@@ -53,7 +53,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'GlobalTemperature',
@@ -64,8 +64,8 @@ export default {
             effects:[],
             temperature:56,
             t0:56,
-            eff:Math.pow(10,-13),
-            co2Eff:Math.pow(10,-13),
+            eff:10,
+            co2Eff:Math.pow(10,-12),
         }
     },
     props:{

@@ -56,7 +56,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'SolarEnergyPrice',

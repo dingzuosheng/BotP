@@ -15,7 +15,7 @@
                     Where:<br />
                     <div class="formula">
                         <div class="row-formula">
-                            <span>Sulfur Content</span> <span>= {{ sulfurContent }}</span> <span><input type="range" min="100" max="1000" step="10" v-model="content" @change="changeSulfurContent"/></span>
+                            <span>Sulfur Content</span> <span>= {{ sulfurContent }} thousand</span> <span><input type="range" min="100" max="1000" step="10" v-model="content" @change="changeSulfurContent"/></span>
                         </div>
                         <div class="row-formula">
                             <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoule)</span>
@@ -53,7 +53,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'Sulfur Dioxide',

@@ -4,9 +4,6 @@
             <div>
                 <h1>{{ this.name }}</h1>
             </div>
-            <div>
-                Dam Use Treasury: {{ this.damUseTreasury }} $
-            </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
                     <div class="formula">
@@ -61,9 +58,6 @@
                 subsidy:0.08,
                 damSubsidy:0.08
             }
-        },
-        props:{
-            damUseTreasury:Number
         },
         created() {
             service.get('/data/data.json').then(res => {

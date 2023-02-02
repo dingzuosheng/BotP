@@ -15,7 +15,7 @@
                     Where:<br />
                     <div class="formula">
                         <div class="row-formula">
-                            <span>C4</span> <span>= {{ c4 }}</span> <span><input type="range" min="100" max="10000" step="10" v-model="quantity" @change="changeC4Value"/></span>
+                            <span>C4</span> <span>= {{ c4 }} thousand </span> <span><input type="range" min="100" max="10000" step="10" v-model="quantity" @change="changeC4Value"/></span>
                         </div>
                         <div class="row-formula">
                             <span>Net Energy</span> <span>= {{ this.netEnergy }}</span>(Exajoules)
@@ -50,7 +50,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'Lifestyle',

@@ -15,13 +15,13 @@
                     Where:<br />
                     <div class="formula">
                         <div class="row-formula">
-                            <span>Natural Gas Price Factor</span> <span>= {{ naturalGasPriceFactor }}</span> <span><input type="range" min="100" max="10000" step="100" v-model="factor" @change="changeNaturalGasPriceFactor" /></span>
+                            <span>Natural Gas Price Factor</span> <span>= {{ naturalGasPriceFactor }}billion</span> <span><input type="range" min="100" max="10000" step="100" v-model="factor" @change="changeNaturalGasPriceFactor" /></span>
                         </div>
                         <div class="row-formula">
                             <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span> <span>(Exajoules)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Natural Gas Supply</span> <span>= {{ this.naturalGasSupply }}</span> <span>(Exajoules)</span>
+                            <span>Natural Gas Supply</span> <span>= {{ this.naturalGasSupply/1000 }} thousand</span> <span>(Exajoules)</span>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'NaturalGasPrice',

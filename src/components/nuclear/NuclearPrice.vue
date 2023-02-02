@@ -15,13 +15,13 @@
                     Where:<br />
                     <div class="formula">
                         <div class="row-formula">
-                            <span>Nuclear Price Factor</span> <span>= {{ nuclearPriceFactor }}</span> <span><input type="range" min="100" max="1000000" step="100" v-model="factor" @change="changeNuclearPriceFactor" /></span>
+                            <span>Nuclear Price Factor</span> <span>= {{ nuclearPriceFactor }} billion</span> <span><input type="range" min="100" max="1000000" step="100" v-model="factor" @change="changeNuclearPriceFactor" /></span>
                         </div>
                         <div class="row-formula">
                             <span>Nuclear Use</span> <span>= {{ this.nuclearUse }}</span> <span>(Exajoules)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Nuclear Supply</span> <span>= {{ this.nuclearSupply }}</span> <span>(Exajoules)</span>
+                            <span>Nuclear Supply</span> <span>= {{ this.nuclearSupply/1000 }} thousand</span> <span>(Exajoules)</span>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'NuclearPrice',

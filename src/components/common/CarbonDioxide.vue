@@ -15,10 +15,10 @@
                     Where:<br />
                     <div class="formula">
                         <div class="row-formula">
-                            <span>CO2</span> <span>= {{ co2Quantity }}</span> <span><input type="range" min="10" max="100" step="10" v-model="quantity" @change="changeCO2Quanty" /> (tons/Exajoule)</span>
+                            <span>CO2</span> <span>= {{ co2Quantity }} million</span> <span><input type="range" min="10" max="100" step="10" v-model="quantity" @change="changeCO2Quanty" /> (tons/Exajoule)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Carbon Dioxide</span> <span>= {{ this.co2 }}</span> <span>(tons)</span>
+                            <span>Carbon Dioxide</span> <span>= {{ this.co2 / Math.pow(10,12)}} trillion</span> <span>(tons)</span>
                         </div>
                         <div class="row-formula">
                             <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>
@@ -59,7 +59,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'Carbon Dioxide',
@@ -68,8 +68,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            quantity:2*Math.pow(10,7),
-            co2Quantity:2*Math.pow(10,7)
+            quantity:20,
+            co2Quantity:20* Math.pow(10,6)
         }
     },
     props:{

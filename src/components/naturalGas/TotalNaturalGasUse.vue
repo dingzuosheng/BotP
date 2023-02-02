@@ -15,7 +15,7 @@
                     Where:<br />
                     <div>
                         <div class="row-formula">
-                            <span>Total Natural Gas Use</span> <span>= {{ this.totalNaturalGasUse }}</span><span>(Exajoules)</span>
+                            <span>Total Natural Gas Use</span> <span>= {{ this.totalNaturalGasUse/1000 }} thousand</span><span>(Exajoules)</span>
                         </div>
                         <div class="row-formula">
                             <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span> <span>(Exajoules)</span>
@@ -53,7 +53,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'TotalNaturalGasUse',

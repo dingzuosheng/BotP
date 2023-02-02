@@ -42,7 +42,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'Coal Tax',
@@ -60,7 +60,6 @@ export default {
             this.name = toRaw(res.data.Coal_Tax.name);
             this.causes = toRaw(res.data.Coal_Tax.causes);
             this.effects = toRaw(res.data.Coal_Tax.effects);
-            console.log()
         }) 
     },
     methods:{

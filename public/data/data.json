@@ -718,7 +718,7 @@
         "effects": [
             {
                 "name": "Solar Energy Technology",
-                "path": "/game/solar-energy-technology"
+                "path": "/game/solar-technology"
             }
         ]
     },

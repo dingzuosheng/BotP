@@ -15,13 +15,13 @@
                     Where:<br />
                     <div class="formula">
                         <div class="row-formula">
-                            <span>Coal Price Factor</span> <span>= {{ coalPriceFactor }}</span> <span><input type="range" min="10" max="100" step="0.1" v-model="factor" @change="changeCoalPriceFactor" /></span>
+                            <span>Coal Price Factor</span> <span>= {{ coalPriceFactor }} trillion</span> <span><input type="range" min="10" max="100" step="0.1" v-model="factor" @change="changeCoalPriceFactor" /></span>
                         </div>
                         <div class="row-formula">
                             <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Coal Supply</span> <span>= {{ this.coalSupply }}</span> <span>(Exajoules)</span>
+                            <span>Coal Supply</span> <span>= {{ this.coalSupply/1000 }} thousand</span> <span>(Exajoules)</span>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'Coal Price',

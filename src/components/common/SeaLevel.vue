@@ -53,7 +53,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'SeaLevel',
@@ -64,8 +64,8 @@ export default {
             effects:[],
             temperature:55,
             basicTemperature:55,
-            rate:0.1,
-            meltingRate:0.1,
+            rate:0.5,
+            meltingRate:0.5,
         }
     },
     props:{

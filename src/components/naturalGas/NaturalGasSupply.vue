@@ -18,10 +18,10 @@
                             <span>Supply Elasticity</span> <span>= {{ naturalGasSupplyElasticity }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNaturalGasSupplyElasticity" /></span>
                         </div>
                         <div class="row-formula">
-                            <span>Natural Gas Price</span> <span>= {{ this.naturalGasPrice }}</span> <span>($/Exajoule)</span>
+                            <span>Natural Gas Price</span> <span>= {{ this.naturalGasPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoule)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Total Natural Gas Use</span> <span>= {{ this.totalNaturalGasUse }}</span> <span>(Exajoules)</span>
+                            <span>Total Natural Gas Use</span> <span>= {{ this.totalNaturalGasUse /1000}} thousand</span> <span>(Exajoules)</span>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'Natural Gas Supply',

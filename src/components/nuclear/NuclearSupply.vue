@@ -18,7 +18,7 @@
                             <span>Nuclear Supply Elasticity</span> <span>= {{ nuclearSupplyElasticity }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNuclearSupplyElasticity" /></span>
                         </div>
                         <div class="row-formula">
-                            <span>Nuclear Price</span> <span>= {{ this.nuclearPrice }}</span> <span>($/Exajoule)</span>
+                            <span>Nuclear Price</span> <span>= {{ this.nuclearPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoule)</span>
                         </div>
                         <div class="row-formula">
                             <span>Total Nuclear Use</span> <span>= {{ this.totalNuclearUse }}</span> <span>(Exajoules)</span>
@@ -53,7 +53,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'NuclearSupply',

@@ -42,7 +42,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:300000000,
 })
 export default {
     name:'OilTax',

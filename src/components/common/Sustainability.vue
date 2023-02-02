@@ -18,7 +18,7 @@
                             <span>Renewable Energy</span> <span>= {{ this.solarUse + this.damUse }} (Exajoules)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Birth Rate</span> <span>= {{ this.birthRate }} %</span>
+                            <span>Birth Rate</span> <span>= {{ this.birthRate * 100 }} %</span>
                         </div>
                         <div class="row-formula">
                             <span>Nonrenewable Energy</span> <span>= {{ this.nonrenewableEnergy }} (Exajoules)</span>

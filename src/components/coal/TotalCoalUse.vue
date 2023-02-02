@@ -5,7 +5,7 @@
             <h1>{{ this.name }}</h1>
         </div>
         <div>
-            Totall Coal Use: {{ this.totalCoalUse }} Exajoules
+            Totall Coal Use: {{ this.totalCoalUse/1000 }}thousand Exajoules
         </div>
         <el-collapse class="collapse-part">
             <el-collapse-item title="Formula ">
@@ -15,7 +15,7 @@
                     Where:<br />
                     <div>
                         <div class="row-formula">
-                            <span>Total Coal Use</span> <span>= {{ this.totalCoalUse }}</span> <span>(Exajoules)</span>
+                            <span>Total Coal Use</span> <span>= {{ this.totalCoalUse/1000 }}thousand</span> <span>(Exajoules)</span>
                         </div>
                         <div class="row-formula">
                             <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>
@@ -53,7 +53,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'TotalCoalUse',

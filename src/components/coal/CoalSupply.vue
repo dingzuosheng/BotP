@@ -18,10 +18,10 @@
                             <span>Coal Supply Elasticity</span> <span>= {{ coalSupplyElasticity }}</span> <span><input type="range" min=0.000001 max="0.0001" step="0.000001" v-model="elasticity" @change="changeCoalSupplyElasticity" /></span>
                         </div>
                         <div class="row-formula">
-                            <span>Coal Price</span> <span>= {{ this.coalPrice }}</span> <span>($/Exajoule)</span>
+                            <span>Coal Price</span> <span>= {{ this.coalPrice/Math.pow(10,9) }}billion</span> <span>($/Exajoule)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Total Coal Use</span> <span>= {{ this.totalCoalUse }}</span> <span>(Exajoule)</span>
+                            <span>Total Coal Use</span> <span>= {{ this.totalCoalUse/1000 }}thousand</span> <span>(Exajoule)</span>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:300000000,
 })
 export default {
     name:'Coal Supply',

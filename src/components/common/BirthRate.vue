@@ -15,7 +15,7 @@
                     Where:<br />
                     <div class="formula">
                         <div class="row-formula">
-                            <span>Maximal Birth Rate</span> <span>= {{ maximalBirthRate }}</span> <span><input type="range" min="2" max="5" step="1" v-model="value" @change="changeMaximalBirthRate" /></span>
+                            <span>Maximal Birth Rate</span> <span>= {{ this.maximalBirthRate }}</span> <span><input type="range" min="2" max="5" step="1" v-model="value" @change="changeMaximalBirthRate" /></span>
                         </div>
                         <div class="row-formula">
                             <span>Quality of Life</span> <span>= {{ this.qualityOfLife }}</span>(Happies/Cap)
@@ -50,7 +50,7 @@ import {toRaw} from '@vue/reactivity'
 import axios from 'axios'
 const service = axios.create({
     baseURL:'',
-    timeout:30000,
+    timeout:3000000000,
 })
 export default {
     name:'BirthRate',

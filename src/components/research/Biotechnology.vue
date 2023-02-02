@@ -21,10 +21,10 @@
                             <span>Bio Technology</span> <span>= {{ this.bioTechnology }}</span> <span>(Whizbangs)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Bio Research $</span> <span>= {{ this.bioResearchTreasury }}</span> <span>($)</span>
+                            <span>Bio Research $</span> <span>= {{ this.bioResearchTreasury / Math.pow(10,9)}} billion</span> <span>($)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Basic Research $</span> <span>= {{ this.basicResearchTreasury }}</span> <span>($)</span>
+                            <span>Basic Research $</span> <span>= {{ this.basicResearchTreasury / Math.pow(10,9) }} billion</span> <span>($)</span>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ import {
 import axios from 'axios'
 const service = axios.create({
     baseURL: '',
-    timeout: 30000,
+    timeout: 3000000000,
 })
 export default {
     name: 'BioTechnology',
