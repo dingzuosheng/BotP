@@ -230,6 +230,7 @@ export default {
         },
         execute() {
             /*formula execute*/
+            this.energyDemand = this.energyDemand * 1.01;
             this.coalUse = this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate);
             this.coalPrice = this.coalPriceFactor * this.coalUse / this.coalSupply;
             this.coalSupply = this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse;
@@ -270,10 +271,11 @@ export default {
             this.energyConservation = this.priceElasticity * Math.sqrt(this.aveEnergyPrice);
             this.lifestyle = this.c4 * this.netEnergy;
             this.qualityOfLife = this.lifeValue * this.lifestyle / this.population;//NaN 
+            console.log("check the value of population: "+this.population);
             this.birthRate = this.maximalBirthRate / (1 + this.qualityOfLife);
             this.sustainabilityPts = this.valueOfSustainability * this.sustainability;
             this.qualityPoints = this.valueOfQualityOfLife * this.qualityOfLife;//NaN
-
+            console.log("check the value of qualityPoints: "+this.qualityPoints);
             /**
              *Population = Population * (1 + Birth Rate/100) - Starvation
              */
@@ -318,7 +320,7 @@ export default {
             this.year++;
             console.log("Year "+ this.year);
 
-            this.energyDemand = this.energyDemand * 1.01;
+
             console.log("energyDemand: "+this.energyDemand);
 
             console.log("execute:coalUse:"+this.coalUse);
@@ -352,6 +354,24 @@ export default {
             console.log("net energy: " + this.netEnergy);
             console.log("nonrenewable Energy: " + this.nonrenewableEnergy);
             console.log("renewable Energy: " + this.renewableEnergy);
+
+            // const data = {
+            //     coalUse: this.coalUse,
+            //     coalPrice: this.coalPrice,
+            //     coalSupply: this.coalSupply,
+            //     totalCoalUse: this.totalCoalUse
+            // }
+
+            // //localStorage.setItem(this.year,JSON.stringify(data));
+            // localStorage.setItem("year"+this.year,JSON.stringify(data));
+            // let coalUse = JSON.parse(localStorage.getItem("year"+this.year)).coalUse;
+            // let coalPrice = JSON.parse(localStorage.getItem("year"+this.year)).coalPrice;
+            // let coalSupply = JSON.parse(localStorage.getItem("year"+this.year)).coalSupply;
+            // let totalCoalUse = JSON.parse(localStorage.getItem("year"+this.year)).totalCoalUse;
+            // console.log("coalUse: "+coalUse);
+            // console.log("coalPrice: "+coalPrice);
+            // console.log("coalSupply: "+coalSupply);
+            // console.log("totalCoalUse: "+totalCoalUse);
         },
         /* coal */
         changeCoalTaxRate(coalTaxRate) {
