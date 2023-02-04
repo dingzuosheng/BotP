@@ -97,7 +97,7 @@ export default {
             /* Simulation */
             show: false,
             /***Coal***/
-            coalTaxRate: 1.0001 * Math.pow(10, 9), //fertig
+            coalTaxRate: 250 * Math.pow(10, 6), //fertig
             totalCoalUse: 4080,
             coalUse: 76.3, //fertig
             coaluserate: 0.257,
@@ -106,25 +106,25 @@ export default {
             coalSupply: 299000, //fertig
             coalSupplyElasticity: 1.2*Math.pow(10,-5),
             /***Oil***/
-            oilTaxRate: 1.0001 * Math.pow(10, 9),
+            oilTaxRate: 250 * Math.pow(10, 6),
             oilUse: 178,
             oiluserate: 0.6,
             oilPrice: 25.1 * Math.pow(10, 9),
             oilPriceFactor: 1000*Math.pow(10,9),
-            oilSupply: 9.880,
+            oilSupply: 9880,
             oilSupplyElasticity: 7.6*Math.pow(10,-7),
             totalOilUse: 9180,
             /*Natural Gas */
-            naturalGasTaxRate: 1.0001 * Math.pow(10, 9),
+            naturalGasTaxRate: 250 * Math.pow(10, 6),
             naturalGasUse: 65.3,
             naturalGasuserate: 0.263,
             naturalGasPrice: 25.0 * Math.pow(10, 9),
             naturalGasPriceFactor: 1000*Math.pow(10,9),
             naturalGasSupply: 7430,
-            naturalGasSupplyElasticity: Math.pow(10,-7),
+            naturalGasSupplyElasticity: Math.pow(10,-6),
             totalNaturalGasUse: 2070,
             /*nuclear*/
-            nuclearTaxRate: 2.37 * Math.pow(10, 9),
+            nuclearTaxRate: 250 * Math.pow(10, 6),
             nuclearUse: 8.91,
             nuclearUseRate: 0.215,
             nuclearPrice: 24.9 * Math.pow(10, 9),
@@ -232,48 +232,100 @@ export default {
         },
         showSimulation() {
             this.show = true;
-
         },
         stopSimulation() {
             this.show = false;
         },
         calculateTaxIncome(){
-            this.coalTaxIncome = this.coalTaxRate * this.coalUse;
-            this.oilTaxIncome = this.oilTaxRate * this.oilUse;
-            this.naturalGasTaxIncome = this.naturalGasTaxRate * this.naturalGasUse;
-            this.nuclearTaxIncome = this.nuclearTaxRate * this.nuclearUse;
+            this.coalTaxIncome = parseInt(this.coalTaxRate * this.coalUse * 100) / 100;
+            this.oilTaxIncome = parseInt(this.oilTaxRate * this.oilUse * 100 ) / 100;
+            this.naturalGasTaxIncome = parseInt(this.naturalGasTaxRate * this.naturalGasUse * 100) / 100;
+            this.nuclearTaxIncome = parseInt(this.nuclearTaxRate * this.nuclearUse * 100) / 100;
+            /*print all parameters*/
+            console.log("coalTaxIncome = coalTaxRate * coalUse: "+this.coalTaxIncome + " = " + this.coalTaxRate + ",  " + this.coalUse);
+            console.log("oilTaxIncome = oilTaxRate * oilUse: "+this.oilTaxIncome + " = " + this.oilTaxRate + ",   " + this.oilUse);
+            console.log("naturalGasTaxIncome = oilTaxRate * oilUse: "+this.naturalGasTaxIncome + " = " + this.naturalGasTaxRate + ", " + this.naturalGasUse);
+            console.log("nuclearTaxIncome = oilTaxRate * oilUse: "+this.nuclearTaxIncome + " = " + this.nuclearTaxRate + ", " + this.nuclearUse);
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
         },
         calculateCoalFormulas(){
             this.coalUse = this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate);
             this.coalPrice = this.coalPriceFactor * this.coalUse / this.coalSupply;
-            this.coalSupply = this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse;
+            this.coalSupply = this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse;//minus
             this.totalCoalUse = this.totalCoalUse + this.coalUse;
+            /*print all */
+            console.log("coalUse = coalUserate * energyDemand * aveEnergyPrice / (coalPrice + coalTaxRate) = "+ this.coalUse + " = " + this.coaluserate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.coalPrice + ",  " + this.coalTaxRate);
+            console.log("coalPrice = coalPriceFactor * coalUse / coalSupply = "+this.coalPrice + " = " + this.coalPriceFactor + ", " + this.coalUse + ", " + this.coalSupply);
+            console.log("coalSupply = coalSupplyElasticity * coalPrice - totalCoalUse" + " = " + this.coalSupply + " = " + this.coalSupplyElasticity + ", " + this.coalPrice + ", "+ this.totalCoalUse)
+            console.log("this.totalCoalUse = this.totalCoalUse + this.coalUse = " + this.totalCoalUse + " = " + this.totalCoalUse + ", " + this.coalUse);
+            console.log("this.totalCoalUse = this.totalCoalUse + this.coalUse = " + this.totalCoalUse + " = " + this.totalCoalUse + ", " + this.coalUse);
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
         },
         calculateOilFormulas(){
             this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate);
             this.oilPrice = this.oilPriceFactor * this.oilUse / this.oilSupply;
-            this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse;
+            this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse;//minus
             this.totalOilUse = this.totalOilUse + this.oilUse;
+            /*print*/
+            console.log("this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate)"+" = " + this.oilUse + " = " + this.oiluserate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.oilPrice + ", " + this.oilTaxRate);
+            console.log("this.oilPrice = this.oilPriceFactor * this.oilUse / this.oilSupply = " + this.oilPrice + " = " + this.oilPriceFactor + ", " + this.oilUse + ", " + this.oilSupply);
+            console.log("this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse = " + this.oilSupply + " = " + this.oilSupplyElasticity + ", " + this.oilPrice + ", " + this.totalOilUse);
+            console.log("this.totalOilUse = this.totalOilUse + this.oilUse = " + this.totalOilUse + ", " + this.totalOilUse + ", " + this.oilUse);
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
         },
         calculateNaturalGasFormulas(){
             this.naturalGasUse = this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate);
-            this.naturalGasPrice = this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply;
-            this.naturalGasSupply = this.naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse;
+            this.naturalGasPrice = this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply;//minus because of supply
+            this.naturalGasSupply = this.naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse; //minus    
             this.totalNaturalGasUse = this.totalNaturalGasUse + this.naturalGasUse;
+            /*print*/
+            console.log("this.naturalGasUse = this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate):" + this.naturalGasUse + " = " + this.naturalGasuserate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.naturalGasPrice + ", " + this.naturalGasTaxRate);
+            console.log("this.naturalGasPrice = this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply: "+ this.naturalGasPrice + " = " + this.naturalGasPriceFactor + ", " + this.naturalGasUse + ", " + this.naturalGasSupply)
+            console.log("naturalGasSupply"+this.naturalGasSupply + " = "+"natualGasSupplyElasticity"+this.naturalGasSupplyElasticity+", "+"naturalGasPrice"+this.naturalGasPrice + "-totalNaturalGasUse "+this.totalNaturalGasUse);
+            console.log("this.totalNaturalGasUse = this.totalNaturalGasUse + this.naturalGasUse: " + this.totalNaturalGasUse + " = " + this.totalNaturalGasUse + ", " + this.naturalGasUse);
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
         },
         calculateNuclearFormulas(){
             this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate);
             this.nuclearPrice = this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply;
-            this.nuclearSupply = this.nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse;
+            this.nuclearSupply = this.nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse;//minus
             this.totalNuclearUse = this.totalNuclearUse + this.nuclearUse;
+            /*print*/
+            console.log("this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate) ===="+ this.nuclearUse + " = " + this.nuclearUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.nuclearPrice + ", " + this.nuclearTaxRate)
+            console.log("this.nuclearPrice = this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply==="+ this.nuclearPrice + " = " + this.nuclearPriceFactor + ", " + this.nuclearUse + ", " + this.nuclearSupply)
+            console.log("nuclearSupply"+this.nuclearSupply + "="+"nuclearSupplyElasticity"+this.nuclearSupplyElasticity+" * "+"nuclearPrice"+this.nuclearPrice + "- totalNuclearUse"+this.totalNuclearUse);
+            console.log("this.totalNuclearUse = this.totalNuclearUse + this.nuclearUse==="+this.totalNuclearUse + " = " + this.totalNuclearUse + ", " + this.nuclearUse);
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
         },
         calculateDamFormulas(){
             this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseTreasury) / this.damPrice;
             this.damPrice = this.damUse / this.damPotential;
+            /*print */
+            console.log("this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseTreasury) / this.damPrice ==="+ this.damUse + " = " + this.damUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.damUseTreasury + ", " + this.damPrice);
+            console.log("this.damPrice = this.damUse / this.damPotential==="+this.damPrice + " = " + this.damUse + ", " + this.damPotential);
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
         },
         calculateSolarFormulas(){
             this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarPrice;
             this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology);
+            /*print */
+            console.log("this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarPrice==="+this.solarUse + " = " + this.solarUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.solarEnergyTreasury + ", " + this.solarPrice);
+            console.log("this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology)==="+this.solarPrice + " = " + this.solarUse + ", " + this.solarEnergyPotential + ", " + this.solarTechnology);
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
+            console.log("==============================================================================================================")
         },
         calculateTechnologyFormulas(){
             this.solarTechnology = this.solarTechnology + this.solarOptimism * this.solarResearchTreasury * this.basicResearchTreasury;
@@ -341,24 +393,32 @@ export default {
             console.log("execute:coalPrice:"+this.coalPrice);
             console.log("execute:coalSupply:"+this.coalSupply);
             console.log("execute:totalCoalUse:"+this.totalCoalUse);
+            console.log("==========================================")
             console.log("execute:oilUse:"+this.oilUse);
             console.log("execute:oilPrice:"+this.oilPrice);
             console.log("execute:oilSupply:"+this.oilSupply);
             console.log("execute:totalOilUse:"+this.totalOilUse);
+            console.log("==========================================")
             console.log("execute:naturalGasUse:"+this.naturalGasUse);
             console.log("execute:naturalGasPrice:"+this.naturalGasPrice);
             console.log("execute:naturalGasSupply:"+this.naturalGasSupply);
             console.log("execute:totalNaturalGasUse:"+this.totalNaturalGasUse);
+            console.log("==========================================")
             console.log("execute:solarUse:"+this.solarUse);
             console.log("execute:solarPrice:"+this.solarPrice);
+            console.log("==========================================")
             console.log("execute:damUse:"+this.damUse);
             console.log("execute:damPrice:"+this.damPrice);
+            console.log("==========================================")
             console.log("execute:energyDemand:"+this.energyDemand);
             console.log("execute:aveEnergyPrice:"+this.aveEnergyPrice);
+            console.log("==========================================")
             console.log("execute:qualityPoints:"+this.qualityPoints);
             console.log("quality of life:"+this.qualityOfLife);
+            console.log("==========================================")
             console.log("execute:sustainabilityPoints:"+this.sustainabilityPts);
             console.log("sustainability: " + this.sustainability);
+            console.log("==========================================")
             console.log("net energy: " + this.netEnergy);
             console.log("nonrenewable Energy: " + this.nonrenewableEnergy);
             console.log("renewable Energy: " + this.renewableEnergy);
@@ -389,7 +449,7 @@ export default {
             this.coaluserate = coaluserate;
         },
         changeCoalPriceFactor(coalPriceFactor) {
-            this.coalPriceFactor = coalPriceFactor;
+            this.coalPriceFactor = coalPriceFactor * Math.pow(10,12);
         },
         changeCoalSupplyElasticity(coalSupplyElasticity) {
             this.coalSupplyElasticity = coalSupplyElasticity;
@@ -402,7 +462,7 @@ export default {
             this.oiluserate = oilUseRate;
         },
         changeOilPriceFactor(oilPriceFactor) {
-            this.oilPriceFactor = oilPriceFactor;
+            this.oilPriceFactor = oilPriceFactor * Math.pow(10,9);
         },
         changeOilSupplyElasticity(oilSupplyElasticity) {
             this.oilSupplyElasticity = oilSupplyElasticity;
@@ -415,7 +475,7 @@ export default {
             this.naturalGasuserate = naturalGasUseRate;
         },
         changeNaturalGasPriceFactor(naturalGasPriceFactor) {
-            this.naturalGasPriceFactor = naturalGasPriceFactor;
+            this.naturalGasPriceFactor = naturalGasPriceFactor  * Math.pow(10,9);
         },
         changeNaturalGasSupplyElasticity(naturalGasSupplyElasticity) {
             this.naturalGasSupplyElasticity = naturalGasSupplyElasticity;
@@ -428,7 +488,7 @@ export default {
             this.nuclearUseRate = nuclearUseRate;
         },
         changeNuclearPriceFactor(nuclearPriceFactor) {
-            this.nuclearPriceFactor = nuclearPriceFactor;
+            this.nuclearPriceFactor = nuclearPriceFactor  * Math.pow(10,9);
         },
         updateNuclearSupplyElasticity(nuclearSupplyElasticity) {
             this.nuclearSupplyElasticity = nuclearSupplyElasticity;
