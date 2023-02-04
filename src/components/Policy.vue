@@ -1,7 +1,7 @@
 <template>
 <div class="policy">
     <div>
-        <h1>Policy of Summary of 1995</h1>
+        <h1>Policy of Summary</h1>
     </div>
     <div class="tables">
         <div>
@@ -87,7 +87,9 @@
         </div>
     </div>
     <div>
-        <h1><strong>Treasury: {{ 1.6}} billion</strong></h1>
+        <h1><strong>Treasury: {{ (this.totalTreasury + this.coalTaxIncome + this.oilTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome
+                                - this.basicResearchTreasury - this.bioResearchTreasury - this.coalResearchTreasury - this.oilResearchTreasury
+                                - this.solarResearchTreasury - this.damUseTreasury) / Math.pow(10,9)}} billion</strong></h1>
     </div>
 </div>
 </template>
@@ -97,7 +99,7 @@ export default {
     name: 'Policy',
     data() {
         return {
-
+            totalTreasury:1.6*Math.pow(10,9)
         }
     },
     props:{
@@ -131,6 +133,7 @@ export default {
 
         solarResearch:Number,
         solarResearchTreasury:Number,
+
     },
     methods: {
 

@@ -11,7 +11,7 @@
             <el-collapse-item title="Formula ">
                 <div class="formula">
                     <div>Natural Gas Use = Use Rate * Energy Demand * Ave Energy Price / (Natural Gas Price + Natural Gas Tax)</div>
-                    <br />
+                    <br/>
                     Where:<br />
                     <div>
                         <div class="row-formula">

@@ -21,7 +21,7 @@
                             <span>Oil Price</span> <span>= {{ this.oilPrice/Math.pow(10,9) }}billion</span> <span>($/Exajoule)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Total Oil Use</span> <span>= {{ this.totalOilUs/1000 }}thousand</span> <span>(Exajoules)</span>
+                            <span>Total Oil Use</span> <span>= {{ this.totalOilUse/1000 }}thousand</span> <span>(Exajoules)</span>
                         </div>
                     </div>
                 </div>

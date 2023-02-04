@@ -5,7 +5,7 @@
             <h1>{{ this.name }}</h1>
         </div>
         <div>
-            Coal Price: {{ this.coalPrice }} $/Exajoule
+            Coal Price: {{ this.coalPrice / Math.pow(10,9) }} billion $/Exajoule
         </div>
         <el-collapse class="collapse-part">
             <el-collapse-item title="Formula ">
@@ -89,7 +89,7 @@ export default {
             });
         },
         changeCoalPriceFactor() {
-            this.coalPriceFactor = parseInt(this.factor*10)/10 * Math.pow(10,12);
+            this.coalPriceFactor = parseInt(this.factor*10)/10;
             this.$emit('changeCoalPriceFactor',this.coalPriceFactor);
         }
     }

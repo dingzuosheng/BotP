@@ -62,8 +62,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            elasticity:Math.pow(10,-7),
-            naturalGasSupplyElasticity:Math.pow(10,-7)
+            elasticity:Math.pow(10,-6),
+            naturalGasSupplyElasticity:Math.pow(10,-6)
         }
     },
     props:{

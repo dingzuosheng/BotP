@@ -5,7 +5,7 @@
             <h1>{{ this.name }}</h1>
         </div>
         <div>
-            Nuclear Price: {{ this.nuclearPrice }}
+            Nuclear Price: {{ this.nuclearPrice / Math.pow(10,9)}} billion
         </div>
         <el-collapse class="collapse-part">
             <el-collapse-item title="Formula ">
@@ -88,7 +88,7 @@ export default {
             });
         },
         changeNuclearPriceFactor(){
-            this.nuclearPriceFactor = parseInt(this.factor) * Math.pow(10,9);
+            this.nuclearPriceFactor = parseInt(this.factor);
             this.$emit('changeNuclearPriceFactor',this.nuclearPriceFactor);
         }
     }

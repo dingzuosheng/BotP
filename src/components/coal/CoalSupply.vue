@@ -5,7 +5,7 @@
                 <h1>{{ this.name }}</h1>
             </div> 
             <div>
-                Coal Supply: {{ this.coalSupply }} Exajoules
+                Coal Supply: {{ this.coalSupply / 1000 }} thousand Exajoules
             </div> 
             <el-collapse class="collapse-part">
             <el-collapse-item title="Formula ">
