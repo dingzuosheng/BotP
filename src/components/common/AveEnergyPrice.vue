@@ -5,7 +5,7 @@
                 <h1>{{ this.name }}</h1>
             </div> 
             <div>
-                Average Energy Price: {{ this.aveEnergyPrice }}
+                Average Energy Price: {{ this.aveEnergyPrice/Math.pow(10,9) }} billion
             </div> 
             <el-collapse class="collapse-part">
             <el-collapse-item title="Formula ">

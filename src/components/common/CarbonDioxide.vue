@@ -69,7 +69,7 @@ export default {
             causes:[],
             effects:[],
             quantity:20,
-            co2Quantity:20* Math.pow(10,6)
+            co2Quantity:20
         }
     },
     props:{

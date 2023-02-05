@@ -5,7 +5,7 @@
                 <h1>{{ this.name }}</h1>
             </div>  
             <div>
-                Birth Rate: {{ this.birthRate }} %
+                Birth Rate: {{ this.birthRate * 100}} %
             </div> 
             <el-collapse class="collapse-part">
             <el-collapse-item title="Formula ">

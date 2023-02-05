@@ -144,7 +144,7 @@ export default {
             solarUse: 12.1,
             solarUseRate: 0.12,
             solarPrice: 24.8 * Math.pow(10, 9),
-            solarEnergyPotential: Math.pow(10,-11),
+            solarEnergyPotential: Math.pow(10,-9),
             solarEnergyTreasury: 109 * Math.pow(10, 9),
             /*technology*/
             solarTechnology: 1.02,
@@ -176,9 +176,10 @@ export default {
             damUse: 18,
             damUseRate: 0.12,
             damPrice: 25.0 * Math.pow(10, 9),
-            damPotential: Math.pow(10,-11),
+            damPotential: Math.pow(10,-9),
             /*common*/
             co2: 20 * Math.pow(10, 6),
+            co2Quantity:20*Math.pow(10,6),
             globalTemperature: 56,
             t0:56,
             co2Eff: Math.pow(10,-12),
@@ -200,10 +201,10 @@ export default {
             lifestyle: 2.12 * Math.pow(10, 9),
             c4:100*Math.pow(10,3),
             qualityOfLife: 1.03,
-            population: 5.26 * Math.pow(10, 9), //公式尚未套用
+            population: 5.26 * Math.pow(10, 9),
             starvation:41.4*Math.pow(10,6),//应该进行变化
             birthRate: 0.0197,
-            maximalBirthRate:0.05,
+            maximalBirthRate:5,
             sustainability: 0.170,
             sustainabilityPts: 681,
             valueOfSustainability:100,
@@ -242,10 +243,25 @@ export default {
             this.naturalGasTaxIncome = parseInt(this.naturalGasTaxRate * this.naturalGasUse * 100) / 100;
             this.nuclearTaxIncome = parseInt(this.nuclearTaxRate * this.nuclearUse * 100) / 100;
             /*print all parameters*/
-            console.log("coalTaxIncome = coalTaxRate * coalUse: "+this.coalTaxIncome + " = " + this.coalTaxRate + ",  " + this.coalUse);
-            console.log("oilTaxIncome = oilTaxRate * oilUse: "+this.oilTaxIncome + " = " + this.oilTaxRate + ",   " + this.oilUse);
-            console.log("naturalGasTaxIncome = oilTaxRate * oilUse: "+this.naturalGasTaxIncome + " = " + this.naturalGasTaxRate + ", " + this.naturalGasUse);
-            console.log("nuclearTaxIncome = oilTaxRate * oilUse: "+this.nuclearTaxIncome + " = " + this.nuclearTaxRate + ", " + this.nuclearUse);
+            console.log("coalTaxIncome = coalTaxRate * coalUse: ");
+            console.log("coalTaxIncome: "+this.coalTaxIncome);
+            console.log("coalTaxRate: " + this.coalTaxRate);
+            console.log("coalUse: "+ this.coalUse);
+            console.log("===============================================")
+            console.log("oilTaxIncome = oilTaxRate * oilUse: ");
+            console.log("oilTaxIncome: "+this.oilTaxIncome);
+            console.log("oilTaxRate: "+this.oilTaxRate);
+            console.log("oilUse: " + this.oilUse);
+            console.log("===============================================")
+            console.log("naturalGasTaxIncome = naturalGasTaxRate * naturalGasUse: ");
+            console.log("naturalGasTaxIncome: " + this.naturalGasTaxIncome);
+            console.log("naturalGasTaxRate: " + this.naturalGasTaxRate);
+            console.log("naturalGasUse:" + this.naturalGasUse);
+            console.log("===============================================")
+            console.log("nuclearTaxIncome = oilTaxRate * oilUse: ");
+            console.log("nuclearTaxIncome: "+this.nuclearTaxIncome);
+            console.log("nuclearTaxRate: " + this.nuclearTaxRate)
+            console.log("nuclearUse: "   + this.nuclearUse)
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
@@ -256,11 +272,30 @@ export default {
             this.coalSupply = this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse;//minus
             this.totalCoalUse = this.totalCoalUse + this.coalUse;
             /*print all */
-            console.log("coalUse = coalUserate * energyDemand * aveEnergyPrice / (coalPrice + coalTaxRate) = "+ this.coalUse + " = " + this.coaluserate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.coalPrice + ",  " + this.coalTaxRate);
-            console.log("coalPrice = coalPriceFactor * coalUse / coalSupply = "+this.coalPrice + " = " + this.coalPriceFactor + ", " + this.coalUse + ", " + this.coalSupply);
-            console.log("coalSupply = coalSupplyElasticity * coalPrice - totalCoalUse" + " = " + this.coalSupply + " = " + this.coalSupplyElasticity + ", " + this.coalPrice + ", "+ this.totalCoalUse)
-            console.log("this.totalCoalUse = this.totalCoalUse + this.coalUse = " + this.totalCoalUse + " = " + this.totalCoalUse + ", " + this.coalUse);
-            console.log("this.totalCoalUse = this.totalCoalUse + this.coalUse = " + this.totalCoalUse + " = " + this.totalCoalUse + ", " + this.coalUse);
+            console.log("coalUse = coalUserate * energyDemand * aveEnergyPrice / (coalPrice + coalTaxRate)");
+            console.log("coalUse: "+this.coalUse);
+            console.log("coalUserate: "+this.coalUserate);
+            console.log("energyDemand: "+this.energyDemand);
+            console.log("aveEnergyPrice: "+this.aveEnergyPrice);
+            console.log("coalPrice: "+this.coalPrice);
+            console.log("coalTaxRate: "+this.coalTaxRate);
+            console.log("====================================================================================")
+            console.log("coalPrice = coalPriceFactor * coalUse / coalSupply");
+            console.log("coalPrice: "+ this.coalPrice)
+            console.log("coalPriceFactor: "+ this.coalPriceFactor)
+            console.log("coalUse: "+ this.coalUse)
+            console.log("coalSupply: "+ this.coalSupply)
+            console.log("====================================================================================")
+            console.log("coalSupply = coalSupplyElasticity * coalPrice - totalCoalUse")
+            console.log("coalSupply: "+ this.coalSupply)
+            console.log("coalSupplyElasticity: "+ this.coalSupplyElasticity)
+            console.log("coalPrice: "+ this.coalPrice)
+            console.log("totalCoalUse: "+ this.totalCoalUse)
+            console.log("====================================================================================")
+            console.log("this.totalCoalUse = this.totalCoalUse + this.coalUse");
+            console.log("totalCoalUse: " + this.totalCoalUse)
+            console.log("totalCoalUse: " + this.totalCoalUse)
+            console.log("coalUse: " + this.coalUse)
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
@@ -271,10 +306,30 @@ export default {
             this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse;//minus
             this.totalOilUse = this.totalOilUse + this.oilUse;
             /*print*/
-            console.log("this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate)"+" = " + this.oilUse + " = " + this.oiluserate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.oilPrice + ", " + this.oilTaxRate);
-            console.log("this.oilPrice = this.oilPriceFactor * this.oilUse / this.oilSupply = " + this.oilPrice + " = " + this.oilPriceFactor + ", " + this.oilUse + ", " + this.oilSupply);
-            console.log("this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse = " + this.oilSupply + " = " + this.oilSupplyElasticity + ", " + this.oilPrice + ", " + this.totalOilUse);
-            console.log("this.totalOilUse = this.totalOilUse + this.oilUse = " + this.totalOilUse + ", " + this.totalOilUse + ", " + this.oilUse);
+            console.log("this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate)");
+            console.log("oilUse: "+ this.oilUse)
+            console.log("oilUserate: "+ this.oilUserate)
+            console.log("energyDemand: "+ this.energyDemand)
+            console.log("aveEnergyPrice: "+ this.aveEnergyPrice)
+            console.log("oilPrice: "+ this.oilPrice)
+            console.log("oilTaxRate: "+ this.oilTaxRate)
+            console.log("==========================================================================================================")
+            console.log("this.oilPrice = this.oilPriceFactor * this.oilUse / this.oilSupply");
+            console.log("oilPrice: " + this.oilPrice)
+            console.log("oilPriceFactor: " + this.oilPriceFactor)
+            console.log("oilUse: " + this.oilUse)
+            console.log("oilSupply: " + this.oilSupply)
+            console.log("===========================================================================================================")
+            console.log("this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse");
+            console.log("oilSupply" + this.oilSupply)
+            console.log("oilSupplyElasticity" + this.oilSupplyElasticity)
+            console.log("oilPrice" + this.oilPrice)
+            console.log("totalOilUse" + this.totalOilUse)
+            console.log("============================================================================================================")
+            console.log("this.totalOilUse = this.totalOilUse + this.oilUse");
+            console.log("totalOilUse: " + this.totalOilUse)
+            console.log("totalOilUse: " + this.totalOilUse)
+            console.log("oilUse: " + this.oilUse)
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
@@ -285,24 +340,65 @@ export default {
             this.naturalGasSupply = this.naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse; //minus    
             this.totalNaturalGasUse = this.totalNaturalGasUse + this.naturalGasUse;
             /*print*/
-            console.log("this.naturalGasUse = this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate):" + this.naturalGasUse + " = " + this.naturalGasuserate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.naturalGasPrice + ", " + this.naturalGasTaxRate);
-            console.log("this.naturalGasPrice = this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply: "+ this.naturalGasPrice + " = " + this.naturalGasPriceFactor + ", " + this.naturalGasUse + ", " + this.naturalGasSupply)
-            console.log("naturalGasSupply"+this.naturalGasSupply + " = "+"natualGasSupplyElasticity"+this.naturalGasSupplyElasticity+", "+"naturalGasPrice"+this.naturalGasPrice + "-totalNaturalGasUse "+this.totalNaturalGasUse);
-            console.log("this.totalNaturalGasUse = this.totalNaturalGasUse + this.naturalGasUse: " + this.totalNaturalGasUse + " = " + this.totalNaturalGasUse + ", " + this.naturalGasUse);
+            console.log("this.naturalGasUse = this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate):");
+            console.log("naturalGasUse: " + this.naturalGasUse)
+            console.log("naturalGasuserate: " + this.naturalGasuserate);
+            console.log("energyDemand: " + this.energyDemand);
+            console.log("aveEnergyPrice: " + this.aveEnergyPrice);
+            console.log("naturalGasPrice: " + this.naturalGasPrice);
+            console.log("naturalGasTaxRate: " + this.naturalGasTaxRate);
+            console.log("==================================================")
+            console.log("this.naturalGasPrice = this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply: ")
+            console.log("naturalGasPrice: " + this.naturalGasPrice);
+            console.log("naturalGasPriceFactor: " + this.naturalGasPriceFactor);
+            console.log("naturalGasUse: " + this.naturalGasUse);
+            console.log("naturalGasSupply: " + this.naturalGasSupply);
+            console.log("==================================================")
+            console.log("naturalGasSupply = natualGasSupplyElasticity * naturalGasPrice - totalNaturalGasUse");
+            console.log("naturalGasSupply: " + this.naturalGasSupply);
+            console.log("natualGasSupplyElasticity: " + this.natualGasSupplyElasticity);
+            console.log("naturalGasPrice: " + this.naturalGasPrice);
+            console.log("totalNaturalGasUse: " + this.totalNaturalGasUse);
+            console.log("==================================================")
+            console.log("this.totalNaturalGasUse = this.totalNaturalGasUse + this.naturalGasUse: ");
+            console.log("totalNaturalGasUse: " + this.totalNaturalGasUse);
+            console.log("totalNaturalGasUse: " + this.totalNaturalGasUse);
+            console.log("naturalGasUse: " + this.naturalGasUse);
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
         },
+
         calculateNuclearFormulas(){
             this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate);
             this.nuclearPrice = this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply;
             this.nuclearSupply = this.nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse;//minus
             this.totalNuclearUse = this.totalNuclearUse + this.nuclearUse;
             /*print*/
-            console.log("this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate) ===="+ this.nuclearUse + " = " + this.nuclearUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.nuclearPrice + ", " + this.nuclearTaxRate)
-            console.log("this.nuclearPrice = this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply==="+ this.nuclearPrice + " = " + this.nuclearPriceFactor + ", " + this.nuclearUse + ", " + this.nuclearSupply)
-            console.log("nuclearSupply"+this.nuclearSupply + "="+"nuclearSupplyElasticity"+this.nuclearSupplyElasticity+" * "+"nuclearPrice"+this.nuclearPrice + "- totalNuclearUse"+this.totalNuclearUse);
-            console.log("this.totalNuclearUse = this.totalNuclearUse + this.nuclearUse==="+this.totalNuclearUse + " = " + this.totalNuclearUse + ", " + this.nuclearUse);
+            console.log("this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate) ====")
+            console.log("nuclearUse"+this.nuclearUse)
+            console.log("nuclearUserate"+this.nuclearUserate)
+            console.log("energyDemand"+this.energyDemand)
+            console.log("aveEnergyPrice"+this.aveEnergyPrice)
+            console.log("nuclearPrice"+this.nuclearPrice)
+            console.log("nuclearTaxRate"+this.nuclearTaxRate)
+            console.log("==================================================")
+            console.log("this.nuclearPrice = this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply===")
+            console.log("nuclearPrice: "+ this.nuclearPrice)
+            console.log("nuclearPriceFactor: " + this.nuclearPriceFactor)
+            console.log("nuclearUse: " + this.nuclearUse)
+            console.log("nuclearSupply: " + this.nuclearSupply)
+            console.log("====================================================")
+            console.log("nuclearSupply = nuclearSupplyElasticity * nuclearPrice - totalNuclearUse");
+            console.log("nuclearSupply: " + this.nuclearSupply)
+            console.log("nuclearSupplyElasticity: " + this.nuclearSupplyElasticity)
+            console.log("nuclearPrice: " + this.nuclearPrice)
+            console.log("totalNuclearUse: " + this.totalNuclearUse)
+            console.log("========================================================================")
+            console.log("this.totalNuclearUse = this.totalNuclearUse + this.nuclearUse===");
+            console.log("totalNuclearUse: " + this.totalNuclearUse)
+            console.log("totalNuclearUse: " + this.totalNuclearUse)
+            console.log("NuclearUse: " + this.nuclearUse)
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
@@ -321,18 +417,61 @@ export default {
             this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarPrice;
             this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology);
             /*print */
-            console.log("this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarPrice==="+this.solarUse + " = " + this.solarUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.solarEnergyTreasury + ", " + this.solarPrice);
-            console.log("this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology)==="+this.solarPrice + " = " + this.solarUse + ", " + this.solarEnergyPotential + ", " + this.solarTechnology);
+            console.log("this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarPrice===");
+            console.log("solarUse: "+this.solarUse);
+            console.log("solarUseRate: " + this.solarUseRate);
+            console.log("energyDemand: " + this.energyDemand);
+            console.log("aveEnergyPrice: " + this.aveEnergyPrice);
+            console.log("solarEnergyTreasury: " + this.solarEnergyTreasury);
+            console.log("solarPrice: " + this.solarPrice);
+            console.log("==============================================================================")
+            console.log("this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology)===");
+            console.log("solarPrice: " + this.solarPrice)
+            console.log("solarUse: " + this.solarUse)
+            console.log("solarEnergyPotential: " + this.solarEnergyPotential)
+            console.log("solarTechnology: " + this.solarTechnology)
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
         },
         calculateTechnologyFormulas(){
-            this.solarTechnology = this.solarTechnology + this.solarOptimism * this.solarResearchTreasury * this.basicResearchTreasury;
-            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(this.bioResearchTreasury * this.basicResearchTreasury);
-            this.coalTechnology = this.coalTechnology + this.coalOptimism * this.coalResearchTreasury * this.basicResearchTreasury;
-            this.oilTechnology = this.oilTechnology + this.oilOptimism * this.oilResearchTreasury * this.basicResearchTreasury;
-            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * this.nuclearResearchTreasury * this.basicResearchTreasury;
+            this.solarTechnology = this.solarTechnology + this.solarOptimism * this.solarResearchTreasury/Math.pow(10,9) * this.basicResearchTreasury/Math.pow(10,9);
+            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(this.bioResearchTreasury/Math.pow(10,9) * this.basicResearchTreasury/Math.pow(10,9));
+            this.coalTechnology = this.coalTechnology + this.coalOptimism * this.coalResearchTreasury/Math.pow(10,9) * this.basicResearchTreasury/Math.pow(10,9);
+            this.oilTechnology = this.oilTechnology + this.oilOptimism * this.oilResearchTreasury/Math.pow(10,9) * this.basicResearchTreasury/Math.pow(10,9);
+            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * this.nuclearResearchTreasury/Math.pow(10,9) * this.basicResearchTreasury/Math.pow(10,9);
+            console.log("==================================================================================================================")
+            console.log("==================================================================================================================")
+            console.log("==================================================================================================================")
+            console.log("this.solarTechnology = this.solarTechnology + this.solarOptimism * this.solarResearchTreasury * this.basicResearchTreasury");
+            console.log("solarTechnology====="+this.solarTechnology)
+            console.log("solarOptimism====="+this.solarOptimism)
+            console.log("solarResearchTreasury====="+this.solarResearchTreasury)
+            console.log("basicResearchTreasury====="+this.basicResearchTreasury)
+            console.log("=======================================================================================")
+            console.log("this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(this.bioResearchTreasury * this.basicResearchTreasury)")
+            console.log("bioTechnology===="+this.bioTechnology)
+            console.log("bioOptimism===="+this.bioOptimism)
+            console.log("bioResearchTreasury===="+this.bioResearchTreasury)
+            console.log("basicResearchTreasury===="+this.basicResearchTreasury)
+            console.log("=======================================================================================")
+            console.log("this.coalTechnology = this.coalTechnology + this.coalOptimism * this.coalResearchTreasury * this.basicResearchTreasury")
+            console.log("coalTechnology===="+this.coalTechnology);
+            console.log("coalOptimism===="+this.coalOptimism);
+            console.log("coalResearchTreasury===="+this.coalResearchTreasury);
+            console.log("basicResearchTreasury===="+this.basicResearchTreasury);
+            console.log("=======================================================================================")
+            console.log("this.oilTechnology = this.oilTechnology + this.oilOptimism * this.oilResearchTreasury * this.basicResearchTreasury")
+            console.log("oilTechnology===="+this.oilTechnology)
+            console.log("oilOptimism===="+this.oilOptimism)
+            console.log("oilResearchTreasury===="+this.oilResearchTreasury)
+            console.log("basicResearchTreasury===="+this.basicResearchTreasury)
+            console.log("=======================================================================================")
+            console.log("this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * this.nuclearResearchTreasury * this.basicResearchTreasury")
+            console.log("nuclearTechnology"+this.nuclearTechnology)
+            console.log("nuclearOptimisim"+this.nuclearOptimism)
+            console.log("nuclearResearchTreasury"+this.nuclearResearchTreasury)
+            console.log("basicResearchTreasury"+this.basicResearchTreasury)            
         },
         calculateAirPolutionFormulas(){
             this.co2 = this.co2 + this.co2Quantity * (this.coalUse + this.oilUse + this.naturalGasUse);
@@ -340,6 +479,40 @@ export default {
             this.seeLevel = (this.globalTemperature - this.basicTemperature) * this.meltingRate;
             this.no2 = (this.c1 * this.coalUse / this.coalTechnology) + (this.c2 * this.oilUse / this.oilTechnology);
             this.so2 = this.sulfurContent * this.coalUse / this.coalTechnology;
+            console.log("=======================================================================================")
+            console.log("=======================================================================================")
+            console.log("=======================================================================================")
+            console.log("this.co2 = this.co2 + this.co2Quantity * (this.coalUse + this.oilUse + this.naturalGasUse)")
+            console.log("co2===="+this.co2)
+            console.log("co2Quantity===="+this.co2Quantity)
+            console.log("coalUse==="+this.coalUse)
+            console.log("oilUse==="+this.oilUse)
+            console.log("naturalGasUse==="+this.naturalGasUse)
+            console.log("=======================================================================================")
+            console.log("this.globalTemperature = this.t0 + this.co2Eff * this.co2")
+            console.log("globalTemperature===="+this.globalTemperature)
+            console.log("t0===="+this.t0)
+            console.log("co2Eff===="+this.co2Eff)
+            console.log("=======================================================================================")
+            console.log("this.seeLevel = (this.globalTemperature - this.basicTemperature) * this.meltingRate")
+            console.log("seeLevel===="+this.seeLevel);
+            console.log("basicTemperature===="+this.basicTemperature)
+            console.log("meltingRate===="+this.meltingRate)
+            console.log("=======================================================================================")
+            console.log("this.no2 = (this.c1 * this.coalUse / this.coalTechnology) + (this.c2 * this.oilUse / this.oilTechnology)")
+            console.log("no2==="+this.no2)
+            console.log("c1==="+this.c1)
+            console.log("coalUse==="+this.coalUse)
+            console.log("coalTechnology==="+this.coalTechnology)
+            console.log("c2==="+this.c2)
+            console.log("oilUse==="+this.oilUse)
+            console.log("oilTechnology==="+this.oilTechnology)
+            console.log("=======================================================================================")
+            console.log("this.so2 = this.sulfurContent * this.coalUse / this.coalTechnology")
+            console.log("sulfurContent==="+this.sulfurContent)
+            console.log("coalUse==="+this.coalUse)
+            console.log("coalTechnology==="+this.coalTechnology)
+
         },
         calculateEnergyFormulas(){
             this.energyConservation = this.priceElasticity * Math.sqrt(this.aveEnergyPrice);
@@ -353,23 +526,95 @@ export default {
                                 + (this.solarPrice + 0) * this.solarUse 
                                 + (this.damPrice + 0) * this.damUse) 
                                 / (this.coalUse + this.oilUse + this.naturalGasUse + this.solarUse + this.damUse);
+            console.log("===========================================================================================")
+            console.log("===========================================================================================")
+            console.log("===========================================================================================")
+            console.log("this.energyConservation = this.priceElasticity * Math.sqrt(this.aveEnergyPrice)")
+            console.log("energyConservation==="+this.energyConservation)
+            console.log("priceElasticity==="+this.priceElasticity)
+            console.log("aveEnergyPrice==="+this.aveEnergyPrice)
+            console.log("=======================================================================================")
+            console.log("this.netEnergy = this.energyConservation + this.renewableEnergy + this.nonrenewableEnergy")
+            console.log("netEnergy===="+this.netEnergy)
+            console.log("energyConservation===="+this.energyConservation)
+            console.log("renewableEnergy===="+this.renewableEnergy)
+            console.log("nonrenewableEnergy===="+this.nonrenewableEnergy)
+            console.log("=======================================================================================")
+            console.log("this.renewableEnergy = this.solarUse + this.damUse")
+            console.log("this.solarUse ===="+this.solarUse)
+            console.log("this.damUse ===="+this.damUse)
+            console.log("=======================================================================================")
+            console.log("nonrenewableEnergy = this.coalUse + this.oilUse + this.naturalGasUse + this.nuclearUse")
+            console.log("coalUse===="+this.coalUse)
+            console.log("oilUse===="+this.oilUse)
+            console.log("naturalGasUse===="+this.naturalGasUse)
+            console.log("nuclearUse===="+this.nuclearUse)
+            console.log("aveEnergyPrice===="+this.aveEnergyPrice)
         },
         calculatePopulationFormulas(){
             this.birthRate = this.maximalBirthRate / (1 + this.qualityOfLife);
             this.population = this.population * (1 + this.birthRate/100) - this.starvation;
+            console.log("===================================================================")
+            console.log("===================================================================")
+            console.log("===================================================================")
+            console.log("this.birthRate = this.maximalBirthRate / (1 + this.qualityOfLife)")
+            console.log("birthRate===="+this.birthRate)
+            console.log("maximalBirthRate===="+this.maximalBirthRate)
+            console.log("quality of life===="+this.qualityOfLife)
+            console.log("=======================================================================================")
+            console.log("this.population = this.population * (1 + this.birthRate/100) - this.starvation")
+            console.log("population===="+this.population)
+            console.log("birthRate===="+this.birthRate)
+            console.log("starvation===="+this.starvation)
         },
         calculateSustainabilityFormulas(){
             this.sustainabilityPts = this.valueOfSustainability * this.sustainability;
             this.sustainability = this.renewableEnergy * (4 - this.birthRate) / (this.renewableEnergy + this.nonrenewableEnergy);
+            console.log("===================================================================")
+            console.log("===================================================================")
+            console.log("===================================================================")
+            console.log("this.sustainabilityPts = this.valueOfSustainability * this.sustainability")
+            console.log("sustainabilityPts===="+this.sustainabilityPts)
+            console.log("valueOfSustainability===="+this.valuOfSustainability)
+            console.log("sustainability===="+this.sustainability)
+            console.log("=======================================================================================")
+            console.log("this.sustainability = this.renewableEnergy * (4 - this.birthRate) / (this.renewableEnergy + this.nonrenewableEnergy)")
+            console.log("sustainability===="+this.sustainability);
+            console.log("renewablEnergy===="+this.renewableEnergy);
+            console.log("birthRate===="+this.birthRate);
+            console.log("renewableEnergy===="+this.renewableEnergy);
+            console.log("nonrenewableEnergy===="+this.nonrenewableEnergy);
         },
         calculateQualityOfLifeFormulas(){
             this.lifestyle = this.c4 * this.netEnergy;
             this.qualityOfLife = this.lifeValue * this.lifestyle / this.population;
             this.qualityPoints = this.valueOfQualityOfLife * this.qualityOfLife;
+            console.log("=============================================================")
+            console.log("=============================================================")
+            console.log("=============================================================")
+            console.log("life style = this.c4 * this.netEnergy")
+            console.log("lifestyle===="+this.lifestyle)
+            console.log("c4===="+this.c4)
+            console.log("netEnergy===="+this.netEnergy)
+            console.log("=======================================================================================")
+            console.log("this.qualityOfLife = this.lifeValue * this.lifestyle / this.population")
+            console.log("qualityOfLife===="+this.qualityOfLife)
+            console.log("lifeValue===="+this.lifeValue)
+            console.log("lifeStyle===="+this.lifestyle)
+            console.log("population===="+this.population)
+            console.log("=======================================================================================")
+            console.log("this.qualityPoints = this.valueOfQualityOfLife * this.qualityOfLife")
+            console.log("qualityPoints===="+this.qualityPoints)
+            console.log("valueOfQualityOfLife===="+this.valueOfQualityOfLife)
+            console.log("qualityOfLife===="+this.qualityOfLife)
         },
         execute() {
             /*formula execute*/
             this.energyDemand = this.energyDemand * 1.01;
+            this.year++;
+            console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            console.log("<<============================================="+this.year+"======================================>");
+            console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             
             this.calculateCoalFormulas();
             this.calculateOilFormulas();
@@ -385,10 +630,9 @@ export default {
             this.calculateQualityOfLifeFormulas();          
             this.calculateTaxIncome();
 
-            this.year++;
-
-            console.log("Year "+ this.year);
+           
             console.log("energyDemand: "+this.energyDemand);
+            console.log("=========================================")
             console.log("execute:coalUse:"+this.coalUse);
             console.log("execute:coalPrice:"+this.coalPrice);
             console.log("execute:coalSupply:"+this.coalSupply);
@@ -410,7 +654,24 @@ export default {
             console.log("execute:damUse:"+this.damUse);
             console.log("execute:damPrice:"+this.damPrice);
             console.log("==========================================")
-            console.log("execute:energyDemand:"+this.energyDemand);
+            console.log("CO2:"+this.co2);
+            console.log("Global Tempeprature:"+this.globalTemperature);
+            console.log("See Level:"+this.seeLevel);
+            console.log("SO2:"+this.so2);
+            console.log("NO2:"+this.no2);
+            console.log("==========================================")
+            console.log("Coal-Research:"+this.coalResearch)
+            console.log("Coal-Technology:"+this.coalTechnology)
+            console.log("Oil-Research:"+this.oilResearch)
+            console.log("Oil-Technology:"+this.oilTechnology)
+            console.log("Nuclear-Research:"+this.nuclearResearch)
+            console.log("Nuclear-Technology:"+this.nuclearTechnology)
+            console.log("Solar-Research:"+this.solarResearch)
+            console.log("Solar-Technology:"+this.solarTechnology)
+            console.log("Bio-Research:"+this.bioResearch)
+            console.log("Bio-Technology:"+this.bioTechnology)
+            console.log("Basic-Research:"+this.basicResearch)
+            console.log("==========================================")
             console.log("execute:aveEnergyPrice:"+this.aveEnergyPrice);
             console.log("==========================================")
             console.log("execute:qualityPoints:"+this.qualityPoints);
