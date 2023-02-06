@@ -269,7 +269,7 @@ export default {
         calculateCoalFormulas(){
             this.coalUse = this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate);
             this.coalPrice = this.coalPriceFactor * this.coalUse / this.coalSupply;
-            this.coalSupply = this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse;//minus
+            this.coalSupply = this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse;
             this.totalCoalUse = this.totalCoalUse + this.coalUse;
             /*print all */
             console.log("coalUse = coalUserate * energyDemand * aveEnergyPrice / (coalPrice + coalTaxRate)");

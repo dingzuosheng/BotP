@@ -73,19 +73,19 @@ export default {
     },
     mounted() {
         const ctx = document.getElementById('energyDemandChart');
-        const labels = [1990];
+        const labels = [1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000];
         const data = {
             labels: labels,
             datasets: [{
                 label: 'Energy Demand Dataset',
-                data: [this.energyDemand],
+                data: [this.energyDemand,this.energyDemand*Math.pow(1.01,1),this.energyDemand*Math.pow(1.01,2),this.energyDemand*Math.pow(1.01,3),this.energyDemand*Math.pow(1.01,4),this.energyDemand*Math.pow(1.01,5),this.energyDemand*Math.pow(1.01,6),this.energyDemand*Math.pow(1.01,7),this.energyDemand*Math.pow(1.01,8),this.energyDemand*Math.pow(1.01,9),this.energyDemand*Math.pow(1.01,10),],
                 fill:false,
                 borderCorlor:'rgb(75,192,192)',
                 tension:0.1
             }]
         };
         const energyDemandChart = new Chart(ctx,{
-            type:'bar',
+            type:'line',//doughnut//bar
             data:data
         });
         energyDemandChart;
