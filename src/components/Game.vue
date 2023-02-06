@@ -211,7 +211,7 @@ export default {
             qualityPoints: 7.70 * Math.pow(10, 3),
             valueOfQualityOfLife:100,
             lifeValue:0.1,
-            year:1989,
+            year:1990,
         }
     },
     methods: {
@@ -274,7 +274,7 @@ export default {
             /*print all */
             console.log("coalUse = coalUserate * energyDemand * aveEnergyPrice / (coalPrice + coalTaxRate)");
             console.log("coalUse: "+this.coalUse);
-            console.log("coalUserate: "+this.coalUserate);
+            console.log("coalUserate: "+this.coaluserate);
             console.log("energyDemand: "+this.energyDemand);
             console.log("aveEnergyPrice: "+this.aveEnergyPrice);
             console.log("coalPrice: "+this.coalPrice);
@@ -308,7 +308,7 @@ export default {
             /*print*/
             console.log("this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate)");
             console.log("oilUse: "+ this.oilUse)
-            console.log("oilUserate: "+ this.oilUserate)
+            console.log("oilUserate: "+ this.oiluserate)
             console.log("energyDemand: "+ this.energyDemand)
             console.log("aveEnergyPrice: "+ this.aveEnergyPrice)
             console.log("oilPrice: "+ this.oilPrice)
@@ -321,10 +321,10 @@ export default {
             console.log("oilSupply: " + this.oilSupply)
             console.log("===========================================================================================================")
             console.log("this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse");
-            console.log("oilSupply" + this.oilSupply)
-            console.log("oilSupplyElasticity" + this.oilSupplyElasticity)
-            console.log("oilPrice" + this.oilPrice)
-            console.log("totalOilUse" + this.totalOilUse)
+            console.log("oilSupply: " + this.oilSupply)
+            console.log("oilSupplyElasticity: " + this.oilSupplyElasticity)
+            console.log("oilPrice: " + this.oilPrice)
+            console.log("totalOilUse: " + this.totalOilUse)
             console.log("============================================================================================================")
             console.log("this.totalOilUse = this.totalOilUse + this.oilUse");
             console.log("totalOilUse: " + this.totalOilUse)
@@ -356,7 +356,7 @@ export default {
             console.log("==================================================")
             console.log("naturalGasSupply = natualGasSupplyElasticity * naturalGasPrice - totalNaturalGasUse");
             console.log("naturalGasSupply: " + this.naturalGasSupply);
-            console.log("natualGasSupplyElasticity: " + this.natualGasSupplyElasticity);
+            console.log("natualGasSupplyElasticity: " + this.naturalGasSupplyElasticity);
             console.log("naturalGasPrice: " + this.naturalGasPrice);
             console.log("totalNaturalGasUse: " + this.totalNaturalGasUse);
             console.log("==================================================")
@@ -377,7 +377,7 @@ export default {
             /*print*/
             console.log("this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate) ====")
             console.log("nuclearUse"+this.nuclearUse)
-            console.log("nuclearUserate"+this.nuclearUserate)
+            console.log("nuclearUserate"+this.nuclearUseRate)
             console.log("energyDemand"+this.energyDemand)
             console.log("aveEnergyPrice"+this.aveEnergyPrice)
             console.log("nuclearPrice"+this.nuclearPrice)
@@ -575,7 +575,7 @@ export default {
             console.log("===================================================================")
             console.log("this.sustainabilityPts = this.valueOfSustainability * this.sustainability")
             console.log("sustainabilityPts===="+this.sustainabilityPts)
-            console.log("valueOfSustainability===="+this.valuOfSustainability)
+            console.log("valueOfSustainability===="+this.valueOfSustainability)
             console.log("sustainability===="+this.sustainability)
             console.log("=======================================================================================")
             console.log("this.sustainability = this.renewableEnergy * (4 - this.birthRate) / (this.renewableEnergy + this.nonrenewableEnergy)")
