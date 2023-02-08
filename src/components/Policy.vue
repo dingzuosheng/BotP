@@ -97,11 +97,6 @@
 <script>
 export default {
     name: 'Policy',
-    data() {
-        return {
-            totalTreasury:1.6*Math.pow(10,9)
-        }
-    },
     props:{
         coalTaxRate: Number,
         oilTaxRate:Number,
@@ -134,10 +129,9 @@ export default {
         solarResearch:Number,
         solarResearchTreasury:Number,
 
-    },
-    methods: {
+        totalTreasury:Number,
 
-    },
+    }
 }
 </script>
 

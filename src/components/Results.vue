@@ -7,7 +7,7 @@
             <thead>
                 <tr>
                     <td>Positive Points</td>
-                    <td>Total Points: {{ this.qualityPoints + this.sustainabilityPts }}</td>
+                    <td>Total Points: {{ this.totalPoints }}</td>
                     <td>Negative Points</td>
                 </tr>
             </thead>
@@ -31,7 +31,8 @@ export default {
     name:'Results',
     props:{
         qualityPoints:Number,
-        sustainabilityPts:Number
+        sustainabilityPts:Number,
+        totalPoints:Number
     }
 }
 </script>
