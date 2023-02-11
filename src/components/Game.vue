@@ -11,14 +11,13 @@
         <button id="btn-sub" @click="toResults">Results</button>
         <button>About this Game</button>
         <button @click="toConnections">Connections</button>
-        <button>New Game</button>
-        <button>Quit</button>
+        <button @click="newGame">New Game</button>
         <button @click="showSimulation">Run Simulation</button>
         <button @click="stopSimulation">Stop Simulation</button>
         <button @click="execute">Execute</button>
     </div>
     <div>
-        <router-view v-slot="{ Component }" :show="show" 
+        <router-view v-slot="{ Component }" :show="show"  :executed="executed"
                     @changeCoalTaxRate="changeCoalTaxRate($event)" @changeCoalUserate="changeCoalUserate($event)" 
                     @changeCoalPriceFactor="changeCoalPriceFactor($event)" @changeCoalSupplyElasticity="changeCoalSupplyElasticity($event)"
                     :coalUse="coalUse" :totalCoalUse="totalCoalUse" :coalPrice="coalPrice" :coalSupply="coalSupply" :coalTaxRate="coalTaxRate"
@@ -216,6 +215,7 @@ export default {
             totalPoints:8383,
             lifeValue:2.0,//right
             year:1990,//right
+            executed:1989,
         }
     },
     methods: {
@@ -234,6 +234,11 @@ export default {
         },
         toConnections() {
             this.$router.push("/connections");
+        },
+        newGame(){
+            this.$router.go(0);
+            localStorage.clear();
+            this.$router.push("/game/policy");
         },
         showSimulation() {
             this.show = true;
@@ -628,6 +633,71 @@ export default {
             this.solarResearchTreasury = this.solarResearch * this.totalTreasury / 100;
         },
         execute() {
+            const data1990 = {
+                coalUse: 76.3,
+                coalPrice: 24900000000,
+                coalSupply: 299000,
+                totalCoalUse: 4080,
+
+                oilUse:178,
+                oilPrice:25100000000,
+                oilSupply:9880,
+                totalOilUse:9180,
+
+                naturalGasUse:65.3,
+                naturalGasPrice:25000000000,
+                naturalGasSupply:7130,
+                totalNaturalGasUse:2060,
+
+                nuclearUse:8.91,
+                nuclearPrice:24900000000,
+                nuclearSupply:11900,
+                totalNuclearUse:108,
+
+                solarUse:12.1,
+                solarPrice:24800000000,
+
+                damUse:18,
+                damPrice:25000000000,
+
+                co2:2720000000000,
+                globalTemperatur:60.3,
+                seeLevel:0.14,
+                no2:49100000,
+                so2:58900000,
+
+                coalTechnology:1.01,
+                oilTechnology:1.01,
+                nuclearTechnology:1.02,
+                solarTechnology:1.02,
+                bioTechnology:1.02,
+
+                aveEnergyPrice:25200000000,
+                energyDemand:303,
+                netEnergy:419,
+                renewableEnergy:30.1,
+                nonrenewableEnergy:328,
+
+                qualityOfLife:1.03,
+                qualityPoints:7702,
+
+                sustainability:0.17,
+                sustainabilityPts:681,
+
+                basicResearchTreasury:3180000000,
+                bioResearchTreasury:3180000000,
+                coalResearchTreasury:3180000000,
+                oilResearchTreasury:3180000000,
+                solarResearchTreasury:3180000000,
+                solarEnergyTreasury:3180000000,
+                nuclearResearchTreasury:3180000000,
+                damUseTreasury:3180000000,
+                totalTreasury:39830000000,
+                totalPoints:8383,
+            }
+            if(this.year==1990){
+                localStorage.setItem("1990",JSON.stringify(data1990));
+            }
             /*formula execute*/
             this.energyDemand = this.energyDemand * 1.01;
             this.year++;
@@ -760,6 +830,7 @@ export default {
                 basicResearch:this.basicResearch,
 
                 aveEnergyPrice:this.aveEnergyPrice,
+                energyDemand:this.energyDemand,
                 netEnergy:this.netEnergy,
                 renewableEnergy:this.renewableEnergy,
                 nonrenewableEnergy:this.nonrenewableEnergy,
@@ -784,7 +855,9 @@ export default {
 
             //localStorage.setItem(this.year,JSON.stringify(data)); 
             //to be saved is from the year 1991
-            localStorage.setItem("year"+this.year,JSON.stringify(data));
+            
+            localStorage.setItem(this.year,JSON.stringify(data));
+/*
             let coalUse = JSON.parse(localStorage.getItem("year"+this.year)).coalUse;
             let coalPrice = JSON.parse(localStorage.getItem("year"+this.year)).coalPrice;
             let coalSupply = JSON.parse(localStorage.getItem("year"+this.year)).coalSupply;
@@ -901,7 +974,9 @@ export default {
             console.log("oilResearchTreasury:"+oilResearchTreasury);
             console.log("solarResearchTreasury:"+solarResearchTreasury);
             console.log("solarEnergyTreasury:"+solarEnergyTreasury);
-
+*/
+            this.executed++;
+        
         },
         /* coal */
         changeCoalTaxRate(coalTaxRate) {

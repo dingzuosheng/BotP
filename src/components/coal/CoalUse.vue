@@ -67,7 +67,6 @@ const service = axios.create({
     baseURL: '',
     timeout: 3000000000,
 })
-import Chart from 'chart.js/auto'
 export default {
     name: 'Coal Use',
     data() {
@@ -79,25 +78,6 @@ export default {
             coalUserate: 0.257,
         }
     },
-    // mounted() {
-    //     const ctx = document.getElementById('coalUseChart');
-    //     const labels = [1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050];
-    //     const data = {
-    //         labels: labels,
-    //         datasets: [{
-    //             label: 'Coal Use Dataset',
-    //             data: [this.coalUse,1,2,3,4,5,6,7,7,8,9,10,11],
-    //             fill:false,
-    //             borderCorlor:'rgb(75,192,192)',
-    //             tension:0.1
-    //         }]
-    //     };
-    //     const coalUseChart = new Chart(ctx,{
-    //         type:'bar',
-    //         data:data
-    //     });
-    //     coalUseChart;
-    // },
     props: {
         coalUse: Number,
         coalPrice: Number,

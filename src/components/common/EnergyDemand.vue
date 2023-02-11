@@ -23,8 +23,9 @@
             </el-collapse>
         </div>
         <div v-if="this.show">
-            <h1>{{ this.show }}</h1>
-            <canvas id="energyDemandChart" width="800" height="800"></canvas>
+            <h1>Run Simulation</h1>
+            <!-- <canvas id="energyDemandChart" width="800" height="800"></canvas> -->
+            <BarChart :chartData="chartData"></BarChart>
         </div>
     </div>
     <div class="side-nav">
@@ -47,7 +48,6 @@
     </div>
 </div>
 </template>
-
 <script>
 import {
     toRaw
@@ -57,38 +57,35 @@ const service = axios.create({
     baseURL: '',
     timeout: 3000000000,
 })
-import Chart from 'chart.js/auto'
+//import Chart from 'chart.js/auto'
+import BarChart from '../BarChart.vue'
 export default {
     name: 'Coal Use',
     data() {
         return {
             name: "",
             causes: [],
-            effects: []
+            effects: [],
+            chartData:{
+                labels:[],
+                datasets:[] 
+            }, 
         }
     },
     props: {
         energyDemand: Number,
-        show:Boolean
+        show:Boolean,
+        executed:Number
     },
-    mounted() {
-        const ctx = document.getElementById('energyDemandChart');
-        const labels = [1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000];
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'Energy Demand Dataset',
-                data: [this.energyDemand,this.energyDemand*Math.pow(1.01,1),this.energyDemand*Math.pow(1.01,2),this.energyDemand*Math.pow(1.01,3),this.energyDemand*Math.pow(1.01,4),this.energyDemand*Math.pow(1.01,5),this.energyDemand*Math.pow(1.01,6),this.energyDemand*Math.pow(1.01,7),this.energyDemand*Math.pow(1.01,8),this.energyDemand*Math.pow(1.01,9),this.energyDemand*Math.pow(1.01,10),],
-                fill:false,
-                borderCorlor:'rgb(75,192,192)',
-                tension:0.1
-            }]
-        };
-        const energyDemandChart = new Chart(ctx,{
-            type:'line',//doughnut//bar
-            data:data
-        });
-        energyDemandChart;
+    components: { BarChart },
+    mounted(){
+        this.draw();
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
+        }
     },
     created() {
         service.get('/data/data.json').then(res => {
@@ -102,6 +99,27 @@ export default {
             this.$router.push({
                 path: item.path
             });
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const energyDemands = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                energyDemands.push(JSON.parse(localStorage.getItem(labels[i])).energyDemand)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Energy Demand',
+                backgroundColor:'#000000',
+                data: energyDemands
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }
