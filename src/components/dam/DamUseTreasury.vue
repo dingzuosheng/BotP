@@ -4,19 +4,24 @@
             <div>
                 <h1>{{ this.name }}</h1>
             </div>
-            <el-collapse class="collapse-part">
-                <el-collapse-item title="Formula ">
-                    <div class="formula">
-                        <div>Dam Subsidy</div>
-                        <br />
+            <div v-if="!this.show">
+                <el-collapse class="collapse-part">
+                    <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div class="row-formula">
-                                <span>= {{ damSubsidy }}</span> <span><input type="range" min="0" max="0.08" step="0.01" v-model="subsidy" @change="changeDamSubsidy" /></span>
+                            <div>Dam Subsidy</div>
+                            <br />
+                            <div class="formula">
+                                <div class="row-formula">
+                                    <span>= {{ damSubsidy }}</span> <span><input type="range" min="0" max="0.08" step="0.01" v-model="subsidy" @change="changeDamSubsidy" /></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </el-collapse-item>
-            </el-collapse>
+                    </el-collapse-item>
+                </el-collapse>
+            </div>
+            <div v-if="this.show">
+                <BarChart :chartData="chartData"></BarChart>
+            </div>
         </div>
         <div class="side-nav">
             <div>
@@ -48,6 +53,7 @@
         baseURL: '',
         timeout: 30000,
     })
+    import BarChart from '../chart/BarChart.vue'
     export default {
         name: 'DamUseTreasury',
         data() {
@@ -56,7 +62,23 @@
                 causes: [],
                 effects: [],
                 subsidy:0.08,
-                damSubsidy:0.08
+                damSubsidy:0.08,
+                chartData:{
+                    labels:[],
+                    datasets:[] 
+                },
+            }
+        },
+        components:{
+            BarChart
+        },
+        props:{
+            show:Boolean,
+            executed:Number
+        },
+        watch:{
+            executed(newValue,oldValue){
+                this.draw();
             }
         },
         created() {
@@ -75,6 +97,27 @@
             changeDamSubsidy(){
                 this.damSubsidy = parseInt(this.subsidy*100)/100;
                 this.$emit('changeDamSubsidy',this.damSubsidy);
+            },
+            draw(){
+                const labels = [];
+                for(let i = localStorage.length - 1; i > -1; i--){
+                    labels.push(localStorage.key(i));
+                }
+                labels.sort();
+                this.chartData.labels =  labels;
+                const data = [];
+                
+                for(let i = 0; i < labels.length; i++){
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).naturalGasUse)
+                    console.log(labels[i],localStorage.key(i))
+                }
+                const dataset = {
+                    label:'Dam Gas Treasury',
+                    backgroundColor:'#000000',
+                    data: data
+                }
+                this.chartData.datasets = [dataset];
+                console.log(JSON.stringify(this.chartData))
             }
         }
     }

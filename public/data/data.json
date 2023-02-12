@@ -437,6 +437,12 @@
             }
         ]
     },
+    "Dam_Use_Treasury": {
+        "name": "Dam Use Treasury",
+        "path": "/game/dam-use-treasury",
+        "causes": [],
+        "effects": []
+    },
     "Dam_Price": {
         "name": "Dam Price",
         "path": "/game/dam-price",

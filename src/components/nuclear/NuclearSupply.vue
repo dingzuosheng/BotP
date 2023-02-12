@@ -4,29 +4,34 @@
             <div>
                 <h1>{{ this.name }}</h1>
             </div>
-            <div>
-                Nuclear Supply: {{ this.nuclearSupply }} Exajoules
-            </div> 
-            <el-collapse class="collapse-part">
-            <el-collapse-item title="Formula ">
-                <div class="formula">
-                    <div>Nuclear Supply = Nuclear Supply Elasticity * Nuclear Price - Total Nuclear Use</div>
-                    <br />
-                    Where:<br />
-                    <div class="formula">
-                        <div class="row-formula">
-                            <span>Nuclear Supply Elasticity</span> <span>= {{ nuclearSupplyElasticity }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNuclearSupplyElasticity" /></span>
+            <div v-if="!this.show">
+                <div>
+                    Nuclear Supply: {{ this.nuclearSupply }} Exajoules
+                </div> 
+                <el-collapse class="collapse-part">
+                    <el-collapse-item title="Formula ">
+                        <div class="formula">
+                            <div>Nuclear Supply = Nuclear Supply Elasticity * Nuclear Price - Total Nuclear Use</div>
+                            <br />
+                            Where:<br />
+                            <div class="formula">
+                                <div class="row-formula">
+                                    <span>Nuclear Supply Elasticity</span> <span>= {{ nuclearSupplyElasticity }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNuclearSupplyElasticity" /></span>
+                                </div>
+                                <div class="row-formula">
+                                    <span>Nuclear Price</span> <span>= {{ this.nuclearPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoule)</span>
+                                </div>
+                                <div class="row-formula">
+                                    <span>Total Nuclear Use</span> <span>= {{ this.totalNuclearUse }}</span> <span>(Exajoules)</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row-formula">
-                            <span>Nuclear Price</span> <span>= {{ this.nuclearPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoule)</span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Total Nuclear Use</span> <span>= {{ this.totalNuclearUse }}</span> <span>(Exajoules)</span>
-                        </div>
-                    </div>
-                </div>
-            </el-collapse-item>
-        </el-collapse>        
+                    </el-collapse-item>
+                </el-collapse>  
+            </div>   
+            <div v-if="this.show">
+                <BarChart :chartData="chartData"></BarChart>
+            </div>   
         </div>
         <div class="side-nav">
             <div>
@@ -55,6 +60,7 @@ const service = axios.create({
     baseURL:'',
     timeout:3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name:'NuclearSupply',
     data(){
@@ -64,12 +70,27 @@ export default {
             effects:[],
             elasticity:Math.pow(10,-7),
             nuclearSupplyElasticity:Math.pow(10,-7),
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
         }
+    },
+    components:{
+        BarChart
     },
     props:{
         nuclearSupply:Number,
         nuclearPrice:Number,
-        totalNuclearUse:Number
+        totalNuclearUse:Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
+        }
     },
     created(){
         service.get('/data/data.json').then(res => {
@@ -87,6 +108,27 @@ export default {
         changeNuclearSupplyElasticity(){
             this.nuclearSupplyElasticity = parseInt(this.elasticity*Math.pow(10,7))/Math.pow(10,7);
             this.$emit('changeNuclearSupply',this.nuclearSupplyElasticity)
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const data = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                data.push(JSON.parse(localStorage.getItem(labels[i])).nuclearSupply)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Nuclear Supply',
+                backgroundColor:'#000000',
+                data: data
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }

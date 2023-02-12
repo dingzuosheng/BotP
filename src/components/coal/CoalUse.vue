@@ -33,9 +33,9 @@
                 </el-collapse-item>
             </el-collapse>
         </div>
-        <!-- <div v-if="show">
-            <canvas id="coalUseChart" width="400" height="400"></canvas>
-        </div> -->
+        <div v-if="show">
+            <BarChart :chartData="chartData"></BarChart>
+        </div>
     </div>
     <div class="side-nav">
         <div>
@@ -67,6 +67,7 @@ const service = axios.create({
     baseURL: '',
     timeout: 3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name: 'Coal Use',
     data() {
@@ -76,7 +77,14 @@ export default {
             effects: [],
             userate: 0.257,
             coalUserate: 0.257,
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
         }
+    },
+    components:{
+        BarChart
     },
     props: {
         coalUse: Number,
@@ -85,6 +93,13 @@ export default {
         energyDemand: Number,
         aveEnergyPrice: Number,
         show:Boolean,
+        executed:Number
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
+        }
     },
     created() {
         service.get('/data/data.json').then(res => {
@@ -103,6 +118,27 @@ export default {
         changeCoalUserate() {
             this.coalUserate = parseInt(this.userate * 100) / 100;
             this.$emit('changeCoalUseRate', this.coalUserate);
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const coalUses = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Coal Use',
+                backgroundColor:'#000000',
+                data: coalUses
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }

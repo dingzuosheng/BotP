@@ -23,9 +23,8 @@
             </el-collapse>
         </div>
         <div v-if="this.show">
-            <h1>Run Simulation</h1>
             <!-- <canvas id="energyDemandChart" width="800" height="800"></canvas> -->
-            <BarChart :chartData="chartData"></BarChart>
+            <LineChartEnergyDemand :chartData="chartData"></LineChartEnergyDemand>
         </div>
     </div>
     <div class="side-nav">
@@ -58,7 +57,7 @@ const service = axios.create({
     timeout: 3000000000,
 })
 //import Chart from 'chart.js/auto'
-import BarChart from '../BarChart.vue'
+import LineChartEnergyDemand from '../chart/LineChartEnergyDemand.vue'
 export default {
     name: 'Coal Use',
     data() {
@@ -77,10 +76,7 @@ export default {
         show:Boolean,
         executed:Number
     },
-    components: { BarChart },
-    mounted(){
-        this.draw();
-    },
+    components: { LineChartEnergyDemand },
     watch: {
         executed(newVal, oldVal) {
             console.log("watch:"+newVal, oldVal)
@@ -115,7 +111,7 @@ export default {
             }
             const dataset = {
                 label:'Energy Demand',
-                backgroundColor:'#000000',
+                backgroundColor:'#38A700',
                 data: energyDemands
             }
             this.chartData.datasets = [dataset];

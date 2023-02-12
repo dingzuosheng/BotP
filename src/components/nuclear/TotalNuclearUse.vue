@@ -4,26 +4,31 @@
         <div>
             <h1>{{ this.name }}</h1>
         </div>
-        <div>
-            Totall Nuclear Use: {{ this.totalNuclearUse }}
-        </div>
-        <el-collapse class="collapse-part">
-            <el-collapse-item title="Formula ">
-                <div class="formula">
-                    <div>Total Nuclear Use = Total Nuclear Use + Nuclear Use</div>
-                    <br />
-                    Where:<br />
-                    <div>
-                        <div class="row-formula">
-                            <span>Total Nuclear Use</span> <span>= {{ this.totalNuclearUse }}</span><span>(Exajoules)</span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Nuclear Use</span> <span>= {{ this.nuclearUse }}</span> <span>(Exajoules)</span>
+        <div v-if="!this.show">
+            <div>
+                Totall Nuclear Use: {{ this.totalNuclearUse }}
+            </div>
+            <el-collapse class="collapse-part">
+                <el-collapse-item title="Formula ">
+                    <div class="formula">
+                        <div>Total Nuclear Use = Total Nuclear Use + Nuclear Use</div>
+                        <br />
+                        Where:<br />
+                        <div>
+                            <div class="row-formula">
+                                <span>Total Nuclear Use</span> <span>= {{ this.totalNuclearUse }}</span><span>(Exajoules)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Nuclear Use</span> <span>= {{ this.nuclearUse }}</span> <span>(Exajoules)</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </el-collapse-item>
-        </el-collapse>
+                </el-collapse-item>
+            </el-collapse>
+        </div>
+        <div v-if="this.show">
+            <BarChart :chartData="chartData"></BarChart>
+        </div>
     </div>
     <div class="side-nav">
         <div>
@@ -55,18 +60,34 @@ const service = axios.create({
     baseURL: '',
     timeout: 3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name: 'TotalNuclearUse',
     data() {
         return {
             name: "",
             causes: [],
-            effects: []
+            effects: [],
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
         }
+    },
+    components:{
+        BarChart
     },
     props: {
         totalNuclearUse:Number,
-        nuclearUse:Number
+        nuclearUse:Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
+        }
     },
     created() {
         service.get('/data/data.json').then(res => {
@@ -80,6 +101,27 @@ export default {
             this.$router.push({
                 path: item.path
             });
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const data = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                data.push(JSON.parse(localStorage.getItem(labels[i])).totalNuclearUse)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Nuclear Use',
+                backgroundColor:'#000000',
+                data: data
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }

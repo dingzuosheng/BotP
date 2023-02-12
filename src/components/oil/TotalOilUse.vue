@@ -4,26 +4,31 @@
         <div>
             <h1>{{ this.name }}</h1>
         </div>
-        <div>
-            Totall Oil Use: {{ this.totalOilUse/1000 }} thousand
-        </div>
-        <el-collapse class="collapse-part">
-            <el-collapse-item title="Formula ">
-                <div class="formula">
-                    <div>Total Oil Use = Total Oil Use + Oil Use</div>
-                    <br />
-                    Where:<br />
-                    <div>
-                        <div class="row-formula">
-                            <span>Total Oil Use</span> <span>= {{ this.totalOilUse/1000}} thousand</span><span>(Exajoules)</span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Oil Use</span> <span>= {{ this.oilUse }}</span> <span>(Exajoules)</span>
+        <div v-if="!this.show">
+            <div>
+                Totall Oil Use: {{ this.totalOilUse/1000 }} thousand
+            </div>
+            <el-collapse class="collapse-part">
+                <el-collapse-item title="Formula ">
+                    <div class="formula">
+                        <div>Total Oil Use = Total Oil Use + Oil Use</div>
+                        <br />
+                        Where:<br />
+                        <div>
+                            <div class="row-formula">
+                                <span>Total Oil Use</span> <span>= {{ this.totalOilUse/1000}} thousand</span><span>(Exajoules)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Oil Use</span> <span>= {{ this.oilUse }}</span> <span>(Exajoules)</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </el-collapse-item>
-        </el-collapse>
+                </el-collapse-item>
+            </el-collapse>
+        </div>
+        <div v-if="this.show">
+            <BarChart :chart-data="chartData"></BarChart>
+        </div>
     </div>
     <div class="side-nav">
         <div>
@@ -55,18 +60,34 @@ const service = axios.create({
     baseURL: '',
     timeout: 3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name: 'TotalOilUse',
     data() {
         return {
             name: "",
             causes: [],
-            effects: []
+            effects: [],
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
         }
+    },
+    components:{
+        BarChart     
     },
     props:{
         totalOilUse:Number,
-        oilUse:Number
+        oilUse:Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
+        }
     },
     created() {
         service.get('/data/data.json').then(res => {
@@ -80,6 +101,27 @@ export default {
             this.$router.push({
                 path: item.path
             });
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const totaloilUses = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                totaloilUses.push(JSON.parse(localStorage.getItem(labels[i])).totalOilUse)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Total Oil Use',
+                backgroundColor:'#000000',
+                data: totaloilUses
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }

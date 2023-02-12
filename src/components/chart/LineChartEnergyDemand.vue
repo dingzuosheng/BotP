@@ -19,7 +19,7 @@ import {
 ChartJS.register(Title, Tooltip, Legend, PointElement, LineElement, CategoryScale, LinearScale)
 
 export default {
-    name: 'BarChart',
+    name: 'LineChartEnergyDemand',
     components: {
         Line
     },

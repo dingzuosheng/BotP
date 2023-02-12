@@ -699,7 +699,6 @@ export default {
                 localStorage.setItem("1990",JSON.stringify(data1990));
             }
             /*formula execute*/
-            this.energyDemand = this.energyDemand * 1.01;
             this.year++;
             console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             console.log("<<============================================="+this.year+"======================================>");
@@ -801,7 +800,7 @@ export default {
                 totalNaturalGasUse:this.totalNaturalGasUse,
 
                 nuclearUse:this.nuclearUse,
-                nuclearPrice:this.nuclearPirce,
+                nuclearPrice:this.nuclearPrice,
                 nuclearSupply:this.nuclearSupply,
                 totalNuclearUse:this.totalNuclearUse,
 
@@ -857,6 +856,7 @@ export default {
             //to be saved is from the year 1991
             
             localStorage.setItem(this.year,JSON.stringify(data));
+            this.energyDemand = this.energyDemand * 1.01;
 /*
             let coalUse = JSON.parse(localStorage.getItem("year"+this.year)).coalUse;
             let coalPrice = JSON.parse(localStorage.getItem("year"+this.year)).coalPrice;

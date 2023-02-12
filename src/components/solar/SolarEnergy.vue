@@ -15,7 +15,7 @@
                         untill you execute policies.
                     </p>
                 </div>
-            </div>       
+            </div>      
         </div>
         <div class="side-nav">
             <div>
@@ -71,7 +71,7 @@ export default {
         changeSolarEnergySusidyPercent(){
             this.solarEnergySubsidy = parseInt(this.percent * 100) / 100;
             this.$emit('changeSolarEnergySubsidy',this.solarEnergySubsidy);
-        }
+        },
     }
 }
 </script>

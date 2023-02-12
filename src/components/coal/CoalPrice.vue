@@ -4,29 +4,34 @@
         <div>
             <h1>{{ this.name }}</h1>
         </div>
-        <div>
-            Coal Price: {{ this.coalPrice / Math.pow(10,9) }} billion $/Exajoule
-        </div>
-        <el-collapse class="collapse-part">
-            <el-collapse-item title="Formula ">
-                <div class="formula">
-                    <div>Coal Price = Coal Price Factor * Coal Use / Coal Supply</div>
-                    <br />
-                    Where:<br />
+        <div v-if="!this.show">
+            <div>
+                Coal Price: {{ this.coalPrice / Math.pow(10,9) }} billion $/Exajoule
+            </div>
+            <el-collapse class="collapse-part">
+                <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div class="row-formula">
-                            <span>Coal Price Factor</span> <span>= {{ coalPriceFactor }} trillion</span> <span><input type="range" min="10" max="100" step="0.1" v-model="factor" @change="changeCoalPriceFactor" /></span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Coal Supply</span> <span>= {{ this.coalSupply/1000 }} thousand</span> <span>(Exajoules)</span>
+                        <div>Coal Price = Coal Price Factor * Coal Use / Coal Supply</div>
+                        <br />
+                        Where:<br />
+                        <div class="formula">
+                            <div class="row-formula">
+                                <span>Coal Price Factor</span> <span>= {{ coalPriceFactor }} trillion</span> <span><input type="range" min="10" max="100" step="0.1" v-model="factor" @change="changeCoalPriceFactor" /></span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Coal Supply</span> <span>= {{ this.coalSupply/1000 }} thousand</span> <span>(Exajoules)</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </el-collapse-item>
-        </el-collapse>
+                </el-collapse-item>
+            </el-collapse>
+        </div>
+        <div v-if="this.show">
+            <BarChart :chartData="chartData"></BarChart>
+        </div>
     </div>
     <div class="side-nav">
         <div>
@@ -58,6 +63,7 @@ const service = axios.create({
     baseURL: '',
     timeout: 3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name: 'Coal Price',
     data() {
@@ -67,12 +73,27 @@ export default {
             effects: [],
             factor: 10,
             coalPriceFactor: 10,
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
         }
+    },
+    components:{
+        BarChart
     },
     props: {
         coalPrice:Number,
         coalUse: Number,
         coalSupply: Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
+        }
     },
     created() {
         service.get('/data/data.json').then(res => {
@@ -91,6 +112,27 @@ export default {
         changeCoalPriceFactor() {
             this.coalPriceFactor = parseInt(this.factor*10)/10;
             this.$emit('changeCoalPriceFactor',this.coalPriceFactor);
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const coalPrices = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                coalPrices.push(JSON.parse(localStorage.getItem(labels[i])).coalPrice)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Coal Price',
+                backgroundColor:'#000000',
+                data: coalPrices
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }
