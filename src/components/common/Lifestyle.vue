@@ -4,26 +4,31 @@
             <div>
                 <h1>{{ this.name }}</h1>
             </div>  
-            <div>
-                Lifestyle: {{ this.lifestyle/ Math.pow(10,9)}} Billion Happies
-            </div> 
-            <el-collapse class="collapse-part">
-            <el-collapse-item title="Formula ">
-                <div class="formula">
-                    <div>Lifestyle = C4 * Net Energy</div>
-                    <br />
-                    Where:<br />
+            <div v-if="!this.show">
+                <div>
+                    Lifestyle: {{ this.lifestyle/ Math.pow(10,9)}} Billion Happies
+                </div> 
+                <el-collapse class="collapse-part">
+                <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div class="row-formula">
-                            <span>C4</span> <span>= {{ c4 }} thousand </span> <span><input type="range" min="100" max="10000" step="10" v-model="quantity" @change="changeC4Value"/></span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Net Energy</span> <span>= {{ this.netEnergy }}</span>(Exajoules)
+                        <div>Lifestyle = C4 * Net Energy</div>
+                        <br />
+                        Where:<br />
+                        <div class="formula">
+                            <div class="row-formula">
+                                <span>C4</span> <span>= {{ c4 }} thousand </span> <span><input type="range" min="100" max="10000" step="10" v-model="quantity" @change="changeC4Value"/></span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Net Energy</span> <span>= {{ this.netEnergy }}</span>(Exajoules)
+                            </div>
                         </div>
                     </div>
-                </div>
-            </el-collapse-item>
-        </el-collapse>         
+                </el-collapse-item>
+                </el-collapse> 
+            </div> 
+            <div v-if="this.show">
+                <BarChart :chartData="chartData"></BarChart>
+            </div>       
         </div>
         <div class="side-nav">
             <div>
@@ -52,6 +57,7 @@ const service = axios.create({
     baseURL:'',
     timeout:3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name:'Lifestyle',
     data(){
@@ -61,11 +67,25 @@ export default {
             effects:[],
             quantity:100,
             c4:100*Math.pow(10,3),
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
         }
+    },
+    components:{
+        BarChart
     },
     props:{
         lifestyle:Number,
         netEnergy:Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch:{
+        executed(newValue,oldValue){
+            this.draw();
+        }
     },
     created(){
         service.get('/data/data.json').then(res => {
@@ -83,6 +103,27 @@ export default {
         changeC4Value(){
             this.c4 = parseInt(this.quantity)*1000;
             this.$emit('changeC4Value',this.c4);
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const data = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                data.push(JSON.parse(localStorage.getItem(labels[i])).lifestyle)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Global Temperature',
+                backgroundColor:'#000000',
+                data: data
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }

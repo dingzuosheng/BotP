@@ -661,7 +661,7 @@ export default {
                 damPrice:25000000000,
 
                 co2:2720000000000,
-                globalTemperatur:60.3,
+                globalTemperature:60.3,
                 seeLevel:0.14,
                 no2:49100000,
                 so2:58900000,
@@ -677,9 +677,13 @@ export default {
                 netEnergy:419,
                 renewableEnergy:30.1,
                 nonrenewableEnergy:328,
+                energyConservation:60.3,
 
                 qualityOfLife:1.03,
                 qualityPoints:7702,
+                lifestyle:2120000000,
+                birthRate:0.0197,
+                population:5260000000,
 
                 sustainability:0.17,
                 sustainabilityPts:681,
@@ -811,7 +815,7 @@ export default {
                 damPrice:this.damPrice,
 
                 co2:this.co2,
-                globalTemperatur:this.globalTemperature,
+                globalTemperature:this.globalTemperature,
                 seeLevel:this.seeLevel,
                 no2:this.no2,
                 so2:this.so2,
@@ -833,9 +837,14 @@ export default {
                 netEnergy:this.netEnergy,
                 renewableEnergy:this.renewableEnergy,
                 nonrenewableEnergy:this.nonrenewableEnergy,
+                energyConservation:this.energyConservation,
 
                 qualityOfLife:this.qualityOfLife,
                 qualityPoints:this.qualityPoints,
+                lifestyle:this.lifestyle,
+
+                population:this.population,
+                birthRate:this.birthRate,
 
                 sustainability:this.sustainability,
                 sustainabilityPts:this.sustainabilityPts,

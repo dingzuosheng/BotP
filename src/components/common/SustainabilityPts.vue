@@ -3,27 +3,32 @@
         <div class="content">
             <div>
                 <h1>{{ this.name }}</h1>
-            </div>   
-            <div>
-                Sustainability Pts: {{ this.sustainabilityPts }} Points
             </div> 
-            <el-collapse class="collapse-part">
-            <el-collapse-item title="Formula ">
-                <div class="formula">
-                    <div>Sustainability Pts = Value of Sustainability * Sustainability</div>
-                    <br />
-                    Where:<br />
+            <div v-if="!this.show">  
+                <div>
+                    Sustainability Pts: {{ this.sustainabilityPts }} Points
+                </div> 
+                <el-collapse class="collapse-part">
+                <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div class="row-formula">
-                            <span>Value of Sustainability</span> <span>= {{ valueOfSustainability }}</span> <span><input type="range" min="100" max="10000" step="10" v-model="value" @change="changeValueOfSustainability" /></span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Sustainability</span> <span>= {{ this.sustainability }} </span><span>(Permanences)</span>
+                        <div>Sustainability Pts = Value of Sustainability * Sustainability</div>
+                        <br />
+                        Where:<br />
+                        <div class="formula">
+                            <div class="row-formula">
+                                <span>Value of Sustainability</span> <span>= {{ valueOfSustainability }}</span> <span><input type="range" min="100" max="10000" step="10" v-model="value" @change="changeValueOfSustainability" /></span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Sustainability</span> <span>= {{ this.sustainability }} </span><span>(Permanences)</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </el-collapse-item>
-        </el-collapse>      
+                </el-collapse-item>
+                </el-collapse>
+            </div>
+            <div v-if="this.show">
+                <BarChart :chartData="chartData"></BarChart>
+            </div>      
         </div>
         <div class="side-nav">
             <div>
@@ -52,6 +57,7 @@ const service = axios.create({
     baseURL:'',
     timeout:3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name:'SustainabilityPts',
     data(){
@@ -61,11 +67,25 @@ export default {
             effects:[],
             value:100,
             valueOfSustainability:100,
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
         }
+    },
+    components:{
+        BarChart
     },
     props:{
         sustainability:Number,
-        sustainabilityPts:Number
+        sustainabilityPts:Number,
+        show:Boolean,
+        executed:Number,
+    },
+    watch:{
+        executed(newValue,oldValue){
+            this.draw();
+        }
     },
     created(){
         service.get('/data/data.json').then(res => {
@@ -83,6 +103,27 @@ export default {
         changeValueOfSustainability(){
             this.valueOfSustainability = parseInt(this.value);
             this.$emit('changeSustainability',this.valueOfSustainability);
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const data = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                data.push(JSON.parse(localStorage.getItem(labels[i])).sustainabilityPts)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Sustainability Points',
+                backgroundColor:'#000000',
+                data: data
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }
