@@ -658,6 +658,11 @@ export default {
                 nuclearSupply:11900,
                 totalNuclearUse:108,
 
+                coalTaxIncome:19.07*Math.pow(10,9),
+                oilTaxIncome:44.5*Math.pow(10,9),
+                naturalGasTaxIncome:16.32*Math.pow(10,9),
+                nuclearTaxIncome:2.22*Math.pow(10,9),
+
                 solarUse:12.1,
                 solarPrice:24800000000,
 
@@ -811,6 +816,11 @@ export default {
                 nuclearPrice:this.nuclearPrice,
                 nuclearSupply:this.nuclearSupply,
                 totalNuclearUse:this.totalNuclearUse,
+
+                coalTaxIncome:this.coalTaxIncome,
+                oilTaxIncome:this.oilTaxIncome,
+                naturalGasTaxIncome:this.naturalGasTaxIncome,
+                nuclearTaxIncome:this.nuclearTaxIncome,
 
                 solarUse:this.solarUse,
                 solarPrice:this.solarPrice,

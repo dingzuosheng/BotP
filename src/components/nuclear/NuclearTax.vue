@@ -4,18 +4,26 @@
             <div>
                 <h1>{{ this.name }}</h1>
             </div>  
-            <div class="range">
-                <h3>Nuclear Tax {{ this.nuclearTaxRate }} billion $/Exajoule</h3>
-                <input type="range" min="0.0625" max="9.44" step="0.0005" v-model="rate" @change="changeNuclearTaxRate"/><!--value is string-->
+            <div v-if="!this.show">
                 <div>
-                    <p class="text">
-                        This is the tax that you levy on Oil Use. Increasing it will discourage production. This 
-                        will have both environmental and economic consequences. Although you can change the numbers
-                        now and see immediate effects in the bar chart, the effects on the world will not take place 
-                        untill you execute policies.
-                    </p>
+                    Nuclear Tax Income: {{ this.nuclearTaxIncome }} $
                 </div>
-            </div>      
+                <div class="range">
+                    <h3>Nuclear Tax {{ this.nuclearTaxRate }} billion $/Exajoule</h3>
+                    <input type="range" min="0.0625" max="9.44" step="0.0005" v-model="rate" @change="changeNuclearTaxRate"/><!--value is string-->
+                    <div>
+                        <p class="text">
+                            This is the tax that you levy on Oil Use. Increasing it will discourage production. This 
+                            will have both environmental and economic consequences. Although you can change the numbers
+                            now and see immediate effects in the bar chart, the effects on the world will not take place 
+                            untill you execute policies.
+                        </p>
+                    </div>
+                </div> 
+            </div>     
+            <div v-if="this.show">
+                <BarChart :chartData="chartData"></BarChart>
+            </div>
         </div>
         <div class="side-nav">
             <div>
@@ -44,6 +52,7 @@ const service = axios.create({
     baseURL:'',
     timeout:3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name:'NuclearTax',
     data(){
@@ -52,7 +61,24 @@ export default {
             causes:[],
             effects:[],
             rate:2.37,
-            nuclearTaxRate:2.37
+            nuclearTaxRate:2.37,
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
+        }
+    },
+    components:{
+        BarChart
+    },
+    props:{
+        naturalGasTaxIncome:Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch:{
+        executed(newValue,oldValue){
+            this.draw();
         }
     },
     created(){
@@ -71,6 +97,27 @@ export default {
         changeNuclearTaxRate(){
             this.nuclearTaxRate = parseInt(this.rate*10000)/10000;
             this.$emit('changeNuclearTaxRate',this.nuclearTaxRate);
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const data = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                data.push(JSON.parse(localStorage.getItem(labels[i])).nuclearTaxIncome)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Nuclear Tax Income',
+                backgroundColor:'#000000',
+                data: data
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }
