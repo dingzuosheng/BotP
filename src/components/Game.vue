@@ -733,69 +733,6 @@ export default {
             this.calculateTotalPoints();
             this.calculateResearchTreasury();
 
-           
-            console.log("energyDemand: "+this.energyDemand);
-            console.log("=========================================")
-            console.log("execute:coalUse:"+this.coalUse);
-            console.log("execute:coalPrice:"+this.coalPrice);
-            console.log("execute:coalSupply:"+this.coalSupply);
-            console.log("execute:totalCoalUse:"+this.totalCoalUse);
-            console.log("==========================================")
-            console.log("execute:oilUse:"+this.oilUse);
-            console.log("execute:oilPrice:"+this.oilPrice);
-            console.log("execute:oilSupply:"+this.oilSupply);
-            console.log("execute:totalOilUse:"+this.totalOilUse);
-            console.log("==========================================")
-            console.log("execute:naturalGasUse:"+this.naturalGasUse);
-            console.log("execute:naturalGasPrice:"+this.naturalGasPrice);
-            console.log("execute:naturalGasSupply:"+this.naturalGasSupply);
-            console.log("execute:totalNaturalGasUse:"+this.totalNaturalGasUse);
-            console.log("==========================================")
-            console.log("execute:solarUse:"+this.solarUse);
-            console.log("execute:solarPrice:"+this.solarPrice);
-            console.log("==========================================")
-            console.log("execute:damUse:"+this.damUse);
-            console.log("execute:damPrice:"+this.damPrice);
-            console.log("==========================================")
-            console.log("CO2:"+this.co2);
-            console.log("Global Tempeprature:"+this.globalTemperature);
-            console.log("See Level:"+this.seeLevel);
-            console.log("SO2:"+this.so2);
-            console.log("NO2:"+this.no2);
-            console.log("==========================================")
-            console.log("Coal-Research:"+this.coalResearch)
-            console.log("Coal-Technology:"+this.coalTechnology)
-            console.log("Oil-Research:"+this.oilResearch)
-            console.log("Oil-Technology:"+this.oilTechnology)
-            console.log("Nuclear-Research:"+this.nuclearResearch)
-            console.log("Nuclear-Technology:"+this.nuclearTechnology)
-            console.log("Solar-Research:"+this.solarResearch)
-            console.log("Solar-Technology:"+this.solarTechnology)
-            console.log("Bio-Research:"+this.bioResearch)
-            console.log("Bio-Technology:"+this.bioTechnology)
-            console.log("Basic-Research:"+this.basicResearch)
-            console.log("==========================================")
-            console.log("execute:aveEnergyPrice:"+this.aveEnergyPrice);
-            console.log("==========================================")
-            console.log("execute:qualityPoints:"+this.qualityPoints);
-            console.log("quality of life:"+this.qualityOfLife);
-            console.log("==========================================")
-            console.log("execute:sustainabilityPoints:"+this.sustainabilityPts);
-            console.log("sustainability: " + this.sustainability);
-            console.log("==========================================")
-            console.log("net energy: " + this.netEnergy);
-            console.log("nonrenewable Energy: " + this.nonrenewableEnergy);
-            console.log("renewable Energy: " + this.renewableEnergy);
-            console.log("===========================================")
-            console.log("basicResearchTreasury:"+this.basicResearchTreasury);
-            console.log("bioResearchTreasury:"+this.bioResearchTreasury);
-            console.log("coalResearchTreasury:"+this.coalResearchTreasury);
-            console.log("damUseTreasury:"+this.damUseTreasury);
-            console.log("nuclearResearchTreasury:"+this.nuclearResearchTreasury);
-            console.log("oilResearchTreasury:"+this.oilResearchTreasury);
-            console.log("solarResearchTreasury:"+this.solarResearchTreasury);
-            console.log("solarEnergyTreasury:"+this.solarEnergyTreasury);
-
             const data = {
                 coalUse: this.coalUse,
                 coalPrice: this.coalPrice,
@@ -880,127 +817,7 @@ export default {
             
             localStorage.setItem(this.year,JSON.stringify(data));
             this.energyDemand = this.energyDemand * 1.01;
-/*
-            let coalUse = JSON.parse(localStorage.getItem("year"+this.year)).coalUse;
-            let coalPrice = JSON.parse(localStorage.getItem("year"+this.year)).coalPrice;
-            let coalSupply = JSON.parse(localStorage.getItem("year"+this.year)).coalSupply;
-            let totalCoalUse = JSON.parse(localStorage.getItem("year"+this.year)).totalCoalUse;
-
-            let oilUse = JSON.parse(localStorage.getItem("year"+this.year)).oilUse;
-            let oilPrice = JSON.parse(localStorage.getItem("year"+this.year)).oilPrice;
-            let oilSupply = JSON.parse(localStorage.getItem("year"+this.year)).oilSupply;
-            let totalOilUse = JSON.parse(localStorage.getItem("year"+this.year)).totalOilUse;
-
-            let naturalGasUse = JSON.parse(localStorage.getItem("year"+this.year)).naturalGasUse;
-            let naturalGasPrice = JSON.parse(localStorage.getItem("year"+this.year)).naturalGasPrice;
-            let naturalGasSupply = JSON.parse(localStorage.getItem("year"+this.year)).naturalGasSupply;
-            let totalNaturalGasUse = JSON.parse(localStorage.getItem("year"+this.year)).totalNaturalGasUse;
-
-            let nuclearUse = JSON.parse(localStorage.getItem("year"+this.year)).nuclearUse;
-            let nuclearPrice = JSON.parse(localStorage.getItem("year"+this.year)).nuclearPrice;
-            let nuclearSupply = JSON.parse(localStorage.getItem("year"+this.year)).nuclearSupply;
-            let totalNuclearUse = JSON.parse(localStorage.getItem("year"+this.year)).totalNuclearUse;
-            
-            let solarUse = JSON.parse(localStorage.getItem("year"+this.year)).solarUse;
-            let solarPrice = JSON.parse(localStorage.getItem("year"+this.year)).solarPrice;
-
-            let damUse = JSON.parse(localStorage.getItem("year"+this.year)).damUse;
-            let damPrice = JSON.parse(localStorage.getItem("year"+this.year)).damPrice;
-
-            let co2 = JSON.parse(localStorage.getItem("year"+this.year)).co2;
-            let so2 = JSON.parse(localStorage.getItem("year"+this.year)).so2;
-            let no2 = JSON.parse(localStorage.getItem("year"+this.year)).no2;
-            let globalTemperature = JSON.parse(localStorage.getItem("year"+this.year)).globalTemperature;
-            let seeLevel = JSON.parse(localStorage.getItem("year"+this.year)).seeLevel;
-
-            let coalResearch = JSON.parse(localStorage.getItem("year"+this.year)).coalResearch;
-            let coalTechnology = JSON.parse(localStorage.getItem("year"+this.year)).coalTechnology;
-            let oilResearch = JSON.parse(localStorage.getItem("year"+this.year)).oilResearch;
-            let oilTechnology = JSON.parse(localStorage.getItem("year"+this.year)).oilTechnology;
-            let nuclearResearch = JSON.parse(localStorage.getItem("year"+this.year)).nuclearResearch;
-            let nuclearTechnology = JSON.parse(localStorage.getItem("year"+this.year)).nuclearTechnology;
-            let solarResearch = JSON.parse(localStorage.getItem("year"+this.year)).solarResearch;
-            let solarTechnology = JSON.parse(localStorage.getItem("year"+this.year)).solarTechnology;
-            let bioResearch = JSON.parse(localStorage.getItem("year"+this.year)).bioResearch;
-            let bioTechnology = JSON.parse(localStorage.getItem("year"+this.year)).bioTechnology;
-            let basicResearch = JSON.parse(localStorage.getItem("year"+this.year)).basicResearch;
-
-            let aveEnergyPrice = JSON.parse(localStorage.getItem("year"+this.year)).aveEnergyPrice;
-            let qualityOfLife = JSON.parse(localStorage.getItem("year"+this.year)).qualityOfLife;
-            let qualityPoints = JSON.parse(localStorage.getItem("year"+this.year)).qualityPoints;
-            let sustainability = JSON.parse(localStorage.getItem("year"+this.year)).sustainability;
-            let sustainabilityPts = JSON.parse(localStorage.getItem("year"+this.year)).sustainabilityPts;
-
-            let netEnergy = JSON.parse(localStorage.getItem("year"+this.year)).netEnergy;
-            let renewableEnergy = JSON.parse(localStorage.getItem("year"+this.year)).renewableEnergy;
-            let nonrenewableEnergy = JSON.parse(localStorage.getItem("year"+this.year)).nonrenewableEnergy;
-
-            let basicResearchTreasury = JSON.parse(localStorage.getItem("year"+this.year)).basicResearchTreasury;
-            let bioResearchTreasury = JSON.parse(localStorage.getItem("year"+this.year)).bioResearchTreasury;
-            let coalResearchTreasury = JSON.parse(localStorage.getItem("year"+this.year)).coalResearchTreasury;
-            let oilResearchTreasury = JSON.parse(localStorage.getItem("year"+this.year)).oilResearchTreasury;
-            let nuclearResearchTreasury = JSON.parse(localStorage.getItem("year"+this.year)).nuclearResearchTreasury;
-            let solarResearchTreasury = JSON.parse(localStorage.getItem("year"+this.year)).solarResearchTreasury;
-            let solarEnergyTreasury = JSON.parse(localStorage.getItem("year"+this.year)).solarEnergyTreasury;
-            let damUseTreasury = JSON.parse(localStorage.getItem("year"+this.year)).damUseTreasury;
-
-
-            console.log("coalUse: "+coalUse);
-            console.log("coalPrice: "+coalPrice);
-            console.log("coalSupply: "+coalSupply);
-            console.log("totalCoalUse: "+totalCoalUse);
-            console.log("oilUse: "+oilUse);
-            console.log("oilPrice: "+oilPrice);
-            console.log("oilSupply: "+oilSupply);
-            console.log("totalOilUse: "+totalOilUse);
-            console.log("naturalGasUse: "+naturalGasUse);
-            console.log("naturalGasPrice: "+naturalGasPrice);
-            console.log("naturalGasSupply: "+naturalGasSupply);
-            console.log("totalNaturalGasUse: "+totalNaturalGasUse);
-            console.log("nuclearUse: "+nuclearUse);
-            console.log("nuclearPrice: "+nuclearPrice);
-            console.log("nuclearSupply: "+nuclearSupply);
-            console.log("totalNuclearUse: "+totalNuclearUse);
-            console.log("solarUse: "+solarUse);
-            console.log("solarPrice: "+solarPrice);
-            console.log("damUse: "+damUse);
-            console.log("damPrice: "+damPrice);
-            console.log("co2: "+co2);
-            console.log("so2: "+so2);
-            console.log("no2: "+no2);
-            console.log("globalTemperature: "+globalTemperature);
-            console.log("seeLevel: "+seeLevel);
-            console.log("Coal-Research: "+coalResearch)
-            console.log("Coal-Technology: "+coalTechnology)
-            console.log("Oil-Research: "+oilResearch)
-            console.log("Oil-Technology: "+oilTechnology)
-            console.log("Nuclear-Research: "+nuclearResearch)
-            console.log("Nuclear-Technology: "+nuclearTechnology)
-            console.log("Solar-Research: "+solarResearch)
-            console.log("Solar-Technology: "+solarTechnology)
-            console.log("Bio-Research: "+bioResearch)
-            console.log("Bio-Technology: "+bioTechnology)
-            console.log("Basic-Research: "+basicResearch)
-            console.log("aveEnergyPrice: "+aveEnergyPrice);
-            console.log("qualityPoints: "+qualityPoints);
-            console.log("quality of life: "+qualityOfLife);
-            console.log("sustainabilityPoints: "+sustainabilityPts);
-            console.log("sustainability: " + sustainability);
-            console.log("net energy: " + netEnergy);
-            console.log("nonrenewable Energy: " + nonrenewableEnergy);
-            console.log("renewable Energy: " + renewableEnergy);
-            console.log("basicResearchTreasury:"+basicResearchTreasury);
-            console.log("bioResearchTreasury:"+bioResearchTreasury);
-            console.log("coalResearchTreasury:"+coalResearchTreasury);
-            console.log("damUseTreasury:"+damUseTreasury);
-            console.log("nuclearResearchTreasury:"+nuclearResearchTreasury);
-            console.log("oilResearchTreasury:"+oilResearchTreasury);
-            console.log("solarResearchTreasury:"+solarResearchTreasury);
-            console.log("solarEnergyTreasury:"+solarEnergyTreasury);
-*/
             this.executed++;
-            
-
         },
         /* coal */
         changeCoalTaxRate(coalTaxRate) {
@@ -1173,8 +990,9 @@ export default {
 
 #nav button {
     margin: 2px 10px;
-    width: 150px;
+    width: 200px;
     height:50px;
+    font-size:x-large;
 }
 
 #nav #btn-sub {

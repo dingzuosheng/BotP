@@ -135,4 +135,5 @@ export default {
     width:250px;
     font-size:x-large;
 }
+
 </style>
