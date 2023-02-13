@@ -88,13 +88,28 @@
     </div>
     <div>
         <h1><strong>Treasury: {{ this.totalTreasury / Math.pow(10,9)}} billion</strong></h1>
+        <div v-if="this.show">
+            <BarChart :chartData="chartData"></BarChart>
+        </div>
     </div>
 </div>
 </template>
 
 <script>
+import BarChart from './chart/BarChart.vue'
 export default {
     name: 'Policy',
+    data(){
+        return{
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
+        }
+    },
+    components:{
+        BarChart
+    },
     props:{
         coalTaxRate: Number,
         oilTaxRate:Number,
@@ -128,7 +143,36 @@ export default {
         solarResearchTreasury:Number,
 
         totalTreasury:Number,
-
+        show:Boolean,
+        executed:Number
+    },
+    watch:{
+        executed(newValue,oldValue){
+            this.draw();
+        }
+    },
+    methods:{
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const data = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                data.push(JSON.parse(localStorage.getItem(labels[i])).totalTreasury)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Total Treasury',
+                backgroundColor:'#000000',
+                data: data
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
+        }
     }
 }
 </script>
@@ -150,12 +194,20 @@ export default {
 .t1,
 .t2 {
     margin: 100px;
-    background-color:orange;
+    /*background-color:orange;*/
+}
+tr:nth-child(odd){
+    background-color: oldlace;
+}
+
+tr:nth-child(even){
+    background-color:#f0f9eb;
 }
 
 thead tr th {
     padding: 20px;
     text-align: left;
+    background-color: aliceblue;
 }
 
 td {

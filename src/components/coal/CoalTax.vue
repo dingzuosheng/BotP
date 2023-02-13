@@ -30,7 +30,7 @@
                 <h2>Causes</h2>
                 <div v-if="this.causes">
                     <div v-for="cause in this.causes" :key="cause.name">
-                        <button @click="toPage(cause)">{{ cause.name }}</button>
+                        <el-button type="primary" @click="toPage(cause)">{{ cause.name }}</el-button>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <h2>Effects</h2>
                 <div v-if="this.effects">
                     <div v-for="effect in this.effects" :key="effect.name">
-                        <button @click="toPage(effect)">{{ effect.name }}</button>
+                        <el-button type="primary" @click="toPage(effect)">{{ effect.name }}</el-button>
                     </div>
                 </div>
             </div>
@@ -99,26 +99,26 @@ export default {
             this.$emit('changeCoalTaxRate',this.coalTaxRate);
         },
         draw(){
-                const labels = [];
-                for(let i = localStorage.length - 1; i > -1; i--){
-                    labels.push(localStorage.key(i));
-                }
-                labels.sort();
-                this.chartData.labels =  labels;
-                const data = [];
-                
-                for(let i = 0; i < labels.length; i++){
-                    data.push(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome)
-                    console.log(labels[i],localStorage.key(i))
-                }
-                const dataset = {
-                    label:'Coal Tax Income',
-                    backgroundColor:'#000000',
-                    data: data
-                }
-                this.chartData.datasets = [dataset];
-                console.log(JSON.stringify(this.chartData))
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
             }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const data = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                data.push(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Coal Tax Income',
+                backgroundColor:'#000000',
+                data: data
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
+        }
     }
 }
 </script>
@@ -129,5 +129,10 @@ export default {
     background-color: darkgray;
     line-height: 30pt;
     letter-spacing: 1.5pt;
+}
+.side-nav button{
+    height:70px;
+    width:250px;
+    font-size:x-large;
 }
 </style>

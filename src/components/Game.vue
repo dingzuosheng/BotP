@@ -3,19 +3,19 @@
     <div id="head">
         <h1>Balance of the Planet</h1>
     </div>
-    <el-divider></el-divider>
+    <!--<el-divider></el-divider>-->
     <div id="nav">
-        <button @click="back">Back</button>
-        <button @click="forward">Forward</button>
-        <button @click="toPolicy">Policy</button>
-        <button id="btn-sub" @click="toResults">Results</button>
-        <button>About this Game</button>
-        <button @click="toConnections">Connections</button>
-        <button @click="newGame">New Game</button>
-        <button @click="showSimulation">Show Simulation</button>
-        <button @click="stopSimulation">Stop Simulation</button>
-        <button @click="execute">Execute</button>
-    </div>
+        <el-button type="primary" @click="back">Back</el-button>
+        <el-button type="primary" @click="forward">Forward</el-button>
+        <el-button type="primary" @click="toPolicy">Policy</el-button>
+        <el-button type="primary" id="btn-sub" @click="toResults">Results</el-button>
+        <el-button type="info">About this Game</el-button>
+        <el-button type="info" @click="toConnections">Connections</el-button>
+        <el-button type="success" @click="newGame">New Game</el-button>
+        <el-button type="warning" @click="showSimulation">Show Simulation</el-button>
+        <el-button type="warning" @click="stopSimulation">Stop Simulation</el-button>
+        <el-button type="danger" @click="execute">Execute</el-button>
+    </div><br/>
     <div>
         <router-view v-slot="{ Component }" :show="show" :executed="executed"
                     @changeCoalTaxRate="changeCoalTaxRate($event)" @changeCoalUserate="changeCoalUserate($event)" 
@@ -1158,7 +1158,7 @@ export default {
 <style>
 #head,
 #nav {
-    background-color: #D3DCE6;
+    background-color: #DCDFE6;
     color: #333;
     text-align: center;
     line-height: 85px;
@@ -1172,8 +1172,9 @@ export default {
 }
 
 #nav button {
-    margin: 2px;
-    width: auto;
+    margin: 2px 10px;
+    width: 150px;
+    height:50px;
 }
 
 #nav #btn-sub {
