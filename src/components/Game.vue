@@ -449,11 +449,11 @@ export default {
             console.log("==============================================================================================================")
         },
         calculateTechnologyFormulas(){ //对
-            this.solarTechnology = this.solarTechnology + this.solarOptimism * Math.log((this.solarResearchBudget+1)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9));
-            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log((1+this.bioResearchBudget)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9))/2.3;
-            this.coalTechnology = this.coalTechnology + this.coalOptimism * Math.log((this.coalResearchBudget+1)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9))/2.3;
-            this.oilTechnology = this.oilTechnology + this.oilOptimism * Math.log((this.oilResearchBudget+1)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9));
-            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * Math.log((this.nuclearResearchBudget + 1)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9));
+            this.solarTechnology = this.solarTechnology + this.solarOptimism * Math.log(this.solarResearchBudget * this.basicResearchBudget)/2.3;
+            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(this.bioResearchBudget * this.basicResearchBudget)/2.3;
+            this.coalTechnology = this.coalTechnology + this.coalOptimism * Math.log(this.coalResearchBudget * this.basicResearchBudget)/2.3;
+            this.oilTechnology = this.oilTechnology + this.oilOptimism * Math.log(this.oilResearchBudget * this.basicResearchBudget);
+            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * Math.log(this.nuclearResearchBudget  * this.basicResearchBudget);
             console.log("==================================================================================================================")
             console.log("==================================================================================================================")
             console.log("==================================================================================================================")
