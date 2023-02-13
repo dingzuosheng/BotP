@@ -87,9 +87,7 @@
         </div>
     </div>
     <div>
-        <h1><strong>Treasury: {{ (this.totalTreasury + this.coalTaxIncome + this.oilTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome
-                                - this.basicResearchTreasury - this.bioResearchTreasury - this.coalResearchTreasury - this.oilResearchTreasury
-                                - this.solarResearchTreasury - this.damUseTreasury) / Math.pow(10,9)}} billion</strong></h1>
+        <h1><strong>Treasury: {{ this.totalTreasury / Math.pow(10,9)}} billion</strong></h1>
     </div>
 </div>
 </template>

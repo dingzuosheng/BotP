@@ -4,7 +4,7 @@
         <div id="container">
             <h1 id="header">Balance of the Planet</h1>
             <form id="form">
-                    <router-link :to="{path:'/game/policy'}"><button>Let's Play</button></router-link>
+                    <router-link :to="{path:'/game/policy'}"><button @click="play">Let's Play</button></router-link>
             </form>
             <div id="footer">
                 <h2><strong>by Chris Crawford and Louis Dargin</strong></h2>
@@ -21,9 +21,11 @@ export default {
         return {
         }
     },
-    /*methods:{
-        
-    }*/
+    methods:{
+        play(){
+            localStorage.clear();
+        }   
+    }
 }
 </script>
 <style>

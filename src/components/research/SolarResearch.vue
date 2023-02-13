@@ -4,18 +4,26 @@
             <div>
                 <h1>{{ this.name }}</h1>
             </div>   
-            <div class="range">
-                <h3>Solar Research Subsidy{{ this.solarResearchSubsidy * 100}} %</h3>
-                <input type="range" min="0" max="0.08" step="0.01" v-model="percent" @change="changeSolarResearchSusidyPercent"/><!--value is string-->
+            <div v-if="!this.show">
                 <div>
-                    <p class="text">
-                        This is your subsidy for Solar Research. You can see incresase its precentage of your budget, 
-                        but only if you have budget percentage points to spare. Although you can change the numbers
-                        now and see immediate effects in the bar chart, the effects on the world will not take place 
-                        untill you execute policies.
-                    </p>
+                    Solar Research Treasury: {{ this.solarResearchTreasury }} $
                 </div>
-            </div>        
+                <div class="range">
+                    <h3>Solar Research Subsidy{{ this.solarResearchSubsidy * 100}} %</h3>
+                    <input type="range" min="0" max="0.08" step="0.01" v-model="percent" @change="changeSolarResearchSusidyPercent"/><!--value is string-->
+                    <div>
+                        <p class="text">
+                            This is your subsidy for Solar Research. You can see incresase its precentage of your budget, 
+                            but only if you have budget percentage points to spare. Although you can change the numbers
+                            now and see immediate effects in the bar chart, the effects on the world will not take place 
+                            untill you execute policies.
+                        </p>
+                    </div>
+                </div> 
+            </div> 
+            <div v-if="this.show">
+                <BarChart :chartData="chartData"></BarChart>
+            </div>      
         </div>
         <div class="side-nav">
             <div>
@@ -44,6 +52,7 @@ const service = axios.create({
     baseURL:'',
     timeout:3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name:'SolarResearch',
     data(){
@@ -53,6 +62,24 @@ export default {
             effects:[],
             percent:0.08,
             solarResearchSubsidy:0.08,
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
+        }
+    },
+    components:{
+        BarChart
+    },
+    props:{
+        solarResearchTreasury:Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
         }
     },
     created(){
@@ -71,6 +98,27 @@ export default {
         changeSolarResearchSusidyPercent(){
             this.solarResearchSubsidy = parseInt(this.percent * 100)/100;
             this.$emit('changeSolarResearchSubsidy',this.solarResearchSubsidy);
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const coalUses = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                coalUses.push(JSON.parse(localStorage.getItem(labels[i])).solarResearchTreasury)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Solar Research Treasury',
+                backgroundColor:'#000000',
+                data: coalUses
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }

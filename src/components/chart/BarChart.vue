@@ -38,7 +38,7 @@
         computed:{
            changeChartData(newValue,oldValue){
                 return this.chartData 
-           } 
+           }
         }
     }
     </script>

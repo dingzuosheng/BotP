@@ -8,7 +8,7 @@
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div>Dam Subsidy</div>
+                            <div>Dam Subsidy {{ this.damSubsidy * 100}}%</div>
                             <br />
                             <div class="formula">
                                 <div class="row-formula">
@@ -83,9 +83,9 @@
         },
         created() {
             service.get('/data/data.json').then(res => {
-                this.name = toRaw(res.data.Dam_Price.name);
-                this.causes = toRaw(res.data.Dam_Price.causes);
-                this.effects = toRaw(res.data.Dam_Price.effects);
+                this.name = toRaw(res.data.Dam_Use_Treasury.name);
+                this.causes = toRaw(res.data.Dam_Use_Treasury.causes);
+                this.effects = toRaw(res.data.Dam_Use_Treasury.effects);
             })
         },
         methods: {
@@ -108,11 +108,11 @@
                 const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    data.push(JSON.parse(localStorage.getItem(labels[i])).naturalGasUse)
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).damUseTreasury)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Dam Gas Treasury',
+                    label:'Dam Use Treasury',
                     backgroundColor:'#000000',
                     data: data
                 }

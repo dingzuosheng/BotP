@@ -15,7 +15,6 @@ import {
     CategoryScale,
     LinearScale
 } from 'chart.js'
-
 ChartJS.register(Title, Tooltip, Legend, PointElement, LineElement, CategoryScale, LinearScale)
 
 export default {
@@ -38,8 +37,8 @@ export default {
     },
     computed:{
        changeChartData(newValue,oldValue){
-            return this.chartData 
-       } 
+            return this.chartData;
+       }
     }
 }
 </script>

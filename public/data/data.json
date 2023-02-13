@@ -422,6 +422,10 @@
                 "path": "/game/dam-price"
             },
             {
+                "name": "Dam Use Treasury",
+                "path": "/game/dam-use-treasury"
+            },
+            {
                 "name": "Energy Demand",
                 "path": "/game/energy-demand"
             }
@@ -438,10 +442,15 @@
         ]
     },
     "Dam_Use_Treasury": {
-        "name": "Dam Use Treasury",
+        "name": "Dam Use Subsidy",
         "path": "/game/dam-use-treasury",
         "causes": [],
-        "effects": []
+        "effects": [
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            }
+        ]
     },
     "Dam_Price": {
         "name": "Dam Price",

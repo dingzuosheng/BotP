@@ -4,7 +4,7 @@
         <div>
             <h1>{{ this.name }}</h1>
         </div>
-        <div v-if="!show">
+        <div v-if="!this.show">
             Coal Use: {{ this.coalUse }} Exajoules
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -33,7 +33,7 @@
                 </el-collapse-item>
             </el-collapse>
         </div>
-        <div v-if="show">
+        <div v-if="this.show">
             <BarChart :chartData="chartData"></BarChart>
         </div>
     </div>

@@ -27,7 +27,7 @@
                 </el-collapse> 
             </div> 
             <div v-if="this.show">
-                <BarChart :chartData="chartData"></BarChart>
+                <BarChart :chartData="chartData" ></BarChart>
             </div>       
         </div>
         <div class="side-nav">
@@ -84,6 +84,7 @@ export default {
     },
     watch:{
         executed(newValue,oldValue){
+            console.log(newValue,oldValue)
             this.draw();
         }
     },
@@ -118,7 +119,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Global Temperature',
+                label:'Life Style',
                 backgroundColor:'#000000',
                 data: data
             }

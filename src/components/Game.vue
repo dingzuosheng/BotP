@@ -12,12 +12,12 @@
         <button>About this Game</button>
         <button @click="toConnections">Connections</button>
         <button @click="newGame">New Game</button>
-        <button @click="showSimulation">Run Simulation</button>
+        <button @click="showSimulation">Show Simulation</button>
         <button @click="stopSimulation">Stop Simulation</button>
         <button @click="execute">Execute</button>
     </div>
     <div>
-        <router-view v-slot="{ Component }" :show="show"  :executed="executed"
+        <router-view v-slot="{ Component }" :show="show" :executed="executed"
                     @changeCoalTaxRate="changeCoalTaxRate($event)" @changeCoalUserate="changeCoalUserate($event)" 
                     @changeCoalPriceFactor="changeCoalPriceFactor($event)" @changeCoalSupplyElasticity="changeCoalSupplyElasticity($event)"
                     :coalUse="coalUse" :totalCoalUse="totalCoalUse" :coalPrice="coalPrice" :coalSupply="coalSupply" :coalTaxRate="coalTaxRate"
@@ -215,7 +215,7 @@ export default {
             totalPoints:8383,
             lifeValue:2.0,//right
             year:1990,//right
-            executed:1989,
+            executed:0,
         }
     },
     methods: {
@@ -236,8 +236,8 @@ export default {
             this.$router.push("/connections");
         },
         newGame(){
-            this.$router.go(0);
             localStorage.clear();
+            this.$router.go(0);
             this.$router.push("/game/policy");
         },
         showSimulation() {
@@ -623,16 +623,20 @@ export default {
             console.log("qualityOfLife===="+this.qualityOfLife)
         },
         calculateResearchTreasury(){//对
-            this.basicResearchTreasury = this.basicResearch * this.totalTreasury / 100;
-            this.bioResearchTreasury = this.bioResearch * this.totalTreasury / 100;
-            this.coalResearchTreasury = this.coalResearch * this.totalTreasury / 100;
-            this.damUseTreasury = this.damSubsidy * this.totalTreasury / 100;
-            this.nuclearResearchTreasury = this.nuclearResearch * this.totalTreasury / 100;
-            this.oilResearchTreasury = this.oilResearch * this.totalTreasury / 100;
-            this.solarEnergyTreasury = this.solarEnergySubsidy * this.totalTreasury / 100;
-            this.solarResearchTreasury = this.solarResearch * this.totalTreasury / 100;
+            this.basicResearchTreasury = this.basicResearch * this.totalTreasury;
+            this.bioResearchTreasury = this.bioResearch * this.totalTreasury;
+            this.coalResearchTreasury = this.coalResearch * this.totalTreasury;
+            this.damUseTreasury = this.damSubsidy * this.totalTreasury;
+            this.nuclearResearchTreasury = this.nuclearResearch * this.totalTreasury;
+            this.oilResearchTreasury = this.oilResearch * this.totalTreasury;
+            this.solarEnergyTreasury = this.solarEnergySubsidy * this.totalTreasury;
+            this.solarResearchTreasury = this.solarResearch * this.totalTreasury;
+            this.totalTreasury = this.totalTreasury + this.coalTaxIncome + this.oilTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome
+                                - this.basicResearchTreasury - this.bioResearchTreasury - this.coalResearchTreasury - this.oilResearchTreasury
+                                - this.solarResearchTreasury - this.damUseTreasury
         },
         execute() {
+            this.updated = !this.updated;
             const data1990 = {
                 coalUse: 76.3,
                 coalPrice: 24900000000,
@@ -985,7 +989,8 @@ export default {
             console.log("solarEnergyTreasury:"+solarEnergyTreasury);
 */
             this.executed++;
-        
+            
+
         },
         /* coal */
         changeCoalTaxRate(coalTaxRate) {
