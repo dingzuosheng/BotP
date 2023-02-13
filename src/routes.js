@@ -30,7 +30,7 @@ import TotalNaturalGasUse from './components/naturalGas/TotalNaturalGasUse'
 import NaturalGasSupply from './components/naturalGas/NaturalGasSupply'
 import DamUse from './components/dam/DamUse'
 import DamPrice from './components/dam/DamPrice'
-import DamUseTreasury from './components/dam/DamUseTreasury'
+import DamUseBudget from './components/dam/DamUseBudget'
 import NuclearUse from './components/nuclear/NuclearUse'
 import NuclearTax from './components/nuclear/NuclearTax'
 import NuclearPrice from './components/nuclear/NuclearPrice'
@@ -204,9 +204,9 @@ const routes = [
                 component:NaturalGasSupply
             },
             {
-                name:'DamUseTreasury',
-                path:'/game/dam-use-treasury',
-                component:DamUseTreasury
+                name:'DamUseBudget',
+                path:'/game/dam-use-budget',
+                component:DamUseBudget
             },
             {
                 name:'DamUse',

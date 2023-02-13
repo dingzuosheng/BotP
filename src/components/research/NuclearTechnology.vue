@@ -22,10 +22,10 @@
                                 <span>Nuclear Technology</span> <span>= {{ this.nuclearTechnology }}</span> <span>(Whizbangs)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Research</span> <span>= {{ this.nuclearResearchTreasury / Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Nuclear Research</span> <span>= {{ this.nuclearResearchBudget / Math.pow(10,9) }} billion</span> <span>($)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Basic Research</span> <span>= {{ this.basicResearchTreasury / Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Basic Research</span> <span>= {{ this.basicResearchBudget / Math.pow(10,9) }} billion</span> <span>($)</span>
                             </div>
                         </div>
                     </div>
@@ -87,8 +87,8 @@ export default {
     },
     props:{
         nuclearTechnology:Number,
-        nuclearResearchTreasury:Number,
-        basicResearchTreasury:Number,
+        nuclearResearchBudget:Number,
+        basicResearchBudget:Number,
         show:Boolean,
         executed:Number
     },

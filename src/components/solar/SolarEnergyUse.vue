@@ -25,7 +25,7 @@
                                 <span>Ave Energy Price</span> <span>= {{ this.aveEnergyPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Solar Energy $</span> <span>= {{ this.solarEnergyTreasury/Math.pow(10,9)}} billion</span> <span>($)</span>
+                                <span>Solar Energy $</span> <span>= {{ this.solarEnergyBudget/Math.pow(10,9)}} billion</span> <span>($)</span>
                             </div>
                             <div class="row-formula">
                                 <span>Solar Energy Price</span> <span>= {{ this.solarPrice/Math.pow(10,9)}} billion</span> <span>($/Exajoules)</span>
@@ -92,7 +92,7 @@ export default {
         solarPrice:Number,
         solarUse:Number,
         energyDemand:Number,
-        solarEnergyTreasury:Number,
+        solarEnergyBudget:Number,
         aveEnergyPrice:Number,
         show:Boolean,
         executed:Number

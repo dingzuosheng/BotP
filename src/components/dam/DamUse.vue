@@ -25,7 +25,7 @@
                                 <span>Ave Energy Price</span> <span>= {{ this.aveEnergyPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Dam Use $</span> <span>= {{ this.damUseTreasury /Math.pow(10,9)}} billion</span> <span>($)</span>
+                                <span>Dam Use $</span> <span>= {{ this.damUseBudget /Math.pow(10,9)}} billion</span> <span>($)</span>
                             </div>
                             <div class="row-formula">
                                 <span>Dam Price</span> <span>= {{ this.damPrice / Math.pow(10,9)}} billion</span> <span>($/Exajoules)</span>
@@ -92,7 +92,7 @@ export default {
         damUse:Number,
         energyDemand:Number,
         aveEnergyPrice:Number,
-        damUseTreasury:Number,
+        damUseBudget:Number,
         damPrice:Number,
         show:Boolean,
         executed:Number

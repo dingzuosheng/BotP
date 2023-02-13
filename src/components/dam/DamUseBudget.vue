@@ -55,7 +55,7 @@
     })
     import BarChart from '../chart/BarChart.vue'
     export default {
-        name: 'DamUseTreasury',
+        name: 'DamUseBudget',
         data() {
             return {
                 name: "",
@@ -83,9 +83,9 @@
         },
         created() {
             service.get('/data/data.json').then(res => {
-                this.name = toRaw(res.data.Dam_Use_Treasury.name);
-                this.causes = toRaw(res.data.Dam_Use_Treasury.causes);
-                this.effects = toRaw(res.data.Dam_Use_Treasury.effects);
+                this.name = toRaw(res.data.Dam_Use_Budget.name);
+                this.causes = toRaw(res.data.Dam_Use_Budget.causes);
+                this.effects = toRaw(res.data.Dam_Use_Budget.effects);
             })
         },
         methods: {
@@ -108,11 +108,11 @@
                 const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    data.push(JSON.parse(localStorage.getItem(labels[i])).damUseTreasury)
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).damUseBudget)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Dam Use Treasury',
+                    label:'Dam Use Budget',
                     backgroundColor:'#000000',
                     data: data
                 }

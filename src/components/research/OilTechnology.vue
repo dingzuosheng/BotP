@@ -21,10 +21,10 @@
                             <span>Oil Technology</span> <span>= {{ this.oilTechnology }}</span> <span>(Whizbangs)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Oil Research $</span> <span>= {{ this.oilResearchTreasury/Math.pow(10,9) }} billion</span> <span>($)</span>
+                            <span>Oil Research $</span> <span>= {{ this.oilResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
                         </div>
                         <div class="row-formula">
-                            <span>Basic Research $</span> <span>= {{ this.basicResearchTreasury/Math.pow(10,9) }} billion</span> <span>($)</span>
+                            <span>Basic Research $</span> <span>= {{ this.basicResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
                         </div>
                     </div>
                 </div>
@@ -74,8 +74,8 @@ export default {
     },
     props:{
         oilTechnology:Number,
-        oilResearchTreasury:Number,
-        basicResearchTreasury:Number
+        oilResearchBudget:Number,
+        basicResearchBudget:Number
     },
     created() {
         service.get('/data/data.json').then(res => {

@@ -22,10 +22,10 @@
                                 <span>Bio Technology</span> <span>= {{ this.bioTechnology }}</span> <span>(Whizbangs)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Bio Research $</span> <span>= {{ this.bioResearchTreasury / Math.pow(10,9)}} billion</span> <span>($)</span>
+                                <span>Bio Research $</span> <span>= {{ this.bioResearchBudget / Math.pow(10,9)}} billion</span> <span>($)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Basic Research $</span> <span>= {{ this.basicResearchTreasury / Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Basic Research $</span> <span>= {{ this.basicResearchBudget / Math.pow(10,9) }} billion</span> <span>($)</span>
                             </div>
                         </div>
                     </div>
@@ -87,8 +87,8 @@ export default {
     },
     props:{
         bioTechnology:Number,
-        bioResearchTreasury:Number,
-        basicResearchTreasury:Number,
+        bioResearchBudget:Number,
+        basicResearchBudget:Number,
         show:Boolean,
         executed:Number
     },

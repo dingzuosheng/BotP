@@ -6,7 +6,7 @@
             </div>   
             <div v-if="!this.show">
                 <div>
-                    Solar Research Treasury: {{ this.solarResearchTreasury }} $
+                    Solar Research Budget: {{ this.solarResearchBudget }} $
                 </div>
                 <div class="range">
                     <h3>Solar Research Subsidy{{ this.solarResearchSubsidy * 100}} %</h3>
@@ -72,7 +72,7 @@ export default {
         BarChart
     },
     props:{
-        solarResearchTreasury:Number,
+        solarResearchBudget:Number,
         show:Boolean,
         executed:Number
     },
@@ -109,11 +109,11 @@ export default {
             const coalUses = [];
             
             for(let i = 0; i < labels.length; i++){
-                coalUses.push(JSON.parse(localStorage.getItem(labels[i])).solarResearchTreasury)
+                coalUses.push(JSON.parse(localStorage.getItem(labels[i])).solarResearchBudget)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Solar Research Treasury',
+                label:'Solar Research Budget',
                 backgroundColor:'#000000',
                 data: coalUses
             }

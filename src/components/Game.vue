@@ -37,7 +37,7 @@
                     :coalTaxIncome="coalTaxIncome" :oilTaxIncome="oilTaxIncome" :naturalGasTaxIncome="naturalGasTaxIncome" :nuclearTaxIncome="nuclearTaxIncome"
 
                     @changeSolarEnergySubsidy="changeSolarEnergySubsidy($event)" @changeSolarUseRate="changeSolarUseRate($event)" @changeSoalrEnergyPotential="changeSolarEnergyPotential($event)"
-                    :solarEnergySubsidy="solarEnergySubsidy"  :solarUse="solarUse" :solarEnergyTreasury="solarEnergyTreasury" :solarPrice="solarPrice"
+                    :solarEnergySubsidy="solarEnergySubsidy"  :solarUse="solarUse" :solarEnergyBudget="solarEnergyBudget" :solarPrice="solarPrice"
 
                     @changeSolarOptimism="changeSolarOptimism($event)" @changeSolarResearchSubsidy="changeSolarResearchSubsidy($event)"
                     @changeBasicResearchSubsidy="changeBasicResearchSubsidy($event)" @changeBioResearchSubsidy="changeBioResearchSubsidy($event)"
@@ -45,15 +45,15 @@
                     @changeCoalOptimism="changeCoalOptimism($event)"  @changeOilResearchSubsidy="changeOilResearchSubsidy($event)" 
                     @changeOilOptimism="changeOilOptimism($event)" @changeNuclearResearchSubsidy="changeNuclearResearchSubsidy($event)"
                     @changeNuclearOptimism="changeNuclearOptimism($event)"  @changeDamSubsidy="changeDamSubsidy($event)"
-                    :solarTechnology="solarTechnology" :solarResearchTreasury="solarResearchTreasury" :solarResearch="solarResearch" 
-                    :basicResearch="basicResearch" :basicResearchTreasury="basicResearchTreasury" :bioResearch="bioResearch"  
-                    :bioTechnology="bioTechnology" :bioResearchTreasury="bioResearchTreasury" :coalResearch="coalResearch"  
-                    :coalTechnology="coalTechnology" :coalResearchTreasury="coalResearchTreasury" :oilResearch="oilResearch" 
-                    :oilTechnology="oilTechnology" :oilResearchTreasury="oilResearchTreasury"  :nuclearResearch="nuclearResearch"  
-                    :nuclearTechnology="nuclearTechnology" :nuclearResearchTreasury="nuclearResearchTreasury" 
+                    :solarTechnology="solarTechnology" :solarResearchBudget="solarResearchBudget" :solarResearch="solarResearch" 
+                    :basicResearch="basicResearch" :basicResearchBudget="basicResearchBudget" :bioResearch="bioResearch"  
+                    :bioTechnology="bioTechnology" :bioResearchBudget="bioResearchBudget" :coalResearch="coalResearch"  
+                    :coalTechnology="coalTechnology" :coalResearchBudget="coalResearchBudget" :oilResearch="oilResearch" 
+                    :oilTechnology="oilTechnology" :oilResearchBudget="oilResearchBudget"  :nuclearResearch="nuclearResearch"  
+                    :nuclearTechnology="nuclearTechnology" :nuclearResearchBudget="nuclearResearchBudget" 
                    
                     @changeDamUseRate="changeDamUseRate($event)" @changeDamPotential="changeDamPotential($event)"
-                    :damUseTreasury="damUseTreasury" :damSubsidy="damSubsidy" :damUse="damUse" :damPrice="damPrice" 
+                    :damUseBudget="damUseBudget" :damSubsidy="damSubsidy" :damUse="damUse" :damPrice="damPrice" 
                     
                     @changeCO2Quantity="changeCO2Quantity($event)" @changeTemperatureT0="changeTemperatureT0($event)" 
                     @changeCO2Eff="changeCO2Eff($event)" @changeBasicTemperature="changeBasicTemperature($event)"
@@ -146,7 +146,7 @@ export default {
             solarUseRate: 0.12,//right
             solarPrice: 24.8 * Math.pow(10, 9),//right
             solarEnergyPotential: Math.pow(10,-9),//right
-            solarEnergyTreasury: 3.18 * Math.pow(10, 9),//right
+            solarEnergyBudget: 3.18 * Math.pow(10, 9),//right
             /*technology*/
             solarTechnology: 1.02,//right
             solarOptimism:0.0012,//right
@@ -165,15 +165,15 @@ export default {
             coalResearch: 0.08,//right
             oilResearch: 0.08,//right
             nuclearResearch: 0.08,//right
-            solarResearchTreasury: 3.18 * Math.pow(10, 9),//right
-            basicResearchTreasury: 3.18 * Math.pow(10, 9),//right
-            bioResearchTreasury: 3.18 * Math.pow(10, 9),//right
-            coalResearchTreasury: 3.18 * Math.pow(10, 9),//right
-            oilResearchTreasury: 3.18 * Math.pow(10, 9),//right
-            nuclearResearchTreasury: 3.18 * Math.pow(10, 9),//right
+            solarResearchBudget: 3.18 * Math.pow(10, 9),//right
+            basicResearchBudget: 3.18 * Math.pow(10, 9),//right
+            bioResearchBudget: 3.18 * Math.pow(10, 9),//right
+            coalResearchBudget: 3.18 * Math.pow(10, 9),//right
+            oilResearchBudget: 3.18 * Math.pow(10, 9),//right
+            nuclearResearchBudget: 3.18 * Math.pow(10, 9),//right
             totalTreasury: 39.83* Math.pow(10,9), //right
             /*dam */
-            damUseTreasury: 3.18 * Math.pow(10, 9),//right
+            damUseBudget: 3.18 * Math.pow(10, 9),//right
             damSubsidy: 0.08,//right
             damUse: 18,//right
             damUseRate: 0.12,//right
@@ -416,27 +416,27 @@ export default {
             console.log("==============================================================================================================")
         },
         calculateDamFormulas(){
-            this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseTreasury) / this.damPrice;//对
+            this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseBudget) / this.damPrice;//对
             //this.damPrice = this.damUse / this.damPotential;
             this.damPrice = (this.damPrice + (this.damUse / this.damPotential)) / 2 //对
             /*print */
-            console.log("this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseTreasury) / this.damPrice ==="+ this.damUse + " = " + this.damUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.damUseTreasury + ", " + this.damPrice);
+            console.log("this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseBudget) / this.damPrice ==="+ this.damUse + " = " + this.damUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.damUseBudget + ", " + this.damPrice);
             console.log("this.damPrice = this.damUse / this.damPotential==="+this.damPrice + " = " + this.damUse + ", " + this.damPotential);
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
         },
         calculateSolarFormulas(){
-            this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarPrice;//对
+            this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyBudget) / this.solarPrice;//对
             //this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology);
             this.solarPrice = (this.solarPrice + (this.solarUse / (this.solarEnergyPotential * this.solarTechnology))) / 2; //对 max1 不懂
             /*print */
-            console.log("this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyTreasury) / this.solarPrice===");
+            console.log("this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyBudget) / this.solarPrice===");
             console.log("solarUse: "+this.solarUse);
             console.log("solarUseRate: " + this.solarUseRate);
             console.log("energyDemand: " + this.energyDemand);
             console.log("aveEnergyPrice: " + this.aveEnergyPrice);
-            console.log("solarEnergyTreasury: " + this.solarEnergyTreasury);
+            console.log("solarEnergyBudget: " + this.solarEnergyBudget);
             console.log("solarPrice: " + this.solarPrice);
             console.log("==============================================================================")
             console.log("this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology)===");
@@ -449,43 +449,43 @@ export default {
             console.log("==============================================================================================================")
         },
         calculateTechnologyFormulas(){ //对
-            this.solarTechnology = this.solarTechnology + this.solarOptimism * Math.log((this.solarResearchTreasury+1)/Math.pow(10,9) * (this.basicResearchTreasury+1)/Math.pow(10,9));
-            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log((1+this.bioResearchTreasury)/Math.pow(10,9) * (this.basicResearchTreasury+1)/Math.pow(10,9))/2.3;
-            this.coalTechnology = this.coalTechnology + this.coalOptimism * Math.log((this.coalResearchTreasury+1)/Math.pow(10,9) * (this.basicResearchTreasury+1)/Math.pow(10,9))/2.3;
-            this.oilTechnology = this.oilTechnology + this.oilOptimism * Math.log((this.oilResearchTreasury+1)/Math.pow(10,9) * (this.basicResearchTreasury+1)/Math.pow(10,9));
-            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * Math.log((this.nuclearResearchTreasury + 1)/Math.pow(10,9) * (this.basicResearchTreasury+1)/Math.pow(10,9));
+            this.solarTechnology = this.solarTechnology + this.solarOptimism * Math.log((this.solarResearchBudget+1)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9));
+            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log((1+this.bioResearchBudget)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9))/2.3;
+            this.coalTechnology = this.coalTechnology + this.coalOptimism * Math.log((this.coalResearchBudget+1)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9))/2.3;
+            this.oilTechnology = this.oilTechnology + this.oilOptimism * Math.log((this.oilResearchBudget+1)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9));
+            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * Math.log((this.nuclearResearchBudget + 1)/Math.pow(10,9) * (this.basicResearchBudget+1)/Math.pow(10,9));
             console.log("==================================================================================================================")
             console.log("==================================================================================================================")
             console.log("==================================================================================================================")
-            console.log("this.solarTechnology = this.solarTechnology + this.solarOptimism * this.solarResearchTreasury * this.basicResearchTreasury");
+            console.log("this.solarTechnology = this.solarTechnology + this.solarOptimism * this.solarResearchBudget * this.basicResearchBudget");
             console.log("solarTechnology====="+this.solarTechnology)
             console.log("solarOptimism====="+this.solarOptimism)
-            console.log("solarResearchTreasury====="+this.solarResearchTreasury)
-            console.log("basicResearchTreasury====="+this.basicResearchTreasury)
+            console.log("solarResearchBudget====="+this.solarResearchBudget)
+            console.log("basicResearchBudget====="+this.basicResearchBudget)
             console.log("=======================================================================================")
-            console.log("this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(this.bioResearchTreasury * this.basicResearchTreasury)")
+            console.log("this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(this.bioResearchBudget * this.basicResearchBudget)")
             console.log("bioTechnology===="+this.bioTechnology)
             console.log("bioOptimism===="+this.bioOptimism)
-            console.log("bioResearchTreasury===="+this.bioResearchTreasury)
-            console.log("basicResearchTreasury===="+this.basicResearchTreasury)
+            console.log("bioResearchBudget===="+this.bioResearchBudget)
+            console.log("basicResearchBudget===="+this.basicResearchBudget)
             console.log("=======================================================================================")
-            console.log("this.coalTechnology = this.coalTechnology + this.coalOptimism * this.coalResearchTreasury * this.basicResearchTreasury")
+            console.log("this.coalTechnology = this.coalTechnology + this.coalOptimism * this.coalResearchBudget * this.basicResearchBudget")
             console.log("coalTechnology===="+this.coalTechnology);
             console.log("coalOptimism===="+this.coalOptimism);
-            console.log("coalResearchTreasury===="+this.coalResearchTreasury);
-            console.log("basicResearchTreasury===="+this.basicResearchTreasury);
+            console.log("coalResearchBudget===="+this.coalResearchBudget);
+            console.log("basicResearchBudget===="+this.basicResearchBudget);
             console.log("=======================================================================================")
-            console.log("this.oilTechnology = this.oilTechnology + this.oilOptimism * this.oilResearchTreasury * this.basicResearchTreasury")
+            console.log("this.oilTechnology = this.oilTechnology + this.oilOptimism * this.oilResearchBudget * this.basicResearchBudget")
             console.log("oilTechnology===="+this.oilTechnology)
             console.log("oilOptimism===="+this.oilOptimism)
-            console.log("oilResearchTreasury===="+this.oilResearchTreasury)
-            console.log("basicResearchTreasury===="+this.basicResearchTreasury)
+            console.log("oilResearchBudget===="+this.oilResearchBudget)
+            console.log("basicResearchBudget===="+this.basicResearchBudget)
             console.log("=======================================================================================")
-            console.log("this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * this.nuclearResearchTreasury * this.basicResearchTreasury")
+            console.log("this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * this.nuclearResearchBudget * this.basicResearchBudget")
             console.log("nuclearTechnology"+this.nuclearTechnology)
             console.log("nuclearOptimisim"+this.nuclearOptimism)
-            console.log("nuclearResearchTreasury"+this.nuclearResearchTreasury)
-            console.log("basicResearchTreasury"+this.basicResearchTreasury)            
+            console.log("nuclearResearchBudget"+this.nuclearResearchBudget)
+            console.log("basicResearchBudget"+this.basicResearchBudget)            
         },
         calculateAirPolutionFormulas(){
             this.co2 = this.co2 + this.co2Quantity * (this.coalUse + this.oilUse + this.naturalGasUse);//对
@@ -622,18 +622,18 @@ export default {
             console.log("valueOfQualityOfLife===="+this.valueOfQualityOfLife)
             console.log("qualityOfLife===="+this.qualityOfLife)
         },
-        calculateResearchTreasury(){//对
-            this.basicResearchTreasury = this.basicResearch * this.totalTreasury;
-            this.bioResearchTreasury = this.bioResearch * this.totalTreasury;
-            this.coalResearchTreasury = this.coalResearch * this.totalTreasury;
-            this.damUseTreasury = this.damSubsidy * this.totalTreasury;
-            this.nuclearResearchTreasury = this.nuclearResearch * this.totalTreasury;
-            this.oilResearchTreasury = this.oilResearch * this.totalTreasury;
-            this.solarEnergyTreasury = this.solarEnergySubsidy * this.totalTreasury;
-            this.solarResearchTreasury = this.solarResearch * this.totalTreasury;
+        calculateResearchBudget(){//对
+            this.basicResearchBudget = this.basicResearch * this.totalTreasury;
+            this.bioResearchBudget = this.bioResearch * this.totalTreasury;
+            this.coalResearchBudget = this.coalResearch * this.totalTreasury;
+            this.damUseBudget = this.damSubsidy * this.totalTreasury;
+            this.nuclearResearchBudget = this.nuclearResearch * this.totalTreasury;
+            this.oilResearchBudget = this.oilResearch * this.totalTreasury;
+            this.solarEnergyBudget = this.solarEnergySubsidy * this.totalTreasury;
+            this.solarResearchBudget = this.solarResearch * this.totalTreasury;
             this.totalTreasury = this.totalTreasury + this.coalTaxIncome + this.oilTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome
-                                - this.basicResearchTreasury - this.bioResearchTreasury - this.coalResearchTreasury - this.oilResearchTreasury
-                                - this.solarResearchTreasury - this.damUseTreasury
+                                - this.basicResearchBudget - this.bioResearchBudget - this.coalResearchBudget - this.oilResearchBudget
+                                - this.solarResearchBudget - this.damUseBudget
         },
         execute() {
             this.updated = !this.updated;
@@ -697,14 +697,14 @@ export default {
                 sustainability:0.17,
                 sustainabilityPts:681,
 
-                basicResearchTreasury:3180000000,
-                bioResearchTreasury:3180000000,
-                coalResearchTreasury:3180000000,
-                oilResearchTreasury:3180000000,
-                solarResearchTreasury:3180000000,
-                solarEnergyTreasury:3180000000,
-                nuclearResearchTreasury:3180000000,
-                damUseTreasury:3180000000,
+                basicResearchBudget:3180000000,
+                bioResearchBudget:3180000000,
+                coalResearchBudget:3180000000,
+                oilResearchBudget:3180000000,
+                solarResearchBudget:3180000000,
+                solarEnergyBudget:3180000000,
+                nuclearResearchBudget:3180000000,
+                damUseBudgety:3180000000,
                 totalTreasury:39830000000,
                 totalPoints:8383,
             }
@@ -731,7 +731,7 @@ export default {
             this.calculateQualityOfLifeFormulas();          
             this.calculateTaxIncome();
             this.calculateTotalPoints();
-            this.calculateResearchTreasury();
+            this.calculateResearchBudget();
 
             const data = {
                 coalUse: this.coalUse,
@@ -800,14 +800,14 @@ export default {
                 sustainability:this.sustainability,
                 sustainabilityPts:this.sustainabilityPts,
 
-                basicResearchTreasury:this.basicResearchTreasury,
-                bioResearchTreasury:this.bioResearchTreasury,
-                coalResearchTreasury:this.coalResearchTreasury,
-                oilResearchTreasury:this.oilResearchTreasury,
-                solarResearchTreasury:this.solarResearchTreasury,
-                solarEnergyTreasury:this.solarEnergyTreasury,
-                nuclearResearchTreasury:this.nuclearResearchTreasury,
-                damUseTreasury:this.damUseTreasury,
+                basicResearchBudget:this.basicResearchBudget,
+                bioResearchBudget:this.bioResearchBudget,
+                coalResearchBudget:this.coalResearchBudget,
+                oilResearchBudget:this.oilResearchBudget,
+                solarResearchBudget:this.solarResearchBudget,
+                solarEnergyBudget:this.solarEnergyBudget,
+                nuclearResearchBudget:this.nuclearResearchBudget,
+                damUseBudget:this.damUseBudget,
                 totalTreasury:this.totalTreasury,
                 totalPoints:this.totalPoints,
             }
