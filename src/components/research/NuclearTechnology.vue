@@ -41,7 +41,7 @@
             <h2>Causes</h2>
             <div v-if="this.causes">
                 <div v-for="cause in this.causes" :key="cause.name">
-                    <button @click="toPage(cause)">{{ cause.name }}</button>
+                    <el-button type="primary" @click="toPage(cause)">{{ cause.name }}</el-button>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
             <h2>Effects</h2>
             <div v-if="this.effects">
                 <div v-for="effect in this.effects" :key="effect.name">
-                    <button @click="toPage(effect)">{{ effect.name }}</button>
+                    <el-button type="primary" @click="toPage(effect)">{{ effect.name }}</el-button>
                 </div>
             </div>
         </div>
