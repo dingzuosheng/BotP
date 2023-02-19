@@ -422,8 +422,8 @@
                 "path": "/game/dam-price"
             },
             {
-                "name": "Dam Use Treasury",
-                "path": "/game/dam-use-treasury"
+                "name": "Dam Use Budget",
+                "path": "/game/dam-use-budget"
             },
             {
                 "name": "Energy Demand",
@@ -441,9 +441,9 @@
             }
         ]
     },
-    "Dam_Use_Treasury": {
+    "Dam_Use_Budget": {
         "name": "Dam Use Subsidy",
-        "path": "/game/dam-use-treasury",
+        "path": "/game/dam-use-budget",
         "causes": [],
         "effects": [
             {
@@ -517,6 +517,98 @@
                 "path": "/game/total-nuclear-use"
             }
         ]
+    },
+    "Radiation": {
+        "name": "Radiation",
+        "path": "/game/radiation",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Nuclear Technology",
+                "path": "/game/nuclear-technology"
+            },
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Radiation Cancer",
+                "path": "/game/radiation-cancer"
+            }
+        ]
+    },
+    "Radioactive_Waste": {
+        "name": "Radioactive Waste",
+        "path": "/game/radioactive-waste",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Nuclear Technology",
+                "path": "/game/nuclear-technology"
+            },
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Rad Waste Points",
+                "path": "/game/rad-waste-points"
+            }
+        ]
+    },
+    "Nuclear_Accidents": {
+        "name": "Nuclear Accidents",
+        "path": "/game/nuclear-accidents",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Nuclear Technology",
+                "path": "/game/nuclear-technology"
+            },
+            {
+                "name": "Nuclear Use",
+                "path": "/game/nuclear-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Radiation Cancer",
+                "path": "/game/radiation-cancer"
+            }
+        ]
+    },
+    "Radiation_Cancer": {
+        "name": "Radiation Cancer",
+        "path": "/game/radiation-cancer",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Nuclear Accidents",
+                "path": "/game/nuclear-accidents"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Radiation Points",
+                "path": "/game/radiation-points"
+            }
+        ]
+    },
+    "Radiation_Points": {
+        "name": "Radiation Points",
+        "path": "/game/radiation-points",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Radiation Cancer",
+                "path": "/game/radiation-cancer"
+            }
+        ],
+        "effects": []
     },
     "Total_Nuclear_Use": {
         "name": "Total Nuclear Use",
@@ -666,6 +758,35 @@
                 "path": "/game/solar-energy-price"
             }
         ]
+    },
+    "Falls_From_Roofs": {
+        "name": "Falls from Roofs",
+        "path": "/game/falls-from-roofs",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Solar Energy Use",
+                "path": "/game/solar-energy-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Fall Points",
+                "path": "/game/fall-points"
+            }
+        ]
+    },
+    "Fall_Points": {
+        "name": "Fall Points",
+        "path": "/game/fall-points",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Falls from Roofs",
+                "path": "/game/falls-from-roofs"
+            }
+        ],
+        "effects": []
     },
     "Ave_Energy_Price": {
         "name": "Average Energy Price",
@@ -942,7 +1063,7 @@
             },
             {
                 "name": "Lung Disease Death",
-                "path": "/game/lung-disease-death"
+                "path": "/game/lung-disease-deaths"
             },
             {
                 "name": "Property Damage $",
@@ -970,14 +1091,55 @@
                 "path": "/game/acid-rain"
             },
             {
-                "name": "Lung Disease Death",
-                "path": "/game/lung-disease-death"
+                "name": "Lung Disease Deaths",
+                "path": "/game/lung-disease-deaths"
             },
             {
                 "name": "Property Damage $",
                 "path": "/game/property-damage"
             }
         ]
+    },
+    "Lung_Disease_Deaths": {
+        "name": "Lung Disease Deaths",
+        "path": "/game/lung-disease-deaths",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Nitrous Dioxide",
+                "path": "/game/no2"
+            },
+            {
+                "name": "Sulfur Dioxide",
+                "path": "/game/so2"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Acid Rain",
+                "path": "/game/acid-rain"
+            },
+            {
+                "name": "Lung Disease Deaths",
+                "path": "/game/lung-disease-deaths"
+            },
+            {
+                "name": "Property Damage $",
+                "path": "/game/property-damage"
+            }
+        ]
+    },
+    "Lung_Disease_Pts": {
+        "name": "Lung Disease Pts",
+        "path": "/game/lung-disease-pts",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Lung Disease Deaths",
+                "path": "/game/lung-disease-deaths"
+            }
+        ],
+        "effects": []
     },
     "Nonrenewable_Energy": {
         "name": "Nonrenewable Energy",
@@ -1039,7 +1201,12 @@
                 "path": "/game/global-temperature"
             }
         ],
-        "effects": []
+        "effects": [
+            {
+                "name": "Inundation Points",
+                "path": "/game/inundation-points"
+            }
+        ]
     },
     "Energy_Conservation": {
         "name": "Energy Conservation",
@@ -1224,6 +1391,39 @@
                 "path": "/game/quality-of-life"
             }
         ]
+    },
+    "Starvation": {
+        "name": "Starvation",
+        "path": "/game/starvation",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Population",
+                "path": "/game/population"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Population",
+                "path": "/game/population"
+            },
+            {
+                "name": "Starvation Points",
+                "path": "/game/starvation-points"
+            }
+        ]
+    },
+    "Starvation_Points": {
+        "name": "Starvation Points",
+        "path": "/game/starvation-points",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Starvation",
+                "path": "/game/starvation"
+            }
+        ],
+        "effects": []
     },
     "Quality_of_Life_Points": {
         "name": "Quality of Life Points",
