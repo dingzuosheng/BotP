@@ -61,6 +61,19 @@ import QualityOfLife from './components/common/QualityOfLife'
 import Lifestyle from './components/common/Lifestyle'
 import QualityOfLifePoints from './components/common/QualityOfLifePoints'
 import Connections from './components/Connections'
+import InundationPoints from './components/common/InundationPoints.vue'
+import LungDiseaseDeaths from './components/common/LungDiseaseDeaths'
+import LungDiseasePts from './components/common/LungDiseasePts'
+import Starvation from './components/common/Starvation'
+import StarvationPoints from './components/common/StarvationPoints'
+import NuclearAccidents from './components/research/NuclearAccidents'
+import Radiation from './components/research/Radiation'
+import RadiationCancer from './components/research/RadiationCancer'
+import RadiationPoints from './components/research/RadiationPoints'
+import RadioactiveWaste from './components/research/RadioactiveWaste'
+import RadWastePoints from './components/research/RadWastePoints'
+import FallPoints from './components/solar/FallPoints'
+import FallsFromRoofs from './components/solar/FallsFromRoofs'
 
 const routes = [
     {
@@ -177,6 +190,11 @@ const routes = [
                 name:'SeaLevel',
                 path:'/game/sea-level',
                 component:SeaLevel
+            },
+            {
+                name:'InundationPoints',
+                path:'/game/inundation-points',
+                component:InundationPoints
             },
             {
                 name:'NaturalGasUse',
@@ -362,6 +380,66 @@ const routes = [
                 name:'QualityOfLifePoints',
                 path:'/game/quality-of-life-points',
                 component:QualityOfLifePoints
+            },
+            {
+                name:'Lung Disease Deaths',
+                path:'/game/lung-disease-deaths',
+                component:LungDiseaseDeaths
+            },
+            {
+                name:'Lung Disease Pts',
+                path:'/game/lung-disease-pts',
+                component:LungDiseasePts
+            },
+            {
+                name:'Nuclear Accidents',
+                path:'/game/nuclear-accidents',
+                component:NuclearAccidents
+            },
+            {
+                name:'Radiation Cancer',
+                path:'/game/radiation-cancer',
+                component:RadiationCancer
+            },
+            {
+                name:'Radiation Points',
+                path:'/game/radiation-points',
+                component:RadiationPoints
+            },
+            {
+                name:'Radiation',
+                path:'/game/radiation',
+                component:Radiation
+            },
+            {
+                name:'Radioactive Waste',
+                path:'/game/radioactive-waste',
+                component:RadioactiveWaste
+            },
+            {
+                name:'Rad Waste Points',
+                path:'/game/rad-waste-points',
+                component:RadWastePoints
+            },
+            {
+                name:'Falls From Roofs',
+                path:'/game/falls-from-roofs',
+                component:FallsFromRoofs
+            },
+            {
+                name:'Fall Points',
+                path:'/game/fall-points',
+                component:FallPoints
+            },
+            {
+                name:'Starvation',
+                path:'/game/starvation',
+                component:Starvation
+            },
+            {
+                name:'Starvation Points',
+                path:'/game/starvation-points',
+                component:StarvationPoints
             },
         ]
     },
