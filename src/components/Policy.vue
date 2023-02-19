@@ -50,37 +50,37 @@
                     <tr>                        
                         <td><router-link :to="{path:'/game/basic-research'}">Basic Research</router-link></td>
                         <td><router-link :to="{path:'/game/basic-research'}">{{ this.basicResearch * 100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/basic-research'}">${{ this.basicResearchTreasury/Math.pow(10,9) }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/basic-research'}">${{ this.basicResearchBudget/Math.pow(10,9) }}Billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/bioresearch'}">Bio Research</router-link></td>
                         <td><router-link :to="{path:'/game/bioresearch'}">{{ this.bioResearch * 100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/bioresearch'}">${{ this.bioResearchTreasury/Math.pow(10,9) }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/bioresearch'}">${{ this.bioResearchBudget/Math.pow(10,9) }}Billion</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/coal-research'}">Coal Research</router-link></td>
                         <td><router-link :to="{path:'/game/coal-research'}">{{ this.coalResearch * 100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-research'}">${{this.coalResearchTreasury/Math.pow(10,9) }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/coal-research'}">${{this.coalResearchBudget/Math.pow(10,9) }}Billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/oil-research'}">Oil Research</router-link></td>
                         <td><router-link :to="{path:'/game/oil-research'}">{{ this.oilResearch * 100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/oil-research'}">${{ this.oilResearchTreasury/Math.pow(10,9)}}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/oil-research'}">${{ this.oilResearchBudget/Math.pow(10,9)}}Billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/solar-energy'}">Solar Energy</router-link></td>
                         <td><router-link :to="{path:'/game/solar-energy'}">{{ this.solarResearch * 100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/solar-energy'}">${{ this.solarResearchTreasury/Math.pow(10,9) }} Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/solar-energy'}">${{ this.solarResearchBudget/Math.pow(10,9) }} Billion</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/solar-research'}">Solar Research</router-link></td>
                         <td><router-link :to="{path:'/game/solar-research'}">{{ this.solarResearch * 100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/solar-research'}">${{this.solarResearchTreasury/Math.pow(10,9) }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/solar-research'}">${{this.solarResearchBudget/Math.pow(10,9) }}Billion</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/dam-use-treasury'}">Dam Use $</router-link></td>
                         <td><router-link :to="{path:'/game/dam-use-treasury'}">{{ this.damSubsidy * 100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-treasury'}">${{ this.damUseTreasury/Math.pow(10,9) }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/dam-use-treasury'}">${{ this.damUseBudget/Math.pow(10,9) }}Billion</router-link></td>
                     </tr>
                 </tbody>
             </table>
@@ -122,25 +122,25 @@ export default {
         nuclearTaxIncome:Number,
 
         basicResearch:Number,
-        basicResearchTreasury:Number,
+        basicResearchBudget:Number,
 
         bioResearch:Number,
-        bioResearchTreasury:Number,
+        bioResearchBudget:Number,
 
         coalResearch:Number,
-        coalResearchTreasury:Number,
+        coalResearchBudget:Number,
 
         damSubsidy:Number,
-        damUseTreasury:Number,
+        damUseBudget:Number,
 
         nuclearResearch:Number,
-        nuclearResearchTreasury:Number,
+        nuclearResearchBudget:Number,
 
         oilResearch:Number,
-        oilResearchTreasury:Number,
+        oilResearchBudget:Number,
 
         solarResearch:Number,
-        solarResearchTreasury:Number,
+        solarResearchBudget:Number,
 
         totalTreasury:Number,
         show:Boolean,
