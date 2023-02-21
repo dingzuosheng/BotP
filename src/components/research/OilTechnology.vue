@@ -4,32 +4,37 @@
         <div>
             <h1>{{ this.name }}</h1>
         </div>
-        <div>
-            Oil Technology: {{ this.oilTechnology }} Whizbangs
-        </div>
-        <el-collapse class="collapse-part">
-            <el-collapse-item title="Formula ">
-                <div class="formula">
-                    <div>Oil Technology = Oil Technology + OilTechnological Optimism * Oil Research $ * Basic Research $</div>
-                    <br />
-                    Where:<br />
-                    <div>
-                        <div class="row-formula">
-                            <span>Oil Optimism</span> <span>= {{ oilOptimism }}</span> <span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="optimism" @change="changeOilOptimism" /></span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Oil Technology</span> <span>= {{ this.oilTechnology }}</span> <span>(Whizbangs)</span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Oil Research $</span> <span>= {{ this.oilResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
-                        </div>
-                        <div class="row-formula">
-                            <span>Basic Research $</span> <span>= {{ this.basicResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+        <div v-if="this.show">
+            <div>
+                Oil Technology: {{ this.oilTechnology }} Whizbangs
+            </div>
+            <el-collapse class="collapse-part">
+                <el-collapse-item title="Formula ">
+                    <div class="formula">
+                        <div>Oil Technology = Oil Technology + OilTechnological Optimism * Oil Research $ * Basic Research $</div>
+                        <br />
+                        Where:<br />
+                        <div>
+                            <div class="row-formula">
+                                <span>Oil Optimism</span> <span>= {{ oilOptimism }}</span> <span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="optimism" @change="changeOilOptimism" /></span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Oil Technology</span> <span>= {{ this.oilTechnology }}</span> <span>(Whizbangs)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Oil Research $</span> <span>= {{ this.oilResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Basic Research $</span> <span>= {{ this.basicResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </el-collapse-item>
-        </el-collapse>
+                </el-collapse-item>
+            </el-collapse>
+        </div>
+        <div v-if="this.show">
+            <BarChart :chartData="chartData"></BarChart>
+        </div>
     </div>
     <div class="side-nav">
         <div>
@@ -61,6 +66,7 @@ const service = axios.create({
     baseURL: '',
     timeout: 3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name: 'OilTechnology',
     data() {
@@ -69,13 +75,28 @@ export default {
             causes: [],
             effects: [],
             optimism:0.0012,
-            oilOptimism:0.0012
+            oilOptimism:0.0012,
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
         }
+    },
+    components:{
+        BarChart
     },
     props:{
         oilTechnology:Number,
         oilResearchBudget:Number,
-        basicResearchBudget:Number
+        basicResearchBudget:Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
+        }
     },
     created() {
         service.get('/data/data.json').then(res => {
@@ -93,6 +114,27 @@ export default {
         changeOilOptimism(){
             this.oilOptimism = parseInt(this.optimism * 10000)/10000;
             this.$emit('changeOilOptimism',this.oilOptimism);
+        },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const data = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                data.push(JSON.parse(localStorage.getItem(labels[i])).oilTechnology)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Oil Technology',
+                backgroundColor:'#000000',
+                data: data
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
         }
     }
 }
