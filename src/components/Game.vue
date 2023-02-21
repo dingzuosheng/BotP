@@ -1,93 +1,120 @@
 <template>
-<div>
-    <div id="head">
-        <h1>Balance of the Planet</h1>
-    </div>
-    <!--<el-divider></el-divider>-->
-    <div id="nav">
-        <el-button type="primary" @click="back">Back</el-button>
-        <el-button type="primary" @click="forward">Forward</el-button>
-        <el-button type="primary" @click="toPolicy">Policy</el-button>
-        <el-button type="primary" id="btn-sub" @click="toResults">Results</el-button>
-        <el-button type="info">About this Game</el-button>
-        <el-button type="info" @click="toConnections">Connections</el-button>
-        <el-button type="success" @click="newGame">New Game</el-button>
-        <el-button type="warning" @click="showSimulation">Show Simulation</el-button>
-        <el-button type="warning" @click="stopSimulation">Stop Simulation</el-button>
-        <el-button type="danger" @click="execute">Execute</el-button>
-    </div><br/>
     <div>
-        <router-view v-slot="{ Component }" :show="show" :executed="executed"
-                    @changeCoalTaxRate="changeCoalTaxRate($event)" @changeCoalUserate="changeCoalUserate($event)" 
-                    @changeCoalPriceFactor="changeCoalPriceFactor($event)" @changeCoalSupplyElasticity="changeCoalSupplyElasticity($event)"
-                    :coalUse="coalUse" :totalCoalUse="totalCoalUse" :coalPrice="coalPrice" :coalSupply="coalSupply" :coalTaxRate="coalTaxRate"
-                    
-                    @changeOilTaxRate="changeOilTaxRate($event)" @changeOilUseRate="changeOilUseRate($event)"  
-                    @changeOilPriceFactor="changeOilPriceFactor($event)" @changeOilSupplyElasticity="changeOilSupplyElasticity($event)" 
-                    :oilTaxRate="oilTaxRate" :oilSupply="oilSupply" :totalOilUse="totalOilUse" :oilPrice="oilPrice" :oilUse="oilUse"
-                     
-                    @changeNaturalGasTaxRate="changeNaturalGasTaxRate($event)" @changeNaturalGasUseRate="changeNaturalGasUseRate($event)"
-                    @changeNaturalGasPriceFactor="changeNaturalGasPriceFactor($event)" @changeNaturalGasSupply="changeNaturalGasSupplyElasticity($event)"
-                    :naturalGasTaxRate="naturalGasTaxRate"  :naturalGasUse="naturalGasUse" :naturalGasPrice="naturalGasPrice" :naturalGasSupply="naturalGasSupply" :totalNaturalGasUse="totalNaturalGasUse" 
+        <div id="head">
+            <h1>Balance of the Planet</h1>
+        </div>
+        <!--<el-divider></el-divider>-->
+        <div id="nav">
+            <el-button type="primary" @click="back">Back</el-button>
+            <el-button type="primary" @click="forward">Forward</el-button>
+            <el-button type="primary" @click="toPolicy">Policy</el-button>
+            <el-button type="primary" id="btn-sub" @click="toResults">Results</el-button>
+            <el-button type="info">About this Game</el-button>
+            <el-button type="info" @click="toConnections">Connections</el-button>
+            <el-button type="success" @click="newGame">New Game</el-button>
+            <el-button type="warning" @click="showSimulation">Show Simulation</el-button>
+            <el-button type="warning" @click="stopSimulation">Stop Simulation</el-button>
+            <el-button type="danger" @click="execute">Execute</el-button>
+        </div><br/>
+        <div>
+            <router-view v-slot="{ Component }" :show="show" :executed="executed"
+                        @changeCoalTaxRate="changeCoalTaxRate($event)" @changeCoalUserate="changeCoalUserate($event)" 
+                        @changeCoalPriceFactor="changeCoalPriceFactor($event)" @changeCoalSupplyElasticity="changeCoalSupplyElasticity($event)"
+                        :coalUse="coalUse" :totalCoalUse="totalCoalUse" :coalPrice="coalPrice" :coalSupply="coalSupply" :coalTaxRate="coalTaxRate"
+                        
+                        @changeOilTaxRate="changeOilTaxRate($event)" @changeOilUseRate="changeOilUseRate($event)"  
+                        @changeOilPriceFactor="changeOilPriceFactor($event)" @changeOilSupplyElasticity="changeOilSupplyElasticity($event)" 
+                        :oilTaxRate="oilTaxRate" :oilSupply="oilSupply" :totalOilUse="totalOilUse" :oilPrice="oilPrice" :oilUse="oilUse"
+                        
+                        @changeNaturalGasTaxRate="changeNaturalGasTaxRate($event)" @changeNaturalGasUseRate="changeNaturalGasUseRate($event)"
+                        @changeNaturalGasPriceFactor="changeNaturalGasPriceFactor($event)" @changeNaturalGasSupply="changeNaturalGasSupplyElasticity($event)"
+                        :naturalGasTaxRate="naturalGasTaxRate"  :naturalGasUse="naturalGasUse" :naturalGasPrice="naturalGasPrice" :naturalGasSupply="naturalGasSupply" :totalNaturalGasUse="totalNaturalGasUse" 
 
-                    @changeNuclearTaxRate="changeNuclearTaxRate($event)" @changeNuclearUseRate="changeNulearUseRate($event)"
-                    @changeNuclearPriceFactor="changeNuclearPriceFactor($event)" @changeNuclearSupplyElasticity="changeNuclearSupplyElasticity($event)"
-                    :nuclearTaxRate="nuclearTaxRate"  :nuclearUse="nuclearUse" :nuclearPrice="nuclearPrice"  :nuclearSupply="nuclearSupply" :totalNuclearUse="totalNuclearUse" 
-                    
-                    :coalTaxIncome="coalTaxIncome" :oilTaxIncome="oilTaxIncome" :naturalGasTaxIncome="naturalGasTaxIncome" :nuclearTaxIncome="nuclearTaxIncome"
+                        @changeNuclearTaxRate="changeNuclearTaxRate($event)" @changeNuclearUseRate="changeNulearUseRate($event)"
+                        @changeNuclearPriceFactor="changeNuclearPriceFactor($event)" @changeNuclearSupplyElasticity="changeNuclearSupplyElasticity($event)"
+                        :nuclearTaxRate="nuclearTaxRate"  :nuclearUse="nuclearUse" :nuclearPrice="nuclearPrice"  :nuclearSupply="nuclearSupply" :totalNuclearUse="totalNuclearUse" 
+                        
+                        :coalTaxIncome="coalTaxIncome" :oilTaxIncome="oilTaxIncome" :naturalGasTaxIncome="naturalGasTaxIncome" :nuclearTaxIncome="nuclearTaxIncome"
 
-                    @changeSolarEnergySubsidy="changeSolarEnergySubsidy($event)" @changeSolarUseRate="changeSolarUseRate($event)" @changeSoalrEnergyPotential="changeSolarEnergyPotential($event)"
-                    :solarEnergySubsidy="solarEnergySubsidy"  :solarUse="solarUse" :solarEnergyBudget="solarEnergyBudget" :solarPrice="solarPrice"
+                        @changeSolarEnergySubsidy="changeSolarEnergySubsidy($event)" @changeSolarUseRate="changeSolarUseRate($event)" @changeSoalrEnergyPotential="changeSolarEnergyPotential($event)"
+                        :solarEnergySubsidy="solarEnergySubsidy"  :solarUse="solarUse" :solarEnergyBudget="solarEnergyBudget" :solarPrice="solarPrice"
 
-                    @changeSolarOptimism="changeSolarOptimism($event)" @changeSolarResearchSubsidy="changeSolarResearchSubsidy($event)"
-                    @changeBasicResearchSubsidy="changeBasicResearchSubsidy($event)" @changeBioResearchSubsidy="changeBioResearchSubsidy($event)"
-                    @changeBioOptimism="changeBioOptimism($event)"  @changeCoalResearchSubsidy="changeCoalResearchSubsidy($event)" 
-                    @changeCoalOptimism="changeCoalOptimism($event)"  @changeOilResearchSubsidy="changeOilResearchSubsidy($event)" 
-                    @changeOilOptimism="changeOilOptimism($event)" @changeNuclearResearchSubsidy="changeNuclearResearchSubsidy($event)"
-                    @changeNuclearOptimism="changeNuclearOptimism($event)"  @changeDamSubsidy="changeDamSubsidy($event)"
-                    :solarTechnology="solarTechnology" :solarResearchBudget="solarResearchBudget" :solarResearch="solarResearch" 
-                    :basicResearch="basicResearch" :basicResearchBudget="basicResearchBudget" :bioResearch="bioResearch"  
-                    :bioTechnology="bioTechnology" :bioResearchBudget="bioResearchBudget" :coalResearch="coalResearch"  
-                    :coalTechnology="coalTechnology" :coalResearchBudget="coalResearchBudget" :oilResearch="oilResearch" 
-                    :oilTechnology="oilTechnology" :oilResearchBudget="oilResearchBudget"  :nuclearResearch="nuclearResearch"  
-                    :nuclearTechnology="nuclearTechnology" :nuclearResearchBudget="nuclearResearchBudget" 
-                   
-                    @changeDamUseRate="changeDamUseRate($event)" @changeDamPotential="changeDamPotential($event)"
-                    :damUseBudget="damUseBudget" :damSubsidy="damSubsidy" :damUse="damUse" :damPrice="damPrice" 
-                    
-                    @changeCO2Quantity="changeCO2Quantity($event)" @changeTemperatureT0="changeTemperatureT0($event)" 
-                    @changeCO2Eff="changeCO2Eff($event)" @changeBasicTemperature="changeBasicTemperature($event)"
-                    :co2Eff="co2Eff" :basicTemperature="basicTemperature" :globalTemperature="globalTemperature" :co2="co2"
+                        @changeSolarOptimism="changeSolarOptimism($event)" @changeSolarResearchSubsidy="changeSolarResearchSubsidy($event)"
+                        @changeBasicResearchSubsidy="changeBasicResearchSubsidy($event)" @changeBioResearchSubsidy="changeBioResearchSubsidy($event)"
+                        @changeBioOptimism="changeBioOptimism($event)"  @changeCoalResearchSubsidy="changeCoalResearchSubsidy($event)" 
+                        @changeCoalOptimism="changeCoalOptimism($event)"  @changeOilResearchSubsidy="changeOilResearchSubsidy($event)" 
+                        @changeOilOptimism="changeOilOptimism($event)" @changeNuclearResearchSubsidy="changeNuclearResearchSubsidy($event)"
+                        @changeNuclearOptimism="changeNuclearOptimism($event)"  @changeDamSubsidy="changeDamSubsidy($event)"
+                        :solarTechnology="solarTechnology" :solarResearchBudget="solarResearchBudget" :solarResearch="solarResearch" 
+                        :basicResearch="basicResearch" :basicResearchBudget="basicResearchBudget" :bioResearch="bioResearch"  
+                        :bioTechnology="bioTechnology" :bioResearchBudget="bioResearchBudget" :coalResearch="coalResearch"  
+                        :coalTechnology="coalTechnology" :coalResearchBudget="coalResearchBudget" :oilResearch="oilResearch" 
+                        :oilTechnology="oilTechnology" :oilResearchBudget="oilResearchBudget"  :nuclearResearch="nuclearResearch"  
+                        :nuclearTechnology="nuclearTechnology" :nuclearResearchBudget="nuclearResearchBudget" 
 
-                    @changeMeltingRate="changeMeltingRate($event)" 
-                    :seeLevel="seeLevel" 
-                    @changeC1Quantity="changeC1Quantity($event)" @changeNO2Quantity="changeNO2Quantity($event)" 
-                    :no2="no2" 
-                    @changeSulfurContent="changeSO2Quantity($event)" :so2="so2" 
+                        @changeAccidentProbabilityFactor="changeAccidentProbabilityFactor($event)" :nuclearAccidents="nuclearAccidents"
+                        @changeExposureRateFactor="changeExposureRateFactor($event)" :radiation="radiation"
 
-                    :energyDemand="energyDemand" :aveEnergyPrice="aveEnergyPrice" 
-                    @changePriceElasticity="changePriceElasticity($event)" 
+                        @changeRadiationDangerFactor="changeRadiationDangerFactor($event)" :radiationDanger="radiationDanger"
+                        @changeAccidentDangerFactor="changeAccidentDangerFactor($event)" :accidentDanger="accidentDanger"
+                        :radiationCancer="radiationCancer"
 
-                    :energyConservation="energyConservation" :netEnergy="netEnergy" 
+                        @changeValueOfOneHumanLife_RadiationPts="changeValueOfOneHumanLife_RadiationPts($event)" :radiationPoints="radiationPoints"
+                        @changeWasteProductionFactor="changeWasteProductionFactor($event)" :radioactiveWaste="radioactiveWaste"
+
+                        @changeDangerValueFactor="changeDangerValueFactor($event)" :radWastePoints="radWastePoints"
+
+                        @changeFallRateFactor="changeFallRateFactor($event)" :fallsFromRoofs="fallsFromRoofs"
+                        @changeValueOfOneHumanLife_FallPts="changeValueOfOneHumanLife_FallPts($event)" :fallPoints="fallPoints"
+
                     
-                    @changeC4Value="changeC4Value($event)" :lifestyle="lifestyle" 
-                    @changeLifeValue="changeLifeValue($event)" :qualityOfLife="qualityOfLife" 
-                    
-                    @changeBirthRate="changeBirthRate($event)" :birthRate="birthRate" :population="population" 
-                    
-                    :nonrenewableEnergy="nonrenewableEnergy" :sustainability="sustainability"
-                    @changeSustainability="changeSustainability($event)" :sustainabilityPts="sustainabilityPts" 
-                    
-                    @changeValueOfQualityOfLife="changeQualityOfLife($event)" :qualityPoints="qualityPoints"
-                    
-                    :totalTreasury="totalTreasury" :totalPoints="totalPoints">
-            <keep-alive>
-                <component :is="Component" />
-            </keep-alive>
-        </router-view>
-        <!--recieve the function from children and send variable to children durch v-on und v-bind-->
+                        @changeDamUseRate="changeDamUseRate($event)" @changeDamPotential="changeDamPotential($event)"
+                        :damUseBudget="damUseBudget" :damSubsidy="damSubsidy" :damUse="damUse" :damPrice="damPrice" 
+                        
+                        @changeCO2Quantity="changeCO2Quantity($event)" @changeTemperatureT0="changeTemperatureT0($event)" 
+                        @changeCO2Eff="changeCO2Eff($event)" @changeBasicTemperature="changeBasicTemperature($event)"
+                        :co2Eff="co2Eff" :basicTemperature="basicTemperature" :globalTemperature="globalTemperature" :co2="co2"
+
+                        @changeMeltingRate="changeMeltingRate($event)" 
+                        :seeLevel="seeLevel" 
+                        @changePointCostFactor="changePointCostFactor($event)" :inundationPoints="inundationPoints"
+                        @changeC1Quantity="changeC1Quantity($event)" @changeNO2Quantity="changeNO2Quantity($event)" 
+                        :no2="no2" 
+                        @changeSulfurContent="changeSO2Quantity($event)" :so2="so2" 
+
+                        @changeSO2ToxicityFactor="changeSO2ToxicityFactor($event)" @changeNO2ToxicityFactor="changeNO2ToxicityFactor($event)"
+                        :lungDiseaseDeath="lungDiseaseDeath"
+                        @changeValueOfOneHumanLifeLungDiseasePts="changeValueOfOneHumanLifeLungDiseasePts($event)"
+                        :lungDiseasePts="lungDiseasePts"
+
+                        :energyDemand="energyDemand" :aveEnergyPrice="aveEnergyPrice" 
+                        @changePriceElasticity="changePriceElasticity($event)" 
+
+                        :energyConservation="energyConservation" :netEnergy="netEnergy" 
+                        
+                        @changeC4Value="changeC4Value($event)" :lifestyle="lifestyle" 
+                        @changeLifeValue="changeLifeValue($event)" :qualityOfLife="qualityOfLife" 
+                        
+                        @changeBirthRate="changeBirthRate($event)" :birthRate="birthRate" :population="population" 
+
+                        @changeBaseLevelFactor="changeBaseLevelFactor($event)" :starvation="starvation"
+                        @changeDeathRateFactor="changeDeathRateFactor($event)" 
+
+                        @changeValueOfOneHumanLifeFactor="changeValueOfOneHumanLifeFactor($event)" :starvationPoints="starvationPoints"
+                        
+                        :nonrenewableEnergy="nonrenewableEnergy" :sustainability="sustainability"
+                        @changeSustainability="changeSustainability($event)" :sustainabilityPts="sustainabilityPts" 
+                        
+                        @changeValueOfQualityOfLife="changeQualityOfLife($event)" :qualityPoints="qualityPoints"
+                        
+                        :totalTreasury="totalTreasury" :totalPoints="totalPoints">
+                <keep-alive>
+                    <component :is="Component" />
+                </keep-alive>
+            </router-view>
+            <!--recieve the function from children and send variable to children durch v-on und v-bind-->
+        </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -147,6 +174,10 @@ export default {
             solarPrice: 24.8 * Math.pow(10, 9),//right
             solarEnergyPotential: Math.pow(10,-9),//right
             solarEnergyBudget: 3.18 * Math.pow(10, 9),//right
+            fallRate:200,//right
+            fallsFromRoofs:1210,//right
+            valueOfOneHumanLife_FallPts:0.0029,//right
+            fallPoints:24,//right
             /*technology*/
             solarTechnology: 1.02,//right
             solarOptimism:0.0012,//right
@@ -172,6 +203,21 @@ export default {
             oilResearchBudget: 3.18 * Math.pow(10, 9),//right
             nuclearResearchBudget: 3.18 * Math.pow(10, 9),//right
             totalTreasury: 39.83* Math.pow(10,9), //right
+            accidentProbability:0.0055,//right
+            nuclearAccidents:0.0874,//right
+            exposureRate:30000,//right
+            radiation:787000,//right
+            radiationDanger:0.0029,//right
+            accidentDanger:5000,//right
+            radiationCancer:874,//right
+            valueOfOneHumanLife_RadiationPts:0.038,//right
+            radiationPoints:8,//right
+            wasteProduction:1000,//right
+            radioactiveWaste:88700,//right
+            dangerValue:0.045,//right
+            radWastePoints:88,//right
+
+
             /*dam */
             damUseBudget: 3.18 * Math.pow(10, 9),//right
             damSubsidy: 0.08,//right
@@ -186,13 +232,21 @@ export default {
             t0:56,//right
             co2Eff: Math.pow(10,-12),//right
             basicTemperature: 60,//right
-            meltingRate:0.5,//right
+            meltingRate:0.49,//right
             seeLevel: 0.14,//right
+            pointCost:2000,//right
+            inundationPoints:297,//right
             no2: 49.1 * Math.pow(10, 6),//right
             c1: 280000,//right
             c2: 150000,//right
             so2: 58.9 * Math.pow(10, 6),//right
             sulfurContent:600000,//right
+            so2Toxicity:0.0035,//right
+            no2Toxicity:0.0035,//right
+            lungDiseaseDeath:392000,//right
+            valueOfOneHumanLifeLungDisease:0.0055,//right
+            lungDiseasePts:3926,//right
+
             energyDemand: 303,//right
             aveEnergyPrice: 25.2 * Math.pow(10, 9),//right
             priceElasticity: 0.0001,//right
@@ -204,7 +258,12 @@ export default {
             c4:8*Math.pow(10,6),//right
             qualityOfLife: 1.03,//right
             population: 5.26 * Math.pow(10, 9),//right
-            starvation:41.4*Math.pow(10,6),//应该进行变化
+            starvation:41.4*Math.pow(10,6),//right
+            baseLevel:0.50,//right
+            deathRate:0.06,//right
+            valueOfOneHumanLife:0.038,//right
+            starvationPoints:4136,//right
+
             birthRate: 0.0197,//right
             maximalBirthRate:5,//right
             sustainability: 0.17,//right
@@ -247,10 +306,10 @@ export default {
             this.show = false;
         },
         calculateTaxIncome(){
-            this.coalTaxIncome = parseInt(this.coalTaxRate * this.coalUse * 100) / 100;
-            this.oilTaxIncome = parseInt(this.oilTaxRate * this.oilUse * 100 ) / 100;
-            this.naturalGasTaxIncome = parseInt(this.naturalGasTaxRate * this.naturalGasUse * 100) / 100;
-            this.nuclearTaxIncome = parseInt(this.nuclearTaxRate * this.nuclearUse * 100) / 100;
+            this.coalTaxIncome = Math.floor(parseInt(this.coalTaxRate * this.coalUse * 100) / 100 * 100)/100 ;
+            this.oilTaxIncome = Math.floor(parseInt(this.oilTaxRate * this.oilUse * 100 ) / 100 * 100)/100;
+            this.naturalGasTaxIncome = Math.floor(parseInt(this.naturalGasTaxRate * this.naturalGasUse * 100)/100 * 100)/100;
+            this.nuclearTaxIncome = Math.floor(parseInt(this.nuclearTaxRate * this.nuclearUse * 100)/100*100)/100;
             /*print all parameters*/
             console.log("coalTaxIncome = coalTaxRate * coalUse: ");
             console.log("coalTaxIncome: "+this.coalTaxIncome);
@@ -276,13 +335,13 @@ export default {
             console.log("==============================================================================================================")
         },
         calculateTotalPoints(){
-            this.totalPoints = this.qualityPoints + this.sustainabilityPts;
+            this.totalPoints = Math.floor((this.qualityPoints + this.sustainabilityPts - this.inundationPoints - this.fallPoints - this.lungDiseasePts - this.radWastePoints - this.radiationPoints - this.starvationPoints)*100)/100;
         },
         calculateCoalFormulas(){
-            this.coalUse = this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate);//对
-            this.coalPrice = (this.coalPrice + (this.coalPriceFactor * this.coalUse / this.coalSupply)) / 2; //对
-            this.coalSupply = this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse;//对
-            this.totalCoalUse = this.totalCoalUse + this.coalUse;//对
+            this.coalUse = Math.floor(this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate)*100)/100;//对
+            this.coalPrice = Math.floor((this.coalPrice + (this.coalPriceFactor * this.coalUse / this.coalSupply)) / 2 * 100)/100; //对
+            this.coalSupply = Math.floor((this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse)*100)/100;//对
+            this.totalCoalUse = Math.floor((this.totalCoalUse + this.coalUse)*100)/100;//对
             /*print all */
             console.log("coalUse = coalUserate * energyDemand * aveEnergyPrice / (coalPrice + coalTaxRate)");
             console.log("coalUse: "+this.coalUse);
@@ -313,10 +372,10 @@ export default {
             console.log("==============================================================================================================")
         },
         calculateOilFormulas(){
-            this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate);//对
-            this.oilPrice = (this.oilPrice + (this.oilPriceFactor * this.oilUse / this.oilSupply)) / 2 //对;
-            this.oilSupply = this.oilSupplyElasticity * this.oilPrice - this.totalOilUse;// 对
-            this.totalOilUse = this.totalOilUse + this.oilUse;//对
+            this.oilUse = Math.floor(this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate)*100)/100;//对
+            this.oilPrice = Math.floor((this.oilPrice + (this.oilPriceFactor * this.oilUse / this.oilSupply)) / 2 * 100)/100 //对;
+            this.oilSupply = Math.floor((this.oilSupplyElasticity * this.oilPrice - this.totalOilUse)*100)/100;// 对
+            this.totalOilUse = Math.floor((this.totalOilUse + this.oilUse)*100)/100;//对
             /*print*/
             console.log("this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate)");
             console.log("oilUse: "+ this.oilUse)
@@ -347,10 +406,10 @@ export default {
             console.log("==============================================================================================================")
         },
         calculateNaturalGasFormulas(){
-            this.naturalGasUse = this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate); //对
-            this.naturalGasPrice = (this.naturalGasPrice + (this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply)) / 2;//对 minus because of supply
-            this.naturalGasSupply = this.naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse; //对 minus    
-            this.totalNaturalGasUse = this.totalNaturalGasUse + this.naturalGasUse;//对
+            this.naturalGasUse = Math.floor(this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate)*100)/100; //对
+            this.naturalGasPrice = Math.floor((this.naturalGasPrice + (this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply)) / 2*100)/100;//对 minus because of supply
+            this.naturalGasSupply = Math.floor((this.naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse)*100)/100; //对 minus    
+            this.totalNaturalGasUse = Math.floor((this.totalNaturalGasUse + this.naturalGasUse)*100)/100;//对
             /*print*/
             console.log("this.naturalGasUse = this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate):");
             console.log("naturalGasUse: " + this.naturalGasUse)
@@ -382,10 +441,10 @@ export default {
         },
 
         calculateNuclearFormulas(){
-            this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate); //对
-            this.nuclearPrice = (this.nuclearPrice + (this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply)) / 2 //对;
-            this.nuclearSupply = this.nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse;// 对 minus
-            this.totalNuclearUse = this.totalNuclearUse + this.nuclearUse;//对
+            this.nuclearUse = Math.floor(this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate)*100)/100; //对
+            this.nuclearPrice = Math.floor((this.nuclearPrice + (this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply)) / 2 *100)/100//对;
+            this.nuclearSupply = Math.floor((this.nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse)*100)/100;// 对 minus
+            this.totalNuclearUse = Math.floor((this.totalNuclearUse + this.nuclearUse)*100)/100;//对
             /*print*/
             console.log("this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate) ====")
             console.log("nuclearUse"+this.nuclearUse)
@@ -416,9 +475,9 @@ export default {
             console.log("==============================================================================================================")
         },
         calculateDamFormulas(){
-            this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseBudget) / this.damPrice;//对
+            this.damUse = Math.floor((this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseBudget) / this.damPrice * 100)/100;//对
             //this.damPrice = this.damUse / this.damPotential;
-            this.damPrice = (this.damPrice + (this.damUse / this.damPotential)) / 2 //对
+            this.damPrice = Math.floor((this.damPrice + (this.damUse / this.damPotential)) / 2 * 100)/100 //对
             /*print */
             console.log("this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseBudget) / this.damPrice ==="+ this.damUse + " = " + this.damUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.damUseBudget + ", " + this.damPrice);
             console.log("this.damPrice = this.damUse / this.damPotential==="+this.damPrice + " = " + this.damUse + ", " + this.damPotential);
@@ -427,9 +486,11 @@ export default {
             console.log("==============================================================================================================")
         },
         calculateSolarFormulas(){
-            this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyBudget) / this.solarPrice;//对
+            this.solarUse = Math.floor((this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyBudget) / this.solarPrice * 100)/100;//对
             //this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology);
-            this.solarPrice = (this.solarPrice + (this.solarUse / (this.solarEnergyPotential * this.solarTechnology))) / 2; //对 max1 不懂
+            this.solarPrice = Math.floor((this.solarPrice + (this.solarUse / (this.solarEnergyPotential * this.solarTechnology))) / 2 * 100)/100; //对 max1 不懂
+            this.fallsFromRoofs = Math.floor(this.fallRate * this.solarUse * 100)/100;//对
+            this.fallPoints = Math.floor(this.valueOfOneHumanLife_FallPts * this.fallsFromRoofs * 100)/100;//对
             /*print */
             console.log("this.solarUse = (this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyBudget) / this.solarPrice===");
             console.log("solarUse: "+this.solarUse);
@@ -445,15 +506,32 @@ export default {
             console.log("solarEnergyPotential: " + this.solarEnergyPotential)
             console.log("solarTechnology: " + this.solarTechnology)
             console.log("==============================================================================================================")
+            console.log("this.fallsFromRoofs = this.fallRate * this.solarUse");
+            console.log("this.fallsFromRoofs: " + this.fallsFromRoofs);
+            console.log("this.fallRate: " + this.fallRate);
+            console.log("this.solarUse: " + this.solarUse);
+            console.log("==============================================================================================================")
+            console.log("this.fallPoints = this.valueOfOneHumanLife_FallPts * this.fallsFromRoofs");
+            console.log("this.fallPoints: " + this.fallPoints);
+            console.log("this.valueOfOneHumanLife_FallPts: " + this.valueOfOneHumanLife_FallPts);
+            console.log("this.fallsFromRoofs: " + this.fallsFromRoofs);
+            console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
         },
         calculateTechnologyFormulas(){ //对
-            this.solarTechnology = this.solarTechnology + this.solarOptimism * Math.log((this.solarResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log((this.bioResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.coalTechnology = this.coalTechnology + this.coalOptimism * Math.log((this.coalResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.oilTechnology = this.oilTechnology + this.oilOptimism * Math.log((this.oilResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * Math.log((this.nuclearResearchBudget + Math.pow(10,9))  * (this.basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.solarTechnology = Math.floor((this.solarTechnology + this.solarOptimism * Math.log((this.solarResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
+            this.bioTechnology = Math.floor((this.bioTechnology + this.bioOptimism * Math.log((this.bioResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
+            this.coalTechnology = Math.floor((this.coalTechnology + this.coalOptimism * Math.log((this.coalResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
+            this.oilTechnology = Math.floor((this.oilTechnology + this.oilOptimism * Math.log((this.oilResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
+            this.nuclearTechnology = Math.floor((this.nuclearTechnology + this.nuclearOptimism * Math.log((this.nuclearResearchBudget + Math.pow(10,9))  * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
+
+            this.nuclearAccidents = Math.floor(this.accidentProbability * this.nuclearUse / this.nuclearTechnology * 100)/100; //对
+            this.radiation = Math.floor(this.exposureRate * this.nuclearUse / this.nuclearTechnology * 100)/100;//对
+            this.radiationCancer = Math.floor((this.radiationDanger * this.radiation + this.accidentDanger * this.nuclearAccidents)*100)/100;//对
+            this.radiationPoints = Math.floor(this.valueOfOneHumanLife_RadiationPts * this.radiationCancer * 100) / 100;//对
+            this.radioactiveWaste = Math.floor((this.radioactiveWaste + this.nuclearUse * this.wasteProduction / this.nuclearTechnology)*100)/100;//对
+            this.radWastePoints = Math.floor(this.dangerValue * this.radioactiveWaste * 100)/100;//对
             console.log("==================================================================================================================")
             console.log("==================================================================================================================")
             console.log("==================================================================================================================")
@@ -485,14 +563,53 @@ export default {
             console.log("nuclearTechnology"+this.nuclearTechnology)
             console.log("nuclearOptimisim"+this.nuclearOptimism)
             console.log("nuclearResearchBudget"+this.nuclearResearchBudget)
-            console.log("basicResearchBudget"+this.basicResearchBudget)            
+            console.log("basicResearchBudget"+this.basicResearchBudget)   
+            console.log("=======================================================================================")
+            console.log("this.nuclearAccidents = this.accidentProbability * this.nuclearUse / this.nuclearTechnology")         
+            console.log("this.nuclearAccidents: " + this.nuclearAccidents);         
+            console.log("this.accidentProbability: " + this.accidentProbability);         
+            console.log("this.nuclearUse: " + this.nuclearUse);         
+            console.log("this.nuclearTechnology: " + this.nuclearTechnology);
+            console.log("======================================================================================")
+            console.log("this.radiation = this.exposureRate * this.nuclearUse / this.nuclearTechnology");         
+            console.log("this.radiation: " + this.radiation);         
+            console.log("this.exposureRate: " + this.exposureRate);         
+            console.log("this.nuclearUse: " + this.nuclearUse);         
+            console.log("this.nuclearTechnology: " + this.nuclearTechnology);     
+            console.log("=====================================================================================")
+            console.log("this.radiationCancer = this.radiationDanger * this.radiation + this.accidentDanger * this.nuclearAccidents")    
+            console.log("this.radiationCancer: " + this.radiationCancer)    
+            console.log("this.radiationDanger: " + this.radiationDanger)    
+            console.log("this.radiation: " + this.radiation)    
+            console.log("this.accidentDanger: " + this.accidentDanger)    
+            console.log("this.nuclearAccidents: " + this.nuclearAccidents)    
+            console.log("===============================================================================")
+            console.log("this.radiationPoints = this.valueOfOneHumanLife_RadiationPts * this.radiationCancer")
+            console.log("this.radiationPoints: " + this.radiationPoints);
+            console.log("this.valueOfOneHumanLife_RadiationPts: " + this.valueOfOneHumanLife_RadiationPts);
+            console.log("this.radiationCancer: " + this.radiationCancer);
+            console.log("==============================================================================")
+            console.log("this.radioactiveWaste = this.radioactiveWaste + this.nuclearUse * this.wasteProduction / this.nuclearTechnology")
+            console.log("this.radioactiveWaste: " + this.radioactiveWaste);
+            console.log("this.radioactiveWaste: " + this.radioactiveWaste);
+            console.log("this.nuclearUse: " + this.nuclearUse);
+            console.log("this.wasteProduction: " + this.wasteProduction);
+            console.log("this.nuclearTechnology: " + this.nuclearTechnology);
+            console.log("=============================================================================")
+            console.log("this.radWastePoints = this.dangerValue * this.radioactiveWaste")
+            console.log("this.radWastePoints: " + this.radWastePoints);
+            console.log("this.dangerValue: " + this.dangerValue);
+            console.log("this.radioactiveWaste: " + this.radioactiveWaste);
         },
         calculateAirPolutionFormulas(){
-            this.co2 = this.co2 + this.co2Quantity * (this.coalUse + this.oilUse + this.naturalGasUse);//对
-            this.globalTemperature = this.t0 + this.co2Eff * this.co2;//对
-            this.seeLevel = (this.globalTemperature - this.basicTemperature) * this.meltingRate;//对
-            this.no2 = (this.c1 * this.coalUse / this.coalTechnology) + (this.c2 * this.oilUse / this.oilTechnology);//对
-            this.so2 = this.sulfurContent * this.coalUse / this.coalTechnology; //对
+            this.co2 = Math.floor((this.co2 + this.co2Quantity * (this.coalUse + this.oilUse + this.naturalGasUse))*100)/100;//对
+            this.globalTemperature = Math.floor((this.t0 + this.co2Eff * this.co2)*100)/100;//对
+            this.seeLevel = Math.floor((this.globalTemperature - this.basicTemperature) * this.meltingRate * 100) / 100;//对
+            this.inundationPoints = Math.floor(this.pointCost * this.seeLevel * 100)/100;
+            this.no2 = Math.floor(((this.c1 * this.coalUse / this.coalTechnology) + (this.c2 * this.oilUse / this.oilTechnology))*100)/100;//对
+            this.so2 = Math.floor(this.sulfurContent * this.coalUse / this.coalTechnology * 100) / 100; //对
+            this.lungDiseaseDeath = Math.floor((this.so2Toxicity * this.so2 + this.no2Toxicity * this.no2)*100)/100;//对
+            this.lungDiseasePts = Math.floor(this.valueOfOneHumanLifeLungDisease * this.lungDiseaseDeath * 100)/100;//对
             console.log("=======================================================================================")
             console.log("=======================================================================================")
             console.log("=======================================================================================")
@@ -526,20 +643,33 @@ export default {
             console.log("sulfurContent==="+this.sulfurContent)
             console.log("coalUse==="+this.coalUse)
             console.log("coalTechnology==="+this.coalTechnology)
+            console.log("=======================================================================================")
+            console.log("this.lungDiseaseDeath = this.so2Toxicity * this.so2 + this.no2Toxicity * this.no2")
+            console.log("this.lungDiseaseDeath: " + this.lungDiseaseDeath);
+            console.log("this.so2Toxicity: " + this.so2Toxicity);
+            console.log("this.so2: " + this.so2);
+            console.log("this.no2Toxicity: " + this.no2Toxicity);
+            console.log("this.no2: " + this.no2);
+            console.log("======================================================================================")
+            console.log("this.lungDiseasePts = this.valueOfOneHumanLifeLungDisease * this.lungDiseaseDeath")
+            console.log("this.lungDiseasePts: " + this.lungDiseasePts)
+            console.log("this.valueOfOneHumanLifeLungDisease: " + this.valueOfOneHumanLifeLungDisease)
+            console.log("this.lungDiseaseDeath: " + this.lungDiseaseDeath)
+
 
         },
         calculateEnergyFormulas(){
-            this.energyConservation = this.priceElasticity * Math.sqrt(this.aveEnergyPrice);//对
-            this.netEnergy = this.energyConservation + this.renewableEnergy + this.nonrenewableEnergy;//对
-            this.renewableEnergy = this.solarUse + this.damUse; //对
-            this.nonrenewableEnergy = this.coalUse + this.oilUse + this.naturalGasUse + this.nuclearUse;//对
-            this.aveEnergyPrice = ((this.coalPrice + this.coalTaxRate) * this.coalUse 
+            this.energyConservation = Math.floor(this.priceElasticity * Math.sqrt(this.aveEnergyPrice)*100)/100;//对
+            this.netEnergy =Math.floor((this.energyConservation + this.renewableEnergy + this.nonrenewableEnergy)*100)/100;//对
+            this.renewableEnergy = Math.floor((this.solarUse + this.damUse)*100)/100; //对
+            this.nonrenewableEnergy = Math.floor((this.coalUse + this.oilUse + this.naturalGasUse + this.nuclearUse)*100)/100;//对
+            this.aveEnergyPrice = Math.floor((((this.coalPrice + this.coalTaxRate) * this.coalUse 
                                 + (this.oilPrice + this.oilTaxRate) * this.oilUse 
                                 + (this.naturalGasPrice + this.naturalGasTaxIncome) * this.naturalGasUse
                                 + (this.nuclearPrice + this.nuclearTaxRate) * this.nuclearUse 
                                 + (this.solarPrice + 0) * this.solarUse 
                                 + (this.damPrice + 0) * this.damUse) 
-                                / (this.coalUse + this.oilUse + this.naturalGasUse + this.solarUse + this.damUse);//对
+                                / (this.coalUse + this.oilUse + this.naturalGasUse + this.solarUse + this.damUse))*100)/100;//对
             console.log("===========================================================================================")
             console.log("===========================================================================================")
             console.log("===========================================================================================")
@@ -566,8 +696,10 @@ export default {
             console.log("aveEnergyPrice===="+this.aveEnergyPrice)
         },
         calculatePopulationFormulas(){
-            this.birthRate = this.maximalBirthRate / (1 + this.qualityOfLife); //对
-            this.population = this.population * (1 + this.birthRate/100) - this.starvation;//对
+            this.birthRate = Math.floor(this.maximalBirthRate / (1 + this.qualityOfLife)*100)/100; //对
+            this.population = Math.floor((this.population * (1 + this.birthRate/100) - this.starvation)*100)/100;//对
+            this.starvation = Math.floor(this.baseLevel * this.deathRate * this.population * 100)/100;//对
+            this.starvationPoints = Math.floor(this.valueOfOneHumanLife * this.starvation * 100)/100;//对
             console.log("===================================================================")
             console.log("===================================================================")
             console.log("===================================================================")
@@ -580,10 +712,21 @@ export default {
             console.log("population===="+this.population)
             console.log("birthRate===="+this.birthRate)
             console.log("starvation===="+this.starvation)
+            console.log("======================================================================================")
+            console.log("this.starvation = this.baseLevel * this.deathRate * this.population")
+            console.log("this.starvation: " + this.starvation);
+            console.log("this.baseLevel: " + this.baseLevel);
+            console.log("this.deathRate: " + this.deathRate);
+            console.log("this.population: " + this.population);
+            console.log("==================================================================")
+            console.log("this.starvationPoints = this.valueOfOneHumanLife * this.starvation")
+            console.log("this.starvationPoints: " + this.starvationPoints)
+            console.log("this.valueOfOneHumanLife: " + this.valueOfOneHumanLife)
+            console.log("this.starvation: " + this.starvation)
         },
         calculateSustainabilityFormulas(){
-            this.sustainabilityPts = this.valueOfSustainability * this.sustainability; //对
-            this.sustainability = this.renewableEnergy * (4 - this.birthRate) / (this.renewableEnergy + this.nonrenewableEnergy);//对
+            this.sustainabilityPts = Math.floor(this.valueOfSustainability * this.sustainability*100)/100; //对
+            this.sustainability = Math.floor(this.renewableEnergy * (4 - this.birthRate) / (this.renewableEnergy + this.nonrenewableEnergy)*100)/100;//对
             console.log("===================================================================")
             console.log("===================================================================")
             console.log("===================================================================")
@@ -600,9 +743,9 @@ export default {
             console.log("nonrenewableEnergy===="+this.nonrenewableEnergy);
         },
         calculateQualityOfLifeFormulas(){
-            this.lifestyle = this.c4 * this.netEnergy;//对
-            this.qualityOfLife = this.lifeValue * this.lifestyle / this.population;//对
-            this.qualityPoints = this.valueOfQualityOfLife * this.qualityOfLife; // 对
+            this.lifestyle = Math.floor(this.c4 * this.netEnergy * 100)/100;//对
+            this.qualityOfLife = Math.floor(this.lifeValue * this.lifestyle / this.population * 100)/100;//对
+            this.qualityPoints = Math.floor(this.valueOfQualityOfLife * this.qualityOfLife * 100)/100; // 对
             console.log("=============================================================")
             console.log("=============================================================")
             console.log("=============================================================")
@@ -623,20 +766,19 @@ export default {
             console.log("qualityOfLife===="+this.qualityOfLife)
         },
         calculateResearchBudget(){//对
-            this.basicResearchBudget = this.basicResearch * this.totalTreasury;
-            this.bioResearchBudget = this.bioResearch * this.totalTreasury;
-            this.coalResearchBudget = this.coalResearch * this.totalTreasury;
-            this.damUseBudget = this.damSubsidy * this.totalTreasury;
-            this.nuclearResearchBudget = this.nuclearResearch * this.totalTreasury;
-            this.oilResearchBudget = this.oilResearch * this.totalTreasury;
-            this.solarEnergyBudget = this.solarEnergySubsidy * this.totalTreasury;
-            this.solarResearchBudget = this.solarResearch * this.totalTreasury;
-            this.totalTreasury = this.totalTreasury + this.coalTaxIncome + this.oilTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome
+            this.basicResearchBudget = Math.floor((this.basicResearch * this.totalTreasury)*100)/100;
+            this.bioResearchBudget = Math.floor(this.bioResearch * this.totalTreasury*100)/100;
+            this.coalResearchBudget = Math.floor(this.coalResearch * this.totalTreasury * 100)/100;
+            this.damUseBudget = Math.floor(this.damSubsidy * this.totalTreasury * 100)/100;
+            this.nuclearResearchBudget = Math.floor(this.nuclearResearch * this.totalTreasury * 100)/100;
+            this.oilResearchBudget = Math.floor(this.oilResearch * this.totalTreasury * 100)/100;
+            this.solarEnergyBudget = Math.floor(this.solarEnergySubsidy * this.totalTreasury * 100)/100;
+            this.solarResearchBudget = Math.floor(this.solarResearch * this.totalTreasury * 100)/100;
+            this.totalTreasury = Math.floor((this.totalTreasury + this.coalTaxIncome + this.oilTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome
                                 - this.basicResearchBudget - this.bioResearchBudget - this.coalResearchBudget - this.oilResearchBudget
-                                - this.solarResearchBudget - this.damUseBudget
+                                - this.solarResearchBudget - this.damUseBudget)*100)/100;
         },
         execute() {
-            this.updated = !this.updated;
             const data1990 = {
                 coalUse: 76.3,
                 coalPrice: 24900000000,
@@ -665,6 +807,8 @@ export default {
 
                 solarUse:12.1,
                 solarPrice:24800000000,
+                fallsFromRoofs:1210,
+                fallPoints:24,
 
                 damUse:18,
                 damPrice:25000000000,
@@ -672,14 +816,24 @@ export default {
                 co2:2720000000000,
                 globalTemperature:60.3,
                 seeLevel:0.14,
+                inundationPoints:297,
                 no2:49100000,
                 so2:58900000,
+                lungDiseaseDeath:392000,
+                lungDiseasePts:3926,
 
                 coalTechnology:1.01,
                 oilTechnology:1.01,
                 nuclearTechnology:1.02,
                 solarTechnology:1.02,
                 bioTechnology:1.02,
+
+                nuclearAccidents:0.0874,
+                radiation:787000,
+                radiationCancer:874,
+                radiationPoints:8,
+                radioactiveWaste:88700,
+                radWastePoints:88,
 
                 aveEnergyPrice:25200000000,
                 energyDemand:303,
@@ -693,6 +847,8 @@ export default {
                 lifestyle:2120000000,
                 birthRate:0.0197,
                 population:5260000000,
+                starvation:41400000,
+                starvationPoints:4136,
 
                 sustainability:0.17,
                 sustainabilityPts:681,
@@ -761,6 +917,8 @@ export default {
 
                 solarUse:this.solarUse,
                 solarPrice:this.solarPrice,
+                fallsFromRoofs:this.fallsFromRoofs,
+                fallPoints:this.fallPoints,
 
                 damUse:this.damUse,
                 damPrice:this.damPrice,
@@ -768,8 +926,11 @@ export default {
                 co2:this.co2,
                 globalTemperature:this.globalTemperature,
                 seeLevel:this.seeLevel,
+                inundationPoints:this.inundationPoints,
                 no2:this.no2,
                 so2:this.so2,
+                lungDiseaseDeath:this.lungDiseaseDeath,
+                lungDiseasePts:this.lungDiseasePts,
 
                 coalResearch:this.coalResearch,
                 coalTechnology:this.coalTechnology,
@@ -783,6 +944,13 @@ export default {
                 bioTechnology:this.bioTechnology,
                 basicResearch:this.basicResearch,
 
+                nuclearAccidents:this.nuclearAccidents,
+                radiation:this.radiation,
+                radiationCancer:this.radiationCancer,
+                radiationPoints:this.radiationPoints,
+                radioactiveWaste:this.radioactiveWaste,
+                radWastePoints:this.radWastePoints,
+
                 aveEnergyPrice:this.aveEnergyPrice,
                 energyDemand:this.energyDemand,
                 netEnergy:this.netEnergy,
@@ -795,6 +963,8 @@ export default {
                 lifestyle:this.lifestyle,
 
                 population:this.population,
+                starvation:this.starvation,
+                starvationPoints:this.starvationPoints,
                 birthRate:this.birthRate,
 
                 sustainability:this.sustainability,
@@ -891,6 +1061,12 @@ export default {
         changeSolarEnergyPotential(solarEnergyPotential) {
             this.solarEnergyPotential = solarEnergyPotential;
         },
+        changeFallRateFactor(fallRate){
+            this.fallRate = fallRate;
+        },
+        changeValueOfOneHumanLife_FallPts(valueOfOneHumanLife_FallPts){
+            this.valueOfOneHumanLife_FallPts = valueOfOneHumanLife_FallPts;
+        },
         /*research and technology*/
         changeSolarOptimism(solarOptimism) {
             this.solarOptimism = solarOptimism;
@@ -941,6 +1117,9 @@ export default {
         changeMeltingRate(meltingRate) {
             this.meltingRate = meltingRate;
         },
+        changePointCostFactor(pointCost){
+            this.pointCost = pointCost;
+        },
         changeC1Quantity(c1) {
             this.c1 = c1;
         },
@@ -967,6 +1146,45 @@ export default {
         },
         changeQualityOfLife(valueOfQualityOfLife) {
             this.valueOfQualityOfLife = valueOfQualityOfLife;
+        },
+        changeBaseLevelFactor(baseLevel){
+            this.baseLevel = baseLevel;
+        },
+        changeDeathRateFactor(deathRate){
+            this.deathRate = deathRate;
+        },
+        changeValueOfOneHumanLifeFactor(valueOfOneHumanLife){
+            this.valueOfOneHumanLife = valueOfOneHumanLife;
+        },
+        changeSO2ToxicityFactor(so2Toxicity){
+            this.so2Toxicity = so2Toxicity;
+        },
+        changeNO2ToxicityFactor(no2Toxicity){
+            this.no2Toxicity = no2Toxicity;
+        },
+        changeValueOfOneHumanLifeLungDiseasePts(valueOfOneHumanLife_lungDiseasePts){
+            this.valueOfOneHumanLifeLungDisease = valueOfOneHumanLife_lungDiseasePts;
+        },
+        changeAccidentProbabilityFactor(accidentProbability){
+            this.accidentProbability = accidentProbability;
+        },
+        changeExposureRateFactor(exposureRate){
+            this.exposureRate = exposureRate;
+        },
+        changeRadiationDangerFactor(radiationDanger){
+            this.radiation = radiationDanger;
+        },
+        changeAccidentDangerFactor(accidentDanger){
+            this.accidentDanger = accidentDanger;
+        },
+        changeValueOfOneHumanLife_RadiationPts(valueOfOneHumanLife_RadiationPts){
+            this.valueOfOneHumanLife_RadiationPts = valueOfOneHumanLife_RadiationPts;
+        },
+        changeWasteProductionFactor(wasteProduction){
+            this.wasteProduction = wasteProduction;
+        },
+        changeDangerValueFactor(dangerValue){
+            this.dangerValue = dangerValue;
         }
     }
 }
