@@ -68,10 +68,10 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            temperature:55,
-            basicTemperature:55,
-            rate:0.5,
-            meltingRate:0.5,
+            temperature:60,
+            basicTemperature:60,
+            rate:0.49,
+            meltingRate:0.49,
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -110,7 +110,7 @@ export default {
             this.$emit('changeBasicTemperature',this.basicTemperature);
         },
         changeMeltingRate(){
-            this.meltingRate = parseInt(this.rate*10)/10;
+            this.meltingRate = parseInt(this.rate*100)/100;
             this.$emit('changeMeltingRate',this.meltingRate);
         },
         draw(){
