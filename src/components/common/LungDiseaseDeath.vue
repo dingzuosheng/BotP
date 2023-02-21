@@ -6,20 +6,26 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Fall Points: {{ this.fallPoints }} points
+                    Lung Disease Death: {{ this.lungDiseaseDeath }} (deaths)
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div>Fall Points = value of one human life * falls from roofs</div>
+                        <div>Lung Disease Death = SO2 Toxicity * Sulfur Dioxide + NO2 Toxicity * Nitrous Dioxide</div>
                         <br />
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Value of One Human Life</span> <span>= {{ this.valueOfOneHumanLife_FallPts }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="value" @change="changeValueOfOneHumanLife_FallPts"/>(points/death)</span>
+                                <span>SO2 Toxicity</span> <span>= {{ so2Toxicity }}</span><span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="so2ToxicityFactor" @change="changeSO2ToxicityFactor"/>(deaths/ton)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Falls From Roofs</span> <span>= {{ this.fallsFromRoofs }} (deaths)</span>
+                                <span>NO2 Toxicity</span> <span>= {{ no2Toxicity }}</span><span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="no2ToxicityFactor" @change="changeNO2ToxicityFactor"/>(deaths/ton)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Sulfur Dioxide</span> <span>= {{ this.so2 }} (tons)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Nitrous Dioxide</span> <span>= {{ this.no2 }} (tons)</span>
                             </div>
                         </div>
                     </div>
@@ -59,14 +65,16 @@ const service = axios.create({
 })
 import BarChart from '../chart/BarChart.vue'
 export default {
-    name:'RadWastePoints',
+    name:'LungDiseaseDeath',
     data(){
         return{
             name:"",
             causes:[],
             effects:[],
-            value:0.0029,
-            valueOfOneHumanLife_FallPts:0.0029,
+            so2ToxicityFactor:0.0055,
+            so2Toxicity:0.0055,
+            no2ToxicityFactor:0.0055,
+            no2Toxicity:0.0055,
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -77,22 +85,22 @@ export default {
         BarChart
     },
     props:{
-        fallsFromRoofs:Number,
-        fallPoints:Number,
+        so2:Number,
+        no2:Number,
+        lungDiseaseDeath:Number,
         show:Boolean,
         executed:Number
     },
-    watch: {
-        executed(newVal, oldVal) {
-            console.log("watch:"+newVal, oldVal)
+    watch:{
+        executed(newValue,oldValue){
             this.draw();
         }
     },
     created(){
         service.get('/data/data.json').then(res => {
-            this.name = toRaw(res.data.Fall_Points.name);
-            this.causes = toRaw(res.data.Fall_Points.causes);
-            this.effects = toRaw(res.data.Fall_Points.effects);
+            this.name = toRaw(res.data.Lung_Disease_Death.name);
+            this.causes = toRaw(res.data.Lung_Disease_Death.causes);
+            this.effects = toRaw(res.data.Lung_Disease_Death.effects);
         }) 
     },
     methods:{
@@ -101,9 +109,13 @@ export default {
                 path:item.path
             });
         },
-        changeValueOfOneHumanLife_FallPts(){
-            this.valueOfOneHumanLife_FallPts = parseInt(this.value*10000)/10000;
-            this.$emit("changeValueOfOneHumanLife_FallPts",this.changeValueOfOneHumanLife_FallPts);
+        changeSO2ToxicityFactor(){
+            this.so2Toxicity = parseInt(this.so2ToxicityFactor*10000)/10000;
+            this.$emit("changeSO2ToxicityFactor",this.so2Toxicity);
+        },
+        changeNO2ToxicityFactor(){
+            this.no2Toxicity = parseInt(this.no2ToxicityFactor*10000)/10000;
+            this.$emit("changeNO2ToxicityFactor",this.no2Toxicity);
         },
         draw(){
             const labels = [];
@@ -112,16 +124,16 @@ export default {
             }
             labels.sort();
             this.chartData.labels =  labels;
-            const coalUses = [];
+            const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                coalUses.push(JSON.parse(localStorage.getItem(labels[i])).fallPoints)
+                data.push(JSON.parse(localStorage.getItem(labels[i])).lungDiseaseDeath)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Fall Points',
+                label:'Lung Disease Death',
                 backgroundColor:'#000000',
-                data: coalUses
+                data: data
             }
             this.chartData.datasets = [dataset];
             console.log(JSON.stringify(this.chartData))
