@@ -7,20 +7,40 @@
             <thead>
                 <tr>
                     <td>Positive Points</td>
-                    <td>Total Points: {{ this.totalPoints }}</td>
+                    <td>Total Points: {{ Math.floor(this.totalPoints * 100) / 100 }}</td>
                     <td>Negative Points</td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Quality Points:  {{ this.qualityPoints }}</td>
+                    <td><router-link :to="{path:'quality-of-life-points'}">Quality of Life Points:  {{ Math.floor(this.qualityPoints * 100)/100 }}</router-link></td>
                     <td><el-button type="info" height="50px" width="200px">Feedback</el-button></td>
-                    <td></td>
+                    <td><router-link :to="{path:'/game/fall-points'}">Fall Points: {{ Math.floor(this.fallPoints * 100)/100 }}</router-link></td>
                 </tr>
                 <tr>
-                    <td>Sustainability Points:  {{  this.sustainabilityPts }}</td>
+                    <td><router-link :to="{path:'sustainability-pts'}">Sustainability Points:  {{  Math.floor(this.sustainabilityPts * 100)/100 }}</router-link></td>
+                    <td></td>
+                    <td><router-link :to="{path:'/game/inundation-points'}">Inundation Points: {{ Math.floor(this.inundationPoints * 100) / 100 }}</router-link></td>
+                </tr>
+                <tr>
                     <td></td>
                     <td></td>
+                    <td><router-link :to="{path:'/game/lung-disease-pts'}">Lung Desease Points: {{ Math.floor(this.lungDiseasePts * 100) / 100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><router-link :to="{path:'/game/rad-waste-points'}">Radioactive Waste Points: {{ Math.floor(this.radWastePoints * 100) / 100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><router-link :to="{ path:'/game/radiation-points'}">Radiation Points: {{ Math.floor(this.radiationPoints * 100) / 100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><router-link :to="{ path:'/game/starvation-points' }">Starvation Points: {{Math.floor(this.starvationPoints * 100)/100 }}</router-link></td>
                 </tr>
             </tbody>
         </table>
@@ -32,7 +52,13 @@ export default {
     props:{
         qualityPoints:Number,
         sustainabilityPts:Number,
-        totalPoints:Number
+        totalPoints:Number,
+        fallPoints:Number,
+        inundationPoints:Number,
+        lungDiseasePts:Number,
+        radWastePoints:Number,
+        radiationPoints:Number,
+        starvationPoints:Number
     }
 }
 </script>
