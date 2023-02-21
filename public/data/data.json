@@ -560,6 +560,18 @@
             }
         ]
     },
+    "Rad_Waste_Points": {
+        "name": "Rad Waste Points",
+        "path": "/game/rad-waste-points",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Radioactive Waste",
+                "path": "/game/radioactive-waste"
+            }
+        ],
+        "effects": []
+    },
     "Nuclear_Accidents": {
         "name": "Nuclear Accidents",
         "path": "/game/nuclear-accidents",
@@ -1063,7 +1075,7 @@
             },
             {
                 "name": "Lung Disease Death",
-                "path": "/game/lung-disease-deaths"
+                "path": "/game/lung-disease-death"
             },
             {
                 "name": "Property Damage $",
@@ -1091,8 +1103,8 @@
                 "path": "/game/acid-rain"
             },
             {
-                "name": "Lung Disease Deaths",
-                "path": "/game/lung-disease-deaths"
+                "name": "Lung Disease Death",
+                "path": "/game/lung-disease-death"
             },
             {
                 "name": "Property Damage $",
@@ -1100,9 +1112,9 @@
             }
         ]
     },
-    "Lung_Disease_Deaths": {
-        "name": "Lung Disease Deaths",
-        "path": "/game/lung-disease-deaths",
+    "Lung_Disease_Death": {
+        "name": "Lung Disease Death",
+        "path": "/game/lung-disease-death",
         "value": 0,
         "causes": [
             {
@@ -1120,8 +1132,8 @@
                 "path": "/game/acid-rain"
             },
             {
-                "name": "Lung Disease Deaths",
-                "path": "/game/lung-disease-deaths"
+                "name": "Lung Disease Death",
+                "path": "/game/lung-disease-death"
             },
             {
                 "name": "Property Damage $",
@@ -1135,8 +1147,8 @@
         "value": 0,
         "causes": [
             {
-                "name": "Lung Disease Deaths",
-                "path": "/game/lung-disease-deaths"
+                "name": "Lung Disease Death",
+                "path": "/game/lung-disease-death"
             }
         ],
         "effects": []
@@ -1207,6 +1219,18 @@
                 "path": "/game/inundation-points"
             }
         ]
+    },
+    "Inundation_Points": {
+        "name": "Inundation Points",
+        "path": "/game/inundation-points",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Sea Level",
+                "path": "/game/sea-level"
+            }
+        ],
+        "effects": []
     },
     "Energy_Conservation": {
         "name": "Energy Conservation",

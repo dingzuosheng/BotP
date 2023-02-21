@@ -62,7 +62,7 @@ import Lifestyle from './components/common/Lifestyle'
 import QualityOfLifePoints from './components/common/QualityOfLifePoints'
 import Connections from './components/Connections'
 import InundationPoints from './components/common/InundationPoints.vue'
-import LungDiseaseDeaths from './components/common/LungDiseaseDeaths'
+import LungDiseaseDeath from './components/common/LungDiseaseDeath'
 import LungDiseasePts from './components/common/LungDiseasePts'
 import Starvation from './components/common/Starvation'
 import StarvationPoints from './components/common/StarvationPoints'
@@ -382,9 +382,9 @@ const routes = [
                 component:QualityOfLifePoints
             },
             {
-                name:'Lung Disease Deaths',
-                path:'/game/lung-disease-deaths',
-                component:LungDiseaseDeaths
+                name:'Lung Disease Death',
+                path:'/game/lung-disease-death',
+                component:LungDiseaseDeath
             },
             {
                 name:'Lung Disease Pts',
