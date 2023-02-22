@@ -6,7 +6,7 @@
             </div>  
             <div v-if="!this.show"> 
                 <div>
-                    Natural Gas Tax Income: {{ this.naturalGasTaxIncome }} $
+                    Natural Gas Tax Income: {{ Math.floor(this.naturalGasTaxIncome/Math.pow(10,9)*100)/100 }} billion $
                 </div> 
                 <div class="range">
                     <h3>Natural Gas Tax {{ this.naturalGasTaxRate }} billion $/Exajoule</h3>

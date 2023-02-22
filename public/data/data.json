@@ -372,8 +372,8 @@
                 "path": "/game/natural-gas-price"
             },
             {
-                "name": "Natural Gas Use",
-                "path": "/game/natural-gas-use"
+                "name": "Total Natural Gas Use",
+                "path": "/game/total-nat-gas-use"
             }
         ],
         "effects": [

@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Natural Gas Price: {{ this.naturalGasPrice / Math.pow(10,9)}} billion
+                Natural Gas Price: {{ Math.floor(this.naturalGasPrice / Math.pow(10,9)*100)/100}} billion
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -22,7 +22,7 @@
                                 <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Natural Gas Supply</span> <span>= {{ this.naturalGasSupply/1000 }} thousand</span> <span>(Exajoules)</span>
+                                <span>Natural Gas Supply</span> <span>= {{ Math.floor(this.naturalGasSupply/1000*100)/100 }} thousand</span> <span>(Exajoules)</span>
                             </div>
                         </div>
                     </div>

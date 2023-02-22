@@ -22,13 +22,13 @@
                                 <span>Energy Demand</span> <span>= {{ this.energyDemand}}</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Ave Energy Price</span> <span>= {{ this.aveEnergyPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoules)</span>
+                                <span>Ave Energy Price</span> <span>= {{ Math.floor(this.aveEnergyPrice/Math.pow(10,9)*100)/100 }} billion</span> <span>($/Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Natural Gas Price</span> <span>= {{ this.naturalGasPrice/Math.pow(10,9)}} billion</span> <span>($/Exajoules)</span>
+                                <span>Natural Gas Price</span> <span>= {{ Math.floor(this.naturalGasPrice/Math.pow(10,9)*100)/100}} billion</span> <span>($/Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Natural Gas Tax</span> <span>= {{ this.naturalGasTaxRate/Math.pow(10,9) }} billion</span> <span>($/Exajoules)</span>
+                                <span>Natural Gas Tax</span> <span>= {{ Math.floor(this.naturalGasTaxRate/Math.pow(10,9)*100)/100 }} billion</span> <span>($/Exajoules)</span>
                             </div>
                         </div>
                     </div>

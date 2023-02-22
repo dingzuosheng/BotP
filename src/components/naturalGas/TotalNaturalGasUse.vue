@@ -16,7 +16,7 @@
                         Where:<br />
                         <div>
                             <div class="row-formula">
-                                <span>Total Natural Gas Use</span> <span>= {{ this.totalNaturalGasUse/1000 }} thousand</span><span>(Exajoules)</span>
+                                <span>Total Natural Gas Use</span> <span>= {{ Math.floor(this.totalNaturalGasUse/1000*100)/100 }} thousand</span><span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
                                 <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span> <span>(Exajoules)</span>

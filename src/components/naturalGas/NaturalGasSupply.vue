@@ -16,13 +16,13 @@
                             Where:<br />
                             <div class="formula">
                                 <div class="row-formula">
-                                    <span>Supply Elasticity</span> <span>= {{ naturalGasSupplyElasticity }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNaturalGasSupplyElasticity" /></span>
+                                    <span>Supply Elasticity</span> <span>= {{ Math.floor(naturalGasSupplyElasticity*Math.pow(10,7))/Math.pow(10,7) }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNaturalGasSupplyElasticity" /></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Natural Gas Price</span> <span>= {{ this.naturalGasPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoule)</span>
+                                    <span>Natural Gas Price</span> <span>= {{ Math.floor(this.naturalGasPrice/Math.pow(10,9)*100)/100 }} billion</span> <span>($/Exajoule)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Total Natural Gas Use</span> <span>= {{ this.totalNaturalGasUse /1000}} thousand</span> <span>(Exajoules)</span>
+                                    <span>Total Natural Gas Use</span> <span>= {{ Math.floor(this.totalNaturalGasUse /1000 * 100)/100}} thousand</span> <span>(Exajoules)</span>
                                 </div>
                             </div>
                         </div>
