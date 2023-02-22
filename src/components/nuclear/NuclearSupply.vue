@@ -16,10 +16,10 @@
                             Where:<br />
                             <div class="formula">
                                 <div class="row-formula">
-                                    <span>Nuclear Supply Elasticity</span> <span>= {{ nuclearSupplyElasticity }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNuclearSupplyElasticity" /></span>
+                                    <span>Nuclear Supply Elasticity</span> <span>= {{ Math.floor(nuclearSupplyElasticity*Math.pow(10,7))/Math.pow(10,7) }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNuclearSupplyElasticity" /></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Nuclear Price</span> <span>= {{ this.nuclearPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoule)</span>
+                                    <span>Nuclear Price</span> <span>= {{ Math.floor(this.nuclearPrice/Math.pow(10,9)*100)/100 }} billion</span> <span>($/Exajoule)</span>
                                 </div>
                                 <div class="row-formula">
                                     <span>Total Nuclear Use</span> <span>= {{ this.totalNuclearUse }}</span> <span>(Exajoules)</span>

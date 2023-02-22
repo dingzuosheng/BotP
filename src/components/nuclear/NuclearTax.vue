@@ -6,7 +6,7 @@
             </div>  
             <div v-if="!this.show">
                 <div>
-                    Nuclear Tax Income: {{ this.nuclearTaxIncome }} $
+                    Nuclear Tax Income: {{ Math.floor(this.nuclearTaxIncome/Math.pow(10,9)*100)/100 }} billion $
                 </div>
                 <div class="range">
                     <h3>Nuclear Tax {{ this.nuclearTaxRate }} billion $/Exajoule</h3>
@@ -72,7 +72,7 @@ export default {
         BarChart
     },
     props:{
-        naturalGasTaxIncome:Number,
+        nuclearTaxIncome:Number,
         show:Boolean,
         executed:Number
     },

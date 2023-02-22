@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Nuclear Price: {{ this.nuclearPrice / Math.pow(10,9)}} billion
+                Nuclear Price: {{ Math.floor(this.nuclearPrice / Math.pow(10,9)*100)/100}} billion
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -22,7 +22,7 @@
                                 <span>Nuclear Use</span> <span>= {{ this.nuclearUse }}</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Supply</span> <span>= {{ this.nuclearSupply/1000 }} thousand</span> <span>(Exajoules)</span>
+                                <span>Nuclear Supply</span> <span>= {{ Math.floor(this.nuclearSupply/1000*100)/100 }} thousand</span> <span>(Exajoules)</span>
                             </div>
                         </div>
                     </div>
