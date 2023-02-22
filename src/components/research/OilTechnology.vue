@@ -4,7 +4,7 @@
         <div>
             <h1>{{ this.name }}</h1>
         </div>
-        <div v-if="this.show">
+        <div v-if="!this.show">
             <div>
                 Oil Technology: {{ this.oilTechnology }} Whizbangs
             </div>
@@ -22,10 +22,10 @@
                                 <span>Oil Technology</span> <span>= {{ this.oilTechnology }}</span> <span>(Whizbangs)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Oil Research $</span> <span>= {{ this.oilResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Oil Research $</span> <span>= {{ Math.floor(this.oilResearchBudget/Math.pow(10,9)*100)/100 }} billion</span> <span>($)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Basic Research $</span> <span>= {{ this.basicResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Basic Research $</span> <span>= {{ Math.floor(this.basicResearchBudget/Math.pow(10,9)*100)/100 }} billion</span> <span>($)</span>
                             </div>
                         </div>
                     </div>

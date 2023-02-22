@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Radiation: {{ this.radiation }} 
+                    Radiation: {{ Math.floor(this.radiation/1000*100)/100 }} thousand 
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,10 +19,10 @@
                                 <span>Exposure Rate</span> <span>= {{ exposureRate }}</span><span><input type="range" min="10000" max="1000000" step="10000" v-model="exposureRateFactor" @change="changeExposureRateFactor"/></span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Use</span> <span>= {{ this.nuclearUse }} (Exajoules)</span>
+                                <span>Nuclear Use</span><span>= {{ this.nuclearUse }}</span><span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Technology</span> <span>= {{ this.nuclearTechnology }} (Whizbangs)</span>
+                                <span>Nuclear Technology</span><span>= {{ this.nuclearTechnology }}</span><span>(Whizbangs)</span>
                             </div>
                         </div>
                     </div>

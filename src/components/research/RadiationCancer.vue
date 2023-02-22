@@ -22,10 +22,10 @@
                                 <span>Accident Danger</span> <span>= {{ accidentDanger }}</span><span><input type="range" min="1000" max="100000" step="1000" v-model="accidentDangerFactor" @change="changeAccidentDangerFactor"/></span>
                             </div>
                             <div class="row-formula">
-                                <span>Radiation</span> <span>= {{ this.radiation }} (p-rems)</span>
+                                <span>Radiation</span><span>= {{ this.radiation }}</span><span>(p-rems)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Accidents</span> <span>= {{ this.nuclearAccidents }} (accidents)</span>
+                                <span>Nuclear Accidents</span><span>= {{ this.nuclearAccidents }} </span><span>(accidents)</span>
                             </div>
                         </div>
                     </div>
@@ -87,6 +87,7 @@ export default {
     props:{
         nuclearAccidents:Number,
         radiation:Number,
+        radiationCancer:Number,
         show:Boolean,
         executed:Number
     },
@@ -98,9 +99,9 @@ export default {
     },
     created(){
         service.get('/data/data.json').then(res => {
-            this.name = toRaw(res.data.Radiation.name);
-            this.causes = toRaw(res.data.Radiation.causes);
-            this.effects = toRaw(res.data.Radiation.effects);
+            this.name = toRaw(res.data.Radiation_Cancer.name);
+            this.causes = toRaw(res.data.Radiation_Cancer.causes);
+            this.effects = toRaw(res.data.Radiation_Cancer.effects);
         }) 
     },
     methods:{

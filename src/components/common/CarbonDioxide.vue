@@ -6,7 +6,7 @@
             </div>    
             <div v-if="!this.show">
                 <div>
-                    CO2: {{ this.co2 }}
+                    CO2: {{ Math.floor(this.co2/Math.pow(10,9)*100)/100 }} billion tons
                 </div> 
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                     <span>CO2</span> <span>= {{ co2Quantity }} million</span> <span><input type="range" min="10" max="100" step="10" v-model="quantity" @change="changeCO2Quanty" /> (tons/Exajoule)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Carbon Dioxide</span> <span>= {{ this.co2 / Math.pow(10,12)}} trillion</span> <span>(tons)</span>
+                                    <span>Carbon Dioxide</span> <span>= {{ Math.floor(this.co2 / Math.pow(10,12)*100)/100}} trillion</span> <span>(tons)</span>
                                 </div>
                                 <div class="row-formula">
                                     <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>

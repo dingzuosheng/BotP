@@ -19,10 +19,10 @@
                                 <span>Life Value</span> <span>= {{ lifeValue }}</span> <span><input type="range" min="0.1" max="10" step="0.1" v-model="value" @change="changeLifeValue" /></span>
                             </div>
                             <div class="row-formula">
-                                <span>Lifestyle</span> <span>= {{ this.lifestyle/Math.pow(10,9) }} billion </span>(happies)
+                                <span>Lifestyle</span> <span>= {{ Math.floor(this.lifestyle/Math.pow(10,9)*100)/100 }} billion </span>(happies)
                             </div>
                             <div class="row-formula">
-                                <span>Population</span> <span>= {{ this.population/Math.pow(10,9) }} billion </span>(people)
+                                <span>Population</span> <span>= {{ Math.floor(this.population/Math.pow(10,9)*100)/100 }} billion </span>(people)
                             </div>
                         </div>
                     </div>

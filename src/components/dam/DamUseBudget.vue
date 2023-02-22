@@ -5,6 +5,9 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
+                <div>
+                    Dam Use Budget: {{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }} billion Exajoules
+                </div>
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
@@ -74,6 +77,7 @@
         },
         props:{
             show:Boolean,
+            damUseBudget:Number,
             executed:Number
         },
         watch:{

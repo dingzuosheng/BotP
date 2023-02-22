@@ -83,9 +83,9 @@
                         <td><router-link :to="{path:'/game/solar-research'}">${{Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/dam-use-treasury'}">Dam Use $</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-treasury'}">{{ Math.floor(this.damSubsidy * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-treasury'}">${{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/dam-use-budget'}">Dam Use $</router-link></td>
+                        <td><router-link :to="{path:'/game/dam-use-budget'}">{{ Math.floor(this.damSubsidy * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/dam-use-budget'}">${{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
                     </tr>
                 </tbody>
             </table>

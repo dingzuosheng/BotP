@@ -19,10 +19,10 @@
                                 <span>Accident Probability</span> <span>= {{ accidentProbability }}</span><span><input type="range" min="0.0001" max="1.0" step="0.0001" v-model="accidentProbabilityFactor" @change="changeAccidentProbabilityFactor"/></span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Use</span> <span>= {{ this.nuclearUse }} (Exajoules)</span>
+                                <span>Nuclear Use</span><span>= {{ this.nuclearUse }} </span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Technology</span> <span>= {{ this.nuclearTechnology }} (Whizbangs)</span>
+                                <span>Nuclear Technology</span><span>= {{ this.nuclearTechnology }}</span><span>(Whizbangs)</span>
                             </div>
                         </div>
                     </div>

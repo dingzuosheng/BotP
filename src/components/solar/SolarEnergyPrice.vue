@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Solar Energy Price: {{ this.solarPrice }}
+                Solar Energy Price: {{ Math.floor(this.solarPrice/Math.pow(10,9)*100)/100 }} billion $
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -16,7 +16,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Solar Energy Potential</span> <span>= {{ solarEnergyPotential }}</span> <span><input type="range" min="0.00000000001" max="0.00000001" step="0.00000000001" v-model="potential" @change="changeSolarEnergyPotential" /></span>
+                                <span>Solar Energy Potential</span> <span>= {{ Math.floor(solarEnergyPotential*Math.pow(10,11))/Math.pow(10,11) }}</span> <span><input type="range" min="0.00000000001" max="0.00000001" step="0.00000000001" v-model="potential" @change="changeSolarEnergyPotential" /></span>
                             </div>
                             <div class="row-formula">
                                 <span>Solar Energy Use</span> <span>= {{ this.solarUse }}</span> <span>(Exajoules)</span>

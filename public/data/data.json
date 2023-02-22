@@ -1132,8 +1132,8 @@
                 "path": "/game/acid-rain"
             },
             {
-                "name": "Lung Disease Death",
-                "path": "/game/lung-disease-death"
+                "name": "Lung Disease Points",
+                "path": "/game/lung-disease-pts"
             },
             {
                 "name": "Property Damage $",

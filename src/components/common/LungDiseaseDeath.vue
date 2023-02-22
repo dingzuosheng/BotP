@@ -22,10 +22,10 @@
                                 <span>NO2 Toxicity</span> <span>= {{ no2Toxicity }}</span><span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="no2ToxicityFactor" @change="changeNO2ToxicityFactor"/>(deaths/ton)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Sulfur Dioxide</span> <span>= {{ this.so2 }} (tons)</span>
+                                <span>Sulfur Dioxide</span><span>= {{ this.so2 }}</span> <span> (tons)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nitrous Dioxide</span> <span>= {{ this.no2 }} (tons)</span>
+                                <span>Nitrous Dioxide</span><span>= {{ this.no2 }}</span> <span>(tons)</span>
                             </div>
                         </div>
                     </div>

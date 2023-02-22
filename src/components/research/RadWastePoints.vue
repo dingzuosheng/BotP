@@ -16,10 +16,10 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Danger Value</span> <span>= {{ this.dangerValue }}</span><span><input type="range" min="0.001" max="0.1" step="0.001" v-model="dangerValueFactor" @change="changeDangerValueFactor"/>(points/ton)</span>
+                                <span>Danger Value</span> <span>= {{ this.dangerValue }}</span><span><input type="range" min="0.0001" max="0.1" step="0.001" v-model="dangerValueFactor" @change="changeDangerValueFactor"/>(points/ton)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Radioactive Waste</span> <span>= {{ this.radioactiveWaste }} (tons)</span>
+                                <span>Radioactive Waste</span><span>= {{ this.radioactiveWaste }}</span> <span>(tons)</span>
                             </div>
                         </div>
                     </div>
@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            dangerValueFactor:0.045,
-            dangerValue:0.045,
+            dangerValueFactor:9.78*Math.pow(10,-4),
+            dangerValue:9.78*Math.pow(10,-4),
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -102,7 +102,7 @@ export default {
             });
         },
         changeDangerValueFactor(){
-            this.dangerValue = parseInt(this.dangerValue*1000)/1000;
+            this.dangerValue = parseInt(this.dangerValue*10000)/10000;
             this.$emit("changeDangerValueFactor",this.dangerValue);
         },
         draw(){

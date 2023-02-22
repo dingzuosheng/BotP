@@ -4,18 +4,28 @@
             <div>
                 <h1>{{ this.name }}</h1>
             </div> 
-            <div class="range">
-                <h3>Solar Energy {{ this.solarEnergySubsidy * 100}} % Subsidy</h3>
-                <input type="range" min="0" max="0.08" step="0.01" v-model="percent" @change="changeSolarEnergySusidyPercent"/><!--value is string-->
+            <div v-if="!show">
                 <div>
-                    <p class="text">
-                        This is your subsidy for Solar Energy. You can see incresase its precentage of your budget, 
-                        but only if you have budget percentage points to spare. Although you can change the numbers
-                        now and see immediate effects in the bar chart, the effects on the world will not take place 
-                        untill you execute policies.
-                    </p>
+                    <div>
+                        Solar Energy Budget: {{ Math.floor(this.solarEnergyBudget / Math.pow(10,9)*100)/100}} billion $
+                    </div>
                 </div>
-            </div>      
+                <div class="range">
+                    <h3>Solar Energy {{ this.solarEnergySubsidy * 100}} % Subsidy</h3>
+                    <input type="range" min="0" max="0.08" step="0.01" v-model="percent" @change="changeSolarEnergySusidyPercent"/><!--value is string-->
+                    <div>
+                        <p class="text">
+                            This is your subsidy for Solar Energy. You can see incresase its precentage of your budget, 
+                            but only if you have budget percentage points to spare. Although you can change the numbers
+                            now and see immediate effects in the bar chart, the effects on the world will not take place 
+                            untill you execute policies.
+                        </p>
+                    </div>
+                </div> 
+            </div> 
+            <div v-if="show">
+                <BarChart :chartData="chartData"></BarChart>
+            </div>    
         </div>
         <div class="side-nav">
             <div>
@@ -44,6 +54,7 @@ const service = axios.create({
     baseURL:'',
     timeout:3000000000,
 })
+import BarChart from '../chart/BarChart.vue'
 export default {
     name:'SolarEnergy',
     data(){
@@ -53,6 +64,24 @@ export default {
             effects:[],
             percent:0,
             solarEnergySubsidy:0.08,
+            chartData:{
+                labels:[],
+                datasets:[] 
+            },
+        }
+    },
+    components:{
+        BarChart
+    },
+    props:{
+        solarEnergyBudget:Number,
+        show:Boolean,
+        executed:Number
+    },
+    watch: {
+        executed(newVal, oldVal) {
+            console.log("watch:"+newVal, oldVal)
+            this.draw();
         }
     },
     created(){
@@ -72,6 +101,27 @@ export default {
             this.solarEnergySubsidy = parseInt(this.percent * 100) / 100;
             this.$emit('changeSolarEnergySubsidy',this.solarEnergySubsidy);
         },
+        draw(){
+            const labels = [];
+            for(let i = localStorage.length - 1; i > -1; i--){
+                labels.push(localStorage.key(i));
+            }
+            labels.sort();
+            this.chartData.labels =  labels;
+            const coalUses = [];
+            
+            for(let i = 0; i < labels.length; i++){
+                coalUses.push(JSON.parse(localStorage.getItem(labels[i])).solarEnergyBudget)
+                console.log(labels[i],localStorage.key(i))
+            }
+            const dataset = {
+                label:'Solar Energy Budget',
+                backgroundColor:'#000000',
+                data: coalUses
+            }
+            this.chartData.datasets = [dataset];
+            console.log(JSON.stringify(this.chartData))
+        }
     }
 }
 </script>

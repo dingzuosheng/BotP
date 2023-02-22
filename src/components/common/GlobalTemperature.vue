@@ -22,7 +22,7 @@
                                 <span>CO2 Eff</span> <span>= {{ co2Eff }}</span> <span><input type="range" min="1" max="50" step="1" v-model="eff" @change="changeCO2Eff" /> (degrees/tons)</span>
                             </div>
                             <div class="row-formula">
-                                <span>CO2</span> <span>= {{ this.co2 }}</span>(tons)
+                                <span>CO2</span> <span>= {{ Math.floor(this.co2/Math.pow(10,9)*100)/100 }} billion </span>(tons)
                             </div>
                         </div>
                     </div>

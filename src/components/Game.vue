@@ -102,7 +102,7 @@
 
                         @changeValueOfOneHumanLifeFactor="changeValueOfOneHumanLifeFactor($event)" :starvationPoints="starvationPoints"
                         
-                        :nonrenewableEnergy="nonrenewableEnergy" :sustainability="sustainability"
+                        :renewableEnergy="renewableEnergy" :nonrenewableEnergy="nonrenewableEnergy" :sustainability="sustainability"
                         @changeSustainability="changeSustainability($event)" :sustainabilityPts="sustainabilityPts" 
                         
                         @changeValueOfQualityOfLife="changeQualityOfLife($event)" :qualityPoints="qualityPoints"
@@ -214,7 +214,7 @@ export default {
             radiationPoints:8,//right
             wasteProduction:1000,//right
             radioactiveWaste:88700,//right
-            dangerValue:0.045,//right
+            dangerValue:9.78*Math.pow(10,-4),//right
             radWastePoints:88,//right
 
 
@@ -244,7 +244,7 @@ export default {
             so2Toxicity:0.0035,//right
             no2Toxicity:0.0035,//right
             lungDiseaseDeath:392000,//right
-            valueOfOneHumanLifeLungDisease:0.0055,//right
+            valueOfOneHumanLifeLungDisease:9.84*Math.pow(10,-3),//right
             lungDiseasePts:3926,//right
 
             energyDemand: 303,//right
@@ -259,12 +259,12 @@ export default {
             qualityOfLife: 1.03,//right
             population: 5.26 * Math.pow(10, 9),//right
             starvation:41.4*Math.pow(10,6),//right
-            baseLevel:0.50,//right
-            deathRate:0.06,//right
-            valueOfOneHumanLife:0.038,//right
+            baseLevel:0.43,//right
+            deathRate:0.05,//right
+            valueOfOneHumanLife:1.0*Math.pow(10,-4),//right
             starvationPoints:4136,//right
 
-            birthRate: 0.0197,//right
+            birthRate: 1.97,//right
             maximalBirthRate:5,//right
             sustainability: 0.17,//right
             sustainabilityPts: 681,//right
@@ -526,7 +526,7 @@ export default {
             this.oilTechnology = Math.floor((this.oilTechnology + this.oilOptimism * Math.log((this.oilResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
             this.nuclearTechnology = Math.floor((this.nuclearTechnology + this.nuclearOptimism * Math.log((this.nuclearResearchBudget + Math.pow(10,9))  * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
 
-            this.nuclearAccidents = Math.floor(this.accidentProbability * this.nuclearUse / this.nuclearTechnology * 100)/100; //对
+            this.nuclearAccidents = Math.floor(this.accidentProbability * this.nuclearUse / this.nuclearTechnology * 10000)/10000; //对
             this.radiation = Math.floor(this.exposureRate * this.nuclearUse / this.nuclearTechnology * 100)/100;//对
             this.radiationCancer = Math.floor((this.radiationDanger * this.radiation + this.accidentDanger * this.nuclearAccidents)*100)/100;//对
             this.radiationPoints = Math.floor(this.valueOfOneHumanLife_RadiationPts * this.radiationCancer * 100) / 100;//对
@@ -812,6 +812,7 @@ export default {
 
                 damUse:18,
                 damPrice:25000000000,
+                damUseBudget:3.18*Math.pow(10,9),
 
                 co2:2720000000000,
                 globalTemperature:60.3,
@@ -922,6 +923,7 @@ export default {
 
                 damUse:this.damUse,
                 damPrice:this.damPrice,
+                damUseBudget:this.damUseBudget,
 
                 co2:this.co2,
                 globalTemperature:this.globalTemperature,

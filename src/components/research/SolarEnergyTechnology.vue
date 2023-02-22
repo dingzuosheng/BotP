@@ -22,10 +22,10 @@
                                 <span>Solar Technology</span> <span>= {{ this.solarTechnology }}</span> <span>(Whizbangs)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Solar Research $</span> <span>= {{ this.solarResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Solar Research $</span> <span>= {{ Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100 }} billion $</span> <span>($)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Basic Research $</span> <span>= {{ this.basicResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Basic Research $</span> <span>= {{ Math.floor(this.basicResearchBudget/Math.pow(10,9)*100)/100 }} billion $</span> <span>($)</span>
                             </div>
                         </div>
                     </div>

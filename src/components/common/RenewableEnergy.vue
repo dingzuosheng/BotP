@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Renewable Energy: {{ this.solarUse + this.damUse }}
+                Renewable Energy: {{ this.renewableEnergy }}
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -80,6 +80,7 @@ export default {
     props:{
         solarUse:Number,
         damUse:Number,
+        renewableEnergy:Number,
         show:Boolean,
         executed:Number
     },  

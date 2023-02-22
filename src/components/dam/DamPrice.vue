@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Dam Price: {{ this.damPrice }}
+                Dam Price: {{ Math.floor(this.damPrice/Math.pow(10,9)*100)/100 }} billion $
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -16,7 +16,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Dam Potential</span> <span>= {{ damPotential }}</span> <span><input type="range" min="0.00000000001" max="0.00000001" step="0.00000000001" v-model="potential" @change="changeDamPotential" /></span>
+                                <span>Dam Potential</span> <span>= {{ Math.floor(damPotential*Math.pow(10,11))/Math.pow(10,11) }}</span> <span><input type="range" min="0.00000000001" max="0.00000001" step="0.00000000001" v-model="potential" @change="changeDamPotential" /></span>
                             </div>
                             <div class="row-formula">
                                 <span>Dam Use</span> <span>= {{ this.damUse }}</span> <span>(Exajoules)</span>

@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Norenewable Energy: {{ this.coalUse + this.oilUse + this.naturalGasUse + this.nuclearUse }}
+                Norenewable Energy: {{ this.nonrenewableEnergy }}
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -87,6 +87,7 @@ export default {
         coalUse:Number,
         oilUse:Number,
         naturalGasUse:Number,
+        nonrenewableEnergy:Number,
         nuclearUse:Number,
         show:Boolean,
         executed:Number

@@ -19,7 +19,7 @@
                                 <span>Point Cost</span> <span>= {{ this.pointCost }}</span><span><input type="range" min="100" max="10000" step="100" v-model="pointCostFactor" @change="changePointCostFactor"/>(points/meter)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Sea Level</span> <span>= {{ this.seeLevel }} (meters)</span>
+                                <span>Sea Level</span> <span>= {{ this.seeLevel }}</span><span> (meters)</span>
                             </div>
                         </div>
                     </div>

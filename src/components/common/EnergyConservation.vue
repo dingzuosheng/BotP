@@ -19,7 +19,7 @@
                                     <span>Price Elasticity</span> <span>= {{ priceEleasticity }}</span> <span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="elasticity" @change="changePriceElasticity" /> (degrees)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Ave Energy Price</span> <span>= {{ this.aveEnergyPrice }}</span>($/Exajoule)
+                                    <span>Ave Energy Price</span> <span>= {{ Math.floor(this.aveEnergyPrice/Math.pow(10,9)*100)/100 }} billion </span>($/Exajoule)
                                 </div>
                             </div>
                         </div>

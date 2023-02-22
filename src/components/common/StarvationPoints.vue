@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Starvation Points: {{ this.starvationPoints }} points
+                    Starvation Points: {{ Math.floor(this.starvationPoints/1000*100)/100 }} thousand points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                 <span>Value of One Human Life</span> <span>= {{ this.valueOfOneHumanLife }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="valueOfOneHumanLifeFactor" @change="changeValueOfOneHumanLifeFactor"/>(tons/person)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Starvation</span> <span>= {{ this.starvation }} (deaths)</span>
+                                <span>Starvation</span> <span>= {{ Math.floor(this.starvation/Math.pow(10,9)*100)/100 }} billion </span> (deaths)
                             </div>
                         </div>
                     </div>
@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            valueOfOneHumanLifeFactor:0.038,
-            valueOfOneHumanLife:0.038,
+            valueOfOneHumanLifeFactor:1.0*Math.pow(10,-4),
+            valueOfOneHumanLife:1.0*Math.pow(10,-4),
             chartData:{
                 labels:[],
                 datasets:[] 

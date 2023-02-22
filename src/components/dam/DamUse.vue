@@ -22,13 +22,13 @@
                                 <span>Energy Demand</span> <span>= {{ this.energyDemand}}</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Ave Energy Price</span> <span>= {{ this.aveEnergyPrice/Math.pow(10,9) }} billion</span> <span>($/Exajoules)</span>
+                                <span>Ave Energy Price</span> <span>= {{ Math.floor(this.aveEnergyPrice/Math.pow(10,9)*100)/100 }} billion</span> <span>($/Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Dam Use $</span> <span>= {{ this.damUseBudget /Math.pow(10,9)}} billion</span> <span>($)</span>
+                                <span>Dam Use $</span> <span>= {{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100}} billion</span> <span>($)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Dam Price</span> <span>= {{ this.damPrice / Math.pow(10,9)}} billion</span> <span>($/Exajoules)</span>
+                                <span>Dam Price</span> <span>= {{ Math.floor(this.damPrice / Math.pow(10,9) * 100)/100}} billion</span> <span>($/Exajoules)</span>
                             </div>
                         </div>
                     </div>

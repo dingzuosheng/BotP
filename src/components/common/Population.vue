@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Population: {{ this.population/Math.pow(10,9) }} billion People
+                    Population: {{ Math.floor(this.population/Math.pow(10,9)*100)/100 }} billion People
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -16,13 +16,13 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Population</span> <span>= {{ this.population/Math.pow(10,9) }} billion (people)</span>
+                                <span>Population</span> <span>= {{ Math.floor(this.population/Math.pow(10,9)*100)/100 }} billion</span>(people)
                             </div>
                             <div class="row-formula">
-                                <span>Birth Rate</span> <span>= {{ this.birthRate }} %</span>
+                                <span>Birth Rate</span> <span>= {{ this.birthRate }}</span><span>%</span> 
                             </div>
                             <div class="row-formula">
-                                <span>Starvation</span> <span>= {{ this.starvation/Math.pow(10,6) }} Million (deaths)</span>
+                                <span>Starvation</span> <span>= {{ Math.floor(this.starvation/Math.pow(10,6)*100)/100 }} Million</span>(deaths)
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,7 @@
                                 <span>Fall Rate</span> <span>= {{ fallRate }}</span><span><input type="range" min="10" max="1000" step="10" v-model="fallRateFactor" @change="changeFallRateFactor"/> (deaths/Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Solar Energy Use</span> <span>= {{ this.solarEnergyUse }} (Exajoules)</span>
+                                <span>Solar Energy Use</span> <span>= {{ this.solarUse }}</span><span>(Exajoules)</span>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ export default {
         BarChart
     },
     props:{
-        solarEnergyUse:Number,
+        solarUse:Number,
         fallsFromRoofs:Number,
         show:Boolean,
         executed:Number

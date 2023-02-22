@@ -22,10 +22,10 @@
                                 <span>Coal Technology</span> <span>= {{ this.coalTechnology }}</span> <span>(Whizbangs)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Research $</span> <span>= {{ this.coalResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Coal Research $</span> <span>= {{ Math.floor(this.coalResearchBudget/Math.pow(10,9)*100)/100 }} billion</span> <span>($)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Basic Research $</span> <span>= {{ this.basicResearchBudget/Math.pow(10,9) }} billion</span> <span>($)</span>
+                                <span>Basic Research $</span> <span>= {{ Math.floor(this.basicResearchBudget/Math.pow(10,9)*100)/100 }} billion</span> <span>($)</span>
                             </div>
                         </div>
                     </div>

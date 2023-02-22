@@ -6,7 +6,7 @@
             </div>   
             <div v-if="!this.show">
                 <div>
-                    NO2: {{ this.no2 / Math.pow(10,6)}} million tons
+                    NO2: {{ Math.floor(this.no2 / Math.pow(10,6)*100)/100}} million tons
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">

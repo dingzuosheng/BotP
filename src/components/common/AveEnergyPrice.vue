@@ -6,7 +6,7 @@
             </div> 
             <div v-if="!this.show">
                 <div>
-                    Average Energy Price: {{ this.aveEnergyPrice/Math.pow(10,9) }} billion
+                    Average Energy Price: {{ Math.floor(this.aveEnergyPrice/Math.pow(10,9)*100)/100 }} billion
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">

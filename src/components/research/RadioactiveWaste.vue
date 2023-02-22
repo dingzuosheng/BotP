@@ -19,10 +19,10 @@
                                 <span>Waste Production</span> <span>= {{ wasteProduction }}</span><span><input type="range" min="10" max="10000" step="10" v-model="wasteProductionFactor" @change="changeWasteProductionFactor"/></span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Use</span> <span>= {{ this.nuclearUse }} (Exajoules)</span>
+                                <span>Nuclear Use</span><span>= {{ this.nuclearUse }}</span><span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Technology</span> <span>= {{ this.nuclearTechnology }} (Whizbangs)</span>
+                                <span>Nuclear Technology</span>= {{ this.nuclearTechnology }}<span></span><span>(Whizbangs)</span>
                             </div>
                         </div>
                     </div>
@@ -68,8 +68,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            wasteProductionFactor:1000,
-            wasteProduction:1000,
+            wasteProductionFactor:984,
+            wasteProduction:984,
             chartData:{
                 labels:[],
                 datasets:[] 

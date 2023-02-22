@@ -6,7 +6,7 @@
             </div>  
             <div v-if="!this.show">
                 <div>
-                    Lifestyle: {{ this.lifestyle/ Math.pow(10,9)}} Billion Happies
+                    Lifestyle: {{ Math.floor(this.lifestyle/ Math.pow(10,9)*100)/100}} Billion Happies
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">

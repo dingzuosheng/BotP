@@ -19,7 +19,7 @@
                                 <span>Value of One Human Life</span> <span>= {{ this.valueOfOneHumanLife_lungDiseasePts }}</span><span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="valueOfOneHumanLifeFactor" @change="changeValueOfOneHumanLifeLungDiseasePts"/>(points/death)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Lung Disease Death</span> <span>= {{ this.lungDiseaseDeath }} (deaths)</span>
+                                <span>Lung Disease Death</span> <span>= {{ this.lungDiseaseDeath }}</span><span>(deaths)</span>
                             </div>
                         </div>
                     </div>
@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            valueOfOneHumanLifeFactor:0.0055,
-            valueOfOneHumanLife_lungDiseasePts:0.0055,
+            valueOfOneHumanLifeFactor:9.84*Math.pow(10,-3),
+            valueOfOneHumanLife_lungDiseasePts:9.84*Math.pow(10,-3),
             chartData:{
                 labels:[],
                 datasets:[] 

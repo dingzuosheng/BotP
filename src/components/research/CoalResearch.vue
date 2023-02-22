@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Coal Research Budget: {{ this.coalResearchBudget }} $
+                    Coal Research Budget: {{ Math.floor(this.coalResearchBudget/Math.pow(10,9)*100)/100 }} billion $
                 </div>
                 <div class="range">
                     <h3>Coal Research Subsidy {{ this.coalResearchSubsidy * 100}}%</h3>

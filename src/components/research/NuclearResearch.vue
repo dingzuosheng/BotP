@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Nuclear Research Budget : {{ this.nuclearResearchBudget }} $
+                    Nuclear Research Budget : {{ Math.floor(this.nuclearResearchBudget/Math.pow(10,9)*100)/100 }} billion $
                 </div>
                 <div class="range">
                     <h3>Nuclear Research Subsidy {{ this.nuclearResearchSubsidy * 100}} %</h3>
@@ -72,7 +72,7 @@ export default {
         BarChart
     },
     props:{
-        nulcearResearchBudget:Number,
+        nuclearResearchBudget:Number,
         show:Boolean,
         executed:Number
     },

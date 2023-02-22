@@ -6,7 +6,7 @@
             </div>  
             <div v-if="!this.show">
                 <div>
-                    Birth Rate: {{ this.birthRate * 100}} %
+                    Birth Rate: {{ this.birthRate}} %
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">

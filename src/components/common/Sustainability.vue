@@ -16,13 +16,13 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Renewable Energy</span> <span>= {{ this.solarUse + this.damUse }} (Exajoules)</span>
+                                <span>Renewable Energy</span><span>= {{ this.renewableEnergy }}</span>  (Exajoules)
                             </div>
                             <div class="row-formula">
-                                <span>Birth Rate</span> <span>= {{ this.birthRate * 100 }} %</span>
+                                <span>Birth Rate</span><span>= {{ Math.floor(this.birthRate * 100)/100 }}%</span><span></span>
                             </div>
                             <div class="row-formula">
-                                <span>Nonrenewable Energy</span> <span>= {{ this.nonrenewableEnergy }} (Exajoules)</span>
+                                <span>Nonrenewable Energy</span><span>= {{ this.nonrenewableEnergy }}</span>(Exajoules)
                             </div>
                         </div>
                     </div>
@@ -81,6 +81,7 @@ export default {
         sustainability:Number,
         solarUse:Number,
         damUse:Number,
+        renewableEnergy:Number,
         nonrenewableEnergy:Number,
         birthRate:Number,
         show:Boolean,

@@ -19,7 +19,7 @@
                                 <span>Value of One Human Life</span> <span>= {{ this.valueOfOneHumanLife_FallPts }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="value" @change="changeValueOfOneHumanLife_FallPts"/>(points/death)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Falls From Roofs</span> <span>= {{ this.fallsFromRoofs }} (deaths)</span>
+                                <span>Falls From Roofs</span><span>= {{ this.fallsFromRoofs }}</span> <span> (deaths)</span>
                             </div>
                         </div>
                     </div>

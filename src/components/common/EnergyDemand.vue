@@ -15,7 +15,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Energy Demand</span> <span>= {{ this.energyDemand }} (Exajoules)</span>
+                                <span>Energy Demand</span> <span>= {{ this.energyDemand }}</span><span>(Exajoules)</span>
                             </div>
                         </div>
                     </div>
