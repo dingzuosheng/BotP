@@ -986,7 +986,7 @@ export default {
             //to be saved is from the year 1991
             
             localStorage.setItem(this.year,JSON.stringify(data));
-            this.energyDemand = this.energyDemand * 1.01;
+            this.energyDemand = Math.floor(this.energyDemand * 1.01 * 100)/100;
             this.executed++;
         },
         /* coal */

@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Totall Coal Use: {{ this.totalCoalUse/1000 }}thousand Exajoules
+                Totall Coal Use: {{ Math.floor(this.totalCoalUse/1000*100)/100 }}thousand Exajoules
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -16,7 +16,7 @@
                         Where:<br />
                         <div>
                             <div class="row-formula">
-                                <span>Total Coal Use</span> <span>= {{ this.totalCoalUse/1000 }}thousand</span> <span>(Exajoules)</span>
+                                <span>Total Coal Use</span> <span>= {{ Math.floor(this.totalCoalUse/1000*100)/100 }}thousand</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
                                 <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>
