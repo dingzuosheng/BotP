@@ -16,13 +16,13 @@
                             Where:<br />
                             <div class="formula">
                                 <div class="row-formula">
-                                    <span>Oil Supply Elasticity</span> <span>= {{ oilSupplyElasticity }}</span> <span><input type="range" min="0.00000001" max="0.000001" step="0.00000001" v-model="elasticity" @change="changeOilSupplyElasticity" /></span>
+                                    <span>Oil Supply Elasticity</span> <span>= {{ Math.floor(oilSupplyElasticity*Math.pow(10,8))/Math.pow(10,8) }}</span> <span><input type="range" min="0.00000001" max="0.000001" step="0.00000001" v-model="elasticity" @change="changeOilSupplyElasticity" /></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Oil Price</span> <span>= {{ this.oilPrice/Math.pow(10,9) }}billion</span> <span>($/Exajoule)</span>
+                                    <span>Oil Price</span> <span>= {{ Math.floor(this.oilPrice/Math.pow(10,9)*100)/100 }}billion</span> <span>($/Exajoule)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Total Oil Use</span> <span>= {{ this.totalOilUse/1000 }}thousand</span> <span>(Exajoules)</span>
+                                    <span>Total Oil Use</span> <span>= {{ Math.floor(this.totalOilUse/1000*100)/100 }}thousand</span> <span>(Exajoules)</span>
                                 </div>
                             </div>
                         </div>
