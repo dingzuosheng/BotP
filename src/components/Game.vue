@@ -106,6 +106,10 @@
                         @changeSustainability="changeSustainability($event)" :sustainabilityPts="sustainabilityPts" 
                         
                         @changeValueOfQualityOfLife="changeQualityOfLife($event)" :qualityPoints="qualityPoints"
+
+                        @changeStripMiningProductivity="changeStripMiningProductivity($event)" :stripMining="stripMining"
+                        @changeLandUseFactor="changeLandUseFactor($event)" :landAbuse="landAbuse" :garbage="garbage"
+                        @changeValueOfLandAbuse="changeValueOfLandAbuse($event)" :landAbusePoints="landAbusePoints"
                         
                         :totalTreasury="totalTreasury" :totalPoints="totalPoints">
                 <keep-alive>
@@ -217,6 +221,14 @@ export default {
             dangerValue:9.78*Math.pow(10,-4),//right
             radWastePoints:88,//right
 
+            /*land */
+            stripMiningProductivity:300,
+            stripMining:22.9 * Math.pow(10,3),
+            landAbuse:1.02*Math.pow(10,6),
+            landUse:1.0*Math.pow(10,-3),
+            garbage:999*Math.pow(10,6),
+            valueOfLandAbuse:1.27*Math.pow(10,-3),
+            landAbusePoints:1.53*Math.pow(10,3),
 
             /*dam */
             damUseBudget: 3.18 * Math.pow(10, 9),//right
@@ -484,6 +496,13 @@ export default {
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
             console.log("==============================================================================================================")
+        },
+        calculateLandFormulas(){
+            this.stripMining = this.stripMiningProductivity * this.coalUse;  
+            this.landAbuse = this.stripMining + (this.landUse * this.garbage);
+            console.log("landAbuse: "+this.landAbuse);
+            this.landAbusePoints = this.valueOfLandAbuse * this.landAbuse;
+            console.log("landAbusePoints: "+this.landAbusePoints);
         },
         calculateSolarFormulas(){
             this.solarUse = Math.floor((this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyBudget) / this.solarPrice * 100)/100;//对
@@ -813,6 +832,10 @@ export default {
                 damUse:18,
                 damPrice:Math.floor(25000000000/Math.pow(10,9)*100)/100,
 
+                stripMing:22.9,
+                landAbuse:1.02,
+                landAbusePoints:1.53*Math.pow(10,3),
+
                 co2:Math.floor(2720000000000/Math.pow(10,9)*100)/100,
                 globalTemperature:60.3,
                 seeLevel:0.14,
@@ -878,6 +901,7 @@ export default {
             this.calculateNaturalGasFormulas();
             this.calculateNuclearFormulas();
             this.calculateDamFormulas();
+            this.calculateLandFormulas();
             this.calculateSolarFormulas();
             this.calculateTechnologyFormulas();
             this.calculateAirPolutionFormulas();
@@ -922,6 +946,10 @@ export default {
 
                 damUse:this.damUse,
                 damPrice:Math.floor(this.damPrice/Math.pow(10,9)*100)/100,
+
+                stripMining:Math.floor(this.stripMining/Math.pow(10,3)*100)/100,
+                landAbuse:Math.floor(this.landAbuse/Math.pow(10,6)*100)/100,
+                landAbusePoints:Math.floor(this.landAbusePoints*100)/100,
 
                 co2:Math.floor(this.co2/Math.pow(10,9)*100)/100,
                 globalTemperature:this.globalTemperature,
@@ -1185,7 +1213,18 @@ export default {
         },
         changeDangerValueFactor(dangerValue){
             this.dangerValue = dangerValue;
+        },
+        /*land */
+        changeStripMiningProductivity(stripMiningProductivity){
+            this.stripMiningProductivity = stripMiningProductivity;
+        },
+        changeLandUseFactor(landUse){
+            this.landUse = landUse;
+        },
+        changeValueOfLandAbuse(valueOfLandAbuse){
+            this.valueOfLandAbuse = valueOfLandAbuse;
         }
+
     }
 }
 </script>

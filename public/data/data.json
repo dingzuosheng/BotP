@@ -1464,5 +1464,51 @@
             }
         ],
         "effects": []
+    },
+    "Strip_Mining": {
+        "name": "Strip Mining",
+        "path": "/game/strip-mining",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Coal Use",
+                "path": "/game/coal-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Land Abuse",
+                "path": "/game/land-abuse"
+            }
+        ]
+    },
+    "Land_Abuse": {
+        "name": "Land Abuse",
+        "path": "/game/land-abuse",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Strip Mining",
+                "path": "/game/strip-mining"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Land Abuse Points",
+                "path": "/game/land-abuse-points"
+            }
+        ]
+    },
+    "Land_Abuse_Points": {
+        "name": "Land Abuse Points",
+        "path": "/game/land-abuse-points",
+        "value": 0,
+        "causes": [
+            {
+                "name": "Land Abuse",
+                "path": "/game/land-abuse"
+            }
+        ],
+        "effects": []
     }
 }

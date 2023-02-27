@@ -25,6 +25,11 @@
                 <tr>
                     <td></td>
                     <td></td>
+                    <td><router-link :to="{path:'/game/land-abuse-points'}">Land Abuse Points: {{ Math.floor(this.landAbusePoints * 100) / 100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
                     <td><router-link :to="{path:'/game/lung-disease-pts'}">Lung Desease Points: {{ Math.floor(this.lungDiseasePts * 100) / 100 }}</router-link></td>
                 </tr>
                 <tr>
@@ -55,6 +60,7 @@ export default {
         totalPoints:Number,
         fallPoints:Number,
         inundationPoints:Number,
+        landAbusePoints:Number,
         lungDiseasePts:Number,
         radWastePoints:Number,
         radiationPoints:Number,

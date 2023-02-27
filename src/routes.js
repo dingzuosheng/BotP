@@ -74,6 +74,9 @@ import RadioactiveWaste from './components/research/RadioactiveWaste'
 import RadWastePoints from './components/research/RadWastePoints'
 import FallPoints from './components/solar/FallPoints'
 import FallsFromRoofs from './components/solar/FallsFromRoofs'
+import StripMining from './components/land/StripMining'
+import LandAbuse from './components/land/LandAbuse'
+import LandAbusePoints from './components/land/LandAbusePoints'
 
 const routes = [
     {
@@ -440,6 +443,21 @@ const routes = [
                 name:'Starvation Points',
                 path:'/game/starvation-points',
                 component:StarvationPoints
+            },
+            {
+                name:'StripMining',
+                path:'/game/strip-mining',
+                component:StripMining
+            },
+            {
+                name:'LandAbuse',
+                path:'/game/land-abuse',
+                component:LandAbuse
+            },
+            {
+                name:'LandAbusePoints',
+                path:'/game/land-abuse-points',
+                component:LandAbusePoints
             },
         ]
     },
