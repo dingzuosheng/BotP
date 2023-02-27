@@ -1,7 +1,7 @@
 <template>
     <div class="results">
         <div>
-            <h1>Results for 1990</h1>
+            <h1>Results for {{ this.year }}</h1>
         </div>
         <table class="t3">
             <thead>
@@ -58,7 +58,8 @@ export default {
         lungDiseasePts:Number,
         radWastePoints:Number,
         radiationPoints:Number,
-        starvationPoints:Number
+        starvationPoints:Number,
+        year:Number,
     }
 }
 </script>

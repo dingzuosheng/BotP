@@ -25,7 +25,32 @@
         data(){
             return{
                 chartOptions: {
-                    responsive: true
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                // This more specific font property overrides the global property
+                                font: {
+                                    size: 40
+                                }
+                            }
+                        }
+                    },
+                    scales:{
+                        yAxes:[{
+                            ticks:{
+                                fontSize:40
+                            }
+                        }],
+                        xAxes:[
+                        {
+                            ticks:{
+                                fontSize:40
+                            }
+                        }
+                        ]
+                    }
+
                 }
             }
         },

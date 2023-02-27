@@ -126,7 +126,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Solar Price',
+                label:'Solar Price(Unit:billion)',
                 backgroundColor:'#000000',
                 data: data
             }

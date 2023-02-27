@@ -122,7 +122,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'SO2',
+                label:'SO2(Unit: million tons)',
                 backgroundColor:'#000000',
                 data: data
             }

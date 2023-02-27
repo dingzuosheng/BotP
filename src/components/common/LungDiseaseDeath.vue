@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Lung Disease Death: {{ this.lungDiseaseDeath }} (deaths)
+                    Lung Disease Death: {{ Math.floor(this.lungDiseaseDeath/Math.pow(10,3)*100)/100 }} thousand (deaths)
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -131,7 +131,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Lung Disease Death',
+                label:'Lung Disease Death(Unit: thousand deaths)',
                 backgroundColor:'#000000',
                 data: data
             }

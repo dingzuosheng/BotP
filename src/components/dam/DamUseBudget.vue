@@ -116,7 +116,7 @@
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Dam Use Budget',
+                    label:'Dam Use Budget(Unit: billion dollars)',
                     backgroundColor:'#000000',
                     data: data
                 }

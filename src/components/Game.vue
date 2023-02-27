@@ -17,7 +17,7 @@
             <el-button type="danger" @click="execute">Execute</el-button>
         </div><br/>
         <div>
-            <router-view v-slot="{ Component }" :show="show" :executed="executed"
+            <router-view v-slot="{ Component }" :show="show" :executed="executed" :year="year"
                         @changeCoalTaxRate="changeCoalTaxRate($event)" @changeCoalUserate="changeCoalUserate($event)" 
                         @changeCoalPriceFactor="changeCoalPriceFactor($event)" @changeCoalSupplyElasticity="changeCoalSupplyElasticity($event)"
                         :coalUse="coalUse" :totalCoalUse="totalCoalUse" :coalPrice="coalPrice" :coalSupply="coalSupply" :coalTaxRate="coalTaxRate"
@@ -270,7 +270,7 @@ export default {
             sustainabilityPts: 681,//right
             valueOfSustainability:4000,//right
             qualityPoints: 7702,//right
-            valueOfQualityOfLife:7500,//right
+            valueOfQualityOfLife:5000,//right
             totalPoints:8383,
             lifeValue:2.0,//right
             year:1990,//right
@@ -306,10 +306,10 @@ export default {
             this.show = false;
         },
         calculateTaxIncome(){
-            this.coalTaxIncome = Math.floor(parseInt(this.coalTaxRate * this.coalUse * 100) / 100 * 100)/100 ;
-            this.oilTaxIncome = Math.floor(parseInt(this.oilTaxRate * this.oilUse * 100 ) / 100 * 100)/100;
+            this.coalTaxIncome = Math.floor(parseInt(this.coalTaxRate * this.coalUse * 100) / 100 *100)/100  ;
+            this.oilTaxIncome = Math.floor(parseInt(this.oilTaxRate * this.oilUse * 100 ) / 100  * 100)/100;
             this.naturalGasTaxIncome = Math.floor(parseInt(this.naturalGasTaxRate * this.naturalGasUse * 100)/100 * 100)/100;
-            this.nuclearTaxIncome = Math.floor(parseInt(this.nuclearTaxRate * this.nuclearUse * 100)/100*100)/100;
+            this.nuclearTaxIncome = Math.floor(parseInt(this.nuclearTaxRate * this.nuclearUse * 100)/100 *100)/100;
             /*print all parameters*/
             console.log("coalTaxIncome = coalTaxRate * coalUse: ");
             console.log("coalTaxIncome: "+this.coalTaxIncome);
@@ -781,46 +781,45 @@ export default {
         execute() {
             const data1990 = {
                 coalUse: 76.3,
-                coalPrice: 24900000000,
-                coalSupply: 299000,
+                coalPrice: Math.floor(24900000000/Math.pow(10,9)*100)/100,
+                coalSupply: Math.floor(299000/Math.pow(10,3)*100)/100,
                 totalCoalUse: 4080,
 
                 oilUse:178,
-                oilPrice:25100000000,
-                oilSupply:9880,
+                oilPrice:Math.floor(25100000000/Math.pow(10,9)*100)/100,
+                oilSupply:Math.floor(9880/Math.pow(10,3)*100)/100,
                 totalOilUse:9180,
 
                 naturalGasUse:65.3,
-                naturalGasPrice:25000000000,
-                naturalGasSupply:7130,
+                naturalGasPrice:Math.floor(25000000000/Math.pow(10,9)*100)/100,
+                naturalGasSupply:Math.floor(7130/Math.pow(10,3)*100)/100,
                 totalNaturalGasUse:2060,
 
                 nuclearUse:8.91,
-                nuclearPrice:24900000000,
-                nuclearSupply:11900,
+                nuclearPrice:Math.floor(24900000000/Math.pow(10,9)*100)/100,
+                nuclearSupply:Math.floor(11900/Math.pow(10,3)*100)/100,
                 totalNuclearUse:108,
 
-                coalTaxIncome:19.07*Math.pow(10,9),
-                oilTaxIncome:44.5*Math.pow(10,9),
-                naturalGasTaxIncome:16.32*Math.pow(10,9),
-                nuclearTaxIncome:2.22*Math.pow(10,9),
+                coalTaxIncome:19.07,
+                oilTaxIncome:44.5,
+                naturalGasTaxIncome:16.32,
+                nuclearTaxIncome:2.22,
 
                 solarUse:12.1,
-                solarPrice:24800000000,
+                solarPrice:Math.floor(24800000000/Math.pow(10,9)*100)/100,
                 fallsFromRoofs:1210,
                 fallPoints:24,
 
                 damUse:18,
-                damPrice:25000000000,
-                damUseBudget:3.18*Math.pow(10,9),
+                damPrice:Math.floor(25000000000/Math.pow(10,9)*100)/100,
 
-                co2:2720000000000,
+                co2:Math.floor(2720000000000/Math.pow(10,9)*100)/100,
                 globalTemperature:60.3,
                 seeLevel:0.14,
                 inundationPoints:297,
-                no2:49100000,
-                so2:58900000,
-                lungDiseaseDeath:392000,
+                no2:Math.floor(49100000/Math.pow(10,6)*100)/100,
+                so2:Math.floor(58900000/Math.pow(10,6)*100)/100,
+                lungDiseaseDeath:Math.floor(392000/Math.pow(10,3)*100)/100,
                 lungDiseasePts:3926,
 
                 coalTechnology:1.01,
@@ -836,7 +835,7 @@ export default {
                 radioactiveWaste:88700,
                 radWastePoints:88,
 
-                aveEnergyPrice:25200000000,
+                aveEnergyPrice:Math.floor(25200000000/Math.pow(10,9)*100)/100,
                 energyDemand:303,
                 netEnergy:419,
                 renewableEnergy:30.1,
@@ -845,24 +844,24 @@ export default {
 
                 qualityOfLife:1.03,
                 qualityPoints:7702,
-                lifestyle:2120000000,
+                lifestyle:Math.floor(2120000000/Math.pow(10,6)*100)/100,
                 birthRate:0.0197,
-                population:5260000000,
-                starvation:41400000,
+                population:Math.floor(5260000000/Math.pow(10,9)*100)/100,
+                starvation:Math.floor(41400000/Math.pow(10,6)*100)/100,
                 starvationPoints:4136,
 
                 sustainability:0.17,
                 sustainabilityPts:681,
 
-                basicResearchBudget:3180000000,
-                bioResearchBudget:3180000000,
-                coalResearchBudget:3180000000,
-                oilResearchBudget:3180000000,
-                solarResearchBudget:3180000000,
-                solarEnergyBudget:3180000000,
-                nuclearResearchBudget:3180000000,
-                damUseBudgety:3180000000,
-                totalTreasury:39830000000,
+                basicResearchBudget:Math.floor(3180000000/Math.pow(10,9)*100)/100,
+                bioResearchBudget:Math.floor(3180000000/Math.pow(10,9)*100)/100,
+                coalResearchBudget:Math.floor(3180000000/Math.pow(10,9)*100)/100,
+                oilResearchBudget:Math.floor(3180000000/Math.pow(10,9)*100)/100,
+                solarResearchBudget:Math.floor(3180000000/Math.pow(10,9)*100)/100,
+                solarEnergyBudget:Math.floor(3180000000/Math.pow(10,9)*100)/100,
+                nuclearResearchBudget:Math.floor(3180000000/Math.pow(10,9)*100)/100,
+                damUseBudget:Math.floor(3180000000/Math.pow(10,9)*100)/100,
+                totalTreasury:Math.floor(39830000000/Math.pow(10,9)*100)/100,
                 totalPoints:8383,
             }
             if(this.year==1990){
@@ -892,46 +891,45 @@ export default {
 
             const data = {
                 coalUse: this.coalUse,
-                coalPrice: this.coalPrice,
-                coalSupply: this.coalSupply,
+                coalPrice: Math.floor(this.coalPrice/Math.pow(10,9)*100)/100,
+                coalSupply: Math.floor(this.coalSupply/Math.pow(10,3)*100)/100,
                 totalCoalUse: this.totalCoalUse,
 
                 oilUse:this.oilUse,
-                oilPrice:this.oilPrice,
-                oilSupply:this.oilSupply,
+                oilPrice:Math.floor(this.oilPrice/Math.pow(10,9)*100)/100,
+                oilSupply:Math.floor(this.oilSupply/Math.pow(10,3)*100)/100,
                 totalOilUse:this.totalOilUse,
 
                 naturalGasUse:this.naturalGasUse,
-                naturalGasPrice:this.naturalGasPrice,
-                naturalGasSupply:this.naturalGasSupply,
+                naturalGasPrice:Math.floor(this.naturalGasPrice/Math.pow(10,9)*100)/100,
+                naturalGasSupply:Math.floor(this.naturalGasSupply/Math.pow(10,3)*100)/100,
                 totalNaturalGasUse:this.totalNaturalGasUse,
 
                 nuclearUse:this.nuclearUse,
-                nuclearPrice:this.nuclearPrice,
-                nuclearSupply:this.nuclearSupply,
+                nuclearPrice:Math.floor(this.nuclearPrice/Math.pow(10,9)*100)/100,
+                nuclearSupply:Math.floor(this.nuclearSupply/Math.pow(10,3)*100)/100,
                 totalNuclearUse:this.totalNuclearUse,
 
-                coalTaxIncome:this.coalTaxIncome,
-                oilTaxIncome:this.oilTaxIncome,
-                naturalGasTaxIncome:this.naturalGasTaxIncome,
-                nuclearTaxIncome:this.nuclearTaxIncome,
+                coalTaxIncome:Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100,
+                oilTaxIncome:Math.floor(this.oilTaxIncome/Math.pow(10,9)*100)/100,
+                naturalGasTaxIncome:Math.floor(this.naturalGasTaxIncome/Math.pow(10,9)*100)/100,
+                nuclearTaxIncome:Math.floor(this.nuclearTaxIncome/Math.pow(10,9)*100)/100,
 
                 solarUse:this.solarUse,
-                solarPrice:this.solarPrice,
+                solarPrice:Math.floor(this.solarPrice/Math.pow(10,9)*100)/100,
                 fallsFromRoofs:this.fallsFromRoofs,
                 fallPoints:this.fallPoints,
 
                 damUse:this.damUse,
-                damPrice:this.damPrice,
-                damUseBudget:this.damUseBudget,
+                damPrice:Math.floor(this.damPrice/Math.pow(10,9)*100)/100,
 
-                co2:this.co2,
+                co2:Math.floor(this.co2/Math.pow(10,9)*100)/100,
                 globalTemperature:this.globalTemperature,
                 seeLevel:this.seeLevel,
                 inundationPoints:this.inundationPoints,
-                no2:this.no2,
-                so2:this.so2,
-                lungDiseaseDeath:this.lungDiseaseDeath,
+                no2:Math.floor(this.no2/Math.pow(10,6)*100)/100,
+                so2:Math.floor(this.so2/Math.pow(10,6)*100)/100,
+                lungDiseaseDeath:Math.floor(this.lungDiseaseDeath/Math.pow(10,3)*100)/100,
                 lungDiseasePts:this.lungDiseasePts,
 
                 coalResearch:this.coalResearch,
@@ -953,7 +951,7 @@ export default {
                 radioactiveWaste:this.radioactiveWaste,
                 radWastePoints:this.radWastePoints,
 
-                aveEnergyPrice:this.aveEnergyPrice,
+                aveEnergyPrice:Math.floor(this.aveEnergyPrice/Math.pow(10,9)*100)/100,
                 energyDemand:this.energyDemand,
                 netEnergy:this.netEnergy,
                 renewableEnergy:this.renewableEnergy,
@@ -962,25 +960,25 @@ export default {
 
                 qualityOfLife:this.qualityOfLife,
                 qualityPoints:this.qualityPoints,
-                lifestyle:this.lifestyle,
+                lifestyle:Math.floor(this.lifestyle/Math.pow(10,6)*100)/100,
 
-                population:this.population,
-                starvation:this.starvation,
+                population:Math.floor(this.population/Math.pow(10,9)*100)/100,
+                starvation:Math.floor(this.starvation/Math.pow(10,6)*100)/100,
                 starvationPoints:this.starvationPoints,
                 birthRate:this.birthRate,
 
                 sustainability:this.sustainability,
                 sustainabilityPts:this.sustainabilityPts,
 
-                basicResearchBudget:this.basicResearchBudget,
-                bioResearchBudget:this.bioResearchBudget,
-                coalResearchBudget:this.coalResearchBudget,
-                oilResearchBudget:this.oilResearchBudget,
-                solarResearchBudget:this.solarResearchBudget,
-                solarEnergyBudget:this.solarEnergyBudget,
-                nuclearResearchBudget:this.nuclearResearchBudget,
-                damUseBudget:this.damUseBudget,
-                totalTreasury:this.totalTreasury,
+                basicResearchBudget:Math.floor(this.basicResearchBudget/Math.pow(10,9)*100)/100,
+                bioResearchBudget:Math.floor(this.bioResearchBudget/Math.pow(10,9)*100)/100,
+                coalResearchBudget:Math.floor(this.coalResearchBudget/Math.pow(10,9)*100)/100,
+                oilResearchBudget:Math.floor(this.oilResearchBudget/Math.pow(10,9)*100)/100,
+                solarResearchBudget:Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100,
+                solarEnergyBudget:Math.floor(this.solarEnergyBudget/Math.pow(10,9)*100)/100,
+                nuclearResearchBudget:Math.floor(this.nuclearResearchBudget/Math.pow(10,9)*100)/100,
+                damUseBudget:Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100,
+                totalTreasury:Math.floor(this.totalTreasury/Math.pow(10,9)*100)/100,
                 totalPoints:this.totalPoints,
             }
 

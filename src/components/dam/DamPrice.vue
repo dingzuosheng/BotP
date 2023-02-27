@@ -121,7 +121,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Dam Price',
+                label:'Dam Price(Unit:billion)',
                 backgroundColor:'#000000',
                 data: data
             }

@@ -127,7 +127,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Starvation',
+                label:'Starvation(Unit:million people)',
                 backgroundColor:'#000000',
                 data: data
             }

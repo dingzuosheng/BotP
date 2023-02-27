@@ -112,7 +112,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Oil Tax Income',
+                label:'Oil Tax Income (Unit: billion)',
                 backgroundColor:'#000000',
                 data: data
             }

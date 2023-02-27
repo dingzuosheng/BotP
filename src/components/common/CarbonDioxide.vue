@@ -129,7 +129,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'CO2',
+                label:'CO2 (Unit: billion tons)',
                 backgroundColor:'#000000',
                 data: data
             }

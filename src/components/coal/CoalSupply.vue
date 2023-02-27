@@ -123,7 +123,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Coal Supply',
+                label:'Coal Supply(Unit:thousand)',
                 backgroundColor:'#000000',
                 data: coalSupplies
             }

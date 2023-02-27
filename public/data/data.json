@@ -1413,6 +1413,10 @@
             {
                 "name": "Quality of Life",
                 "path": "/game/quality-of-life"
+            },
+            {
+                "name": "Starvation",
+                "path": "/game/starvation"
             }
         ]
     },

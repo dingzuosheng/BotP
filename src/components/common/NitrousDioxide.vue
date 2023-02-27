@@ -139,7 +139,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'NO2',
+                label:'NO2(Unit: million tons)',
                 backgroundColor:'#000000',
                 data: data
             }

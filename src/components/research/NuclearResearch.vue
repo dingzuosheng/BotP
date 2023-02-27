@@ -113,7 +113,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Nuclear Research Budget',
+                label:'Nuclear Research Budget(Unit: billion dollars)',
                 backgroundColor:'#000000',
                 data: coalUses
             }
