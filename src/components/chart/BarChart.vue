@@ -37,15 +37,19 @@
                         }
                     },
                     scales:{
-                        yAxes:[{
+                        y:[{
                             ticks:{
-                                fontSize:40
+                                font:{
+                                    size:100
+                                }
                             }
                         }],
-                        xAxes:[
+                        x:[
                         {
                             ticks:{
-                                fontSize:40
+                                font:{
+                                    size:100
+                                }
                             }
                         }
                         ]

@@ -118,7 +118,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Birth Rate',
+                label:'Birth Rate (Unit: %)',
                 backgroundColor:'#000000',
                 data: data
             }

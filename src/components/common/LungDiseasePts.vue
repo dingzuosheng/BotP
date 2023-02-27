@@ -118,7 +118,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Lung Disease Points',
+                label:'Lung Disease Points(Unit:points)',
                 backgroundColor:'#000000',
                 data: data
             }

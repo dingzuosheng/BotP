@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Totall Natural Gas Use: {{ this.totalNaturalGasUse }}
+                Totall Natural Gas Use: {{ this.totalNaturalGasUse }} Exajoules
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -116,7 +116,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Total Natural Gas Use',
+                label:'Total Natural Gas Use(Unit:Exajoules)',
                 backgroundColor:'#000000',
                 data: data
             }

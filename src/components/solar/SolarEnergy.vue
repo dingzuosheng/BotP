@@ -115,7 +115,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Solar Energy Budget',
+                label:'Solar Energy Budget(Unit: billion dollars)',
                 backgroundColor:'#000000',
                 data: coalUses
             }

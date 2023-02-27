@@ -229,8 +229,8 @@ export default {
             co2: 2.72 * Math.pow(10, 12),//right
             co2Quantity:20*Math.pow(10,6),//right
             globalTemperature: 60.3,//right
-            t0:56,//right
-            co2Eff: Math.pow(10,-12),//right
+            t0:58,//right
+            co2Eff: 1.5*Math.pow(10,-12),//right
             basicTemperature: 60,//right
             meltingRate:0.49,//right
             seeLevel: 0.14,//right

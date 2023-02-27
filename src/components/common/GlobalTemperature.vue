@@ -6,7 +6,7 @@
             </div>  
             <div v-if="!this.show">
                 <div>
-                    Global Temperature: {{ this.globalTemperature }}
+                    Global Temperature: {{ this.globalTemperature }} degrees
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -68,10 +68,10 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            temperature:56,
-            t0:56,
+            temperature:58,
+            t0:58,
             eff:10,
-            co2Eff:Math.pow(10,-12),
+            co2Eff:1.5*Math.pow(10,-12),
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -127,7 +127,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Global Temperature',
+                label:'Global Temperature (Unit: degrees)',
                 backgroundColor:'#000000',
                 data: data
             }

@@ -118,7 +118,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Inundation Points',
+                label:'Inundation Points(Unit: points)',
                 backgroundColor:'#000000',
                 data: data
             }

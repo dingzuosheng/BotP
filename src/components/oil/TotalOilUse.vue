@@ -116,7 +116,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Total Oil Use',
+                label:'Total Oil Use(Unit:Exajoules)',
                 backgroundColor:'#000000',
                 data: totaloilUses
             }

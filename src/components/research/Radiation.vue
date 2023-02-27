@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Radiation: {{ Math.floor(this.radiation/1000*100)/100 }} thousand 
+                    Radiation: {{ Math.floor(this.radiation/1000*100)/100 }} thousand p-rems
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -123,7 +123,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Radiation',
+                label:'Radiation(Unit: p-rems)',
                 backgroundColor:'#000000',
                 data: data
             }

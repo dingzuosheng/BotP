@@ -122,7 +122,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Quality of Life',
+                label:'Quality of Life(Unit:Happies/CAP)',
                 backgroundColor:'#000000',
                 data: data
             }

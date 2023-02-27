@@ -118,7 +118,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Sustainability Points',
+                label:'Sustainability Points(Unit:Permenence)',
                 backgroundColor:'#000000',
                 data: data
             }

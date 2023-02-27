@@ -133,7 +133,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Coal Use',
+                label:'Coal Use (Unit: Exajoules)',
                 backgroundColor:'#000000',
                 data: coalUses
             }

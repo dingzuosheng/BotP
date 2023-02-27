@@ -119,7 +119,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Radiation Points',
+                label:'Radiation Points(Unit:points)',
                 backgroundColor:'#000000',
                 data: data
             }

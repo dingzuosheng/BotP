@@ -129,7 +129,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Solar Energy Technology',
+                label:'Solar Energy Technology(Unit:whizbangs)',
                 backgroundColor:'#000000',
                 data: data
             }

@@ -116,7 +116,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Nuclear Use',
+                label:'Nuclear Use(Unit:Exajoules)',
                 backgroundColor:'#000000',
                 data: data
             }

@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Norenewable Energy: {{ this.nonrenewableEnergy }}
+                Norenewable Energy: {{ this.nonrenewableEnergy }} Exajoules
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -124,7 +124,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Non-Renewable Energy',
+                label:'Non-Renewable Energy(Unit:Exajoules)',
                 backgroundColor:'#000000',
                 data: data
             }

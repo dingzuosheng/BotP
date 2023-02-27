@@ -123,7 +123,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Oil Supply(Unit:thousand)',
+                label:'Oil Supply(Unit:thousand Exajoules)',
                 backgroundColor:'#000000',
                 data: oilSupplies
             }

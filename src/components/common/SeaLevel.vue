@@ -127,7 +127,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Seelevel',
+                label:'Seelevel(Unit:meters)',
                 backgroundColor:'#000000',
                 data: data
             }

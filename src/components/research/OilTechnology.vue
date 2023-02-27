@@ -129,7 +129,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Oil Technology',
+                label:'Oil Technology(Unit:Whizbangs)',
                 backgroundColor:'#000000',
                 data: data
             }

@@ -6,7 +6,7 @@
             </div>  
             <div v-if="!this.show">
                 <div>
-                    Lifestyle: {{ Math.floor(this.lifestyle/ Math.pow(10,6)*100)/100}} Billion Happies
+                    Lifestyle: {{ Math.floor(this.lifestyle/ Math.pow(10,6)*100)/100}} Million Happies
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -119,7 +119,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Life Style(Unit: billion happies)',
+                label:'Life Style(Unit: million happies)',
                 backgroundColor:'#000000',
                 data: data
             }

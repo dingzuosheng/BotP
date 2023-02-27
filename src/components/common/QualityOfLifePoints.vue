@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show"> 
                 <div>
-                    Quality Points: {{ this.qualityPoints }}
+                    Quality Points: {{ this.qualityPoints }} points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -118,7 +118,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Quality of Life Points',
+                label:'Quality of Life Points(Unit:points)',
                 backgroundColor:'#000000',
                 data: data
             }

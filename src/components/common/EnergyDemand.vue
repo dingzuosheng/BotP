@@ -110,7 +110,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Energy Demand',
+                label:'Energy Demand(Unit: Exajoules)',
                 backgroundColor:'#38A700',
                 data: energyDemands
             }

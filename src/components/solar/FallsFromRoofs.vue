@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Falls From Roofs: {{ this.fallsFromRoofs }} 
+                    Falls From Roofs: {{ this.fallsFromRoofs }} deaths
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -119,7 +119,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Falls From Roofs',
+                label:'Falls From Roofs(Unit:deaths)',
                 backgroundColor:'#000000',
                 data: coalUses
             }

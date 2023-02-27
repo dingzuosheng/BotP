@@ -127,7 +127,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Coal Price (Unit: billion)',
+                label:'Coal Price (Unit: billion dollars)',
                 backgroundColor:'#000000',
                 data: coalPrices
             }

@@ -117,7 +117,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Global Temperature',
+                label:'Global Temperature(Unit:Exajoules)',
                 backgroundColor:'#000000',
                 data: data
             }

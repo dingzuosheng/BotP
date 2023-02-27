@@ -133,7 +133,7 @@ export default {
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Dam Use',
+                label:'Dam Use(Unit:Exajoules)',
                 backgroundColor:'#000000',
                 data: data
             }
