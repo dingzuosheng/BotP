@@ -24,7 +24,7 @@
         </div>
         <div v-if="this.show">
             <!-- <canvas id="energyDemandChart" width="800" height="800"></canvas> -->
-            <LineChartEnergyDemand :chartData="chartData"></LineChartEnergyDemand>
+            <LineChartEnergyDemand :chartData="chartData" :key="chartKey"></LineChartEnergyDemand>
         </div>
     </div>
     <div class="side-nav">
@@ -69,6 +69,7 @@ export default {
                 labels:[],
                 datasets:[] 
             }, 
+            chartKey:0
         }
     },
     props: {
@@ -81,6 +82,7 @@ export default {
         executed(newVal, oldVal) {
             console.log("watch:"+newVal, oldVal)
             this.draw();
+            this.chartKey++;
         }
     },
     created() {

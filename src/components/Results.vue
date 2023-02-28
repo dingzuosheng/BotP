@@ -14,7 +14,7 @@
             <tbody>
                 <tr>
                     <td><router-link :to="{path:'quality-of-life-points'}">Quality of Life Points:  {{ Math.floor(this.qualityPoints * 100)/100 }}</router-link></td>
-                    <td><el-button type="info" height="50px" width="200px">Feedback</el-button></td>
+                    <td><el-button type="info" height="50px" width="200px" @click="showFeedback">Feedback</el-button></td>
                     <td><router-link :to="{path:'/game/fall-points'}">Fall Points: {{ Math.floor(this.fallPoints * 100)/100 }}</router-link></td>
                 </tr>
                 <tr>
@@ -49,19 +49,27 @@
                 </tr>
             </tbody>
         </table>
-        <div class="t4">
-            <h3>Overall, your score went down by {{  }} points</h3>
+        <div class="t4" v-if="this.showFeedback">
+            <h3>Overall, your score went <span v-if="this.totalPoints_d < 0">down</span><span v-if="this.totalPoints_d > 0">up</span> by {{ Math.abs(Math.floor(this.totalPoints_d*100)/100) }} points</h3>
             <div class="feedback">
                 <div class="problems">
                     <h4>Problems</h4>
-                    <div>
-
-                    </div>
                 </div>
                 <div class="successes">
                     <h4>Successes</h4>
+                </div>
+            </div>
+        </div>
+        <div class="t5" v-if="this.showFeedback">
+            <div class="feedback">
+                <div class="problem">
                     <div>
-
+                        
+                    </div>    
+                </div>
+                <div class="successe">
+                    <div>
+                        Successes
                     </div>
                 </div>
             </div>
@@ -71,6 +79,13 @@
 <script>
 export default {
     name:'Results',
+    data(){
+        return{
+            showFeedback:false,
+            totalPoints_d:0,
+
+        }
+    },
     props:{
         qualityPoints:Number,
         sustainabilityPts:Number,
@@ -82,8 +97,20 @@ export default {
         radWastePoints:Number,
         radiationPoints:Number,
         starvationPoints:Number,
+        executed:Number,
         year:Number,
+    },
+    watch:{
+        executed(newValue,oldValue){
+            this.totalPoints_d = JSON.parse(localStorage.getItem(this.year)).totalPoints - JSON.parse(localStorage.getItem(this.year-1)).totalPoints;
+        }
+    },
+    methods:{
+        showFeedback(){
+            this.showFeedback = !this.showFeedback;
+        }
     }
+
 }
 </script>
 <style>
@@ -109,7 +136,7 @@ td button{
 }
 .t4{
     background-color: chocolate;
-    margin:15px 100px;
+    margin:15px 100px 0px 100px;
     font-size: 30px;
     text-align: center;
 }
@@ -125,5 +152,19 @@ td button{
 .successes{
     width:50%;
     background-color: green;
+}
+.t5{
+    background-color:cornflowerblue;
+    margin:0px 100px;
+    font-size: 30px;
+    text-align: center;
+}
+.problem{
+    width:50%;
+    background-color:beige;
+}
+.successe{
+    width:50%;
+    background-color:beige;
 }
 </style>

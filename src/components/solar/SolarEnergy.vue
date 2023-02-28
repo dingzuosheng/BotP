@@ -24,7 +24,7 @@
                 </div> 
             </div> 
             <div v-if="show">
-                <BarChart :chartData="chartData"></BarChart>
+                <BarChart :chartData="chartData" :key="chartKey"></BarChart>
             </div>    
         </div>
         <div class="side-nav">
@@ -68,6 +68,7 @@ export default {
                 labels:[],
                 datasets:[] 
             },
+            chartKey:0
         }
     },
     components:{
@@ -82,6 +83,7 @@ export default {
         executed(newVal, oldVal) {
             console.log("watch:"+newVal, oldVal)
             this.draw();
+            this.chartKey++;
         }
     },
     created(){

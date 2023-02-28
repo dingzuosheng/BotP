@@ -94,7 +94,7 @@
     <div>
         <h1><strong>Treasury: {{ Math.floor(this.totalTreasury / Math.pow(10,9)*100)/100}} billion</strong></h1>
         <div v-if="this.show">
-            <BarChart :chartData="chartData"></BarChart>
+            <BarChart :chartData="chartData" :key="chartKey"></BarChart>
         </div>
     </div>
 </div>
@@ -110,6 +110,7 @@ export default {
                 labels:[],
                 datasets:[] 
             },
+            chartKey:0,
         }
     },
     components:{
@@ -154,6 +155,7 @@ export default {
     watch:{
         executed(newValue,oldValue){
             this.draw();
+            this.chartKey++;
         }
     },
     methods:{

@@ -36,7 +36,7 @@
             </el-collapse>
         </div>
         <div v-if="this.show">
-            <BarChart :chartData="chartData"></BarChart>
+            <BarChart :chartData="chartData" :key="chartKey"></BarChart>
         </div>
     </div>
     <div class="side-nav">
@@ -83,6 +83,7 @@ export default {
                 labels:[],
                 datasets:[] 
             },
+            chartKey:0
         }
     },
     components:{
@@ -100,6 +101,7 @@ export default {
     watch:{
         executed(newValue,oldValue){
             this.draw();
+            this.chartKey++;
         }
     },
     created() {
