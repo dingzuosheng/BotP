@@ -33,26 +33,38 @@
                                 font: {
                                     size: 40
                                 }
-                            }
+                            },   
                         }
                     },
-                    scales:{
-                        y:[{
-                            ticks:{
-                                font:{
-                                    size:100
+                    scales: {
+                        x: {
+                            ticks: {
+                            font: {
+                                size: 20
+                            }
+                            },
+                            title: {
+                                display: true,
+                                text: 'year',
+                                font: {
+                                    size: 25
                                 }
                             }
-                        }],
-                        x:[
-                        {
-                            ticks:{
-                                font:{
-                                    size:100
-                                }
+                        },
+                        y: {
+                            ticks: {
+                            font: {
+                                size: 20
                             }
+                            },
+                            /*title: {
+                                display: true,
+                                text: 'titelY',
+                                font: {
+                                    size: 20
+                                }
+                            }*/
                         }
-                        ]
                     }
 
                 }

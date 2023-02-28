@@ -14,7 +14,7 @@
             <tbody>
                 <tr>
                     <td><router-link :to="{path:'quality-of-life-points'}">Quality of Life Points:  {{ Math.floor(this.qualityPoints * 100)/100 }}</router-link></td>
-                    <td><el-button type="info" height="50px" width="200px" @click="showFeedback">Feedback</el-button></td>
+                    <td><el-button type="info" height="50px" width="200px" @click="this.showFeedback=!this.showFeedback">Feedback</el-button></td>
                     <td><router-link :to="{path:'/game/fall-points'}">Fall Points: {{ Math.floor(this.fallPoints * 100)/100 }}</router-link></td>
                 </tr>
                 <tr>
@@ -64,12 +64,64 @@
             <div class="feedback">
                 <div class="problem">
                     <div>
-                        
+                        <div v-if="this.qualityPoints_d < 0">
+                            Quality of Life Points worsened by {{ Math.abs(Math.floor(this.qualityPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.sustainabilityPts_d < 0">
+                            Sustainability Points worsened by {{ Math.abs(Math.floor(this.qualityPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.fallPoints_d < 0">
+                            Fall Points worsened by {{ Math.abs(Math.floor(this.fallPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.inundationPoints_d < 0">
+                            Inundation Points worsened by {{ Math.abs(Math.floor(this.inundationPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.landAbusePoints_d < 0">
+                            Land Abuse Points worsened by {{ Math.abs(Math.floor(this.landAbusePoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.lungDiseasePts_d < 0">
+                            Lung Disease Points worsened by {{ Math.abs(Math.floor(this.lungDiseasePts_d*100)/100) }}
+                        </div>
+                        <div v-if="this.radWastePoints_d < 0">
+                            Radioactive Waste Points worsened by {{ Math.abs(Math.floor(this.radWastePoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.radiationPoints_d < 0">
+                            Radiation Points worsened by {{ Math.abs(Math.floor(this.radiationPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.starvationPoints_d < 0">
+                            Starvation Points worsened by {{ Math.abs(Math.floor(this.starvationPoints_d*100)/100) }}
+                        </div>
                     </div>    
                 </div>
                 <div class="successe">
                     <div>
-                        Successes
+                        <div v-if="this.qualityPoints_d > 0">
+                            Quality of Life Points improved by {{ Math.abs(Math.floor(this.qualityPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.sustainabilityPts_d > 0">
+                            Sustainability Points improved by {{ Math.abs(Math.floor(this.qualityPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.fallPoints_d > 0">
+                            Fall Points improved by {{ Math.abs(Math.floor(this.fallPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.inundationPoints_d > 0">
+                            Inundation Points improved by {{ Math.abs(Math.floor(this.inundationPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.landAbusePoints_d > 0">
+                            Land Abuse Points improved by {{ Math.abs(Math.floor(this.landAbusePoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.lungDiseasePts_d > 0">
+                            Lung Disease Points improved by {{ Math.abs(Math.floor(this.lungDiseasePts_d*100)/100) }}
+                        </div>
+                        <div v-if="this.radWastePoints_d > 0">
+                            Radioactive Waste Points improved by {{ Math.abs(Math.floor(this.radWastePoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.radiationPoints_d > 0">
+                            Radiation Points improved by {{ Math.abs(Math.floor(this.radiationPoints_d*100)/100) }}
+                        </div>
+                        <div v-if="this.starvationPoints_d > 0">
+                            Starvation Points improved by {{ Math.abs(Math.floor(this.starvationPoints_d*100)/100) }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,7 +135,15 @@ export default {
         return{
             showFeedback:false,
             totalPoints_d:0,
-
+            qualityPoints_d:0,
+            sustainabilityPts_d:0,
+            fallPoints_d:0,
+            inundationPoints_d:0,
+            landAbusePoints_d:0,
+            lungDiseasePts_d:0,
+            radWastePoints_d:0,
+            radiationPoints_d:0,
+            starvationPoints_d:0,
         }
     },
     props:{
@@ -103,13 +163,18 @@ export default {
     watch:{
         executed(newValue,oldValue){
             this.totalPoints_d = JSON.parse(localStorage.getItem(this.year)).totalPoints - JSON.parse(localStorage.getItem(this.year-1)).totalPoints;
+            this.qualityPoints_d = JSON.parse(localStorage.getItem(this.year)).qualityPoints - JSON.parse(localStorage.getItem(this.year-1)).qualityPoints;
+            this.sustainabilityPts_d = JSON.parse(localStorage.getItem(this.year)).sustainabilityPts - JSON.parse(localStorage.getItem(this.year-1)).sustainabilityPts;
+            this.fallPoints_d = JSON.parse(localStorage.getItem(this.year)).fallPoints - JSON.parse(localStorage.getItem(this.year-1)).fallPoints;
+            this.inundationPoints_d = JSON.parse(localStorage.getItem(this.year)).inundationPoints - JSON.parse(localStorage.getItem(this.year-1)).inundationPoints;
+            this.landAbusePoints_d = JSON.parse(localStorage.getItem(this.year)).landAbusePoints - JSON.parse(localStorage.getItem(this.year-1)).landAbusePoints;
+            this.lungDiseasePts_d = JSON.parse(localStorage.getItem(this.year)).lungDiseasePts - JSON.parse(localStorage.getItem(this.year-1)).lungDiseasePts;
+            this.radWastePoints_d = JSON.parse(localStorage.getItem(this.year)).radWastePoints - JSON.parse(localStorage.getItem(this.year-1)).radWastePoints;
+            this.radiationPoints_d = JSON.parse(localStorage.getItem(this.year)).radiationPoints - JSON.parse(localStorage.getItem(this.year-1)).radiationPoints;
+            this.starvationPoints_d = JSON.parse(localStorage.getItem(this.year)).starvationPoints - JSON.parse(localStorage.getItem(this.year-1)).starvationPoints;
         }
     },
-    methods:{
-        showFeedback(){
-            this.showFeedback = !this.showFeedback;
-        }
-    }
+    
 
 }
 </script>

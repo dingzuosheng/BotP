@@ -25,7 +25,47 @@ export default {
     data(){
         return{
             chartOptions: {
-            responsive: true
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            // This more specific font property overrides the global property
+                            font: {
+                                size: 40
+                            }
+                        },   
+                    }
+                },
+                scales: {
+                        x: {
+                            ticks: {
+                            font: {
+                                size: 20
+                            }
+                            },
+                            title: {
+                                display: true,
+                                text: 'year',
+                                font: {
+                                    size: 25
+                                }
+                            }
+                        },
+                        y: {
+                            ticks: {
+                            font: {
+                                size: 20
+                            }
+                            },
+                            /*title: {
+                                display: true,
+                                text: 'titelY',
+                                font: {
+                                    size: 20
+                                }
+                            }*/
+                        }
+                    }
             }
         }
     },
