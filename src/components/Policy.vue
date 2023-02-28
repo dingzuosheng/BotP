@@ -92,7 +92,7 @@
         </div>
     </div>
     <div>
-        <h1><strong>Treasury: {{ this.totalTreasury / Math.pow(10,9)}} billion</strong></h1>
+        <h1><strong>Treasury: {{ Math.floor(this.totalTreasury / Math.pow(10,9)*100)/100}} billion</strong></h1>
         <div v-if="this.show">
             <BarChart :chartData="chartData"></BarChart>
         </div>
