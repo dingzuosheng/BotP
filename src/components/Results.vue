@@ -6,9 +6,9 @@
         <table class="t3">
             <thead>
                 <tr>
-                    <td>Positive Points</td>
-                    <td>Total Points: {{ Math.floor(this.totalPoints * 100) / 100 }}</td>
-                    <td>Negative Points</td>
+                    <th>Positive Points</th>
+                    <th>Total Points: {{ Math.floor(this.totalPoints * 100) / 100 }}</th>
+                    <th>Negative Points</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,6 +49,23 @@
                 </tr>
             </tbody>
         </table>
+        <div class="t4">
+            <h3>Overall, your score went down by {{  }} points</h3>
+            <div class="feedback">
+                <div class="problems">
+                    <h4>Problems</h4>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="successes">
+                    <h4>Successes</h4>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -83,5 +100,30 @@ export default {
 }
 .t3 tr{
     padding:20px;
+}
+.t3 th{
+    text-align: center;
+}
+td button{
+    margin-left: 260px;
+}
+.t4{
+    background-color: chocolate;
+    margin:15px 100px;
+    font-size: 30px;
+    text-align: center;
+}
+.feedback{
+    display:flex;
+    flex-direction: row;
+}
+
+.problems{
+    width:50%;
+    background-color: red;
+}
+.successes{
+    width:50%;
+    background-color: green;
 }
 </style>
