@@ -39,9 +39,9 @@
                     scales: {
                         x: {
                             ticks: {
-                            font: {
-                                size: 20
-                            }
+                                font: {
+                                    size: 20
+                                }
                             },
                             title: {
                                 display: true,
@@ -53,9 +53,9 @@
                         },
                         y: {
                             ticks: {
-                            font: {
-                                size: 20
-                            }
+                                font: {
+                                    size: 20
+                                }
                             },
                             /*title: {
                                 display: true,

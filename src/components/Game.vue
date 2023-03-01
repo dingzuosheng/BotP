@@ -11,13 +11,13 @@
             <el-button type="primary" id="btn-sub" @click="toResults">Results</el-button>
             <el-button type="info">About this Game</el-button>
             <el-button type="info" @click="toConnections">Connections</el-button>
-            <el-button type="success" @click="newGame">New Game</el-button>
+            <el-button type="success" @click="newGame"><router-link :to="{path:'/'}">New Game</router-link></el-button>
             <el-button type="warning" @click="showSimulation">Show Simulation</el-button>
             <el-button type="warning" @click="stopSimulation">Stop Simulation</el-button>
-            <el-button type="danger" @click="execute">Execute</el-button>
+            <el-button type="danger" @click="execute" :disabled="this.gameover">Execute</el-button>
         </div><br/>
         <div>
-            <router-view v-slot="{ Component }" :show="show" :executed="executed" :year="year"
+            <router-view v-slot="{ Component }" :show="show" :executed="executed" :year="year" :gameover="gameover"
                         @changeCoalTaxRate="changeCoalTaxRate($event)" @changeCoalUserate="changeCoalUserate($event)" 
                         @changeCoalPriceFactor="changeCoalPriceFactor($event)" @changeCoalSupplyElasticity="changeCoalSupplyElasticity($event)"
                         :coalUse="coalUse" :totalCoalUse="totalCoalUse" :coalPrice="coalPrice" :coalSupply="coalSupply" :coalTaxRate="coalTaxRate"
@@ -287,6 +287,7 @@ export default {
             lifeValue:2.0,//right
             year:1990,//right
             executed:0,
+            gameover:false,
         }
     },
     methods: {
@@ -309,7 +310,7 @@ export default {
         newGame(){
             localStorage.clear();
             this.$router.go(0);
-            this.$router.push("/game/policy");
+            this.$router.push("/");
         },
         showSimulation() {
             this.show = true;
@@ -1016,6 +1017,10 @@ export default {
             localStorage.setItem(this.year,JSON.stringify(data));
             this.energyDemand = Math.floor(this.energyDemand * 1.01 * 100)/100;
             this.executed++;
+            if(this.totalPoints < -12200){
+                this.gameover = true;
+                this.$router.push("/game/gameover");
+            }
         },
         /* coal */
         changeCoalTaxRate(coalTaxRate) {

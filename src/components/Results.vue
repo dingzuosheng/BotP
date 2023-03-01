@@ -70,25 +70,25 @@
                         <div v-if="this.sustainabilityPts_d < 0">
                             Sustainability Points worsened by {{ Math.abs(Math.floor(this.qualityPoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.fallPoints_d < 0">
+                        <div v-if="this.fallPoints_d > 0">
                             Fall Points worsened by {{ Math.abs(Math.floor(this.fallPoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.inundationPoints_d < 0">
+                        <div v-if="this.inundationPoints_d > 0">
                             Inundation Points worsened by {{ Math.abs(Math.floor(this.inundationPoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.landAbusePoints_d < 0">
+                        <div v-if="this.landAbusePoints_d > 0">
                             Land Abuse Points worsened by {{ Math.abs(Math.floor(this.landAbusePoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.lungDiseasePts_d < 0">
+                        <div v-if="this.lungDiseasePts_d > 0">
                             Lung Disease Points worsened by {{ Math.abs(Math.floor(this.lungDiseasePts_d*100)/100) }}
                         </div>
-                        <div v-if="this.radWastePoints_d < 0">
+                        <div v-if="this.radWastePoints_d > 0">
                             Radioactive Waste Points worsened by {{ Math.abs(Math.floor(this.radWastePoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.radiationPoints_d < 0">
+                        <div v-if="this.radiationPoints_d > 0">
                             Radiation Points worsened by {{ Math.abs(Math.floor(this.radiationPoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.starvationPoints_d < 0">
+                        <div v-if="this.starvationPoints_d > 0">
                             Starvation Points worsened by {{ Math.abs(Math.floor(this.starvationPoints_d*100)/100) }}
                         </div>
                     </div>    
@@ -101,25 +101,25 @@
                         <div v-if="this.sustainabilityPts_d > 0">
                             Sustainability Points improved by {{ Math.abs(Math.floor(this.qualityPoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.fallPoints_d > 0">
+                        <div v-if="this.fallPoints_d < 0">
                             Fall Points improved by {{ Math.abs(Math.floor(this.fallPoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.inundationPoints_d > 0">
+                        <div v-if="this.inundationPoints_d < 0">
                             Inundation Points improved by {{ Math.abs(Math.floor(this.inundationPoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.landAbusePoints_d > 0">
+                        <div v-if="this.landAbusePoints_d < 0">
                             Land Abuse Points improved by {{ Math.abs(Math.floor(this.landAbusePoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.lungDiseasePts_d > 0">
+                        <div v-if="this.lungDiseasePts_d < 0">
                             Lung Disease Points improved by {{ Math.abs(Math.floor(this.lungDiseasePts_d*100)/100) }}
                         </div>
-                        <div v-if="this.radWastePoints_d > 0">
+                        <div v-if="this.radWastePoints_d < 0">
                             Radioactive Waste Points improved by {{ Math.abs(Math.floor(this.radWastePoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.radiationPoints_d > 0">
+                        <div v-if="this.radiationPoints_d < 0">
                             Radiation Points improved by {{ Math.abs(Math.floor(this.radiationPoints_d*100)/100) }}
                         </div>
-                        <div v-if="this.starvationPoints_d > 0">
+                        <div v-if="this.starvationPoints_d < 0">
                             Starvation Points improved by {{ Math.abs(Math.floor(this.starvationPoints_d*100)/100) }}
                         </div>
                     </div>
@@ -159,6 +159,7 @@ export default {
         starvationPoints:Number,
         executed:Number,
         year:Number,
+        gameover:Boolean
     },
     watch:{
         executed(newValue,oldValue){
@@ -231,5 +232,13 @@ td button{
 .successe{
     width:50%;
     background-color:beige;
+}
+#end{
+    background-color: black;
+    color:white;
+    height:1000px;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
 }
 </style>

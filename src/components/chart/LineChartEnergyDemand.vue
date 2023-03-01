@@ -39,9 +39,9 @@ export default {
                 scales: {
                         x: {
                             ticks: {
-                            font: {
-                                size: 20
-                            }
+                                font: {
+                                    size: 20
+                                }
                             },
                             title: {
                                 display: true,
@@ -53,9 +53,9 @@ export default {
                         },
                         y: {
                             ticks: {
-                            font: {
-                                size: 20
-                            }
+                                font: {
+                                    size: 20
+                                }
                             },
                             /*title: {
                                 display: true,

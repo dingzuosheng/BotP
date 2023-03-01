@@ -150,7 +150,8 @@ export default {
 
         totalTreasury:Number,
         show:Boolean,
-        executed:Number
+        executed:Number,
+        gameover:Boolean
     },
     watch:{
         executed(newValue,oldValue){

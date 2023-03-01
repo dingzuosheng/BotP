@@ -77,6 +77,7 @@ import FallsFromRoofs from './components/solar/FallsFromRoofs'
 import StripMining from './components/land/StripMining'
 import LandAbuse from './components/land/LandAbuse'
 import LandAbusePoints from './components/land/LandAbusePoints'
+import Gameover from './components/Gameover'
 
 const routes = [
     {
@@ -459,6 +460,11 @@ const routes = [
                 path:'/game/land-abuse-points',
                 component:LandAbusePoints
             },
+            {
+                name:'Gameover',
+                path:'/game/gameover',
+                component:Gameover
+            }
         ]
     },
     
