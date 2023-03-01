@@ -320,9 +320,21 @@ export default {
         },
         calculateTaxIncome(){
             this.coalTaxIncome = Math.floor(parseInt(this.coalTaxRate * this.coalUse * 100) / 100 *100)/100  ;
+            if(this.coalTaxIncome < 0){
+                this.coalTaxIncome = 0;
+            }
             this.oilTaxIncome = Math.floor(parseInt(this.oilTaxRate * this.oilUse * 100 ) / 100  * 100)/100;
+            if(this.oilTaxIncomde < 0){
+                this.oilTaxIncome = 0;
+            }
             this.naturalGasTaxIncome = Math.floor(parseInt(this.naturalGasTaxRate * this.naturalGasUse * 100)/100 * 100)/100;
+            if(this.naturalGasTaxIncome < 0){
+                this.naturalGasTaxIncome = 0;
+            }
             this.nuclearTaxIncome = Math.floor(parseInt(this.nuclearTaxRate * this.nuclearUse * 100)/100 *100)/100;
+            if(this.nuclearTaxIncome < 0){
+                this.nuclearTaxIncome = 0;
+            }
             /*print all parameters*/
             console.log("coalTaxIncome = coalTaxRate * coalUse: ");
             console.log("coalTaxIncome: "+this.coalTaxIncome);
@@ -353,6 +365,9 @@ export default {
         calculateCoalFormulas(){
             this.coalUse = Math.floor(this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate)*100)/100;//对
             this.coalPrice = Math.floor((this.coalPrice + (this.coalPriceFactor * this.coalUse / this.coalSupply)) / 2 * 100)/100; //对
+            if(this.coalPrice < 0){
+                this.coalPrice = 0;
+            }
             this.coalSupply = Math.floor((this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse)*100)/100;//对
             this.totalCoalUse = Math.floor((this.totalCoalUse + this.coalUse)*100)/100;//对
             /*print all */
@@ -387,6 +402,9 @@ export default {
         calculateOilFormulas(){
             this.oilUse = Math.floor(this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate)*100)/100;//对
             this.oilPrice = Math.floor((this.oilPrice + (this.oilPriceFactor * this.oilUse / this.oilSupply)) / 2 * 100)/100 //对;
+            if(this.oilPrice < 0){
+                this.oilPrice = 0;
+            }
             this.oilSupply = Math.floor((this.oilSupplyElasticity * this.oilPrice - this.totalOilUse)*100)/100;// 对
             this.totalOilUse = Math.floor((this.totalOilUse + this.oilUse)*100)/100;//对
             /*print*/
@@ -421,6 +439,9 @@ export default {
         calculateNaturalGasFormulas(){
             this.naturalGasUse = Math.floor(this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate)*100)/100; //对
             this.naturalGasPrice = Math.floor((this.naturalGasPrice + (this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply)) / 2*100)/100;//对 minus because of supply
+            if(this.naturalGasPrice < 0){
+                this.naturalGasPrice = 0;
+            }
             this.naturalGasSupply = Math.floor((this.naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse)*100)/100; //对 minus    
             this.totalNaturalGasUse = Math.floor((this.totalNaturalGasUse + this.naturalGasUse)*100)/100;//对
             /*print*/
@@ -456,6 +477,9 @@ export default {
         calculateNuclearFormulas(){
             this.nuclearUse = Math.floor(this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate)*100)/100; //对
             this.nuclearPrice = Math.floor((this.nuclearPrice + (this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply)) / 2 *100)/100//对;
+            if(this.nuclearPrice < 0){
+                this.nuclearPrice = 0;
+            }
             this.nuclearSupply = Math.floor((this.nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse)*100)/100;// 对 minus
             this.totalNuclearUse = Math.floor((this.totalNuclearUse + this.nuclearUse)*100)/100;//对
             /*print*/
@@ -491,6 +515,9 @@ export default {
             this.damUse = Math.floor((this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseBudget) / this.damPrice * 100)/100;//对
             //this.damPrice = this.damUse / this.damPotential;
             this.damPrice = Math.floor((this.damPrice + (this.damUse / this.damPotential)) / 2 * 100)/100 //对
+            if(this.damPrice < 0){
+                this.damPrice = 0;
+            }
             /*print */
             console.log("this.damUse = (this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseBudget) / this.damPrice ==="+ this.damUse + " = " + this.damUseRate + ", " + this.energyDemand + ", " + this.aveEnergyPrice + ", " + this.damUseBudget + ", " + this.damPrice);
             console.log("this.damPrice = this.damUse / this.damPotential==="+this.damPrice + " = " + this.damUse + ", " + this.damPotential);
@@ -508,7 +535,10 @@ export default {
         calculateSolarFormulas(){
             this.solarUse = Math.floor((this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyBudget) / this.solarPrice * 100)/100;//对
             //this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology);
-            this.solarPrice = Math.floor((this.solarPrice + (this.solarUse / (this.solarEnergyPotential * this.solarTechnology))) / 2 * 100)/100; //对 max1 不懂
+            this.solarPrice = Math.floor((this.solarPrice + (this.solarUse / (this.solarEnergyPotential * this.solarTechnology))) / 2 * 100)/100; //
+            if(this.solarPrice < 0){
+                this.solarPrice = 0;
+            }
             this.fallsFromRoofs = Math.floor(this.fallRate * this.solarUse * 100)/100;//对
             this.fallPoints = Math.floor(this.valueOfOneHumanLife_FallPts * this.fallsFromRoofs * 100)/100;//对
             /*print */
@@ -690,6 +720,9 @@ export default {
                                 + (this.solarPrice + 0) * this.solarUse 
                                 + (this.damPrice + 0) * this.damUse) 
                                 / (this.coalUse + this.oilUse + this.naturalGasUse + this.solarUse + this.damUse))*100)/100;//对
+            if(this.aveEnergyPrice < 0){
+                this.aveEnergyPrice = 0;
+            }
             console.log("===========================================================================================")
             console.log("===========================================================================================")
             console.log("===========================================================================================")
@@ -719,6 +752,9 @@ export default {
             this.birthRate = Math.floor(this.maximalBirthRate / (1 + this.qualityOfLife)*100)/100; //对
             this.population = Math.floor((this.population * (1 + this.birthRate/100) - this.starvation)*100)/100;//对
             this.starvation = Math.floor(this.baseLevel * this.deathRate * this.population * 100)/100;//对
+            if(this.starvation < 0){
+                this.starvation = 0;
+            }
             this.starvationPoints = Math.floor(this.valueOfOneHumanLife * this.starvation * 100)/100;//对
             console.log("===================================================================")
             console.log("===================================================================")
