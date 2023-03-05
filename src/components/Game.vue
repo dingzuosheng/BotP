@@ -314,6 +314,7 @@ export default {
         },
         showSimulation() {
             this.show = true;
+            this.executed++;
         },
         stopSimulation() {
             this.show = false;
