@@ -78,6 +78,10 @@
             {
                 "name": "Nonrenewable Energy",
                 "path": "/game/nonrenewable-energy"
+            },
+            {
+                "name": "Total Coal Use",
+                "path": "/game/total-coal-use"
             }
         ]
     },
