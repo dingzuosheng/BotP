@@ -201,7 +201,7 @@ td button{
     margin-left: 260px;
 }
 .t4{
-    background-color: chocolate;
+    background-color: lightgrey;
     margin:15px 100px 0px 100px;
     font-size: 30px;
     text-align: center;
@@ -213,11 +213,11 @@ td button{
 
 .problems{
     width:50%;
-    background-color: red;
+    background-color: rgb(234, 5, 5);
 }
 .successes{
     width:50%;
-    background-color: green;
+    background-color: rgb(3, 179, 3);
 }
 .t5{
     background-color:cornflowerblue;
