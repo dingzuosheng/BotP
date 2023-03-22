@@ -86,15 +86,15 @@ const routes = [
         component:Home
     },
     {
-        name:'Connections',
-        path:'/connections',
-        component:Connections
-    },
-    {
         name:'Game',
         path:'/game',
         component:Game,
         children:[
+            {
+                name:'Connections',
+                path:'/game/connections',
+                component:Connections
+            },
             {
                 name:'Policy',
                 path:'/game/policy',

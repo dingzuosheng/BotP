@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <img  src="../assets/BackgroundImages/connections.JPG"/> -->
+         <img  src="/image/connections.JPG"/>
     </div>
 </template>
 <script>

@@ -305,7 +305,7 @@ export default {
             this.$router.push("/game/results");
         },
         toConnections() {
-            this.$router.push("/connections");
+            this.$router.push("/game/connections");
         },
         newGame(){
             localStorage.clear();
