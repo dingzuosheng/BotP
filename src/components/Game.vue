@@ -929,134 +929,136 @@ export default {
                 localStorage.setItem("1990",JSON.stringify(data1990));
             }
             /*formula execute*/
-            this.year++;
-            console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            console.log("<<============================================="+this.year+"======================================>");
-            console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            
-            this.calculateCoalFormulas();
-            this.calculateOilFormulas();
-            this.calculateNaturalGasFormulas();
-            this.calculateNuclearFormulas();
-            this.calculateDamFormulas();
-            this.calculateLandFormulas();
-            this.calculateSolarFormulas();
-            this.calculateTechnologyFormulas();
-            this.calculateAirPolutionFormulas();
-            this.calculateEnergyFormulas();
-            this.calculatePopulationFormulas();
-            this.calculateSustainabilityFormulas();
-            this.calculateQualityOfLifeFormulas();          
-            this.calculateTaxIncome();
-            this.calculateTotalPoints();
-            this.calculateResearchBudget();
+            for(let i = 0; i < 5; i++){
+                this.year++;
+                console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+                console.log("<<============================================="+this.year+"======================================>");
+                console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+                
+                this.calculateCoalFormulas();
+                this.calculateOilFormulas();
+                this.calculateNaturalGasFormulas();
+                this.calculateNuclearFormulas();
+                this.calculateDamFormulas();
+                this.calculateLandFormulas();
+                this.calculateSolarFormulas();
+                this.calculateTechnologyFormulas();
+                this.calculateAirPolutionFormulas();
+                this.calculateEnergyFormulas();
+                this.calculatePopulationFormulas();
+                this.calculateSustainabilityFormulas();
+                this.calculateQualityOfLifeFormulas();          
+                this.calculateTaxIncome();
+                this.calculateTotalPoints();
+                this.calculateResearchBudget();
 
-            const data = {
-                coalUse: this.coalUse,
-                coalPrice: Math.floor(this.coalPrice/Math.pow(10,9)*100)/100,
-                coalSupply: Math.floor(this.coalSupply/Math.pow(10,3)*100)/100,
-                totalCoalUse: this.totalCoalUse,
+                const data = {
+                    coalUse: this.coalUse,
+                    coalPrice: Math.floor(this.coalPrice/Math.pow(10,9)*100)/100,
+                    coalSupply: Math.floor(this.coalSupply/Math.pow(10,3)*100)/100,
+                    totalCoalUse: this.totalCoalUse,
 
-                oilUse:this.oilUse,
-                oilPrice:Math.floor(this.oilPrice/Math.pow(10,9)*100)/100,
-                oilSupply:Math.floor(this.oilSupply/Math.pow(10,3)*100)/100,
-                totalOilUse:this.totalOilUse,
+                    oilUse:this.oilUse,
+                    oilPrice:Math.floor(this.oilPrice/Math.pow(10,9)*100)/100,
+                    oilSupply:Math.floor(this.oilSupply/Math.pow(10,3)*100)/100,
+                    totalOilUse:this.totalOilUse,
 
-                naturalGasUse:this.naturalGasUse,
-                naturalGasPrice:Math.floor(this.naturalGasPrice/Math.pow(10,9)*100)/100,
-                naturalGasSupply:Math.floor(this.naturalGasSupply/Math.pow(10,3)*100)/100,
-                totalNaturalGasUse:this.totalNaturalGasUse,
+                    naturalGasUse:this.naturalGasUse,
+                    naturalGasPrice:Math.floor(this.naturalGasPrice/Math.pow(10,9)*100)/100,
+                    naturalGasSupply:Math.floor(this.naturalGasSupply/Math.pow(10,3)*100)/100,
+                    totalNaturalGasUse:this.totalNaturalGasUse,
 
-                nuclearUse:this.nuclearUse,
-                nuclearPrice:Math.floor(this.nuclearPrice/Math.pow(10,9)*100)/100,
-                nuclearSupply:Math.floor(this.nuclearSupply/Math.pow(10,3)*100)/100,
-                totalNuclearUse:this.totalNuclearUse,
+                    nuclearUse:this.nuclearUse,
+                    nuclearPrice:Math.floor(this.nuclearPrice/Math.pow(10,9)*100)/100,
+                    nuclearSupply:Math.floor(this.nuclearSupply/Math.pow(10,3)*100)/100,
+                    totalNuclearUse:this.totalNuclearUse,
 
-                coalTaxIncome:Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100,
-                oilTaxIncome:Math.floor(this.oilTaxIncome/Math.pow(10,9)*100)/100,
-                naturalGasTaxIncome:Math.floor(this.naturalGasTaxIncome/Math.pow(10,9)*100)/100,
-                nuclearTaxIncome:Math.floor(this.nuclearTaxIncome/Math.pow(10,9)*100)/100,
+                    coalTaxIncome:Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100,
+                    oilTaxIncome:Math.floor(this.oilTaxIncome/Math.pow(10,9)*100)/100,
+                    naturalGasTaxIncome:Math.floor(this.naturalGasTaxIncome/Math.pow(10,9)*100)/100,
+                    nuclearTaxIncome:Math.floor(this.nuclearTaxIncome/Math.pow(10,9)*100)/100,
 
-                solarUse:this.solarUse,
-                solarPrice:Math.floor(this.solarPrice/Math.pow(10,9)*100)/100,
-                fallsFromRoofs:this.fallsFromRoofs,
-                fallPoints:this.fallPoints,
+                    solarUse:this.solarUse,
+                    solarPrice:Math.floor(this.solarPrice/Math.pow(10,9)*100)/100,
+                    fallsFromRoofs:this.fallsFromRoofs,
+                    fallPoints:this.fallPoints,
 
-                damUse:this.damUse,
-                damPrice:Math.floor(this.damPrice/Math.pow(10,9)*100)/100,
+                    damUse:this.damUse,
+                    damPrice:Math.floor(this.damPrice/Math.pow(10,9)*100)/100,
 
-                stripMining:Math.floor(this.stripMining/Math.pow(10,3)*100)/100,
-                landAbuse:Math.floor(this.landAbuse/Math.pow(10,6)*100)/100,
-                landAbusePoints:Math.floor(this.landAbusePoints*100)/100,
+                    stripMining:Math.floor(this.stripMining/Math.pow(10,3)*100)/100,
+                    landAbuse:Math.floor(this.landAbuse/Math.pow(10,6)*100)/100,
+                    landAbusePoints:Math.floor(this.landAbusePoints*100)/100,
 
-                co2:Math.floor(this.co2/Math.pow(10,9)*100)/100,
-                globalTemperature:this.globalTemperature,
-                seeLevel:this.seeLevel,
-                inundationPoints:this.inundationPoints,
-                no2:Math.floor(this.no2/Math.pow(10,6)*100)/100,
-                so2:Math.floor(this.so2/Math.pow(10,6)*100)/100,
-                lungDiseaseDeath:Math.floor(this.lungDiseaseDeath/Math.pow(10,3)*100)/100,
-                lungDiseasePts:this.lungDiseasePts,
+                    co2:Math.floor(this.co2/Math.pow(10,9)*100)/100,
+                    globalTemperature:this.globalTemperature,
+                    seeLevel:this.seeLevel,
+                    inundationPoints:this.inundationPoints,
+                    no2:Math.floor(this.no2/Math.pow(10,6)*100)/100,
+                    so2:Math.floor(this.so2/Math.pow(10,6)*100)/100,
+                    lungDiseaseDeath:Math.floor(this.lungDiseaseDeath/Math.pow(10,3)*100)/100,
+                    lungDiseasePts:this.lungDiseasePts,
 
-                coalResearch:this.coalResearch,
-                coalTechnology:this.coalTechnology,
-                oilResearch:this.oilResearch,
-                oilTechnology:this.oilTechnology,
-                nuclearResearch:this.nuclearResearch,
-                nuclearTechnology:this.nuclearTechnology,
-                solarResearch:this.solarResearch,
-                solarTechnology:this.solarTechnology,
-                bioResearch:this.bioResearch,
-                bioTechnology:this.bioTechnology,
-                basicResearch:this.basicResearch,
+                    coalResearch:this.coalResearch,
+                    coalTechnology:this.coalTechnology,
+                    oilResearch:this.oilResearch,
+                    oilTechnology:this.oilTechnology,
+                    nuclearResearch:this.nuclearResearch,
+                    nuclearTechnology:this.nuclearTechnology,
+                    solarResearch:this.solarResearch,
+                    solarTechnology:this.solarTechnology,
+                    bioResearch:this.bioResearch,
+                    bioTechnology:this.bioTechnology,
+                    basicResearch:this.basicResearch,
 
-                nuclearAccidents:this.nuclearAccidents,
-                radiation:this.radiation,
-                radiationCancer:this.radiationCancer,
-                radiationPoints:this.radiationPoints,
-                radioactiveWaste:this.radioactiveWaste,
-                radWastePoints:this.radWastePoints,
+                    nuclearAccidents:this.nuclearAccidents,
+                    radiation:this.radiation,
+                    radiationCancer:this.radiationCancer,
+                    radiationPoints:this.radiationPoints,
+                    radioactiveWaste:this.radioactiveWaste,
+                    radWastePoints:this.radWastePoints,
 
-                aveEnergyPrice:Math.floor(this.aveEnergyPrice/Math.pow(10,9)*100)/100,
-                energyDemand:this.energyDemand,
-                netEnergy:this.netEnergy,
-                renewableEnergy:this.renewableEnergy,
-                nonrenewableEnergy:this.nonrenewableEnergy,
-                energyConservation:this.energyConservation,
+                    aveEnergyPrice:Math.floor(this.aveEnergyPrice/Math.pow(10,9)*100)/100,
+                    energyDemand:this.energyDemand,
+                    netEnergy:this.netEnergy,
+                    renewableEnergy:this.renewableEnergy,
+                    nonrenewableEnergy:this.nonrenewableEnergy,
+                    energyConservation:this.energyConservation,
 
-                qualityOfLife:this.qualityOfLife,
-                qualityPoints:this.qualityPoints,
-                lifestyle:Math.floor(this.lifestyle/Math.pow(10,6)*100)/100,
+                    qualityOfLife:this.qualityOfLife,
+                    qualityPoints:this.qualityPoints,
+                    lifestyle:Math.floor(this.lifestyle/Math.pow(10,6)*100)/100,
 
-                population:Math.floor(this.population/Math.pow(10,9)*100)/100,
-                starvation:Math.floor(this.starvation/Math.pow(10,6)*100)/100,
-                starvationPoints:this.starvationPoints,
-                birthRate:this.birthRate,
+                    population:Math.floor(this.population/Math.pow(10,9)*100)/100,
+                    starvation:Math.floor(this.starvation/Math.pow(10,6)*100)/100,
+                    starvationPoints:this.starvationPoints,
+                    birthRate:this.birthRate,
 
-                sustainability:this.sustainability,
-                sustainabilityPts:this.sustainabilityPts,
+                    sustainability:this.sustainability,
+                    sustainabilityPts:this.sustainabilityPts,
 
-                basicResearchBudget:Math.floor(this.basicResearchBudget/Math.pow(10,9)*100)/100,
-                bioResearchBudget:Math.floor(this.bioResearchBudget/Math.pow(10,9)*100)/100,
-                coalResearchBudget:Math.floor(this.coalResearchBudget/Math.pow(10,9)*100)/100,
-                oilResearchBudget:Math.floor(this.oilResearchBudget/Math.pow(10,9)*100)/100,
-                solarResearchBudget:Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100,
-                solarEnergyBudget:Math.floor(this.solarEnergyBudget/Math.pow(10,9)*100)/100,
-                nuclearResearchBudget:Math.floor(this.nuclearResearchBudget/Math.pow(10,9)*100)/100,
-                damUseBudget:Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100,
-                totalTreasury:Math.floor(this.totalTreasury/Math.pow(10,9)*100)/100,
-                totalPoints:this.totalPoints,
-            }
+                    basicResearchBudget:Math.floor(this.basicResearchBudget/Math.pow(10,9)*100)/100,
+                    bioResearchBudget:Math.floor(this.bioResearchBudget/Math.pow(10,9)*100)/100,
+                    coalResearchBudget:Math.floor(this.coalResearchBudget/Math.pow(10,9)*100)/100,
+                    oilResearchBudget:Math.floor(this.oilResearchBudget/Math.pow(10,9)*100)/100,
+                    solarResearchBudget:Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100,
+                    solarEnergyBudget:Math.floor(this.solarEnergyBudget/Math.pow(10,9)*100)/100,
+                    nuclearResearchBudget:Math.floor(this.nuclearResearchBudget/Math.pow(10,9)*100)/100,
+                    damUseBudget:Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100,
+                    totalTreasury:Math.floor(this.totalTreasury/Math.pow(10,9)*100)/100,
+                    totalPoints:this.totalPoints,
+                }
 
-            //localStorage.setItem(this.year,JSON.stringify(data)); 
-            //to be saved is from the year 1991
-            
-            localStorage.setItem(this.year,JSON.stringify(data));
-            this.energyDemand = Math.floor(this.energyDemand * 1.01 * 100)/100;
-            this.executed++;
-            if(this.totalPoints < -12200){
-                this.gameover = true;
-                this.$router.push("/game/gameover");
+                //localStorage.setItem(this.year,JSON.stringify(data)); 
+                //to be saved is from the year 1991
+                
+                localStorage.setItem(this.year,JSON.stringify(data));
+                this.energyDemand = Math.floor(this.energyDemand * 1.01 * 100)/100;
+                this.executed++;
+                if(this.totalPoints < -12200){
+                    this.gameover = true;
+                    this.$router.push("/game/gameover");
+                }
             }
         },
         /* coal */
