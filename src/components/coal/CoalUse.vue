@@ -160,6 +160,7 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
+    padding-left:50px;
 }
 
 .side-nav {

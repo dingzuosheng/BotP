@@ -163,16 +163,16 @@ export default {
     },
     watch:{
         executed(newValue,oldValue){
-            this.totalPoints_d = JSON.parse(localStorage.getItem(this.year)).totalPoints - JSON.parse(localStorage.getItem(this.year-1)).totalPoints;
-            this.qualityPoints_d = JSON.parse(localStorage.getItem(this.year)).qualityPoints - JSON.parse(localStorage.getItem(this.year-1)).qualityPoints;
-            this.sustainabilityPts_d = JSON.parse(localStorage.getItem(this.year)).sustainabilityPts - JSON.parse(localStorage.getItem(this.year-1)).sustainabilityPts;
-            this.fallPoints_d = JSON.parse(localStorage.getItem(this.year)).fallPoints - JSON.parse(localStorage.getItem(this.year-1)).fallPoints;
-            this.inundationPoints_d = JSON.parse(localStorage.getItem(this.year)).inundationPoints - JSON.parse(localStorage.getItem(this.year-1)).inundationPoints;
-            this.landAbusePoints_d = JSON.parse(localStorage.getItem(this.year)).landAbusePoints - JSON.parse(localStorage.getItem(this.year-1)).landAbusePoints;
-            this.lungDiseasePts_d = JSON.parse(localStorage.getItem(this.year)).lungDiseasePts - JSON.parse(localStorage.getItem(this.year-1)).lungDiseasePts;
-            this.radWastePoints_d = JSON.parse(localStorage.getItem(this.year)).radWastePoints - JSON.parse(localStorage.getItem(this.year-1)).radWastePoints;
-            this.radiationPoints_d = JSON.parse(localStorage.getItem(this.year)).radiationPoints - JSON.parse(localStorage.getItem(this.year-1)).radiationPoints;
-            this.starvationPoints_d = JSON.parse(localStorage.getItem(this.year)).starvationPoints - JSON.parse(localStorage.getItem(this.year-1)).starvationPoints;
+            this.totalPoints_d = JSON.parse(localStorage.getItem(this.year)).totalPoints - JSON.parse(localStorage.getItem(this.year-5)).totalPoints;
+            this.qualityPoints_d = JSON.parse(localStorage.getItem(this.year)).qualityPoints - JSON.parse(localStorage.getItem(this.year-5)).qualityPoints;
+            this.sustainabilityPts_d = JSON.parse(localStorage.getItem(this.year)).sustainabilityPts - JSON.parse(localStorage.getItem(this.year-5)).sustainabilityPts;
+            this.fallPoints_d = JSON.parse(localStorage.getItem(this.year)).fallPoints - JSON.parse(localStorage.getItem(this.year-5)).fallPoints;
+            this.inundationPoints_d = JSON.parse(localStorage.getItem(this.year)).inundationPoints - JSON.parse(localStorage.getItem(this.year-5)).inundationPoints;
+            this.landAbusePoints_d = JSON.parse(localStorage.getItem(this.year)).landAbusePoints - JSON.parse(localStorage.getItem(this.year-5)).landAbusePoints;
+            this.lungDiseasePts_d = JSON.parse(localStorage.getItem(this.year)).lungDiseasePts - JSON.parse(localStorage.getItem(this.year-5)).lungDiseasePts;
+            this.radWastePoints_d = JSON.parse(localStorage.getItem(this.year)).radWastePoints - JSON.parse(localStorage.getItem(this.year-5)).radWastePoints;
+            this.radiationPoints_d = JSON.parse(localStorage.getItem(this.year)).radiationPoints - JSON.parse(localStorage.getItem(this.year-5)).radiationPoints;
+            this.starvationPoints_d = JSON.parse(localStorage.getItem(this.year)).starvationPoints - JSON.parse(localStorage.getItem(this.year-5)).starvationPoints;
         }
     },
     
