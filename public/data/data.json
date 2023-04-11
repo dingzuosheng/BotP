@@ -2,7 +2,6 @@
     "Carbon_Dioxide": {
         "name": "Carbon Dioxide",
         "path": "/game/co2",
-        "value": 0,
         "causes": [
             {
                 "name": "Coal Use",
@@ -31,7 +30,6 @@
     "Coal_Tax": {
         "name": "Coal Tax",
         "path": "/game/coal-tax",
-        "value": 0,
         "causes": [],
         "effects": [
             {
@@ -43,7 +41,6 @@
     "Coal_Use": {
         "name": "Coal Use",
         "path": "/game/coal-use",
-        "value": 0,
         "causes": [
             {
                 "name": "Coal Price",
@@ -88,7 +85,6 @@
     "Coal_Price": {
         "name": "Coal Price",
         "path": "/game/coal-price",
-        "value": 0,
         "causes": [
             {
                 "name": "Coal Supply",
@@ -113,7 +109,6 @@
     "Coal_Supply": {
         "name": "Coal Supply",
         "path": "/game/coal-supply",
-        "value": 0,
         "causes": [
             {
                 "name": "Total Coal Use",
@@ -130,7 +125,6 @@
     "Total_Coal_Use": {
         "name": "Total Coal Use",
         "path": "/game/total-coal-use",
-        "value": 0,
         "causes": [
             {
                 "name": "Coal Use",
@@ -147,7 +141,6 @@
     "Energy_Demand": {
         "name": "Energy Demand",
         "path": "/game/energy-demand",
-        "value": 303,
         "causes": [],
         "effects": [
             {
@@ -179,7 +172,6 @@
     "Oil_Use": {
         "name": "Oil Use",
         "path": "/game/oil-use",
-        "value": 0,
         "causes": [
             {
                 "name": "Energy Demand",
@@ -224,7 +216,6 @@
     "Oil_Tax": {
         "name": "Oil Tax",
         "path": "/game/oil-tax",
-        "value": 0,
         "causes": [],
         "effects": [
             {
@@ -236,7 +227,6 @@
     "Oil_Price": {
         "name": "Oil Price",
         "path": "/game/oil-price",
-        "value": 0,
         "causes": [
             {
                 "name": "Oil Supply",
@@ -265,7 +255,6 @@
     "Oil_Supply": {
         "name": "Oil Supply",
         "path": "/game/oil-supply",
-        "value": 0,
         "causes": [
             {
                 "name": "Oil Price",
@@ -419,7 +408,6 @@
     "Dam_Use": {
         "name": "Dam Use",
         "path": "/game/dam-use",
-        "value": 0,
         "causes": [
             {
                 "name": "Dam Price",
@@ -442,6 +430,29 @@
             {
                 "name": "Renewable Energy",
                 "path": "/game/renewable-energy"
+            },
+            {
+                "name": "Riparian Habitats",
+                "path": "/game/riparian-habitats"
+            },
+            {
+                "name": "Flood Deaths",
+                "path": "/game/flood-deaths"
+            },
+            {
+                "name": "Reservoir Capacity",
+                "path": "/game/reservoir-capacity"
+            }
+        ]
+    },
+    "Reservoir_Capacity": {
+        "name": "Reservoir Capacity",
+        "path": "/game/reservoir-capacity",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Water-Supply",
+                "path": "/game/water-supply"
             }
         ]
     },
@@ -1244,6 +1255,10 @@
             {
                 "name": "Ave Energy Price",
                 "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Recycled Aluminum",
+                "path": "/game/recycled-aluminum"
             }
         ],
         "effects": [
@@ -1273,19 +1288,27 @@
         ],
         "effects": [
             {
-                "name": "Lifestyle",
-                "path": "/game/lifestyle"
+                "name": "Northern Lifestyle",
+                "path": "/game/northern-lifestyle"
+            },
+            {
+                "name": "Industrial Input",
+                "path": "/game/industrial-input"
             }
         ]
     },
-    "Lifestyle": {
-        "name": "Lifestyle",
-        "path": "/game/lifestyle",
+    "Northern_Lifestyle": {
+        "name": "Northern Lifestyle",
+        "path": "/game/northern-lifestyle",
         "value": 0,
         "causes": [
             {
                 "name": "Net Energy",
                 "path": "/game/net-energy"
+            },
+            {
+                "name": "Beef Production",
+                "path": "/game/beef-production"
             }
         ],
         "effects": [
@@ -1301,8 +1324,12 @@
         "value": 0,
         "causes": [
             {
-                "name": "Lifestyle",
-                "path": "/game/lifestyle"
+                "name": "Northern Lifestyle",
+                "path": "/game/northern-lifestyle"
+            },
+            {
+                "name": "Souther Lifestyle",
+                "path": "/game/southern-lifestyle"
             },
             {
                 "name": "Population",
@@ -1390,6 +1417,10 @@
             {
                 "name": "Quality of Life",
                 "path": "/game/quality-of-life"
+            },
+            {
+                "name": "Family Planning Subsidy",
+                "path": "/game/family-planning-subsidy"
             }
         ],
         "effects": [
@@ -1421,6 +1452,10 @@
             {
                 "name": "Starvation",
                 "path": "/game/starvation"
+            },
+            {
+                "name": "Fuelwood Use",
+                "path": "/game/fuelwood-use"
             }
         ]
     },
@@ -1432,6 +1467,10 @@
             {
                 "name": "Population",
                 "path": "/game/population"
+            },
+            {
+                "name": "Food Supply",
+                "path": "/game/food-supply"
             }
         ],
         "effects": [
@@ -1442,6 +1481,14 @@
             {
                 "name": "Starvation Points",
                 "path": "/game/starvation-points"
+            },
+            {
+                "name": "Forest Clearing",
+                "path": "/game/forest-clearing"
+            },
+            {
+                "name": "Overgrazing",
+                "path": "/game/overgrazing"
             }
         ]
     },
@@ -1511,6 +1558,1470 @@
             {
                 "name": "Land Abuse",
                 "path": "/game/land-abuse"
+            }
+        ],
+        "effects": []
+    },
+    "Beef_Tax": {
+        "name": "Beef Tax",
+        "path": "/game/beef-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Beef Production",
+                "path": "/game/beef-production"
+            }
+        ]
+    },
+    "Beef_Production": {
+        "name": "Beef Production",
+        "path": "/game/beef-production",
+        "causes": [
+            {
+                "name": "Beef Tax",
+                "path": "/game/beef-tax"
+            },
+            {
+                "name": "Grasslands",
+                "path": "/game/grasslands"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Crops",
+                "path": "/game/crops"
+            },
+            {
+                "name": "Food Supply",
+                "path": "/game/food-supply"
+            },
+            {
+                "name": "Methane",
+                "path": "/game/methane"
+            },
+            {
+                "name": "Northern Lifestyle",
+                "path": "/game/northern-lifestyle"
+            }
+        ]
+    },
+    "Forest_Clearing": {
+        "name": "Forest Clearing",
+        "path": "/game/forest-clearing",
+        "causes": [
+            {
+                "name": "Starvation",
+                "path": "/game/starvation"
+            },
+            {
+                "name": "Debt for Nature $",
+                "path": "/game/debt-for-nature-subsidy"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Forest Land",
+                "path": "/game/forest-land"
+            },
+            {
+                "name": "Farm Land",
+                "path": "/game/farm-land"
+            },
+            {
+                "name": "Carbon Dioxide",
+                "path": "/game/co2"
+            },
+            {
+                "name": "Soil Erosion",
+                "path": "/game/soil-erosion"
+            }
+        ]
+    },
+    "Debt_for_Nature_Subsidy": {
+        "name": "Debt for Nature $",
+        "path": "/game/debt-for-nature-subsidy",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Forest Clearing",
+                "path": "/game/forest-clearing"
+            }
+        ]
+    },
+    "Farm_Land": {
+        "name": "Farm Land",
+        "path": "/game/farm-land",
+        "causes": [
+            {
+                "name": "Forest Clearing",
+                "path": "/game/forest-clearing"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Crops",
+                "path": "/game/crops"
+            }
+        ]
+    },
+    "Forest_Land": {
+        "name": "Forest Land",
+        "path": "/game/forest-land",
+        "causes": [
+            {
+                "name": "Acid Rain",
+                "path": "/game/acid-rain"
+            },
+            {
+                "name": "Forest Clearing",
+                "path": "/game/forest-clearing"
+            },
+            {
+                "name": "Fuelwood Use",
+                "path": "/game/fuelwood-use"
+            },
+            {
+                "name": "Logging",
+                "path": "/game/logging"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Forest Habitats",
+                "path": "/game/forest-habitats"
+            }
+        ]
+    },
+    "Acid_Rain": {
+        "name": "Acid Rain",
+        "path": "/game/acid-rain",
+        "causes": [
+            {
+                "name": "Nitrous Dioxide",
+                "path": "/game/no2"
+            },
+            {
+                "name": "Sulfur Dioxide",
+                "path": "/game/so2"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Forest Land",
+                "path": "/game/forest-land"
+            },
+            {
+                "name": "Lake Acidity",
+                "path": "/game/lake-acidity"
+            }
+        ]
+    },
+    "Property_Damage": {
+        "name": "Property Damage $",
+        "path": "/game/property-damage",
+        "causes": [
+            {
+                "name": "Nitrous Dioxide",
+                "path": "/game/no2"
+            },
+            {
+                "name": "Sulfur Dioxide",
+                "path": "/game/so2"
+            }
+        ],
+        "effects": []
+    },
+    "Soil_Erosion": {
+        "name": "Soil Erosion",
+        "path": "/game/soil-erosion",
+        "causes": [
+            {
+                "name": "Forest Clearing",
+                "path": "/game/forest-clearing"
+            },
+            {
+                "name": "Desertification",
+                "path": "/game/desertification"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Flood Deaths",
+                "path": "/game/flood-deaths"
+            }
+        ]
+    },
+    "Flood_Deaths": {
+        "name": "Flood Deaths",
+        "path": "/game/flood-deaths",
+        "causes": [
+            {
+                "name": "Soil Erosion",
+                "path": "/game/soil-erosion"
+            },
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Flood Deaths Points",
+                "path": "/game/flood-deaths-points"
+            }
+        ]
+    },
+    "Flood_Deaths_Points": {
+        "name": "Flood Deaths",
+        "path": "/game/flood-deaths",
+        "causes": [
+            {
+                "name": "Flood Deaths",
+                "path": "/game/flood-deaths"
+            }
+        ],
+        "effects": []
+    },
+    "Food_Supply": {
+        "name": "Food Supply",
+        "path": "/game/food-supply",
+        "causes": [
+            {
+                "name": "Beef Production",
+                "path": "/game/beef-production"
+            },
+            {
+                "name": "Seafood",
+                "path": "/game/seafood"
+            },
+            {
+                "name": "Crops",
+                "path": "/game/crops"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Southern Lifestyle",
+                "path": "/game/southern-lifestyle"
+            },
+            {
+                "name": "Starvation",
+                "path": "/game/startvation"
+            }
+        ]
+    },
+    "Crops": {
+        "name": "Crops",
+        "path": "/game/crops",
+        "causes": [
+            {
+                "name": "Crops Yields",
+                "path": "/game/crops-yields"
+            },
+            {
+                "name": "Farm Land",
+                "path": "/game/farm-land"
+            },
+            {
+                "name": "Beef Production",
+                "path": "/game/beef-production"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Food Supply",
+                "path": "/game/food-supply"
+            }
+        ]
+    },
+    "Methane": {
+        "name": "Methane",
+        "path": "/game/methane",
+        "causes": [
+            {
+                "name": "Beef Production",
+                "path": "/game/beef-production"
+            }
+        ],
+        "effects": []
+    },
+    "Grasslands": {
+        "name": "Grasslands",
+        "path": "/game/grasslands",
+        "causes": [
+            {
+                "name": "Desertification",
+                "path": "/game/desertification"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Beef Production",
+                "path": "/game/beef-production"
+            }
+        ]
+    },
+    "Desertification": {
+        "name": "Desertification",
+        "path": "/game/desertification",
+        "causes": [
+            {
+                "name": "Fuelwood Use",
+                "path": "/game/fuelwood-use"
+            },
+            {
+                "name": "Overgrazing",
+                "path": "/game/overgrazing"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Grasslands",
+                "path": "/game/grasslands"
+            },
+            {
+                "name": "Soil Erosion",
+                "path": "/game/soil-erosion"
+            }
+        ]
+    },
+    "Overgrazing": {
+        "name": "Overgrazing",
+        "path": "/game/overgrazing",
+        "causes": [
+            {
+                "name": "Starvation",
+                "path": "/game/startvation"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Desertification",
+                "path": "/game/desertification"
+            }
+        ]
+    },
+    "Fuelwood_Use": {
+        "name": "Fuelwood Use",
+        "path": "/game/fuelwood-use",
+        "causes": [
+            {
+                "name": "Population",
+                "path": "/game/population"
+            },
+            {
+                "name": "Wood Stove Subsidy",
+                "path": "/game/wood-stove-subsidy"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Desertification",
+                "path": "/game/desertification"
+            }
+        ]
+    },
+    "Wood_Stove_Subsidy": {
+        "name": "Wood Stove Subsidy",
+        "path": "/game/wood-stove-subsidy",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Fuelwood Use",
+                "path": "/game/fuelwood-use"
+            }
+        ]
+    },
+    "Southern_Lifestyle": {
+        "name": "Southern Lifestyle",
+        "path": "/game/southern-lifestyle",
+        "causes": [
+            {
+                "name": "Housing",
+                "path": "/game/housing"
+            },
+            {
+                "name": "Food Supply",
+                "path": "/game/food-supply"
+            },
+            {
+                "name": "Drinking Water",
+                "path": "/game/drinking-water"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Quality of Life",
+                "path": "/game/quality-of-life"
+            }
+        ]
+    },
+    "Housing": {
+        "name": "Housing",
+        "path": "/game/housing",
+        "causes": [
+            {
+                "name": "Logging",
+                "path": "/game/logging"
+            },
+            {
+                "name": "Industrial Output",
+                "path": "/game/industrial-output"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Southern Lifestyle",
+                "path": "/game/southern-lifestyle"
+            }
+        ]
+    },
+    "Logging": {
+        "name": "Logging",
+        "path": "/game/logging",
+        "causes": [
+            {
+                "name": "Logging Tax",
+                "path": "/game/logging-tax"
+            },
+            {
+                "name": "Recycled Paper",
+                "path": "/game/recycled-paper"
+            },
+            {
+                "name": "Materials Demand",
+                "path": "/game/materials-demand"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Housing",
+                "path": "/game/housing"
+            },
+            {
+                "name": "Forest Land",
+                "path": "/game/forest-land"
+            }
+        ]
+    },
+    "Logging_Tax": {
+        "name": "Logging Tax",
+        "path": "/game/logging-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Logging",
+                "path": "/game/logging"
+            }
+        ]
+    },
+    "Recycled_Paper": {
+        "name": "Recycled Paper",
+        "path": "/game/recycled-paper",
+        "causes": [
+            {
+                "name": "Recycled Center $",
+                "path": "/game/recycled-center-subsidy"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Logging",
+                "path": "/game/logging"
+            }
+        ]
+    },
+    "Recycled_Center_Subsidy": {
+        "name": "Recycled Center $",
+        "path": "/game/recycled-center-subsidy",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Recycled Paper",
+                "path": "/game/recycled-paper"
+            },
+            {
+                "name": "Recycled Aluminum",
+                "path": "/game/recycled-aluminum"
+            }
+        ]
+    },
+    "Recycled_Aluminum": {
+        "name": "Recycled Aluminum",
+        "path": "/game/recycled-aluminum",
+        "causes": [
+            {
+                "name": "Recycled Center $",
+                "path": "/game/recycled-center-subsidy"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Energy Conservation",
+                "path": "/game/energy-conservation"
+            }
+        ]
+    },
+    "Pesticide_Tax": {
+        "name": "Pesticide Tax",
+        "path": "/game/pesticide-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Pesticide Use",
+                "path": "/game/pesticide-use"
+            }
+        ]
+    },
+    "Pesticide_Use": {
+        "name": "Pesticide Use",
+        "path": "/game/pesticide-use",
+        "causes": [
+            {
+                "name": "Pesticide Tax",
+                "path": "/game/pesticide-tax"
+            },
+            {
+                "name": "Industrial Output",
+                "path": "/game/industrial-output"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Pesticide Deaths",
+                "path": "/game/pesticide-deaths"
+            },
+            {
+                "name": "Materials Demand",
+                "path": "/game/materials-demand"
+            },
+            {
+                "name": "Crop Technology",
+                "path": "/game/crop-technology"
+            }
+        ]
+    },
+    "Pesticide_Deaths": {
+        "name": "Pesticide Deaths",
+        "path": "/game/pesticide-deaths",
+        "causes": [
+            {
+                "name": "Pesticide Use",
+                "path": "/game/pesticide-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Pesticide Points",
+                "path": "/game/pesticide-points"
+            }
+        ]
+    },
+    "Pesticide_Points": {
+        "name": "Pesticide Points",
+        "path": "/game/pesticide-points",
+        "causes": [
+            {
+                "name": "Pesticide Deaths",
+                "path": "/game/pesticide-deaths"
+            }
+        ],
+        "effects": []
+    },
+    "Materials_Demand": {
+        "name": "Materials Demand",
+        "path": "/game/materials-demand",
+        "causes": [
+            {
+                "name": "Pesticide Use",
+                "path": "/game/pesticide-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Logging",
+                "path": "/game/logging"
+            },
+            {
+                "name": "Heavy Metal Use",
+                "path": "/game/heavy-metal-use"
+            },
+            {
+                "name": "CFC-Production",
+                "path": "/game/cfc-production"
+            }
+        ]
+    },
+    "Industrial_Output": {
+        "name": "Industrial Output",
+        "path": "/game/industrial-output",
+        "causes": [
+            {
+                "name": "Industrial Input",
+                "path": "/game/industrial-input"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Pesticide Use",
+                "path": "/game/pesticide-use"
+            },
+            {
+                "name": "Fertilizer Use",
+                "path": "/game/fertilizer-use"
+            },
+            {
+                "name": "Consumer Goods",
+                "path": "/game/consumer-goods"
+            },
+            {
+                "name": "Housing",
+                "path": "/game/Housing"
+            },
+            {
+                "name": "Gross Global Production",
+                "path": "/game/gross-global-production"
+            }
+        ]
+    },
+    "Fertilizer_Use": {
+        "name": "Fertilizer Use",
+        "path": "/game/fertilizer-use",
+        "causes": [
+            {
+                "name": "Fertilizer Tax",
+                "path": "/game/fertilizer-tax"
+            },
+            {
+                "name": "Industrial Output",
+                "path": "/game/industrial-output"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Crop Technology",
+                "path": "/game/crop-technology"
+            },
+            {
+                "name": "Water-Pollution",
+                "path": "/game/Water-Pollution"
+            }
+        ]
+    },
+    "Fertilizer_Tax": {
+        "name": "Fertilizer Tax",
+        "path": "/game/fertilizer-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Fertilizer Use",
+                "path": "/game/fertilizer-use"
+            }
+        ]
+    },
+    "Consumer_Goods": {
+        "name": "Consumer Goods",
+        "path": "/game/consumer-goods",
+        "causes": [
+            {
+                "name": "Industrial Output",
+                "path": "/game/industrial-output"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Computer Games Pts",
+                "path": "/game/computer-games-pts"
+            },
+            {
+                "name": "Northern Lifestyle",
+                "path": "/game/northern-lifestyle"
+            }
+        ]
+    },
+    "Computer_Games_Pts": {
+        "name": "Computer Games Pts",
+        "path": "/game/computer-games-pts",
+        "causes": [
+            {
+                "name": "Consumer Goods",
+                "path": "/game/consumer-goods"
+            }
+        ],
+        "effects": []
+    },
+    "Gross_Global_Production": {
+        "name": "Gross Global Production",
+        "path": "/game/gross-global-production",
+        "causes": [
+            {
+                "name": "Industrial Output",
+                "path": "/game/industrial-output"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Garbage",
+                "path": "/game/garbage"
+            }
+        ]
+    },
+    "Garbage": {
+        "name": "Garbage",
+        "path": "/game/garbage",
+        "causes": [
+            {
+                "name": "Gross Global Production",
+                "path": "/game/gross-global-production"
+            },
+            {
+                "name": "Recycled Paper",
+                "path": "/game/recycled-paper"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Land Abuse",
+                "path": "/game/land-abuse"
+            }
+        ]
+    },
+    "Heavy_Metal_Tax": {
+        "name": "Heavy Metal Tax",
+        "path": "/game/heavy-metal-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Heavy Metal Use",
+                "path": "/game/heavy-metal-use"
+            }
+        ]
+    },
+    "Heavy_Metal_Use": {
+        "name": "Heavy Metal Use",
+        "path": "/game/heavy-metal-use",
+        "causes": [
+            {
+                "name": "Heavy Metal Tax",
+                "path": "/game/heavy-metal-tax"
+            },
+            {
+                "name": "Heavy Metal Price",
+                "path": "/game/heavy-metal-price"
+            },
+            {
+                "name": "Materials Demand",
+                "path": "/game/materials-demand"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Heavy Metal Price",
+                "path": "/game/heavy-metal-price"
+            },
+            {
+                "name": "Heavy Metal Deaths",
+                "path": "/game/heavy-metal-deaths"
+            },
+            {
+                "name": "Water Pollution",
+                "path": "/game/water-pollution"
+            },
+            {
+                "name": "Total Heavy Metal Use",
+                "path": "/game/total-heavy-metal-use"
+            },
+            {
+                "name": "Industrial Input",
+                "path": "/game/industrial-input"
+            }
+        ]
+    },
+    "Total_Heavy_Metal_Use": {
+        "name": "Total Heavy Metal Use",
+        "path": "/game/total-heavy-metal-use",
+        "causes": [
+            {
+                "name": "Heavy Metal Use",
+                "path": "/game/heavy-metal-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Heavy Metal Supply",
+                "path": "/game/heavy-metal-supply"
+            }
+        ]
+    },
+    "Heavy_Metal_Price": {
+        "name": "Heavy Metal Price",
+        "path": "/game/heavy-metal-price",
+        "causes": [
+            {
+                "name": "Heavy Metal Use",
+                "path": "/game/heavy-metal-use"
+            },
+            {
+                "name": "Heavy Metal Supply",
+                "path": "/game/heavy-metal-supply"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Heavy Metal Supply",
+                "path": "/game/heavy-metal-supply"
+            },
+            {
+                "name": "Heavy Metal Use",
+                "path": "/game/heavy-metal-use"
+            }
+        ]
+    },
+    "Heavy_Metal_Supply": {
+        "name": "Heavy Metal Supply",
+        "path": "/game/heavy-metal-supply",
+        "causes": [
+            {
+                "name": "Total Heavy Metal Use",
+                "path": "/game/total-heavy-metal-use"
+            },
+            {
+                "name": "Heavy Metal Price",
+                "path": "/game/heavy-metal-price"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Heavy Metal Price",
+                "path": "/game/heavy-metal-price"
+            }
+        ]
+    },
+    "Heavy_Metal_Deaths": {
+        "name": "Heavy Metal Deaths",
+        "path": "/game/heavy-metal-deaths",
+        "causes": [
+            {
+                "name": "Total Heavy Metal Use",
+                "path": "/game/total-heavy-metal-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Heavy Metal Points",
+                "path": "/game/heavy-metal-points"
+            }
+        ]
+    },
+    "Heavy_Metal_Points": {
+        "name": "Heavy Metal Points",
+        "path": "/game/heavy-metal-points",
+        "causes": [
+            {
+                "name": "Total Heavy Metal Deaths",
+                "path": "/game/total-heavy-metal-deaths"
+            }
+        ],
+        "effects": []
+    },
+    "Water_Pollution": {
+        "name": "Water Pollution",
+        "path": "/game/water-pollution",
+        "causes": [
+            {
+                "name": "Heavy Metal Use",
+                "path": "/game/heavy-metal-use"
+            },
+            {
+                "name": "Fertilizer Use",
+                "path": "/game/fertilizer-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Water Supply",
+                "path": "/game/water-supply"
+            }
+        ]
+    },
+    "Water_Supply": {
+        "name": "Water Supply",
+        "path": "/game/water-supply",
+        "causes": [
+            {
+                "name": "Water Pollution",
+                "path": "/game/water-pollution"
+            },
+            {
+                "name": "Groundwater Use",
+                "path": "/game/groundwater-use"
+            },
+            {
+                "name": "Reservoir Capacity",
+                "path": "/game/reservoir-capacity"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Drinking Water",
+                "path": "/game/drinking-water"
+            }
+        ]
+    },
+    "Drinking_Water": {
+        "name": "Drinking Water",
+        "path": "/game/drinking-water",
+        "causes": [
+            {
+                "name": "Water Supply",
+                "path": "/game/water-supply"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Southern Lifestyle",
+                "path": "/game/southern-lifestyle"
+            }
+        ]
+    },
+    "Groundwater_Use": {
+        "name": "Groundwater Use",
+        "path": "/game/groundwater-use",
+        "causes": [
+            {
+                "name": "Groundwater Supply",
+                "path": "/game/groundwater-supply"
+            },
+            {
+                "name": "Ave Energy Price",
+                "path": "/game/ave-energy-price"
+            },
+            {
+                "name": "Land Abuse",
+                "path": "/game/land-abuse"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Water Supply",
+                "path": "/game/water-supply"
+            },
+            {
+                "name": "Groundwater Supply",
+                "path": "/game/groundwater-supply"
+            }
+        ]
+    },
+    "Groundwater_Supply": {
+        "name": "Groundwater Supply",
+        "path": "/game/groundwater-supply",
+        "causes": [
+            {
+                "name": "Groundwater Use",
+                "path": "/game/groundwater-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Groundwater Use",
+                "path": "/game/groundwater-use"
+            }
+        ]
+    },
+    "Reservior_Capacity": {
+        "name": "Reservoir Capacity",
+        "path": "/game/reservoir-capacity",
+        "causes": [
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Water Supply",
+                "path": "/game/water-supply"
+            }
+        ]
+    },
+    "CFC_Tax": {
+        "name": "CFC Tax",
+        "path": "/game/cfc-tax",
+        "causes": [],
+        "effects": [
+            {
+                "name": "CFC Production",
+                "path": "/game/cfc-production"
+            }
+        ]
+    },
+    "CFC_Production": {
+        "name": "CFC Production",
+        "path": "/game/cfc-production",
+        "causes": [
+            {
+                "name": "CFC Tax",
+                "path": "/game/cfc-tax"
+            },
+            {
+                "name": "Materials Demand",
+                "path": "/game/materials-demand"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Tropospheric CFCs",
+                "path": "/game/tropospheric-cfcs"
+            },
+            {
+                "name": "Industrial Input",
+                "path": "/game/industrial-input"
+            }
+        ]
+    },
+    "Tropospheric_CFCs": {
+        "name": "Tropospheric CFCs",
+        "path": "/game/tropospheric-cfcs",
+        "causes": [
+            {
+                "name": "CFC Production",
+                "path": "/game/cfc-production"
+            },
+            {
+                "name": "Stratospheric CFC",
+                "path": "/game/stratospheric-cfc"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Global Temperature",
+                "path": "/game/global-temperature"
+            },
+            {
+                "name": "Stratospheric CFC",
+                "path": "/game/stratospheric-cfc"
+            }
+        ]
+    },
+    "Stratospheric_CFC": {
+        "name": "Stratospheric CFC",
+        "path": "/game/stratospheric-cfc",
+        "causes": [
+            {
+                "name": "Tropospheric CFCs",
+                "path": "/game/tropospheric-cfcs"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ozone",
+                "path": "/game/ozone"
+            },
+            {
+                "name": "Tropospheric CFCs",
+                "path": "/game/tropospheric-cfcs"
+            }
+        ]
+    },
+    "Ozone": {
+        "name": "Ozone",
+        "path": "/game/ozone",
+        "causes": [
+            {
+                "name": "Stratospheric CFC",
+                "path": "/game/stratospheric-cfc"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Ultraviolet Light",
+                "path": "/game/ultraviolet-light"
+            }
+        ]
+    },
+    "Ultraviolet_Light": {
+        "name": "Ultraviolet Light",
+        "path": "/game/ultraviolet-light",
+        "causes": [
+            {
+                "name": "Ozone",
+                "path": "/game/ozone"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Phytoplankton",
+                "path": "/game/phytoplankton"
+            },
+            {
+                "name": "Skin Cancer Deaths",
+                "path": "/game/skin-cancer-deaths"
+            },
+            {
+                "name": "Crop Yields",
+                "path": "/game/crop-yields"
+            }
+        ]
+    },
+    "Phytoplankton": {
+        "name": "Phytoplankton",
+        "path": "/game/phytoplankton",
+        "causes": [
+            {
+                "name": "Ultraviolet Light",
+                "path": "/game/ultraviolet-light"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Marine Life",
+                "path": "/game/marine-life"
+            }
+        ]
+    },
+    "Skin_Cancer_Deaths": {
+        "name": "Skin Cancer Deaths",
+        "path": "/game/skin-cancer-deaths",
+        "causes": [
+            {
+                "name": "Ultraviolet Light",
+                "path": "/game/ultraviolet-light"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Skin Cancer Points",
+                "path": "/game/skin-cancer-points"
+            }
+        ]
+    },
+    "Skin_Cancer_Points": {
+        "name": "Skin Cancer Points",
+        "path": "/game/skin-cancer-points",
+        "causes": [
+            {
+                "name": "Skin Cancer Deaths",
+                "path": "/game/skin-cancer-deaths"
+            }
+        ],
+        "effects": []
+    },
+    "Crop_Yields": {
+        "name": "Crop Yields",
+        "path": "/game/crop-yields",
+        "causes": [
+            {
+                "name": "Ultraviolet Light",
+                "path": "/game/ultraviolet-light"
+            },
+            {
+                "name": "Crop Technology",
+                "path": "/game/crop-technology"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Crops",
+                "path": "/game/crops"
+            }
+        ]
+    },
+    "Crop_Technology": {
+        "name": "Crop Technology",
+        "path": "/game/crop-technology",
+        "causes": [
+            {
+                "name": "Fertilizer Use",
+                "path": "/game/fertilizer-use"
+            },
+            {
+                "name": "Pesticide Use",
+                "path": "/game/pesticide-use"
+            },
+            {
+                "name": "Crop Strains",
+                "path": "/game/crop-strains"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Crops Yields",
+                "path": "/game/crops-yields"
+            }
+        ]
+    },
+    "Crops_Strains": {
+        "name": "Crops Strains",
+        "path": "/game/crops-strains",
+        "causes": [
+            {
+                "name": "Global Gene Pool",
+                "path": "/game/global-gene-pool"
+            },
+            {
+                "name": "Bio Technology",
+                "path": "/game/biotechnology"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Crop Technology",
+                "path": "/game/crop-technology"
+            }
+        ]
+    },
+    "Forest_Habitats": {
+        "name": "Forest Habitats",
+        "path": "/game/forest-habitats",
+        "causes": [
+            {
+                "name": "Forest Land",
+                "path": "/game/forest-land"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Forest Life Points",
+                "path": "/game/forest-life-points"
+            },
+            {
+                "name": "Global Gene Pool",
+                "path": "/game/global-gene-pool"
+            }
+        ]
+    },
+    "Forest_Life_Points": {
+        "name": "Forest Life Points",
+        "path": "/game/forest-life-points",
+        "causes": [
+            {
+                "name": "Forest Habitats",
+                "path": "/game/forest-habitats"
+            }
+        ],
+        "effects": []
+    },
+    "Global_Gene_Pool": {
+        "name": "Global Gene Pool",
+        "path": "/game/global-gene-pool",
+        "causes": [
+            {
+                "name": "Forest Habitats",
+                "path": "/game/forest-habitats"
+            },
+            {
+                "name": "Lake Habitats",
+                "path": "/game/lake-habitats"
+            },
+            {
+                "name": "Riparian Habitats",
+                "path": "/game/riparian-habitats"
+            },
+            {
+                "name": "Marine Life",
+                "path": "/game/marine-life"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Biodiversity Pts",
+                "path": "/game/biodiversity-pts"
+            },
+            {
+                "name": "Medicines",
+                "path": "/game/medicines"
+            },
+            {
+                "name": "Crops Strains",
+                "path": "/game/crop-strains"
+            },
+            {
+                "name": "Industrial Input",
+                "path": "/game/industrial-input"
+            }
+        ]
+    },
+    "Industrial_Input": {
+        "name": "Industrial Input",
+        "path": "/game/industrial-input",
+        "causes": [
+            {
+                "name": "Heavy Metal Use",
+                "path": "/game/heavy-metal-use"
+            },
+            {
+                "name": "Global Gene Pool",
+                "path": "/game/global-gene-pool"
+            },
+            {
+                "name": "Net Energy",
+                "path": "/game/net-energy"
+            },
+            {
+                "name": "CFC Production",
+                "path": "/game/cfc-production"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Industrial Output",
+                "path": "/game/industrial-output"
+            }
+        ]
+    },
+    "Medicines": {
+        "name": "Medicines",
+        "path": "/game/medicines",
+        "causes": [
+            {
+                "name": "Global Gene Pool",
+                "path": "/game/global-gene-pool"
+            },
+            {
+                "name": "Bio Technology",
+                "path": "/game/biotechnology"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Northern Lifestyle",
+                "path": "/game/northern-lifestyle"
+            }
+        ]
+    },
+    "Biodiversity_Pts": {
+        "name": "Biodiversity Pts",
+        "path": "/game/biodiversity-pts",
+        "causes": [
+            {
+                "name": "Global Gene Pool",
+                "path": "/game/global-gene-pool"
+            }
+        ],
+        "effects": []
+    },
+    "Riparian_Habitats": {
+        "name": "Riparian Habitats",
+        "path": "/game/riparian-habitats",
+        "causes": [
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Global Gene Pool",
+                "path": "/game/global-gene-pool"
+            }
+        ]
+    },
+    "Marine_Life": {
+        "name": "Marine Life",
+        "path": "/game/marine-life",
+        "causes": [
+            {
+                "name": "Seafood",
+                "path": "/game/seafood"
+            },
+            {
+                "name": "Oil Spills",
+                "path": "/game/oil-spills"
+            },
+            {
+                "name": "Phytoplankton",
+                "path": "/game/phytoplankton"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Global Gene Pool",
+                "path": "/game/global-gene-pool"
+            },
+            {
+                "name": "Marine Life Points",
+                "path": "/game/marine-life-points"
+            },
+            {
+                "name": "Seafood",
+                "path": "/game/seafood"
+            }
+        ]
+    },
+    "Seafood": {
+        "name": "Seafood",
+        "path": "/game/seafood",
+        "causes": [
+            {
+                "name": "Marine Life",
+                "path": "/game/marine-life"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Marine Life",
+                "path": "/game/marine-life"
+            },
+            {
+                "name": "Food Supply",
+                "path": "/game/food-supply"
+            }
+        ]
+    },
+    "Marine_Life_Points": {
+        "name": "Marine Life Points",
+        "path": "/game/marine-life-points",
+        "causes": [
+            {
+                "name": "Marine Life",
+                "path": "/game/marine-life"
+            }
+        ],
+        "effects": []
+    },
+    "Lake_Habitats": {
+        "name": "Lake Habitats",
+        "path": "/game/lake-habitats",
+        "causes": [
+            {
+                "name": "Lake Acidity",
+                "path": "/game/lake-acidity"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Global Gene Pool",
+                "path": "/game/global-gene-pool"
+            },
+            {
+                "name": "Lake Life Points",
+                "path": "/game/lake-life-points"
+            }
+        ]
+    },
+    "Lake_Acidity": {
+        "name": "Lake Acidity",
+        "path": "/game/lake-acidity",
+        "causes": [
+            {
+                "name": "Acid Rain",
+                "path": "/game/acid-rain"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Lake Habitats",
+                "path": "/game/lake-habitats"
+            }
+        ]
+    },
+    "Lake_Life_Points": {
+        "name": "Lake Life Points",
+        "path": "/game/lake-life-points",
+        "causes": [
+            {
+                "name": "Lake Habitats",
+                "path": "/game/lake-habitats"
             }
         ],
         "effects": []

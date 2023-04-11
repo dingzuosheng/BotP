@@ -78,6 +78,12 @@ import StripMining from './components/land/StripMining'
 import LandAbuse from './components/land/LandAbuse'
 import LandAbusePoints from './components/land/LandAbusePoints'
 import Gameover from './components/Gameover'
+import BeefTax from './components/Beef/BeefTax.vue'
+import BeefProduction from "./components/Beef/BeefProduction.vue"
+import Grasslands from './components/Beef/Grasslands.vue'
+import Desertification from './components/Beef/Desertification.vue'
+import FuelwoodUse from './components/Beef/FuelwoodUse.vue'
+import WoodStoveSubsidy from './components/Beef/WoodStoveSubsidy.vue'
 
 const routes = [
     {
@@ -464,6 +470,36 @@ const routes = [
                 name:'Gameover',
                 path:'/game/gameover',
                 component:Gameover
+            },
+            {
+                name:'BeefTax',
+                path:'/game/beef-tax',
+                component:BeefTax
+            },
+            {
+                name:'BeefProduction',
+                path:'/game/beef-production',
+                component:BeefProduction
+            },
+            {
+                name:'Grasslands',
+                path:'/game/grasslands',
+                component:Grasslands
+            },
+            {
+                name:'Desertification',
+                path:'/game/desertification',
+                component:Desertification
+            },
+            {
+                name:'FuelwoodUse',
+                path:'/game/fuelwood-use',
+                component:FuelwoodUse
+            },
+            {
+                name:'WoodStoveSubsidy',
+                path:'/game/wood-stove-subsidy',
+                component:WoodStoveSubsidy
             }
         ]
     },

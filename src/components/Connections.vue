@@ -1,6 +1,6 @@
 <template>
-    <div>
-         <img  src="/image/connections.JPG"/>
+    <div class="bg">
+        <img  src="/image/connect-mapping.JPG"/>
     </div>
 </template>
 <script>
@@ -9,5 +9,8 @@ export default {
 }
 </script>
 <style>
-
+.bg{
+    margin-top: 600px;
+    transform: rotate(90deg);
+}
 </style>
