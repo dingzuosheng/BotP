@@ -84,6 +84,17 @@ import Grasslands from './components/Beef/Grasslands.vue'
 import Desertification from './components/Beef/Desertification.vue'
 import FuelwoodUse from './components/Beef/FuelwoodUse.vue'
 import WoodStoveSubsidy from './components/Beef/WoodStoveSubsidy.vue'
+import ForestLand from './components/Beef/ForestLand.vue'
+import ForestClearing from './components/Beef/ForestClearing.vue'
+import DebtForNatureSubsidy from './components/Beef/DebtForNatureSubsidy.vue'
+import FarmLand from './components/Beef/Farmland.vue'
+import Crops from './components/Beef/Crops.vue'
+import CropYields from './components/Beef/CropYields.vue'
+import CropTechnology from './components/Beef/CropTechnology.vue'
+import PesticideUse from './components/Pesticide/PesticideUse.vue'
+import PesticideTax from './components/Pesticide/PesticideTax.vue'
+import PesticideDeaths from './components/Pesticide/PesticideDeaths.vue'
+import PesticidePoints from './components/Pesticide/PesticidePoints.vue'
 
 const routes = [
     {
@@ -500,6 +511,61 @@ const routes = [
                 name:'WoodStoveSubsidy',
                 path:'/game/wood-stove-subsidy',
                 component:WoodStoveSubsidy
+            },
+            {
+                name:'ForestLand',
+                path:'/game/forest-land',
+                component:ForestLand
+            },
+            {
+                name:'ForestClearing',
+                path:'/game/forest-clearing',
+                component:ForestClearing
+            },
+            {
+                name:'DebtForNatureSubsidy',
+                path:'/game/debt-for-nature-subsidy',
+                component:DebtForNatureSubsidy
+            },
+            {
+                name:'FarmLand',
+                path:'/game/farm-land',
+                component:FarmLand
+            },
+            {
+                name:'Crops',
+                path:'/game/crops',
+                component:Crops
+            },
+            {
+                name:'CropYields',
+                path:'/game/crop-yields',
+                component:CropYields
+            },
+            {
+                name:'CropTechnology',
+                path:'/game/crop-technology',
+                component:CropTechnology
+            },
+            {
+                name:'PesticideUse',
+                path:'/game/pesticide-use',
+                component:PesticideUse
+            },
+            {
+                name:'PesticideTax',
+                path:'/game/pesticide-tax',
+                component:PesticideTax
+            },
+            {
+                name:'PesticideDeaths',
+                path:'/game/pesticide-deaths',
+                component:PesticideDeaths
+            },
+            {
+                name:'PesticidePoints',
+                path:'/game/pesticide-points',
+                component:PesticidePoints
             }
         ]
     },

@@ -118,7 +118,20 @@
                         :fuelwoodUse="fuelwoodUse"
 
                         @changeDemandPerCapitaRate="changeDemandPerCapitaRate($event)" @changeWoodSavedPerDollarRate="changeWoodSavedPerDollarRate($event)"
-                        :woodStoveDollar="woodStoveDollar" @changeWoodStoveSubsidyRate="changeWoodStoveSubsidyRate($event)"
+                        :woodStoveDollar="woodStoveDollar" @changeWoodStoveSubsidyRate="changeWoodStoveSubsidyRate($event)" :forestLand="forestLand" @changeWoodRate="changeWoodRate($event)"
+                        @changeDamage="changeDamage($event)" :forestClearing="forestClearing" :logging="logging" @changeClearingRate="changeClearingRate($event)"
+                        @changePriceOfForestLand="changePriceOfForestLand($event)" :debtForNatureSubsidy="debtForNatureSubsidy" @changeDebtForNatureSubsidyRate="changeDebtForNatureSubsidyRate($event)"
+
+                        :farmLand="farmLand" @changeValueOfClearedLandRate="changeValueOfClearedLandRate($event)" 
+                        :crops="crops" :cropYields="cropYields" @changeBeefGrainConsumptionRate="changeBeefGrainConsumptionRate($event)" :cropTechnology="cropTechnology"
+                        :waterSupply="waterSupply" :ultravioletLight="ultravioletLight" @changeWeight1Factor="changeWeight1Factor($event)" @changeWeight2Factor="changeWeight2Factor($event)"
+                        @changeWeight3Factor="changeWeight3Factor($event)" 
+
+                        @changeWeight1_techFactor="changeWeight1_techFactor($event)" @changeWeight2_techFactor="changeWeight2_techFactor($event)" @changeWeight3_techFactor="changeWeight3_techFactor($event)"
+                        :cropStrains="cropStrains" :pesticideUse="pesticideUse" :fertilizerUse="fertilizerUse" :industrialOutput="industrialOutput" 
+                        
+                        :pesticideTax="pesticideTax" :pesticideTaxIncome="pesticideTaxIncome" @changePesticideTaxRate="changePesticideTaxRate($event)" :pesticideDeaths="pesticideDeaths"
+                        @changeEffectiveToxicity="changeEffectiveToxicity($event)" :pesticidePoints="pesticidePoints" @changeValueOfFarmLaborersLife="changeValueOfFarmLaborersLife($event)"
 
                         :totalTreasury="totalTreasury" :totalPoints="totalPoints">
                 <keep-alive>
@@ -300,7 +313,7 @@ export default {
             cowFactor:52.5,
             costToProduce:600,
             taxEffect:4.00,
-            beefProduction:134 * Math.pow(10,9),
+            beefProduction:134 * Math.pow(10,6),
             grasslands:1.59 * Math.pow(10,9),
             overgrazing:8.00 * Math.pow(10,6),
             sustainableFuelwoodUse:1.40 * Math.pow(10,9),
@@ -311,6 +324,45 @@ export default {
             woodSavedPerDollar:0.100,
             woodStoveDollar:3.27 * Math.pow(10,9),
             woodStoveSubsidy:0.08,
+            forestLand: 7.89 * Math.pow(10,9),
+            wood:0.05,
+            damage:0.02,
+            forestClearing:14.8 * Math.pow(10,6),
+            logging:22 * Math.pow(10,6),
+            clearingRate:0.450,
+            priceOfForestLand:1000,
+            debtForNatureSubsidy:3.20 * Math.pow(10,9),
+            debtForNatureSubsidyRate:0.08,
+            farmLand:1.0 * Math.pow(10,9),
+            valueOfClearedLand:0.1,
+            crops:1.69*Math.pow(10,9),
+            beefGrainConsumption:5.0,
+            cropYields:2.36,
+            cropTechnology:11.5 * Math.pow(10,6),
+            waterSupply:4.54 * Math.pow(10,12),
+            ultravioletLight:0.485,
+            weight1:1.6*Math.pow(10,-7),
+            weight2:1.5*Math.pow(10,-13),
+            weight3:0.344,
+            weight1_tech: 25.0,
+            weight2_tech: 2.00,
+            weight3_tech: 3.51,
+            cropStrains: 51.6 * Math.pow(10,3),
+            /*pesticide*/
+            pesticideUse:2.41 * Math.pow(10,6),
+            pesticideTax:10.0,
+            pesticideTaxIncome:25.0 * Math.pow(10,6),
+            pesticideDeaths:24.1 * Math.pow(10,3),
+            effectiveToxicity:0.01,
+            pesticidePoints:36.2,
+            valueOfFarmLaborersLife:0.00150,
+            /*fertilizer*/
+            fertilizerUse:1.54 * Math.pow(10,6),
+            industrialOutput:3.88*Math.pow(10,12),
+            useRate:6.1 * Math.pow(10,-4),
+            costToProduce_pesticide:1000,
+            taxEffect_pesticide:2.00,
+
 
             year:1990,//right
             executed:0,
@@ -969,6 +1021,54 @@ export default {
         },
         changeWoodStoveSubsidyRate(woodStoveSubsidy){
             this.woodStoveSubsidy = woodStoveSubsidy;
+        },
+        changeWoodRate(wood){
+            this.wood = wood;
+        },
+        changeDamage(damage){
+            this.damage = damage;
+        },
+        changeClearingRate(clearingRate){
+            this.clearingRate = clearingRate;
+        },
+        changePriceOfForestLand(priceOfForestLand){
+            this.priceOfForestLand = priceOfForestLand;
+        },
+        changeDebtForNatureSubsidyRate(debtForNatureSubsidyRate){
+            this.debtForNatureSubsidyRate = debtForNatureSubsidyRate;
+        },
+        changeValueOfClearedLandRate(valueOfClearedLand){
+            this.valueOfClearedLand = valueOfClearedLand;
+        },
+        changeBeefGrainConsumptionRate(beefGrainConsumption){
+            this.beefGrainConsumption = beefGrainConsumption;
+        },
+        changeWeight1Factor(weight1){
+            this.weight1 = weight1;
+        },
+        changeWeight2Factor(weight2){
+            this.weight2 = weight2;
+        },
+        changeWeight3Factor(weight3){
+            this.weight3 = weight3;
+        },
+        changeWeight1_techFactor(weight1_tech){
+            this.weight1_tech = weight1_tech;
+        },
+        changeWeight2_techFactor(weight2_tech){
+            this.weight2_tech = weight2_tech;
+        },
+        changeWeight3_techFactor(weight3_tech){
+            this.weight3_tech = weight3_tech;
+        },
+        changePesticideTaxRate(pesticideTax){
+            this.pesticideTax = pesticideTax;
+        },
+        changeEffectiveToxicity(effectiveToxicity){
+            this.effectiveToxicity = effectiveToxicity;
+        },
+        changeValueOfFarmLaborersLife(valueOfFarmLaborersLife){
+            this.valueOfFarmLaborersLife = valueOfFarmLaborersLife;
         }
 
     }

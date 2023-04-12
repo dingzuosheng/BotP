@@ -1816,7 +1816,7 @@
         "causes": [
             {
                 "name": "Crops Yields",
-                "path": "/game/crops-yields"
+                "path": "/game/crop-yields"
             },
             {
                 "name": "Farm Land",
@@ -1918,6 +1918,10 @@
             {
                 "name": "Desertification",
                 "path": "/game/desertification"
+            },
+            {
+                "name": "Forest Land",
+                "path": "/game/forest-land"
             }
         ]
     },
