@@ -133,6 +133,8 @@
                         :pesticideTax="pesticideTax" :pesticideTaxIncome="pesticideTaxIncome" @changePesticideTaxRate="changePesticideTaxRate($event)" :pesticideDeaths="pesticideDeaths"
                         @changeEffectiveToxicity="changeEffectiveToxicity($event)" :pesticidePoints="pesticidePoints" @changeValueOfFarmLaborersLife="changeValueOfFarmLaborersLife($event)"
 
+                        :fertilizerTaxIncome="fertilizerTaxIncome" @changeFertilizerTaxRate="changeFertilizerTaxRate($event)"
+
                         :totalTreasury="totalTreasury" :totalPoints="totalPoints">
                 <keep-alive>
                     <component :is="Component" />
@@ -362,6 +364,8 @@ export default {
             useRate:6.1 * Math.pow(10,-4),
             costToProduce_pesticide:1000,
             taxEffect_pesticide:2.00,
+            fertilizerTaxIncome:16.0 * Math.pow(10,6),
+            fertilizerTax:10,
 
 
             year:1990,//right
@@ -1069,6 +1073,9 @@ export default {
         },
         changeValueOfFarmLaborersLife(valueOfFarmLaborersLife){
             this.valueOfFarmLaborersLife = valueOfFarmLaborersLife;
+        },
+        changeFertilizerTaxRate(fertilizerTax){
+            this.fertilizerTax = fertilizerTax;
         }
 
     }

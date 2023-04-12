@@ -95,6 +95,7 @@ import PesticideUse from './components/Pesticide/PesticideUse.vue'
 import PesticideTax from './components/Pesticide/PesticideTax.vue'
 import PesticideDeaths from './components/Pesticide/PesticideDeaths.vue'
 import PesticidePoints from './components/Pesticide/PesticidePoints.vue'
+import FertilizerTax from './components/Fertilizer/FertilizerTax.vue'
 
 const routes = [
     {
@@ -566,7 +567,12 @@ const routes = [
                 name:'PesticidePoints',
                 path:'/game/pesticide-points',
                 component:PesticidePoints
-            }
+            },
+            {
+                name:'FertilizerTax',
+                path:'/game/fertilizer-tax',
+                component:FertilizerTax
+            },
         ]
     },
     
