@@ -1,6 +1,6 @@
 # BotP
 
-This is about the game Balance of the Planet
+This is about the game Balance of the Planet, reference to the original game: https://archive.org/details/msdos_Balance_of_the_Planet_1990
 
 # Develop Tool Introduction Official Website
 
