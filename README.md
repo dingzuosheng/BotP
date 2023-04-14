@@ -24,4 +24,4 @@ Visual Studio Code - Development IDE - https://code.visualstudio.com/
 2. Install Node.js
 3. Clone this Project and set into Visual Studio Code
 4. Install Dependencies - command: npm install
-5. Start the Project - command: npm run serve
+5. Start this Project - command: npm run serve
