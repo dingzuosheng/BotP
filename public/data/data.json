@@ -2422,8 +2422,8 @@
         "path": "/game/heavy-metal-points",
         "causes": [
             {
-                "name": "Total Heavy Metal Deaths",
-                "path": "/game/total-heavy-metal-deaths"
+                "name": "Heavy Metal Deaths",
+                "path": "/game/heavy-metal-deaths"
             }
         ],
         "effects": []
@@ -2435,6 +2435,10 @@
             {
                 "name": "Heavy Metal Use",
                 "path": "/game/heavy-metal-use"
+            },
+            {
+                "name": "Pesticide Use",
+                "path": "/game/pesticide-use"
             },
             {
                 "name": "Fertilizer Use",
