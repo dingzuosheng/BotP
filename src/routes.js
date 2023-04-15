@@ -96,6 +96,18 @@ import PesticideTax from './components/Pesticide/PesticideTax.vue'
 import PesticideDeaths from './components/Pesticide/PesticideDeaths.vue'
 import PesticidePoints from './components/Pesticide/PesticidePoints.vue'
 import FertilizerTax from './components/Fertilizer/FertilizerTax.vue'
+import FertilizerUse from './components/Fertilizer/FertilizerUse.vue'
+import IndustrialOutput from './components/HeavyMetal/IndustrialOutput.vue'
+import IndustrialInput from './components/HeavyMetal/IndustrialInput.vue'
+import HeavyMetalUse from './components/HeavyMetal/HeavyMetalUse.vue'
+import HeavyMetalTax from './components/HeavyMetal/HeavyMetalTax.vue'
+import HeavyMetalPrice from './components/HeavyMetal/HeavyMetalPrice.vue'
+import HeavyMetalSupply from './components/HeavyMetal/HeavyMetalSupply.vue'
+import TotalHeavyMetalUse from './components/HeavyMetal/TotalHeavyMetalUse.vue'
+import HeavyMetalDeaths from './components/HeavyMetal/HeavyMetalDeaths.vue'
+import HeavyMetalPoints from './components/HeavyMetal/HeavyMetalPoints.vue'
+import MaterialsDemand from './components/HeavyMetal/MaterialsDemand.vue'
+import WaterPollution from './components/Water/WaterPollution.vue'
 
 const routes = [
     {
@@ -572,6 +584,66 @@ const routes = [
                 name:'FertilizerTax',
                 path:'/game/fertilizer-tax',
                 component:FertilizerTax
+            },
+            {
+                name:'FertilizerUse',
+                path:'/game/fertilizer-use',
+                component:FertilizerUse
+            },
+            {
+                name:'IndustrialOutput',
+                path:'/game/industrial-output',
+                component:IndustrialOutput
+            },
+            {
+                name:'IndustrialInput',
+                path:'/game/industrial-input',
+                component:IndustrialInput
+            },
+            {
+                name:'HeavyMetalUse',
+                path:'/game/heavy-metal-use',
+                component:HeavyMetalUse
+            },
+            {
+                name:'HeavyMetalTax',
+                path:'/game/heavy-metal-tax',
+                component:HeavyMetalTax
+            },
+            {
+                name:'HeavyMetalPrice',
+                path:'/game/heavy-metal-price',
+                component:HeavyMetalPrice
+            },
+            {
+                name:'HeavyMetalSupply',
+                path:'/game/heavy-metal-supply',
+                component:HeavyMetalSupply
+            },
+            {
+                name:'TotalHeavyMetalUse',
+                path:'/game/total-heavy-metal-use',
+                component:TotalHeavyMetalUse
+            },
+            {
+                name:'HeavyMetalDeaths',
+                path:'/game/heavy-metal-deaths',
+                component:HeavyMetalDeaths
+            },
+            {
+                name:'HeavyMetalPoints',
+                path:'/game/heavy-metal-points',
+                component:HeavyMetalPoints
+            },
+            {
+                name:'MaterialsDemand',
+                path:'/game/materials-demand',
+                component:MaterialsDemand
+            },
+            {
+                name:'WaterPollution',
+                path:'/game/water-pollution',
+                component:WaterPollution
             },
         ]
     },
