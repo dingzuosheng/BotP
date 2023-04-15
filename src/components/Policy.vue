@@ -20,9 +20,9 @@
                         <td><router-link :to="{path:'/game/beef-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/coal-tax'}">CFC Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/cfc-tax'}">CFC Tax</router-link></td>
+                        <td><router-link :to="{path:'/game/cfc-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/cfc-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/coal-tax'}">Coal Tax</router-link></td>
@@ -30,19 +30,19 @@
                         <td><router-link :to="{path:'/game/coal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/coal-tax'}">Fertilizer Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/fertilizer-tax'}">Fertilizer Tax</router-link></td>
+                        <td><router-link :to="{path:'/game/fertilizer-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/fertilizer-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/coal-tax'}">Heavy Metal Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/heavy-meatal-tax'}">Heavy Metal Tax</router-link></td>
+                        <td><router-link :to="{path:'/game/heavy-meatal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/heavy-meatal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/coal-tax'}">Logging Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/logging-tax'}">Logging Tax</router-link></td>
+                        <td><router-link :to="{path:'/game/logging-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/logging-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/natural-gas-tax'}">Natural Gas Tax</router-link></td>
@@ -60,9 +60,9 @@
                         <td><router-link :to="{path:'/game/oil-tax'}">${{ Math.floor(this.oilTaxIncome/Math.pow(10,9)*100)/100 }} billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/coal-tax'}">Pesticide Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/pesticide-tax'}">Pesticide Tax</router-link></td>
+                        <td><router-link :to="{path:'/game/pesticide-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/pesticide-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -83,9 +83,9 @@
                 </thead>
                 <tbody>
                     <tr>                        
-                        <td><router-link :to="{path:'/game/basic-research'}">Property Damage $</router-link></td>
-                        <td><router-link :to="{path:'/game/basic-research'}">{{ Math.floor(this.basicResearch * 100 * 100)/100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/basic-research'}">${{ Math.floor(this.basicResearchBudget/Math.pow(10,9) * 100)/100 }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/property-damage-subsidy'}">Property Damage $</router-link></td>
+                        <td><router-link :to="{path:'/game/property-damage-subsidy'}">{{ Math.floor(this.basicResearch * 100 * 100)/100 }}%</router-link></td>
+                        <td><router-link :to="{path:'/game/property-damage-subsidy'}">${{ Math.floor(this.basicResearchBudget/Math.pow(10,9) * 100)/100 }}Billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/basic-research'}">Basic Research $</router-link></td>
@@ -108,14 +108,14 @@
                         <td><router-link :to="{path:'/game/dam-use-budget'}">${{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/dam-use-budget'}">Debt for Nature $</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-budget'}">{{ Math.floor(this.damSubsidy * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-budget'}">${{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/debt-for-nature-subsidy'}">Debt for Nature $</router-link></td>
+                        <td><router-link :to="{path:'/game/debt-for-nature-subsidy'}">{{ Math.floor(this.damSubsidy * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/debt-for-nature-subsidy'}">${{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/dam-use-budget'}">Family Planning $</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-budget'}">{{ Math.floor(this.damSubsidy * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-budget'}">${{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/family-planning-subsidy'}">Family Planning $</router-link></td>
+                        <td><router-link :to="{path:'/game/family-planning-subsidy'}">{{ Math.floor(this.damSubsidy * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/family-planning-subsidy'}">${{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/nuclear-research'}">Nuclear Research $</router-link></td>
@@ -128,9 +128,9 @@
                         <td><router-link :to="{path:'/game/oil-research'}">${{ Math.floor(this.oilResearchBudget/Math.pow(10,9)*100)/100}}Billion</router-link></td>
                     </tr>
                     <tr>                        
-                        <td><router-link :to="{path:'/game/nuclear-research'}">Recycling Center $</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-research'}">{{ Math.floor(this.nuclearResearch * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-research'}">${{ Math.floor(this.nuclearResearchBudget/Math.pow(10,9)* 100)/100}}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/recyling-center-subsidy'}">Recycling Center $</router-link></td>
+                        <td><router-link :to="{path:'/game/recyling-center-subsidy'}">{{ Math.floor(this.nuclearResearch * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/recyling-center-subsidy'}">${{ Math.floor(this.nuclearResearchBudget/Math.pow(10,9)* 100)/100}}Billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/solar-energy'}">Solar Energy $</router-link></td>
@@ -143,9 +143,9 @@
                         <td><router-link :to="{path:'/game/solar-research'}">${{Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100 }}Billion</router-link></td>
                     </tr>
                     <tr>                        
-                        <td><router-link :to="{path:'/game/nuclear-research'}">Wood Stove $</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-research'}">{{ Math.floor(this.nuclearResearch * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-research'}">${{ Math.floor(this.nuclearResearchBudget/Math.pow(10,9)* 100)/100}}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/wood-stove-subsidy'}">Wood Stove $</router-link></td>
+                        <td><router-link :to="{path:'/game/wood-stove-subsidy'}">{{ Math.floor(this.nuclearResearch * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/wood-stove-subsidy'}">${{ Math.floor(this.nuclearResearchBudget/Math.pow(10,9)* 100)/100}}Billion</router-link></td>
                     </tr>
                     <tr>
                         <td></td>
