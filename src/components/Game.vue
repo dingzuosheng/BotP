@@ -128,12 +128,23 @@
                         @changeWeight3Factor="changeWeight3Factor($event)" 
 
                         @changeWeight1_techFactor="changeWeight1_techFactor($event)" @changeWeight2_techFactor="changeWeight2_techFactor($event)" @changeWeight3_techFactor="changeWeight3_techFactor($event)"
-                        :cropStrains="cropStrains" :pesticideUse="pesticideUse" :fertilizerUse="fertilizerUse" :industrialOutput="industrialOutput" 
+                        :cropStrains="cropStrains" :pesticideUse="pesticideUse" :fertilizerUse="fertilizerUse"
                         
                         :pesticideTax="pesticideTax" :pesticideTaxIncome="pesticideTaxIncome" @changePesticideTaxRate="changePesticideTaxRate($event)" :pesticideDeaths="pesticideDeaths"
                         @changeEffectiveToxicity="changeEffectiveToxicity($event)" :pesticidePoints="pesticidePoints" @changeValueOfFarmLaborersLife="changeValueOfFarmLaborersLife($event)"
 
-                        :fertilizerTaxIncome="fertilizerTaxIncome" @changeFertilizerTaxRate="changeFertilizerTaxRate($event)"
+                        :fertilizerTaxIncome="fertilizerTaxIncome" :fertilizerTax="fertilizerTax" @changeFertilizerTaxRate="changeFertilizerTaxRate($event)"
+                        @changeScaleFactorRate="changeScaleFactorRate($event)" @changeCostToProduceRate_fertilizerUse="changeCostToProduceRate_fertilizerUse($event)"
+                        @changeTaxEffectRate_fertilizerUse="changeTaxEffectRate_fertilizerUse($event)" 
+
+                        :industrialInput="industrialInput" :industrialOutput="industrialOutput" :globalGenePool="globalGenePool" :heavyMetalUse="heavyMetalUse" :cfcProduction="cfcProduction"
+                        :heavyMetalTax="heavyMetalTax" :heavyMetalPrice="heavyMetalPrice" @changeUseRateFactor_heavyMetalUse="changeUseRateFactor_heavyMetalUse($event)"
+                        @changeTaxEffectRate_heavyMetalUse="changeTaxEffectRate_heavyMetalUse($event)" :materialsDemand="materialsDemand" :heavyMetalTaxIncome="heavyMetalTaxIncome"
+                        @changeHeavyMetalTaxRate="changeHeavyMetalTaxRate($event)" :heavyMetalSupply="heavyMetalSupply" :totalHeavyMetalUse="totalHeavyMetalUse"
+                        @changeHeavyMetalSupplyElasticity="changeHeavyMetalSupplyElasticity($event)" @changeHeavyMetalDeathRate="changeHeavyMetalDeathRate($event)"
+                        :heavyMetalDeaths="heavyMetalDeaths" :heavyMetalPoints="heavyMetalPoints" @changeHeavymetalValueOfOneHumanLife="changeHeavymetalValueOfOneHumanLife($event)"
+                        
+                        :waterPollution="waterPollution" @changeHMToxicFactor="changeHMToxicFactor($event)" @changePToxicFactor="changePToxicFactor($event)" @changeFToxicFactor="changeFToxicFactor($event)"
 
                         :totalTreasury="totalTreasury" :totalPoints="totalPoints">
                 <keep-alive>
@@ -366,7 +377,33 @@ export default {
             taxEffect_pesticide:2.00,
             fertilizerTaxIncome:16.0 * Math.pow(10,6),
             fertilizerTax:10,
+            scaleFactor:3.9*Math.pow(10,-4),
+            costToProduce_fertilizerUse:1000,
+            taxEffect_fertilizerUse:4,
+            /* heavy Metal */
+            industrialInput:3.88 * Math.pow(10,12),
+            globalGenePool:5.07* Math.pow(10,6),
+            heavyMetalUse: 3.54* Math.pow(10,6),
+            cfcProduction: 599 * Math.pow(10,3),
+            heavyMetalTax: 8,
+            heavyMetalPrice: 794,
+            materialsDemand:151 * Math.pow(10,9),
+            useRate_heavyMetalUse: 0.0198,
+            taxEffect_heavyMetalUse:5.00,
+            heavyMetalTaxIncome:29.6 * Math.pow(10,6),
+            heavyMetalSupply:131*Math.pow(10,6),
+            totalHeavyMetalUse:103*Math.pow(10,6),
+            heavyMetalSupplyElasticity:296*Math.pow(10,3),
+            heavyMetalDeaths:95.5 * Math.pow(10,3),
+            heavyMetalDeathRate:0.0270,
+            heavyMetalPoints:190,
+            valueOfOneHumanLife_heavyMetal:0.00200,
+            waterPollution:9.64*Math.pow(10,9),
 
+            /*water*/
+            hmToxic:2000,
+            pToxic:1000,
+            fToxic:100,
 
             year:1990,//right
             executed:0,
@@ -1076,7 +1113,43 @@ export default {
         },
         changeFertilizerTaxRate(fertilizerTax){
             this.fertilizerTax = fertilizerTax;
-        }
+        },
+        changeScaleFactorRate(scaleFactor){
+            this.scaleFactor = scaleFactor;
+        },
+        changeCostToProduceRate_fertilizerUse(costTopProduce_fertilizerUse){
+            this.costToProduce_fertilizerUse = costTopProduce_fertilizerUse;
+        },
+        changeTaxEffectRate_fertilizerUse(taxEffect_fertilizerUse){
+            this.taxEffect_fertilizerUse = taxEffect_fertilizerUse;
+        },
+        changeUseRateFactor_heavyMetalUse(useRate_heavyMetalUse){
+            this.useRate_heavyMetalUse = useRate_heavyMetalUse;
+        },
+        changeTaxEffectRate_heavyMetalUse(taxEffect_heavyMetalUse){
+            this.taxEffect_heavyMetalUse = taxEffect_heavyMetalUse;
+        },
+        changeHeavyMetalTaxRate(heavyMetalTax){
+            this.heavyMetalTax = heavyMetalTax;
+        },
+        changeHeavyMetalSupplyElasticity(heavyMetalSupplyElasticity){
+            this.heavyMetalSupplyElasticity = heavyMetalSupplyElasticity;
+        },
+        changeHeavyMetalDeathRate(heavyMetalDeathRate){
+            this.heavyMetalDeathRate = heavyMetalDeathRate;
+        },
+        changeHeavymetalValueOfOneHumanLife(valueOfOneHumanLife){
+            this.changeHeavymetalValueOfOneHumanLife = valueOfOneHumanLife;
+        },
+        changeHMToxicFactor(hmToxic){
+            this.hmToxic = hmToxic;
+        },
+        changePToxicFactor(pToxic){
+            this.pToxic = pToxic;
+        },
+        changeFToxicFactor(fToxic){
+            this.fToxic = fToxic;
+        },
 
     }
 }
@@ -1099,10 +1172,10 @@ export default {
 }
 
 #nav button {
-    margin: 2px 10px;
-    width: 200px;
+    margin: 2px 5px;
+    width: 150px;
     height:50px;
-    font-size:x-large;
+    font-size:medium;
 }
 
 #nav #btn-sub {

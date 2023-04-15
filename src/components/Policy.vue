@@ -35,9 +35,9 @@
                         <td><router-link :to="{path:'/game/fertilizer-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
-                        <td><router-link :to="{path:'/game/heavy-meatal-tax'}">Heavy Metal Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/heavy-meatal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
-                        <td><router-link :to="{path:'/game/heavy-meatal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/heavy-metal-tax'}">Heavy Metal Tax</router-link></td>
+                        <td><router-link :to="{path:'/game/heavy-metal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,9)*100)/100}} billion</router-link></td>
+                        <td><router-link :to="{path:'/game/heavy-metal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}} billion</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/logging-tax'}">Logging Tax</router-link></td>
