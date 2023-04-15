@@ -148,7 +148,7 @@ export default {
 
 <style>
 .main {
-    height: 900px;
+    height: 700px;
     display: grid;
     grid-template-columns: 65% 35%;
     grid-template-areas: "content side-nav";
@@ -171,7 +171,9 @@ export default {
 }
 
 .range {
-    margin: 200px 400px;
+    margin: 50px 50px;
+    justify-content: center;
+    text-align: center;
 }
 
 .range input {
