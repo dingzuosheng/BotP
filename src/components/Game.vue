@@ -145,6 +145,23 @@
                         :heavyMetalDeaths="heavyMetalDeaths" :heavyMetalPoints="heavyMetalPoints" @changeHeavymetalValueOfOneHumanLife="changeHeavymetalValueOfOneHumanLife($event)"
                         
                         :waterPollution="waterPollution" @changeHMToxicFactor="changeHMToxicFactor($event)" @changePToxicFactor="changePToxicFactor($event)" @changeFToxicFactor="changeFToxicFactor($event)"
+                        :groundwaterUse="groundwaterUse" :reservoirCapacity="reservoirCapacity" :groundwaterSupply="groundwaterSupply"
+                        @changeC1GroundwateerUse="changeC1GroundwateerUse($event)" @changeContaminationFactor="changeContaminationFactor($event)"
+                        @changeCapacityPerDam="changeCapacityPerDam($event)" :drinkingWater="drinkingWater" @changeDrinkingFractionFactor="changeDrinkingFractionFactor($event)"
+
+                        :southernLifestyle="southernLifestyle" :housing="housing" :foodSupply="foodSupply"
+                        @changeW1SFactor="changeW1SFactor($event)" @changeW2SFactor="changeW2SFactor($event)" @changeW3SFactor="changeW3SFactor($event)"
+                        @changeWoodRequirementsFactor="changeWoodRequirementsFactor($event)" @changeHousingScaleFactor="changeHousingScaleFactor($event)"
+
+                        :loggingTaxIncome="loggingTaxIncome" :loggingTax="loggingTax" @changeLoggingTaxRate="changeLoggingTaxRate($event)" :recycledPaper="recycledPaper"
+                        @changeUseRateFactorLogging="changeUseRateFactorLogging($event)" @changeCostFactorLogging="changeCostFactorLogging($event)" @changeTaxEffectRateLogging="changeTaxEffectRateLogging($event)"
+
+                        :recyclingCenterSubsidyRate="recyclingCenterSubsidyRate" :recyclingCenterBudget="recyclingCenterBudget" @changeRecyclingEffectivenessFactor="changeRecyclingEffectivenessFactor($event)"
+                        @changeRecyclingCenterSubsidyRate="changeRecyclingCenterSubsidyRate($event)"
+
+
+
+
 
                         :totalTreasury="totalTreasury" :totalPoints="totalPoints">
                 <keep-alive>
@@ -398,12 +415,44 @@ export default {
             heavyMetalDeathRate:0.0270,
             heavyMetalPoints:190,
             valueOfOneHumanLife_heavyMetal:0.00200,
-            waterPollution:9.64*Math.pow(10,9),
 
             /*water*/
             hmToxic:2000,
             pToxic:1000,
             fToxic:100,
+            waterPollution:9.64*Math.pow(10,9),
+            groundwaterUse:4.45*Math.pow(10,12),
+            reservoirCapacity:100*Math.pow(10,9),
+            groundwaterSupply:8.4*Math.pow(10,15),
+            c1GroundwaterUse:84.1,
+            contamination:5*Math.pow(10,6),
+            capacityPerDam:5.56*Math.pow(10,9),
+            drinkingWater:147*Math.pow(10,9),
+            drinkingFraction:0.0326,
+
+            /* lifestyle */
+            southernLifestyle:2.92*Math.pow(10,9),
+            w1_s:1.00,
+            w2_s:0.006,
+            w3_s:0.526,
+            housing:1.03*Math.pow(10,9),
+            foodSupply:1.91*Math.pow(10,9),
+            woodRequirements:25.0,
+            scaleFactorHousing:1.2*Math.pow(10,-4),
+
+            /*logging */
+            loggingTaxIncome:8*Math.pow(10,6),
+            loggingTax:0.4,
+            useRateLogging:0.00653,
+            costLogging:40.0,
+            taxEffectLogging:3.00,
+            recycledPaper:0.264,
+
+            /*wood */
+            recyclingEffectiveness:9.6*Math.pow(10,-11),
+            recyclingCenterSubsidy:3.20*Math.pow(10,9),
+            recyclingCenterSubsidyRate:0.08,
+            recyclingCenterBudget:3.20*Math.pow(10,9),
 
             year:1990,//right
             executed:0,
@@ -1150,7 +1199,52 @@ export default {
         changeFToxicFactor(fToxic){
             this.fToxic = fToxic;
         },
-
+        changeC1GroundwateerUse(c1){
+            this.c1GroundwaterUse = c1;
+        },
+        changeContaminationFactor(contamination){
+            this.contamination = contamination;
+        },
+        changeCapacityPerDam(capacityPerDam){
+            this.capacityPerDam = capacityPerDam;
+        },
+        changeDrinkingFractionFactor(drinkingFraction){
+            this.drinkingFraction = drinkingFraction;
+        },
+        changeW1SFactor(w1){
+            this.w1_s = w1;
+        },
+        changeW2SFactor(w2){
+            this.w2_s = w2;
+        },
+        changeW3SFactor(w3){
+            this.w3_s = w3;
+        },
+        changeWoodRequirementsFactor(woodRequirements){
+            this.woodRequirements = woodRequirements;
+        },
+        changeHousingScaleFactor(scaleFactorHousing){
+            this.scaleFactorHousing = scaleFactorHousing;
+        },
+        changeLoggingTaxRate(loggingTax){
+            this.loggingTax = loggingTax;
+        },
+        changeUseRateFactorLogging(useRate){
+            this.useRateLogging = useRate;
+        },
+        changeCostFactorLogging(cost){
+            this.costLogging = cost;
+        },
+        changeTaxEffectRateLogging(taxEffect){
+            this.taxEffectLogging = taxEffect;
+        },
+        changeRecyclingEffectivenessFactor(recyclingEffectiveness){
+            this.recyclingEffectiveness = recyclingEffectiveness;
+        },
+        changeRecyclingCenterSubsidyRate(rate){
+            this.recyclingCenterSubsidyRate = rate;
+        }
+        
     }
 }
 </script>
