@@ -448,10 +448,15 @@
     "Reservoir_Capacity": {
         "name": "Reservoir Capacity",
         "path": "/game/reservoir-capacity",
-        "causes": [],
+        "causes": [
+            {
+                "name": "Dam Use",
+                "path": "/game/dam-use"
+            }
+        ],
         "effects": [
             {
-                "name": "Water-Supply",
+                "name": "Water Supply",
                 "path": "/game/water-supply"
             }
         ]
@@ -2024,20 +2029,24 @@
         "path": "/game/recycled-paper",
         "causes": [
             {
-                "name": "Recycled Center $",
-                "path": "/game/recycled-center-subsidy"
+                "name": "Recycling Center $",
+                "path": "/game/recycling-center-subsidy"
             }
         ],
         "effects": [
+            {
+                "name": "Garbage",
+                "path": "/game/garbage"
+            },
             {
                 "name": "Logging",
                 "path": "/game/logging"
             }
         ]
     },
-    "Recycled_Center_Subsidy": {
-        "name": "Recycled Center $",
-        "path": "/game/recycled-center-subsidy",
+    "Recycling_Center_Subsidy": {
+        "name": "Recycling Center $",
+        "path": "/game/recycling-center-subsidy",
         "causes": [],
         "effects": [
             {
@@ -2473,6 +2482,10 @@
             {
                 "name": "Drinking Water",
                 "path": "/game/drinking-water"
+            },
+            {
+                "name": "Crop Yields",
+                "path": "/game/crop-yields"
             }
         ]
     },
