@@ -108,6 +108,17 @@ import HeavyMetalDeaths from './components/HeavyMetal/HeavyMetalDeaths.vue'
 import HeavyMetalPoints from './components/HeavyMetal/HeavyMetalPoints.vue'
 import MaterialsDemand from './components/HeavyMetal/MaterialsDemand.vue'
 import WaterPollution from './components/Water/WaterPollution.vue'
+import WaterSupply from './components/Water/WaterSupply.vue'
+import GroundwaterUse from './components/Water/GroundwaterUse.vue'
+import GroundwaterSupply from './components/Water/GroundwaterSupply.vue'
+import ReservoirCapacity from './components/Water/ReservoirCapacity.vue'
+import DrinkingWater from './components/Water/DrinkingWater.vue'
+import SouthernLifestyle from './components/lifestyle/SouthernLifestyle.vue'
+import Housing from './components/lifestyle/Housing.vue'
+import LoggingTax from './components/Logging/LoggingTax.vue'
+import Logging from './components/Logging/Logging.vue'
+import RecycledPaper from './components/Wood/RecycledPaper.vue'
+import RecyclingCenterSubsidy from './components/Wood/RecyclingCenterSubsidy.vue'
 
 const routes = [
     {
@@ -644,6 +655,61 @@ const routes = [
                 name:'WaterPollution',
                 path:'/game/water-pollution',
                 component:WaterPollution
+            },
+            {
+                name:'WaterSupply',
+                path:'/game/water-supply',
+                component:WaterSupply
+            },
+            {
+                name:'GroundwaterUse',
+                path:'/game/groundwater-use',
+                component:GroundwaterUse
+            },
+            {
+                name:'GroundwaterSupply',
+                path:'/game/groundwater-supply',
+                component:GroundwaterSupply
+            },
+            {
+                name:'ReservoirCapacity',
+                path:'/game/reservoir-capacity',
+                component:ReservoirCapacity
+            },
+            {
+                name:'Drinking Water',
+                path:'/game/drinking-water',
+                component:DrinkingWater
+            },
+            {
+                name:'SouthernLifestyle',
+                path:'/game/southern-lifestyle',
+                component:SouthernLifestyle
+            },
+            {
+                name:'Housing',
+                path:'/game/housing',
+                component:Housing
+            },
+            {
+                name:'LoggingTax',
+                path:'/game/logging-tax',
+                component:LoggingTax
+            },
+            {
+                name:'Logging',
+                path:'/game/logging',
+                component:Logging
+            },
+            {
+                name:'RecycledPaper',
+                path:'/game/recycled-paper',
+                component:RecycledPaper
+            },
+            {
+                name:'RecyclingCenterSubsidy',
+                path:'/game/recycling-center-subsidy',
+                component:RecyclingCenterSubsidy
             },
         ]
     },
