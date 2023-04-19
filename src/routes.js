@@ -58,7 +58,7 @@ import SustainabilityPts from './components/common/SustainabilityPts'
 import BirthRate from './components/common/BirthRate'
 import Population from './components/common/Population'
 import QualityOfLife from './components/common/QualityOfLife'
-import Lifestyle from './components/common/Lifestyle'
+import NorthernLifestyle from './components/common/NorthernLifestyle'
 import QualityOfLifePoints from './components/common/QualityOfLifePoints'
 import Connections from './components/Connections'
 import InundationPoints from './components/common/InundationPoints.vue'
@@ -117,8 +117,33 @@ import SouthernLifestyle from './components/lifestyle/SouthernLifestyle.vue'
 import Housing from './components/lifestyle/Housing.vue'
 import LoggingTax from './components/Logging/LoggingTax.vue'
 import Logging from './components/Logging/Logging.vue'
-import RecycledPaper from './components/Wood/RecycledPaper.vue'
-import RecyclingCenterSubsidy from './components/Wood/RecyclingCenterSubsidy.vue'
+import RecycledPaper from './components/Recycle/RecycledPaper.vue'
+import RecyclingCenterSubsidy from './components/Recycle/RecyclingCenterSubsidy.vue'
+import RecycledAluminum from './components/Recycle/RecycledAluminum.vue'
+import Garbage from './components/HeavyMetal/Garbage.vue'
+import GrossGlobalProduction from './components/HeavyMetal/GrossGlobalProduction.vue'
+import ConsumerGoods from './components/HeavyMetal/ConsumerGoods.vue'
+import ComputerGamesPoints from './components/HeavyMetal/ComputerGamesPoints.vue'
+import CFCTax from './components/CFC/CFCTax.vue'
+import CFCProduction from './components/CFC/CFCProduction.vue'
+import TroposphericCFCs from './components/CFC/TroposphericCFCs.vue'
+import StratosphericCFCs from './components/CFC/StratosphericCFCs.vue'
+import Ozone from './components/CFC/Ozone.vue'
+import UltravioletLight from './components/CFC/UltravioletLight.vue'
+import Phytoplankton from './components/CFC/Phytoplankton.vue'
+import SkinCancerDeaths from './components/CFC/SkinCancerDeaths.vue'
+import SkinCancerPoints from './components/CFC/SkinCancerPoints.vue'
+import Overgrazing from './components/Beef/Overgrazing.vue'
+import SoilErosion from './components/Beef/SoilErosion.vue'
+import FoodSupply from './components/Beef/FoodSupply.vue'
+import Methane from './components/Beef/Methane.vue'
+import Medicines from './components/lifestyle/Medicines.vue'
+import BiodiversityPts from './components/Lake/BiodiversityPts.vue'
+import GlobalGenePool from './components/Lake/GlobalGenePool.vue'
+import ForestHabitats from './components/Lake/ForestHabitats.vue'
+import LakeHabitats from './components/Lake/LakeHabitats.vue'
+import LakeLifePoints from './components/Lake/LakeLifePoints.vue'
+import ForestLifePoints from './components/Lake/ForestLifePoints.vue'
 
 const routes = [
     {
@@ -417,9 +442,9 @@ const routes = [
                 component:QualityOfLife
             },
             {
-                name:'Lifestyle',
-                path:'/game/lifestyle',
-                component:Lifestyle
+                name:'NorthernLifestyle',
+                path:'/game/northern-lifestyle',
+                component:NorthernLifestyle
             },
             {
                 name:'QualityOfLifePoints',
@@ -710,6 +735,131 @@ const routes = [
                 name:'RecyclingCenterSubsidy',
                 path:'/game/recycling-center-subsidy',
                 component:RecyclingCenterSubsidy
+            },
+            {
+                name:'RecycledAluminum',
+                path:'/game/recycled-aluminum',
+                component:RecycledAluminum
+            },
+            {
+                name:'Garbage',
+                path:'/game/garbage',
+                component:Garbage
+            },
+            {
+                name:'GrossGlobalProduction',
+                path:'/game/gross-global-production',
+                component:GrossGlobalProduction
+            },
+            {
+                name:'ConsumerGoods',
+                path:'/game/consumer-goods',
+                component:ConsumerGoods
+            },
+            {
+                name:'ComputerGamesPoints',
+                path:'/game/computer-games-pts',
+                component:ComputerGamesPoints
+            },
+            {
+                name:'CFCTax',
+                path:'/game/cfc-tax',
+                component:CFCTax
+            },
+            {
+                name:'CFCProduction',
+                path:'/game/cfc-production',
+                component:CFCProduction
+            },
+            {
+                name:'TroposphericCFCs',
+                path:'/game/tropospheric-cfcs',
+                component:TroposphericCFCs
+            },
+            {
+                name:'StratosphericCFCs',
+                path:'/game/stratospheric-cfcs',
+                component:StratosphericCFCs
+            },
+            {
+                name:'Ozone',
+                path:'/game/ozone',
+                component:Ozone
+            },
+            {
+                name:'UltravioletLight',
+                path:'/game/ultraviolet-light',
+                component:UltravioletLight
+            },
+            {
+                name:'Phytoplankton',
+                path:'/game/phytoplankton',
+                component:Phytoplankton
+            },
+            {
+                name:'SkinCancerDeaths',
+                path:'/game/skin-cancer-deaths',
+                component:SkinCancerDeaths
+            },
+            {
+                name:'SkinCancerPoints',
+                path:'/game/skin-cancer-points',
+                component:SkinCancerPoints
+            },
+            {
+                name:'Overgrazing',
+                path:'/game/overgrazing',
+                component:Overgrazing
+            },
+            {
+                name:'SoilErosion',
+                path:'/game/soil-erosion',
+                component:SoilErosion
+            },
+            {
+                name:'FoodSupply',
+                path:'/game/food-supply',
+                component:FoodSupply
+            },
+            {
+                name:'Methane',
+                path:'/game/methane',
+                component:Methane
+            },
+            {
+                name:'Medicines',
+                path:'/game/medicines',
+                component:Medicines
+            },
+            {
+                name:'BiodiversityPts',
+                path:'/game/biodiversity-pts',
+                component:BiodiversityPts
+            },
+            {
+                name:'GlobalGenePool',
+                path:'/game/global-gene-pool',
+                component:GlobalGenePool
+            },
+            {
+                name:'ForestHabitats',
+                path:'/game/forest-habitats',
+                component:ForestHabitats
+            },
+            {
+                name:'LakeHabitats',
+                path:'/game/lake-habitats',
+                component:LakeHabitats
+            },
+            {
+                name:'LakeLifePoints',
+                path:'/game/lake-life-points',
+                component:LakeLifePoints
+            },
+            {
+                name:'ForestLifePoints',
+                path:'/game/forest-life-points',
+                component:ForestLifePoints
             },
         ]
     },

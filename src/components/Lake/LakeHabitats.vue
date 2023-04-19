@@ -5,28 +5,25 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Beef Production: {{ Math.floor(this.beefProduction / Math.pow(10,9)*1000)/1000 }} billion tons
+                Lake Habitats: {{ Math.floor(this.lakeHabitats / Math.pow(10,3) * 100) / 100 }} thousand species
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div>Beef Production = Cow Factor * Grasslands / (Cost to Produce + Tax Effect * Beef Tax)</div>
-                            <br />
+                            <div>Lake Habitats = Virgin Lake Habitats / ((Natural Lake Acidity + Lake Acidity) * Destruction)</div>
+                            <br/>
                             Where:<br />
                             <div>
                                 <div class="row-formula">
-                                    <span>Cow Factor</span> <span>= {{ cowFactor }}</span> <span><input type="range" min="50" max="200" step="0.5" v-model="cowFactorRate" @change="changeCowFactorRate" />($/hectare)</span>
+                                    <span>Virgin Lake Habitats</span> <span>= {{ Math.floor(virginLakeHabitats / Math.pow(10,3) * 100)/100 }} thousand</span> <span><input type="range" min="100000" max="1000000" step="1000" v-model="virginLakeHabitatsFactor" @change="changeVirginLakeHabitatsFactor"/>species</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Cost to Produce</span> <span>= {{ this.costToProduce }}</span> <span><input type="range" min="200" max="1000" step="1" v-model="costToProduceRate" @change="changeCostToProduceRate" />(ton)</span>
+                                    <span>Natural Lake Acidity</span> <span>= {{ Math.floor(naturalLakeAcidity * 100000)/100000 }}</span> <span><input type="range" min="0.000001" max="0.0001" step="1000" v-model="naturalLakeAcidityFactor" @change="changeNaturalLakeAcidityFactor"/>tons</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Tax Effect</span> <span>= {{ this.taxEffect }}</span> <span><input type="range" min="1" max="10" step="0.01" v-model="taxEffectRate" @change="changeTaxEffectRate" /></span>
+                                    <span>Destruction</span> <span>= {{ Math.floor(destruction / Math.pow(10,3) * 100)/100 }} thousand</span> <span><input type="range" min="10000" max="1000000" step="1000" v-model="destructionFactor" @change="changeDestructionFactor"/></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Grasslands</span> <span>= {{ Math.floor(this.grasslands / Math.pow(10,9)*100)/100}} billion</span> <span>(hectares)</span>
-                                </div>
-                                <div class="row-formula">
-                                    <span>Beef Tax</span> <span>= {{ this.beefTaxRate }} </span> <span>($/ton)</span>
+                                    <span>Lake Acidity</span> <span>= {{ Math.floor(this.lakeAcidity *1000000)/1000000}} </span> <span>(ouchies)</span>
                                 </div>
                             </div>
                         </div>
@@ -69,18 +66,18 @@
     })
     import BarChart from '../chart/BarChart.vue'
     export default {
-        name: 'Beef Production',
+        name: 'LakeHabitats',
         data() {
             return {
-                name: "",
+                name:"",
                 causes: [],
                 effects: [],
-                cowFactorRate: 52.5,
-                cowFactor: 52.5,
-                costToProduceRate:600,
-                costToProduce:600,
-                taxEffectRate:4.00,
-                taxEffect:4.00,
+                virginLakeHabitats:500*Math.pow(10,3),
+                virginLakeHabitatsFactor:500*Math.pow(10,3),
+                naturalLakeAcidity:5.0*Math.pow(10,-5),
+                naturalLakeAcidityFactor:5.0*Math.pow(10,-5),
+                destruction:20*Math.pow(10,3),
+                destructionFactor:20*Math.pow(10,3),
                 chartData:{
                     labels:[],
                     datasets:[] 
@@ -92,9 +89,8 @@
             BarChart
         },
         props: {
-            beefProduction:Number,
-            grasslands:Number,
-            beefTaxRate:Number,
+            lakeHabitats:Number,
+            lakeAcidity:Number,
             show:Boolean,
             executed:Number
         },
@@ -107,11 +103,10 @@
         },
         created() {
             service.get('/data/data.json').then(res => {
-                this.name = toRaw(res.data.Beef_Production.name);
-                this.causes = toRaw(res.data.Beef_Production.causes);
-                this.effects = toRaw(res.data.Beef_Production.effects);
+                this.name = toRaw(res.data.Lake_Habitats.name);
+                this.causes = toRaw(res.data.Lake_Habitats.causes);
+                this.effects = toRaw(res.data.Lake_Habitats.effects);
             })
-            
         },
         methods: {
             toPage(item) {
@@ -119,17 +114,17 @@
                     path: item.path
                 });
             },
-            changeCowFactorRate() {
-                this.cowFactor = parseInt(this.cowFactorRate * 10) / 10;
-                this.$emit('changeCowFactorRate', this.cowFactor);
+            changeVirginLakeHabitatsFactor() {
+                this.virginLakeHabitats = parseInt(this.virginLakeHabitatsFactor);
+                this.$emit('changeVirginLakeHabitatsFactor', this.virginLakeHabitats);
             },
-            changeCostToProduceRate(){
-                this.costToProduce = parseInt(this.costToProduceRate);
-                this.$emit('changeCostToProduceRate',this.costToProduce);
+            changeNaturalLakeAcidityFactor(){
+                this.naturalLakeAcidity = parseInt(this.naturalLakeAcidityFactor * Math.pow(10,6))/Math.pow(10,6);
+                this.$emit('changeNaturalLakeAcidity',this.naturalLakeAcidity);
             },
-            changeTaxEffectRate(){
-                this.taxEffect = parseInt(this.taxEffectRate * 100)/100;
-                this.$emit('changeTaxEffectRate',this.taxEffect);
+            changeDestructionFactor(){
+                this.destruction = parseInt(this.destruction);
+                this.$emit('changeDestructionFactor',this.destruction);
             },
             draw(){
                 const labels = [];

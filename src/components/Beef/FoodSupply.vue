@@ -5,28 +5,24 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Beef Production: {{ Math.floor(this.beefProduction / Math.pow(10,9)*1000)/1000 }} billion tons
+                <div>
+                    Food Supply: {{ Math.floor(this.foodSupply/Math.pow(10,9)*100)/100 }}billion tons
+                </div>
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div>Beef Production = Cow Factor * Grasslands / (Cost to Produce + Tax Effect * Beef Tax)</div>
-                            <br />
+                            <div>Food Supply = Seafood + Beef Production + Crops</div>
+                            <br/>
                             Where:<br />
                             <div>
                                 <div class="row-formula">
-                                    <span>Cow Factor</span> <span>= {{ cowFactor }}</span> <span><input type="range" min="50" max="200" step="0.5" v-model="cowFactorRate" @change="changeCowFactorRate" />($/hectare)</span>
+                                    <span>Seafood</span> <span>= {{  Math.floor(this.seafood/Math.pow(10,6)*100)/100 }} million </span> <span>(tons)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Cost to Produce</span> <span>= {{ this.costToProduce }}</span> <span><input type="range" min="200" max="1000" step="1" v-model="costToProduceRate" @change="changeCostToProduceRate" />(ton)</span>
+                                    <span>Beef Production</span> <span>= {{ Math.floor(this.beefProduction/Math.pow(10,6)*100)/100}} million</span><span>(tons)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Tax Effect</span> <span>= {{ this.taxEffect }}</span> <span><input type="range" min="1" max="10" step="0.01" v-model="taxEffectRate" @change="changeTaxEffectRate" /></span>
-                                </div>
-                                <div class="row-formula">
-                                    <span>Grasslands</span> <span>= {{ Math.floor(this.grasslands / Math.pow(10,9)*100)/100}} billion</span> <span>(hectares)</span>
-                                </div>
-                                <div class="row-formula">
-                                    <span>Beef Tax</span> <span>= {{ this.beefTaxRate }} </span> <span>($/ton)</span>
+                                    <span>Crops</span> <span>= {{ Math.floor(this.crops/Math.pow(10,9)*100)/100}} billion</span><span>(tons)</span>
                                 </div>
                             </div>
                         </div>
@@ -67,20 +63,14 @@
         baseURL: '',
         timeout: 3000000000,
     })
-    import BarChart from '../chart/BarChart.vue'
+    import BarChart from "../chart/BarChart.vue"
     export default {
-        name: 'Beef Production',
+        name: 'FoodSupply',
         data() {
             return {
                 name: "",
                 causes: [],
                 effects: [],
-                cowFactorRate: 52.5,
-                cowFactor: 52.5,
-                costToProduceRate:600,
-                costToProduce:600,
-                taxEffectRate:4.00,
-                taxEffect:4.00,
                 chartData:{
                     labels:[],
                     datasets:[] 
@@ -91,10 +81,11 @@
         components:{
             BarChart
         },
-        props: {
+        props:{
+            foodSupply:Number,
             beefProduction:Number,
-            grasslands:Number,
-            beefTaxRate:Number,
+            crops:Number,
+            seafood:Number,
             show:Boolean,
             executed:Number
         },
@@ -107,29 +98,16 @@
         },
         created() {
             service.get('/data/data.json').then(res => {
-                this.name = toRaw(res.data.Beef_Production.name);
-                this.causes = toRaw(res.data.Beef_Production.causes);
-                this.effects = toRaw(res.data.Beef_Production.effects);
+                this.name = toRaw(res.data.Food_Supply.name);
+                this.causes = toRaw(res.data.Food_Supply.causes);
+                this.effects = toRaw(res.data.Food_Supply.effects);
             })
-            
         },
         methods: {
             toPage(item) {
                 this.$router.push({
                     path: item.path
                 });
-            },
-            changeCowFactorRate() {
-                this.cowFactor = parseInt(this.cowFactorRate * 10) / 10;
-                this.$emit('changeCowFactorRate', this.cowFactor);
-            },
-            changeCostToProduceRate(){
-                this.costToProduce = parseInt(this.costToProduceRate);
-                this.$emit('changeCostToProduceRate',this.costToProduce);
-            },
-            changeTaxEffectRate(){
-                this.taxEffect = parseInt(this.taxEffectRate * 100)/100;
-                this.$emit('changeTaxEffectRate',this.taxEffect);
             },
             draw(){
                 const labels = [];
@@ -138,16 +116,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const coalUses = [];
+                const totalCoalUses = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                    totalCoalUses.push(JSON.parse(localStorage.getItem(labels[i])).totalCoalUse)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Coal Use (Unit: Exajoules)',
+                    label:'Total Coal Use (Unit: Exajoules)',
                     backgroundColor:'#000000',
-                    data: coalUses
+                    data: totalCoalUses
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))
@@ -155,3 +133,8 @@
         }
     }
     </script>
+    
+    <style>
+    
+    </style>
+    

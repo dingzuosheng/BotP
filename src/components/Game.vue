@@ -91,8 +91,10 @@
                         @changePriceElasticity="changePriceElasticity($event)" 
 
                         :energyConservation="energyConservation" :netEnergy="netEnergy" 
-                        
-                        @changeC4Value="changeC4Value($event)" :lifestyle="lifestyle" 
+
+
+                        @changeC1Factor="changeC1Factor($event)" @changeC2Factor="changeC2Factor($event)" @changeC3Factor="changeC3Factor($event)"
+                        @changeC4Value="changeC4Value($event)" :northernLifestyle="northernLifestyle" 
                         @changeLifeValue="changeLifeValue($event)" :qualityOfLife="qualityOfLife" 
                         
                         @changeBirthRate="changeBirthRate($event)" :birthRate="birthRate" :population="population" 
@@ -157,10 +159,28 @@
                         @changeUseRateFactorLogging="changeUseRateFactorLogging($event)" @changeCostFactorLogging="changeCostFactorLogging($event)" @changeTaxEffectRateLogging="changeTaxEffectRateLogging($event)"
 
                         :recyclingCenterSubsidyRate="recyclingCenterSubsidyRate" :recyclingCenterBudget="recyclingCenterBudget" @changeRecyclingEffectivenessFactor="changeRecyclingEffectivenessFactor($event)"
-                        @changeRecyclingCenterSubsidyRate="changeRecyclingCenterSubsidyRate($event)"
+                        @changeRecyclingCenterSubsidyRate="changeRecyclingCenterSubsidyRate($event)" :recycledAluminum="recycledAluminum" @changeAluminumRecyclingFactor="changeAluminumRecyclingFactor($event)"
+                        
+                        :grossGlobalProduction="grossGlobalProduction" @changeGarbagePerGGPFactor="changeGarbagePerGGPFactor($event)" @changeValueOfIndustrialOutputFactor="changeValueOfIndustrialOutputFactor($event)"
+                        :consumerGoods="consumerGoods" @changeConsumerGoodsRatioFactor="changeConsumerGoodsRatioFactor($event)" :computerGamesPoints="computerGamesPoints" 
 
+                        :cfcTaxIncome="cfcTaxIncome" :cfcTax="cfcTax" @changeCFCTaxRate="changeCFCTaxRate($event)" @changeUseRateFactorCFCPro="changeUseRateFactorCFCPro($event)"
+                        @changeCostToProduceFactorCFCPro="changeCostToProduceFactorCFCPro($event)" @changeTaxEffectRateCFCPro="changeTaxEffectRateCFCPro($event)"
+                        @changeDestructionRateFactor="changeDestructionRateFactor($event)" :troposphericCFCs="troposphericCFCs" :stratosphericCFCs="stratosphericCFCs"
+                        @changeEquilibriumConstantFactor="changeEquilibriumConstantFactor($event)" :ozone="ozone" @changeEquilibriumOzoneFactor="changeEquilibriumOzoneFactor($event)"
+                        @changeCFCKillerRateFactor="changeCFCKillerRateFactor($event)" @changeSolarUVFactor="changeSolarUVFactor(solarUV)" @changeOzoneAbsorptionFactor="changeOzoneAbsorptionFactor($event)"
 
+                        :phytoplankton="phytoplankton" @changeNormalPhytoplanktonFactor="changeNormalPhytoplanktonFactor($event)" @changePhytoplanktonDamageRateFactor="changePhytoplanktonDamageRateFactor($event)"
+                        :skinCancerDeaths="skinCancerDeaths" @changeSkinCancerIncidenceFactor="changeSkinCancerIncidenceFactor($event)" :skinCancerPoints="skinCancerPoints" @changeValueOfOneHumanLifeSkinCancerFactor="changeValueOfOneHumanLifeSkinCancerFactor($event)"
 
+                        @changeOvergrazingRateFactor="changeOvergrazingRateFactor($event)" :soilErosion="soilErosion" :seafood="seafood" :methane="methane" @changeDecayRateFactor=changeDecayRateFactor($event)
+                        @changeBurpFactor="changeBurpFactor($event)" @changeSoilFactor="changeSoilFactor($event)" :acidRain="acidRain"
+
+                        :medicines="medicines"
+                        :biodiversityPoints="biodiversityPoints" @changeValueOfBiodiversityFactor="changeValueOfBiodiversityFactor($event)" @changeC1GlobalGenePoolFactor="changeC1GlobalGenePoolFactor($event)"
+                        :forestHabitats="forestHabitats" :marineLife="marineLife" :riparianHabitats="riparianHabitats" :lakeHabitats="lakeHabitats" @changeProportionalityConstantFactor="changeProportionalityConstantFactor($event)"
+                        @changeVirginLakeHabitatsFactor="changeVirginLakeHabitatsFactor($event)" @changeNaturalLakeAcidityFactor="changeNaturalLakeAcidityFactor($event)" @changeDestructionFactor="changeDestructionFactor($event)"
+                        :lakeAcidity="lakeAcidity" :lakeLifePoints="lakeLifePoints" @changeLakeLifeValue="changeLakeLifeValue($event)" @changeValueOfForestLife="changeValueOfForestLife($event)" :forestLifePoints="forestLifePoints"
 
 
                         :totalTreasury="totalTreasury" :totalPoints="totalPoints">
@@ -189,6 +209,7 @@ export default {
             coalPriceFactor: Math.pow(10,13),//right
             coalSupply: 299000, //right
             coalSupplyElasticity: 1.2*Math.pow(10,-5),//right
+            acidRain:107*Math.pow(10,6),
             /***Oil***/
             oilTaxRate: 250 * Math.pow(10, 6),//right
             oilUse: 178,//right
@@ -318,7 +339,10 @@ export default {
             netEnergy: 419,//right 
             nonrenewableEnergy: 328, //right
             renewableEnergy:30.1, //right
-            lifestyle: 2.12 * Math.pow(10, 9),//right
+            northernLifestyle: 2.12 * Math.pow(10, 9),//right
+            c1:1.00,
+            c2:0.07,
+            c3:2.00,
             c4:8*Math.pow(10,6),//right
             qualityOfLife: 1.03,//right
             population: 5.26 * Math.pow(10, 9),//right
@@ -346,6 +370,14 @@ export default {
             beefProduction:134 * Math.pow(10,6),
             grasslands:1.59 * Math.pow(10,9),
             overgrazing:8.00 * Math.pow(10,6),
+            overgrazingRate:0.2,
+            soilErosion:40.3*Math.pow(10,6),
+            methane:5.85*Math.pow(10,9),
+            decayRate:0.100,
+            burpFactor:2.00,
+            soilFactor:10.0,
+
+
             sustainableFuelwoodUse:1.40 * Math.pow(10,9),
             damageRate:0.220,
             desertification:25.5 * Math.pow(10,6),
@@ -415,6 +447,12 @@ export default {
             heavyMetalDeathRate:0.0270,
             heavyMetalPoints:190,
             valueOfOneHumanLife_heavyMetal:0.00200,
+            grossGlobalProduction:14.3*Math.pow(10,12),
+            garbagePerGGP:0.00007,
+            valueOfIndustrialOutput:3.69,
+            consumerGoods:953*Math.pow(10,6),
+            consumerGoodsRatio:2.5 * Math.pow(10,-4),
+            computerGamesPoints:2.00,
 
             /*water*/
             hmToxic:2000,
@@ -437,8 +475,10 @@ export default {
             w3_s:0.526,
             housing:1.03*Math.pow(10,9),
             foodSupply:1.91*Math.pow(10,9),
+            seafood:84.6*Math.pow(10,6),
             woodRequirements:25.0,
             scaleFactorHousing:1.2*Math.pow(10,-4),
+            medicines:5.16*Math.pow(10,6),
 
             /*logging */
             loggingTaxIncome:8*Math.pow(10,6),
@@ -446,13 +486,57 @@ export default {
             useRateLogging:0.00653,
             costLogging:40.0,
             taxEffectLogging:3.00,
-            recycledPaper:0.264,
 
-            /*wood */
+            /*recycle */
+            recycledPaper:0.264,
+            recycledAluminum:5.53*Math.pow(10,6),
             recyclingEffectiveness:9.6*Math.pow(10,-11),
             recyclingCenterSubsidy:3.20*Math.pow(10,9),
             recyclingCenterSubsidyRate:0.08,
             recyclingCenterBudget:3.20*Math.pow(10,9),
+            aluminumRecycling:0.00173,
+
+            /*cfc */
+            cfcTax:40,
+            cfcTaxIncome:24*Math.pow(10,6),
+            useRateCFCPro:0.00880,
+            costToProduceCFCPro:2000,
+            taxEffectCFCPro:5,
+            troposphericCFCs:17.5*Math.pow(10,6),
+            destructionRate:0.01,
+            stratosphericCFCs:175*Math.pow(10,3),
+            equilibriumConstant:0.01,
+            ozone:4.12 * Math.pow(10,9),
+            equillibriumOzone:5*Math.pow(10,9),
+            cfcKillerRate:5000,
+            solarUV:50.0,
+            ozoneAbsorption:2.5*Math.pow(10,-8),
+            phytoplankton:15*Math.pow(10,9),
+            normalPhytoplankton:17.6*Math.pow(10,9),
+            phytoplanktonDamageRate:0.307,
+            skinCancerDeaths:48.5 * Math.pow(10,3),
+            skinCancerIncidence:100*Math.pow(10,3),
+            skinCancerPoints:485,
+            valueOfOneHumanLifeSkinCancer:0.01,
+
+            /*lake*/
+            biodiversityPoints:1.01*Math.pow(10,3),
+            valueOfBiodiversity:2.0*Math.pow(10,-4),
+            c1GlobalGenePool:6.0*Math.pow(10,-5),
+            forestHabitats:2.98*Math.pow(10,6),
+            marineLife:19.1*Math.pow(10,9),
+            riparianHabitats:490*Math.pow(10,3),
+            lakeHabitats:454*Math.pow(10,3),
+            proportionalityConstant:33.5,
+            virginLakeHabitats:500*Math.pow(10,3),
+            naturalLakeAcidity:5.0*Math.pow(10,-5),
+            destruction:20*Math.pow(10,3),
+            lakeAcidity:5.0*Math.pow(10,-6),
+            lakeLifePoints:151,
+            lakeLifeValue:3.3*Math.pow(10,-4),
+            forestLifePoints:990,
+            valueOfForestLife:3.3*Math.pow(10,-4),
+
 
             year:1990,//right
             executed:0,
@@ -626,8 +710,8 @@ export default {
             this.sustainability = Math.floor(this.renewableEnergy * (4 - this.birthRate) / (this.renewableEnergy + this.nonrenewableEnergy)*100)/100;//对
         },
         calculateQualityOfLifeFormulas(){
-            this.lifestyle = Math.floor(this.c4 * this.netEnergy * 100)/100;//对
-            this.qualityOfLife = Math.floor(this.lifeValue * this.lifestyle / this.population * 100)/100;//对
+            this.northernLifestyle = Math.floor(this.c4 * this.netEnergy * 100)/100;//对
+            this.qualityOfLife = Math.floor(this.lifeValue * this.northernLifestyle / this.population * 100)/100;//对
             this.qualityPoints = Math.floor(this.valueOfQualityOfLife * this.qualityOfLife * 100)/100; // 对
         },
         calculateResearchBudget(){//对
@@ -721,7 +805,6 @@ export default {
 
                 qualityOfLife:1.03,
                 qualityPoints:7702,
-                lifestyle:Math.floor(2120000000/Math.pow(10,6)*100)/100,
                 birthRate:0.0197,
                 population:Math.floor(5260000000/Math.pow(10,9)*100)/100,
                 starvation:Math.floor(41400000/Math.pow(10,6)*100)/100,
@@ -843,7 +926,7 @@ export default {
 
                     qualityOfLife:this.qualityOfLife,
                     qualityPoints:this.qualityPoints,
-                    lifestyle:Math.floor(this.lifestyle/Math.pow(10,6)*100)/100,
+                    northernLifestyle:Math.floor(this.northernLifestyle/Math.pow(10,6)*100)/100,
 
                     population:Math.floor(this.population/Math.pow(10,9)*100)/100,
                     starvation:Math.floor(this.starvation/Math.pow(10,6)*100)/100,
@@ -1019,6 +1102,15 @@ export default {
         },
         changePriceElasticity(priceElasticity) {
             this.priceElasticity = priceElasticity;
+        },
+        changeC1Factor(c1){
+            this.c1 = c1;
+        },
+        changeC2Factor(c2){
+            this.c2 = c2;
+        },
+        changeC3Factor(c3){
+            this.c3 = c3;
         },
         changeC4Value(c4) {
             this.c4 = c4;
@@ -1243,7 +1335,101 @@ export default {
         },
         changeRecyclingCenterSubsidyRate(rate){
             this.recyclingCenterSubsidyRate = rate;
+        },
+        changeAluminumRecyclingFactor(aluminumRecycling){
+            this.aluminumRecycling = aluminumRecycling;
+        },
+        changeGarbagePerGGPFactor(garbagePerGGP){
+            this.garbagePerGGP = garbagePerGGP;
+        },
+        changeValueOfIndustrialOutputFactor(valueOfIndustrialOutput){
+            this.valueOfIndustrialOutput = valueOfIndustrialOutput;
+        },
+        changeConsumerGoodsRatioFactor(consumerGoodsRatio){
+            this.consumerGoodsRatio = consumerGoodsRatio;
+        },
+        changeCFCTaxRate(cfcTax){
+            this.cfcTax = cfcTax;
+        },
+        changeUseRateFactorCFCPro(useRate){
+            this.useRateCFCPro = useRate;
+        },
+        changeCostToProduceFactorCFCPro(costToProduce){
+            this.costToProduceCFCPro = costToProduce;
+        },
+        changeTaxEffectRateCFCPro(taxEffect){
+            this.taxEffectCFCPro = taxEffect;
+        },
+        changeDestructionRateFactor(destructionRate){
+            this.destructionRate = destructionRate;
+        },
+        changeEquilibriumConstantFactor(equilibriumConstant){
+            this.equilibriumConstant = equilibriumConstant;
+        },
+        changeEquilibriumOzoneFactor(equilibriumOzone){
+            this.equilibriumOzone = equilibriumOzone;
+        },
+        changeCFCKillerRateFactor(cfcKillerRate){
+            this.cfcKillerRate = cfcKillerRate;
+        },
+        changeSolarUVFactor(solarUV){
+            this.solarUV = solarUV;
+        },
+        changeOzoneAbsorptionFactor(ozoneAbsorption){
+            this.ozoneAbsorption = ozoneAbsorption;
+        },
+        changeNormalPhytoplanktonFactor(normalPhytoplankton){
+            this.normalPhytoplankton = normalPhytoplankton;
+        },
+        changePhytoplanktonDamageRateFactor(phytoplanktonDamageRate){
+            this.phytoplanktonDamageRate = phytoplanktonDamageRate;
+        },
+        changeSkinCancerIncidenceFactor(skinCancerIncidence){
+            this.skinCancerIncidence = skinCancerIncidence;
+        },
+        changeValueOfOneHumanLifeFactor(valueOfOneHumanLife){
+            this.valueOfOneHumanLifeSkinCancer = valueOfOneHumanLife;
+        },
+        changeValueOfOneHumanLifeSkinCancerFactor(valueOfOneHumanLife){
+            this.valueOfOneHumanLifeSkinCancer = valueOfOneHumanLife;
+        },
+        changeOvergrazingRateFactor(overgrazingRate){
+            this.overgrazingRate = overgrazingRate;
+        },
+        changeDecayRateFactor(decayRate){
+            this.decayRate = decayRate;
+        },
+        changeBurpFactor(burpFactor){
+            this.burpFactor = burpFactor;
+        },
+        changeSoilFactor(soilFactor){
+            this.soilFactor = soilFactor;
+        },
+        changeValueOfBiodiversityFactor(valueOfBiodiversity){
+            this.valueOfBiodiversity = valueOfBiodiversity;
+        },
+        changeC1GlobalGenePoolFactor(c1){
+            this.c1GlobalGenePool = c1;
+        },
+        changeProportionalityConstantFactor(proportionalityConstant){
+            this.proportionalityConstant = proportionalityConstant;
+        },
+        changeVirginLakeHabitatsFactor(virginLakeHabitats){
+            this.virginLakeHabitats = virginLakeHabitats;
+        },
+        changeNaturalLakeAcidityFactor(naturalLakeAcidity){
+            this.naturalLakeAcidity = naturalLakeAcidity;
+        },
+        changeDestructionFactor(destruction){
+            this.destruction = destruction;
+        },
+        changeLakeLifeValue(value){
+            this.lakeLifeValue = value;
+        },
+        changeValueOfForestLife(value){
+            this.valueOfForestLife = value;
         }
+
         
     }
 }

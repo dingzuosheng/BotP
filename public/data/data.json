@@ -2064,8 +2064,8 @@
         "path": "/game/recycled-aluminum",
         "causes": [
             {
-                "name": "Recycled Center $",
-                "path": "/game/recycled-center-subsidy"
+                "name": "Recycling Center $",
+                "path": "/game/recycling-center-subsidy"
             }
         ],
         "effects": [
@@ -2609,8 +2609,8 @@
                 "path": "/game/cfc-production"
             },
             {
-                "name": "Stratospheric CFC",
-                "path": "/game/stratospheric-cfc"
+                "name": "Stratospheric CFCs",
+                "path": "/game/stratospheric-cfcs"
             }
         ],
         "effects": [
@@ -2619,14 +2619,14 @@
                 "path": "/game/global-temperature"
             },
             {
-                "name": "Stratospheric CFC",
-                "path": "/game/stratospheric-cfc"
+                "name": "Stratospheric CFCs",
+                "path": "/game/stratospheric-cfcs"
             }
         ]
     },
-    "Stratospheric_CFC": {
-        "name": "Stratospheric CFC",
-        "path": "/game/stratospheric-cfc",
+    "Stratospheric_CFCs": {
+        "name": "Stratospheric CFCs",
+        "path": "/game/stratospheric-cfcs",
         "causes": [
             {
                 "name": "Tropospheric CFCs",
@@ -2649,8 +2649,8 @@
         "path": "/game/ozone",
         "causes": [
             {
-                "name": "Stratospheric CFC",
-                "path": "/game/stratospheric-cfc"
+                "name": "Stratospheric CFCs",
+                "path": "/game/stratospheric-cfcs"
             }
         ],
         "effects": [

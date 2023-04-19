@@ -5,28 +5,33 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Beef Production: {{ Math.floor(this.beefProduction / Math.pow(10,9)*1000)/1000 }} billion tons
+                <div>
+                    Methane: {{ Math.floor(this.methane/Math.pow(10,9)*100)/100 }} billion tons
+                </div>
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div>Beef Production = Cow Factor * Grasslands / (Cost to Produce + Tax Effect * Beef Tax)</div>
-                            <br />
+                            <div>Methane = Methane * (1 - Decay Rate) + Beef Production * Burp Factor + Acid Rain * Soil Factor</div>
+                            <br/>
                             Where:<br />
                             <div>
                                 <div class="row-formula">
-                                    <span>Cow Factor</span> <span>= {{ cowFactor }}</span> <span><input type="range" min="50" max="200" step="0.5" v-model="cowFactorRate" @change="changeCowFactorRate" />($/hectare)</span>
+                                    <span>Decay Rate</span> <span>= {{  Math.floor(this.decayRate*1000)/1000 }} </span> <span><input type="range" min="0" max="1" step="0.001" v-model="decayRateFactor" @change="changeDecayRateFactor"/></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Cost to Produce</span> <span>= {{ this.costToProduce }}</span> <span><input type="range" min="200" max="1000" step="1" v-model="costToProduceRate" @change="changeCostToProduceRate" />(ton)</span>
+                                    <span>Burp Factor</span> <span>= {{  Math.floor(this.burpFactor*100)/100 }} </span> <span><input type="range" min="0.1" max="10" step="0.01" v-model="burp" @change="changeBurpFactor"/></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Tax Effect</span> <span>= {{ this.taxEffect }}</span> <span><input type="range" min="1" max="10" step="0.01" v-model="taxEffectRate" @change="changeTaxEffectRate" /></span>
+                                    <span>Soil Factor</span> <span>= {{  Math.floor(this.soilFactor*10)/10 }} </span> <span><input type="range" min="1" max="100" step="0.1" v-model="soil" @change="changeSoilFactor"/></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Grasslands</span> <span>= {{ Math.floor(this.grasslands / Math.pow(10,9)*100)/100}} billion</span> <span>(hectares)</span>
+                                    <span>Methane</span> <span>= {{ Math.floor(this.methane/Math.pow(10,9)*100)/100}} billion</span><span>(tons)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Beef Tax</span> <span>= {{ this.beefTaxRate }} </span> <span>($/ton)</span>
+                                    <span>Beef Production</span> <span>= {{ Math.floor(this.beefProduction/Math.pow(10,6)*100)/100}} million</span><span>(tons)</span>
+                                </div>
+                                <div class="row-formula">
+                                    <span>Acid Rain</span> <span>= {{ Math.floor(this.acidRain/Math.pow(10,6)*100)/100}} million</span><span>(tons)</span>
                                 </div>
                             </div>
                         </div>
@@ -67,20 +72,20 @@
         baseURL: '',
         timeout: 3000000000,
     })
-    import BarChart from '../chart/BarChart.vue'
+    import BarChart from "../chart/BarChart.vue"
     export default {
-        name: 'Beef Production',
+        name: 'Methane',
         data() {
             return {
                 name: "",
                 causes: [],
                 effects: [],
-                cowFactorRate: 52.5,
-                cowFactor: 52.5,
-                costToProduceRate:600,
-                costToProduce:600,
-                taxEffectRate:4.00,
-                taxEffect:4.00,
+                decayRate:0.100,
+                decayRateFactor:0.100,
+                burpFactor:2.00,
+                burp:2.00,
+                soilFactor:10.0,
+                soil:10.0,
                 chartData:{
                     labels:[],
                     datasets:[] 
@@ -91,10 +96,10 @@
         components:{
             BarChart
         },
-        props: {
+        props:{
+            methane:Number,
             beefProduction:Number,
-            grasslands:Number,
-            beefTaxRate:Number,
+            acidRain:Number,
             show:Boolean,
             executed:Number
         },
@@ -107,11 +112,10 @@
         },
         created() {
             service.get('/data/data.json').then(res => {
-                this.name = toRaw(res.data.Beef_Production.name);
-                this.causes = toRaw(res.data.Beef_Production.causes);
-                this.effects = toRaw(res.data.Beef_Production.effects);
+                this.name = toRaw(res.data.Methane.name);
+                this.causes = toRaw(res.data.Methane.causes);
+                this.effects = toRaw(res.data.Methane.effects);
             })
-            
         },
         methods: {
             toPage(item) {
@@ -119,17 +123,17 @@
                     path: item.path
                 });
             },
-            changeCowFactorRate() {
-                this.cowFactor = parseInt(this.cowFactorRate * 10) / 10;
-                this.$emit('changeCowFactorRate', this.cowFactor);
+            changeDecayRateFactor(){
+                this.decayRate = parseInt(this.decayRate * 1000)/1000;
+                this.$emit('changeDecayRateFactor',this.dacayRate);
             },
-            changeCostToProduceRate(){
-                this.costToProduce = parseInt(this.costToProduceRate);
-                this.$emit('changeCostToProduceRate',this.costToProduce);
+            changeBurpFactor(){
+                this.burpFactor = parseInt(this.burp * 100)/100;
+                this.$emit('changeBurpFactor',this.burpFactor);
             },
-            changeTaxEffectRate(){
-                this.taxEffect = parseInt(this.taxEffectRate * 100)/100;
-                this.$emit('changeTaxEffectRate',this.taxEffect);
+            changeSoilFactor(){
+                this.soilFactor = parseInt(this.soil * 10)/10;
+                this.$emit('changeSoilFactor',this.soilFactor);
             },
             draw(){
                 const labels = [];
@@ -138,16 +142,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const coalUses = [];
+                const totalCoalUses = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                    totalCoalUses.push(JSON.parse(localStorage.getItem(labels[i])).totalCoalUse)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Coal Use (Unit: Exajoules)',
+                    label:'Total Coal Use (Unit: Exajoules)',
                     backgroundColor:'#000000',
-                    data: coalUses
+                    data: totalCoalUses
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))
@@ -155,3 +159,8 @@
         }
     }
     </script>
+    
+    <style>
+    
+    </style>
+    

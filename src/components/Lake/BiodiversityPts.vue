@@ -5,28 +5,19 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Beef Production: {{ Math.floor(this.beefProduction / Math.pow(10,9)*1000)/1000 }} billion tons
+                Biodiversity Points: {{ Math.floor(this.biodiversityPoints / Math.pow(10,3) * 100) / 100 }} thousand points
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div>Beef Production = Cow Factor * Grasslands / (Cost to Produce + Tax Effect * Beef Tax)</div>
-                            <br />
+                            <div>Ozone = Equilibrium Ozone - CFC Killer Rate * Stratospheric CFC</div>
+                            <br/>
                             Where:<br />
                             <div>
                                 <div class="row-formula">
-                                    <span>Cow Factor</span> <span>= {{ cowFactor }}</span> <span><input type="range" min="50" max="200" step="0.5" v-model="cowFactorRate" @change="changeCowFactorRate" />($/hectare)</span>
+                                    <span>Value of Biodiversity</span> <span>= {{ Math.floor(valueOfBiodiversity * 100000)/100000 }}</span> <span><input type="range" min="0.000001" max="0.01" step="0.000001" v-model="valueOfBiodiversityFactor" @change="changeValueOfBiodiversityFactor"/>(Points/species)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Cost to Produce</span> <span>= {{ this.costToProduce }}</span> <span><input type="range" min="200" max="1000" step="1" v-model="costToProduceRate" @change="changeCostToProduceRate" />(ton)</span>
-                                </div>
-                                <div class="row-formula">
-                                    <span>Tax Effect</span> <span>= {{ this.taxEffect }}</span> <span><input type="range" min="1" max="10" step="0.01" v-model="taxEffectRate" @change="changeTaxEffectRate" /></span>
-                                </div>
-                                <div class="row-formula">
-                                    <span>Grasslands</span> <span>= {{ Math.floor(this.grasslands / Math.pow(10,9)*100)/100}} billion</span> <span>(hectares)</span>
-                                </div>
-                                <div class="row-formula">
-                                    <span>Beef Tax</span> <span>= {{ this.beefTaxRate }} </span> <span>($/ton)</span>
+                                    <span>Global Gene Pool</span> <span>= {{ Math.floor(this.globalGenePool / Math.pow(10,6)*100)/100}} million </span> <span>(species)</span>
                                 </div>
                             </div>
                         </div>
@@ -69,18 +60,14 @@
     })
     import BarChart from '../chart/BarChart.vue'
     export default {
-        name: 'Beef Production',
+        name: 'BiodiversityPts',
         data() {
             return {
-                name: "",
+                name:"",
                 causes: [],
                 effects: [],
-                cowFactorRate: 52.5,
-                cowFactor: 52.5,
-                costToProduceRate:600,
-                costToProduce:600,
-                taxEffectRate:4.00,
-                taxEffect:4.00,
+                valueOfBiodiversity:2.0*Math.pow(10,-4),
+                valueOfBiodiversityFactor:2.0*Math.pow(10,-4),
                 chartData:{
                     labels:[],
                     datasets:[] 
@@ -92,9 +79,8 @@
             BarChart
         },
         props: {
-            beefProduction:Number,
-            grasslands:Number,
-            beefTaxRate:Number,
+            biodiversityPoints:Number,
+            globalGenePool:Number,
             show:Boolean,
             executed:Number
         },
@@ -107,9 +93,9 @@
         },
         created() {
             service.get('/data/data.json').then(res => {
-                this.name = toRaw(res.data.Beef_Production.name);
-                this.causes = toRaw(res.data.Beef_Production.causes);
-                this.effects = toRaw(res.data.Beef_Production.effects);
+                this.name = toRaw(res.data.Biodiversity_Pts.name);
+                this.causes = toRaw(res.data.Biodiversity_Pts.causes);
+                this.effects = toRaw(res.data.Biodiversity_Pts.effects);
             })
             
         },
@@ -119,17 +105,9 @@
                     path: item.path
                 });
             },
-            changeCowFactorRate() {
-                this.cowFactor = parseInt(this.cowFactorRate * 10) / 10;
-                this.$emit('changeCowFactorRate', this.cowFactor);
-            },
-            changeCostToProduceRate(){
-                this.costToProduce = parseInt(this.costToProduceRate);
-                this.$emit('changeCostToProduceRate',this.costToProduce);
-            },
-            changeTaxEffectRate(){
-                this.taxEffect = parseInt(this.taxEffectRate * 100)/100;
-                this.$emit('changeTaxEffectRate',this.taxEffect);
+            changeValueOfBiodiversityFactor() {
+                this.valueOfBiodiversity = parseInt(this.valueOfBiodiversityFactor * Math.pow(10,6))/Math.pow(10,6);
+                this.$emit('changeValueOfBiodiversityFactor', this.valueOfBiodiversity);
             },
             draw(){
                 const labels = [];

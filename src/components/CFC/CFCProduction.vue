@@ -5,28 +5,28 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Beef Production: {{ Math.floor(this.beefProduction / Math.pow(10,9)*1000)/1000 }} billion tons
+                CFC Production: {{ Math.floor(this.cfcProduction / Math.pow(10,3)*100)/100 }} thousand tons
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div>Beef Production = Cow Factor * Grasslands / (Cost to Produce + Tax Effect * Beef Tax)</div>
+                            <div>CFC Production = Use Rate * Materials Demand / (Cost to Produce + Tax Effect * CFC Tax)</div>
                             <br />
                             Where:<br />
                             <div>
                                 <div class="row-formula">
-                                    <span>Cow Factor</span> <span>= {{ cowFactor }}</span> <span><input type="range" min="50" max="200" step="0.5" v-model="cowFactorRate" @change="changeCowFactorRate" />($/hectare)</span>
+                                    <span>Use Rate</span> <span>= {{ Math.floor(useRate_cfcPro * 10000)/10000 }}</span> <span><input type="range" min="0.001" max="0.1" step="0.0001" v-model="useRateFactor" @change="changeUseRateFactorCFCPro" /></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Cost to Produce</span> <span>= {{ this.costToProduce }}</span> <span><input type="range" min="200" max="1000" step="1" v-model="costToProduceRate" @change="changeCostToProduceRate" />(ton)</span>
+                                    <span>Cost to Produce</span> <span>= {{ Math.floor(costToProduce_cfcPro) }}</span> <span><input type="range" min="1000" max="10000" step="10" v-model="costFactor" @change="changeCostToProduceFactorCFCPro"/>($/ton)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Tax Effect</span> <span>= {{ this.taxEffect }}</span> <span><input type="range" min="1" max="10" step="0.01" v-model="taxEffectRate" @change="changeTaxEffectRate" /></span>
+                                    <span>Tax Effect</span> <span>= {{ Math.floor(taxEffect_cfcPro * 100)/100 }}</span> <span><input type="range" min="1" max="10" step="0.01" v-model="taxEffectRate" @change="changeTaxEffectRateCFCPro"/></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Grasslands</span> <span>= {{ Math.floor(this.grasslands / Math.pow(10,9)*100)/100}} billion</span> <span>(hectares)</span>
+                                    <span>Materials Demand</span> <span>= {{ Math.floor(this.materialsDemand / Math.pow(10,9)*100)/100}} billion</span> <span>(tons)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Beef Tax</span> <span>= {{ this.beefTaxRate }} </span> <span>($/ton)</span>
+                                    <span>CFC Tax</span> <span>= {{ Math.floor(this.cfcTax * 100)/100 }} </span> <span>($/ton)</span>
                                 </div>
                             </div>
                         </div>
@@ -69,18 +69,18 @@
     })
     import BarChart from '../chart/BarChart.vue'
     export default {
-        name: 'Beef Production',
+        name: 'CFCProduction',
         data() {
             return {
                 name: "",
                 causes: [],
                 effects: [],
-                cowFactorRate: 52.5,
-                cowFactor: 52.5,
-                costToProduceRate:600,
-                costToProduce:600,
-                taxEffectRate:4.00,
-                taxEffect:4.00,
+                useRate_cfcPro:0.00880,
+                useRateFactor:0.00880,
+                costToProduce_cfcPro:2000,
+                costToProduceFactor:2000,
+                taxEffectRate:5.00,
+                taxEffect_cfcPro:5.00,
                 chartData:{
                     labels:[],
                     datasets:[] 
@@ -92,9 +92,9 @@
             BarChart
         },
         props: {
-            beefProduction:Number,
-            grasslands:Number,
-            beefTaxRate:Number,
+            cfcProduction:Number,
+            cfcTax:Number,
+            materialsDemand: Number,
             show:Boolean,
             executed:Number
         },
@@ -107,11 +107,10 @@
         },
         created() {
             service.get('/data/data.json').then(res => {
-                this.name = toRaw(res.data.Beef_Production.name);
-                this.causes = toRaw(res.data.Beef_Production.causes);
-                this.effects = toRaw(res.data.Beef_Production.effects);
+                this.name = toRaw(res.data.CFC_Production.name);
+                this.causes = toRaw(res.data.CFC_Production.causes);
+                this.effects = toRaw(res.data.CFC_Production.effects);
             })
-            
         },
         methods: {
             toPage(item) {
@@ -119,17 +118,17 @@
                     path: item.path
                 });
             },
-            changeCowFactorRate() {
-                this.cowFactor = parseInt(this.cowFactorRate * 10) / 10;
-                this.$emit('changeCowFactorRate', this.cowFactor);
+            changeUseRateFactorCFCPro() {
+                this.useRate_cfcPro = parseInt(this.useRateFactor * 10000) / 10000;
+                this.$emit('changeUseRateFactorCFCPro', this.useRate_cfcPro);
             },
-            changeCostToProduceRate(){
-                this.costToProduce = parseInt(this.costToProduceRate);
-                this.$emit('changeCostToProduceRate',this.costToProduce);
+            changeCostToProduceFactorCFCPro(){
+                this.costToProduce_cfcPro = parseInt(this.costToProduceFactor);
+                this.$emit('changeCostToProduceFactorCFCPro',this.costToProduce_cfcPro);
             },
-            changeTaxEffectRate(){
-                this.taxEffect = parseInt(this.taxEffectRate * 100)/100;
-                this.$emit('changeTaxEffectRate',this.taxEffect);
+            changeTaxEffectRateCFCPro(){
+                this.taxEffect_cfcPro = parseInt(this.taxEffectRate * 100)/100;
+                this.$emit('changeTaxEffectRateCFCPro',this.taxEffect_cfcPro);
             },
             draw(){
                 const labels = [];
