@@ -120,7 +120,7 @@ export default {
             }
             const dataset = {
                 label:'Global Temperature(Unit:Exajoules)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

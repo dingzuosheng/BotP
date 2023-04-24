@@ -14,8 +14,9 @@
         CategoryScale,
         LinearScale
     } from 'chart.js'
+    import ChartDataLabels from 'chartjs-plugin-datalabels';
     
-    ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+    ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale,ChartDataLabels)
     
     export default {
         name: 'BarChart',
@@ -34,7 +35,12 @@
                                     size: 40
                                 }
                             },   
-                        }
+                        },
+                        datalabels:{
+                            align:'start',
+                            anchor:"end",
+                            color:'black'
+                        },
                     },
                     scales: {
                         x: {

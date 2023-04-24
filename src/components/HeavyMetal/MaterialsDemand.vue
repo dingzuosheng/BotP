@@ -107,16 +107,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const totalCoalUses = [];
+                const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    totalCoalUses.push(JSON.parse(localStorage.getItem(labels[i])).totalCoalUse)
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).materialsDemand)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Total Coal Use (Unit: Exajoules)',
-                    backgroundColor:'#000000',
-                    data: totalCoalUses
+                    label:'Materials Demand (Unit: billion tons)',
+                    backgroundColor:'orange',
+                    data: data
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))

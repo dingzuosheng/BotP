@@ -115,7 +115,7 @@ export default {
             }
             const dataset = {
                 label:'Coal Tax Income(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data,
 
             }

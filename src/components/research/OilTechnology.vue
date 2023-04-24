@@ -132,7 +132,7 @@ export default {
             }
             const dataset = {
                 label:'Oil Technology(Unit:Whizbangs)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

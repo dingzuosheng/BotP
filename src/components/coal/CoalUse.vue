@@ -136,7 +136,7 @@ export default {
             }
             const dataset = {
                 label:'Coal Use (Unit: Exajoules)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: coalUses
             }
             this.chartData.datasets = [dataset];

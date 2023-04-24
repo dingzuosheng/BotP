@@ -5,9 +5,9 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                <!--<div>
-                    Beef Tax Income: {{  Math.floor(this.beefTaxIncome/Math.pow(10,9)*100)/100 }} billion $
-                </div>-->        
+                <div>
+                    Beef Tax Income: {{  Math.floor(this.beefTaxIncome/Math.pow(10,6)*100)/100 }} million $
+                </div>        
                 <div class="range">
                     <h3>Beef Tax {{ this.beefTaxRate }}  $/Ton</h3>
                     <input type="range" min="1.5" max="226" step="0.1"  v-model="rate" @change="changeBeefTaxRate"/><!--value is string-->
@@ -58,8 +58,8 @@ export default {
     data(){
         return{
             name:"",
-            rate:13.2,
-            beefTaxRate:13.2,
+            rate:6,
+            beefTaxRate:6,
             causes:[],
             effects:[],
             chartData:{
@@ -73,13 +73,13 @@ export default {
         BarChart
     },
     props:{
-        //coalTaxIncome:Number,
+        beefTaxIncome:Number,
         show:Boolean,
         executed:Number
     },
     watch:{
         executed(newValue,oldValue){
-            //this.draw();
+            this.draw();
             this.chartKey++;
         }
     },
@@ -100,28 +100,28 @@ export default {
             this.beefTaxRate = parseInt(this.rate*10)/10;
             this.$emit('changeBeefTaxRate',this.beefTaxRate);
         },
-        /*draw(){
+        draw(){
             const labels = [];
             for(let i = localStorage.length - 1; i > -1; i--){
                 labels.push(localStorage.key(i));
             }
             labels.sort();
             this.chartData.labels =  labels;
-            const data = [];
+            const beefTaxIncomes = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome)
+                beefTaxIncomes.push(JSON.parse(localStorage.getItem(labels[i])).beefTaxIncome)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Coal Tax Income(Unit: billion dollars)',
-                backgroundColor:'#000000',
-                data: data,
+                label:'Beef Tax Income(Unit: million dollars)',
+                backgroundColor:'orange',
+                data: beefTaxIncomes,
 
             }
             this.chartData.datasets = [dataset];
             console.log(JSON.stringify(this.chartData))
-        }*/
+        }
     }
 }
 </script>

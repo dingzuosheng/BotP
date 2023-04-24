@@ -118,7 +118,7 @@ export default {
             }
             const dataset = {
                 label:'Solar Energy Budget(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: coalUses
             }
             this.chartData.datasets = [dataset];

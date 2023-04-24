@@ -5,7 +5,7 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Computer Games Points: {{ Math.floor(this.computerGamesPoints * 100)/100 }} 
+                Computer Games Points: {{ Math.floor(this.computerGamesPoints * 100)/100 }} points
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
@@ -106,16 +106,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const coalUses = [];
+                const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).computerGamesPoints)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Coal Use (Unit: Exajoules)',
-                    backgroundColor:'#000000',
-                    data: coalUses
+                    label:'Computer Games Points (Unit: Points)',
+                    backgroundColor:'orange',
+                    data: data
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))

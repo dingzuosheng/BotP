@@ -129,7 +129,7 @@ export default {
             }
             const dataset = {
                 label:'Oil Price(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: oilPrices
             }
             this.chartData.datasets = [dataset];

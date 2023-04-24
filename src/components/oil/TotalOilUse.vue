@@ -119,7 +119,7 @@ export default {
             }
             const dataset = {
                 label:'Total Oil Use(Unit:Exajoules)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: totaloilUses
             }
             this.chartData.datasets = [dataset];

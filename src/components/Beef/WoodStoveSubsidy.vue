@@ -5,9 +5,9 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                <!--<div>
-                    Beef Tax Income: {{  Math.floor(this.beefTaxIncome/Math.pow(10,9)*100)/100 }} billion $
-                </div>-->        
+                <div>
+                    Wood Stove Budget: {{  Math.floor(this.woodStoveBudget/Math.pow(10,9)*100)/100 }} billion $
+                </div>        
                 <div class="range">
                     <h3>Wood Stove Subsidy {{ this.woodStoveSubsidy }}  %</h3>
                     <input type="range" min="0" max="0.12" step="0.01"  v-model="woodStoveSubsidyRate" @change="changeWoodStoveSubsidyRate"/><!--value is string-->
@@ -65,13 +65,13 @@ export default {
         BarChart
     },
     props:{
-        //coalTaxIncome:Number,
+        woodStoveBudget:Number,
         show:Boolean,
         executed:Number
     },
     watch:{
         executed(newValue,oldValue){
-            //this.draw();
+            this.draw();
             this.chartKey++;
         }
     },
@@ -92,7 +92,7 @@ export default {
             this.woodStoveSubsidy = parseInt(this.woodStoveSubsidyRate*100)/100;
             this.$emit('changeWoodStoveSubsidyRate',this.woodStoveSubsidy);
         },
-        /*draw(){
+        draw(){
             const labels = [];
             for(let i = localStorage.length - 1; i > -1; i--){
                 labels.push(localStorage.key(i));
@@ -102,18 +102,18 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome)
+                data.push(JSON.parse(localStorage.getItem(labels[i])).woodStoveBudget)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Coal Tax Income(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                label:'Wood Stove Subsidy(Unit: billion dollars)',
+                backgroundColor:'orange',
                 data: data,
 
             }
             this.chartData.datasets = [dataset];
             console.log(JSON.stringify(this.chartData))
-        }*/
+        }
     }
 }
 </script>

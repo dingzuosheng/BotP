@@ -11,12 +11,15 @@
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div>Carbon Dioxide = Carbon Dioxide + CO2 * (Coal Use + Oil Use + Natural Gas Use)</div>
+                            <div>Carbon Dioxide = Carbon Dioxide + (CO2 * (Coal Use + Oil Use + Natural Gas Use) + C3 * Forest Clearing)</div>
                             <br />
                             Where:<br />
                             <div class="formula">
                                 <div class="row-formula">
                                     <span>CO2</span> <span>= {{ co2Quantity }} million</span> <span><input type="range" min="10" max="100" step="10" v-model="quantity" @change="changeCO2Quanty" /> (tons/Exajoule)</span>
+                                </div>
+                                <div class="row-formula">
+                                    <span>C3</span> <span>= {{ c3 }}</span> <span><input type="range" min="100" max="1000" step="1" v-model="c3Factor" @change="changeC3Factor" /> (tons/hectare)</span>
                                 </div>
                                 <div class="row-formula">
                                     <span>Carbon Dioxide</span> <span>= {{ Math.floor(this.co2 / Math.pow(10,12)*100)/100}} trillion</span> <span>(tons)</span>
@@ -29,6 +32,9 @@
                                 </div>
                                 <div class="row-formula">
                                     <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span> <span>(Exajoules)</span>
+                                </div>
+                                <div class="row-formula">
+                                    <span>Forest Clearing</span> <span>= {{ Math.floor(this.forestClearing/Math.pow(10,6) * 100)/100 }} million</span> <span>(hectares)</span>
                                 </div>
                             </div>
                         </div>
@@ -76,6 +82,8 @@ export default {
             effects:[],
             quantity:20,
             co2Quantity:20,
+            c3:367,
+            c3Factor:367,
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -91,6 +99,7 @@ export default {
         oilUse:Number,
         naturalGasUse:Number,
         co2:Number,
+        forestClearing:Number,
         show:Boolean,
         executed:Number
     },
@@ -117,6 +126,10 @@ export default {
             this.co2Quantity = parseInt(this.quantity) * Math.pow(10,6);
             this.$emit('changeCO2Quantity',this.co2Quantity);
         },
+        changeC3Factor(){
+            this.c3 = parseInt(this.c3Factor);
+            this.$emit('changeC3Factor',this.c3);
+        },
         draw(){
             const labels = [];
             for(let i = localStorage.length - 1; i > -1; i--){
@@ -132,7 +145,7 @@ export default {
             }
             const dataset = {
                 label:'CO2 (Unit: billion tons)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

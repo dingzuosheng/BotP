@@ -5,9 +5,9 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                <!--<div>
-                    Beef Tax Income: {{  Math.floor(this.beefTaxIncome/Math.pow(10,9)*100)/100 }} billion $
-                </div>-->        
+                <div>
+                    Debt for Nature Subsidy: {{  Math.floor(this.debtForNatureBudget/Math.pow(10,9)*100)/100 }} billion $
+                </div>        
                 <div class="range">
                     <h3>Debt for Nature Subsidy {{ this.debtForNatureSubsidyRate * 100}}  %</h3>
                     <input type="range" min="0" max="0.12" step="0.01"  v-model="debtForNatureSubsidyrate" @change="changeDebtForNatureSubsidyRate"/><!--value is string-->
@@ -46,7 +46,7 @@ const service = axios.create({
 })
 import BarChart from '../chart/BarChart.vue'
 export default {
-    name:'Beef Tax',
+    name:'DebtForNatureSubsidy',
     data(){
         return{
             name:"",
@@ -65,21 +65,21 @@ export default {
         BarChart
     },
     props:{
-        //coalTaxIncome:Number,
+        debtForNatureBudget:Number,
         show:Boolean,
         executed:Number
     },
     watch:{
         executed(newValue,oldValue){
-            //this.draw();
+            this.draw();
             this.chartKey++;
         }
     },
     created(){
         service.get('/data/data.json').then(res => {
-            this.name = toRaw(res.data.Wood_Stove_Subsidy.name);
-            this.causes = toRaw(res.data.Wood_Stove_Subsidy.causes);
-            this.effects = toRaw(res.data.Wood_Stove_Subsidy.effects);
+            this.name = toRaw(res.data.Debt_for_Nature_Subsidy.name);
+            this.causes = toRaw(res.data.Debt_for_Nature_Subsidy.causes);
+            this.effects = toRaw(res.data.Debt_for_Nature_Subsidy.effects);
         }) 
     },
     methods:{
@@ -92,7 +92,7 @@ export default {
             this.debtForNatureSubsidyRate = parseInt(this.debtForNatureSubsidyrate*100)/100;
             this.$emit('changeDebtForNatureSubsidyRate',this.debtForNatureSubsidyRate);
         },
-        /*draw(){
+        draw(){
             const labels = [];
             for(let i = localStorage.length - 1; i > -1; i--){
                 labels.push(localStorage.key(i));
@@ -102,18 +102,18 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome)
+                data.push(JSON.parse(localStorage.getItem(labels[i])).debtForNatureBudget)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Coal Tax Income(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                label:'Debt for Nature Subsidy(Unit: billion dollars)',
+                backgroundColor:'orange',
                 data: data,
 
             }
             this.chartData.datasets = [dataset];
             console.log(JSON.stringify(this.chartData))
-        }*/
+        }
     }
 }
 </script>

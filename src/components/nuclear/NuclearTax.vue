@@ -115,7 +115,7 @@ export default {
             }
             const dataset = {
                 label:'Nuclear Tax Income (Unit: billion dollars)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

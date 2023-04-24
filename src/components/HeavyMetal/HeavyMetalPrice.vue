@@ -5,7 +5,7 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Heavy Metal Price: {{ Math.floor(this.heavyMetalPrice *100)/100 }} $/ton
+                Heavy Metal Price: {{ Math.floor(this.heavyMetalPrice *1000)/100 }} $/ton
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
@@ -14,7 +14,7 @@
                             Where:<br />
                             <div>
                                 <div class="row-formula">
-                                    <span>Heavy Metal Price Factor</span> <span>= {{ Math.floor(heavyMetalPriceFactor / Math.pow(10,3) * 10)/10 }} thousand </span> <span><input type="range" min="10000" max="100000" step="0.1" v-model="priceFactor" @change="changeHeavyMetalPriceFactor" />($/ton)</span>
+                                    <span>Heavy Metal Price Factor</span> <span>= {{ Math.floor(heavyMetalPriceFactor / Math.pow(10,3) * 10)/10 }} thousand </span> <span><input type="range" min="10000" max="100000" step="100" v-model="priceFactor" @change="changeHeavyMetalPriceFactor" />($/ton)</span>
                                 </div>
                                 <div class="row-formula">
                                     <span>Heavy Metal Use</span> <span>= {{ Math.floor(this.heavyMetalUse / Math.pow(10,6) * 100)/100}} million</span> <span>(tons)</span>
@@ -109,13 +109,9 @@
                     path: item.path
                 });
             },
-            changeUseRateFactor_heavyMetalUse() {
-                this.useRate_heavyMetalUse = parseInt(this.useRateFactor * 10000) / 10000;
-                this.$emit('changeUseRateFactor_heavyMetalUse', this.useRate_heavyMetalUse);
-            },
-            changeTaxEffectRate_heavyMetalUse(){
-                this.taxEffect_heavyMetalUse = parseInt(this.taxEffectRate * 100)/100;
-                this.$emit('changeTaxEffectRate_heavyMetalUse',this.taxEffect_heavyMetalUse);
+            changeHeavyMetalPriceFactor() {
+                this.heavyMetalPriceFactor = parseInt(this.priceFactor);
+                this.$emit('changeHeavyMetalPriceFactor', this.heavyMetalPriceFactor);
             },
             draw(){
                 const labels = [];
@@ -124,16 +120,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const coalUses = [];
+                const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).heavyMetalPrice)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Coal Use (Unit: Exajoules)',
-                    backgroundColor:'#000000',
-                    data: coalUses
+                    label:'Heavy Metal Price (Unit: $/ton)',
+                    backgroundColor:'orange',
+                    data: data
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))

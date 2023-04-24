@@ -116,7 +116,7 @@ export default {
             }
             const dataset = {
                 label:'Coal Research Budget(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: coalUses
             }
             this.chartData.datasets = [dataset];

@@ -11,7 +11,7 @@
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div>Starvation = Base Level * Death Rate * Population</div>
+                        <div>Starvation = (Base Level - Food Supply / Population) * Death Rate * Population</div>
                         <br />
                         Where:<br />
                         <div class="formula">
@@ -20,6 +20,9 @@
                             </div>
                             <div class="row-formula">
                                 <span>Death Rate</span> <span>= {{ this.deathRate }}</span><span><input type="range" min="0.01" max="0.1" step="0.01" v-model="deathRateFactor" @change="changeDeathRateFactor"/>(deaths/ton)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Food Supply</span> <span>= {{ Math.floor(this.foodSupply/Math.pow(10,9)*100)/100 }} billion</span> (tons)
                             </div>
                             <div class="row-formula">
                                 <span>Population</span> <span>= {{ Math.floor(this.population/Math.pow(10,9)*100)/100 }} billion</span> (people)
@@ -85,6 +88,7 @@ export default {
     props:{
         population:Number,
         starvation:Number,
+        foodSupply:Number,
         show:Boolean,
         executed:Number
     },
@@ -130,7 +134,7 @@ export default {
             }
             const dataset = {
                 label:'Starvation(Unit:million people)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

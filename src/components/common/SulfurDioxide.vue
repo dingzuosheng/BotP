@@ -125,7 +125,7 @@ export default {
             }
             const dataset = {
                 label:'SO2(Unit: million tons)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

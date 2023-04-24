@@ -124,7 +124,7 @@
                 }
                 const dataset = {
                     label:'Strip Mining(Unit:thousand hectares)',
-                    backgroundColor:'#000000',
+                    backgroundColor:'orange',
                     data: data
                 }
                 this.chartData.datasets = [dataset];

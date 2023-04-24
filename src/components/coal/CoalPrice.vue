@@ -129,7 +129,7 @@ export default {
             }
             const dataset = {
                 label:'Coal Price (Unit: billion dollars)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: coalPrices
             }
             this.chartData.datasets = [dataset];

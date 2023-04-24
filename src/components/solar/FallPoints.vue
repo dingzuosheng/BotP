@@ -122,7 +122,7 @@ export default {
             }
             const dataset = {
                 label:'Fall Points(Unit:points)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: coalUses
             }
             this.chartData.datasets = [dataset];

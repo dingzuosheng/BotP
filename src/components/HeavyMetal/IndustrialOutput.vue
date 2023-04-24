@@ -102,17 +102,15 @@ export default {
             }
             labels.sort();
             this.chartData.labels =  labels;
-            const data = [];
-            
+            const data = [];       
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome)
+                data.push(JSON.parse(localStorage.getItem(labels[i])).industrialOutput)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Coal Tax Income(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                label:'Industrial Output(Unit: trillion stuff)',
+                backgroundColor:'orange',
                 data: data,
-
             }
             this.chartData.datasets = [dataset];
             console.log(JSON.stringify(this.chartData))

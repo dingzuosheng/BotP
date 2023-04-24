@@ -126,7 +126,7 @@ export default {
             }
             const dataset = {
                 label:'Oil Supply(Unit:thousand Exajoules)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: oilSupplies
             }
             this.chartData.datasets = [dataset];

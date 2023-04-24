@@ -13,24 +13,39 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><router-link :to="{path:'quality-of-life-points'}">Quality of Life Points:  {{ Math.floor(this.qualityPoints * 100)/100 }}</router-link></td>
+                    <td><router-link :to="{path:'/game/biodiversity-points'}">Biodiversity Points:  {{ Math.floor(this.biodiversityPoints * 100)/100 }}</router-link></td>
                     <td><el-button type="info" height="50px" width="200px" @click="this.showFeedback=!this.showFeedback">Feedback</el-button></td>
                     <td><router-link :to="{path:'/game/fall-points'}">Fall Points: {{ Math.floor(this.fallPoints * 100)/100 }}</router-link></td>
                 </tr>
                 <tr>
+                    <td><router-link :to="{path:'/game/forest-life-points'}">Forest Life Points:  {{ Math.floor(this.forestLifePoints * 100)/100 }}</router-link></td>
+                    <td></td>
+                    <td><router-link :to="{path:'/game/flood-death-points'}">Flood Death Points: {{ Math.floor(this.floodDeathPoints * 100)/100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td><router-link :to="{path:'/game/lake-life-points'}">Lake Life Points:  {{ Math.floor(this.lakeLifePoints * 100)/100 }}</router-link></td>
+                    <td></td>
+                    <td><router-link :to="{path:'/game/heavy-metal-points'}">Heavy Metal Points: {{ Math.floor(this.heavyMetalPoints * 100)/100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td><router-link :to="{path:'/game/marine-life-points'}">Marine Life Points:  {{ Math.floor(this.marineLifePoints * 100)/100 }}</router-link></td>
+                    <td></td>
+                    <td><router-link :to="{path:'/game/inundation-points'}">Inundation Points: {{ Math.floor(this.inundationPoints * 100)/100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td><router-link :to="{path:'quality-of-life-points'}">Quality of Life Points:  {{ Math.floor(this.qualityPoints * 100)/100 }}</router-link></td>
+                    <td></td>
+                    <td><router-link :to="{path:'/game/land-abuse-points'}">Land Abuse Points: {{ Math.floor(this.landAbusePoints * 100)/100 }}</router-link></td>
+                </tr>
+                <tr>
                     <td><router-link :to="{path:'sustainability-pts'}">Sustainability Points:  {{  Math.floor(this.sustainabilityPts * 100)/100 }}</router-link></td>
                     <td></td>
-                    <td><router-link :to="{path:'/game/inundation-points'}">Inundation Points: {{ Math.floor(this.inundationPoints * 100) / 100 }}</router-link></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td><router-link :to="{path:'/game/land-abuse-points'}">Land Abuse Points: {{ Math.floor(this.landAbusePoints * 100) / 100 }}</router-link></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
                     <td><router-link :to="{path:'/game/lung-disease-pts'}">Lung Desease Points: {{ Math.floor(this.lungDiseasePts * 100) / 100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><router-link :to="{path:'/game/pesticide-points'}">Pesticide Points: {{ Math.floor(this.pesticidePoints * 100) / 100 }}</router-link></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -41,6 +56,11 @@
                     <td></td>
                     <td></td>
                     <td><router-link :to="{ path:'/game/radiation-points'}">Radiation Points: {{ Math.floor(this.radiationPoints * 100) / 100 }}</router-link></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><router-link :to="{ path:'/game/skin-cancer-points'}">Skin Cancer Points: {{ Math.floor(this.skinCancerPoints * 100) / 100 }}</router-link></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -147,6 +167,14 @@ export default {
         }
     },
     props:{
+        biodiversityPoints:Number,
+        forestLifePoints:Number,
+        lakeLifePoints:Number,
+        marineLifePoints:Number,
+        floodDeathPoints:Number,
+        heavyMetalPoints:Number,
+        pesticidePoints:Number,
+        skinCancerPoints:Number,
         qualityPoints:Number,
         sustainabilityPts:Number,
         totalPoints:Number,

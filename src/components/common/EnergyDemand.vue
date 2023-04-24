@@ -113,7 +113,7 @@ export default {
             }
             const dataset = {
                 label:'Energy Demand(Unit: Exajoules)',
-                backgroundColor:'#38A700',
+                backgroundColor:'orange',
                 data: energyDemands
             }
             this.chartData.datasets = [dataset];

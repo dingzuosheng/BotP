@@ -119,7 +119,7 @@ export default {
             }
             const dataset = {
                 label:'Total Coal Use (Unit: Exajoules)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: totalCoalUses
             }
             this.chartData.datasets = [dataset];

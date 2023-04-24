@@ -11,7 +11,7 @@
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div>Global Temperature = T0 + CO2 Eff * Carbon Dioxide</div>
+                        <div>Global Temperature = T0 + CFC EFF * Stratospheric CFC + Methane Eff * Methane + CO2 Eff * Carbon Dioxide</div>
                         <br />
                         Where:<br />
                         <div class="formula">
@@ -19,10 +19,22 @@
                                 <span>T0</span> <span>= {{ t0 }}</span> <span><input type="range" min="56" max="60" step="1" v-model="temperature" @change="changeTemperature" /> (degrees)</span>
                             </div>
                             <div class="row-formula">
+                                <span>CFC Eff</span> <span>= {{ cfcEff }}</span> <span><input type="range" min="0.000000002" max="0.00000005" step="0.000000001" v-model="cfcEffFactor" @change="changeCFCEffFactor" /> (degrees/ton)</span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Methane Eff</span> <span>= {{ methaneEff }}</span> <span><input type="range" min="0.000000000001" max="0.0000000001" step="0.000000000001" v-model="methaneEffFactor" @change="changeMethaneEffFactor" /> (degrees/ton)</span>
+                            </div>
+                            <div class="row-formula">
                                 <span>CO2 Eff</span> <span>= {{ co2Eff }}</span> <span><input type="range" min="1" max="50" step="1" v-model="eff" @change="changeCO2Eff" /> (degrees/tons)</span>
                             </div>
                             <div class="row-formula">
-                                <span>CO2</span> <span>= {{ Math.floor(this.co2/Math.pow(10,9)*100)/100 }} billion </span>(tons)
+                                <span>Stratospheric CFC</span> <span>= {{ Math.floor(this.stratosphericCFCs/Math.pow(10,3)*100)/100 }} thousand </span>(tons)
+                            </div>
+                            <div class="row-formula">
+                                <span>Methane</span> <span>= {{ Math.floor(this.methane/Math.pow(10,9)*100)/100 }} billion </span>(tons)
+                            </div>
+                            <div class="row-formula">
+                                <span>CO2</span> <span>= {{ Math.floor(this.co2/Math.pow(10,12)*100)/100 }} trillion </span>(tons)
                             </div>
                         </div>
                     </div>
@@ -72,6 +84,10 @@ export default {
             t0:58,
             eff:10,
             co2Eff:1.5*Math.pow(10,-12),
+            cfcEff:Math.pow(10,-8),
+            cfcEffFactor:Math.pow(10,-8),
+            methaneEff:2.0*Math.pow(10,-11),
+            methaneEffFactor:2.0*Math.pow(10,-11),
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -85,6 +101,8 @@ export default {
     props:{
         globalTemperature:Number,
         co2:Number,
+        stratosphericCFCs:Number,
+        methane:Number,
         show:Boolean,
         executed:Number
     },
@@ -115,6 +133,14 @@ export default {
             this.co2Eff = parseInt(this.eff) * Math.pow(10,-13);
             this.$emit('changeCO2Eff',this.co2Eff);
         },
+        changeCFCEffFactor(){
+            this.cfcEff = parseInt(this.cfcEffFactor * Math.pow(10,9))/ Math.pow(10,9);
+            this.$emit('changeCFCEffFactor',this.cfcEff);
+        },
+        changeMethaneEffFactor(){
+            this.methaneEff = parseInt(this.methaneEffFactor * Math.pow(10,12))/ Math.pow(10,12);
+            this.$emit('changeMethaneEffFactor',this.methaneEff);
+        },
         draw(){
             const labels = [];
             for(let i = localStorage.length - 1; i > -1; i--){
@@ -130,7 +156,7 @@ export default {
             }
             const dataset = {
                 label:'Global Temperature (Unit: degrees)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

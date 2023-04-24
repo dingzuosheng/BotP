@@ -83,9 +83,9 @@
                 </thead>
                 <tbody>
                     <tr>                        
-                        <td><router-link :to="{path:'/game/property-damage-subsidy'}">Property Damage $</router-link></td>
-                        <td><router-link :to="{path:'/game/property-damage-subsidy'}">{{ Math.floor(this.basicResearch * 100 * 100)/100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/property-damage-subsidy'}">${{ Math.floor(this.basicResearchBudget/Math.pow(10,9) * 100)/100 }}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/property-damage-payments'}">Property Damage $</router-link></td>
+                        <td><router-link :to="{path:'/game/property-damage-payments'}">{{ Math.floor(this.basicResearch * 100 * 100)/100 }}%</router-link></td>
+                        <td><router-link :to="{path:'/game/property-damage-payments'}">${{ Math.floor(this.basicResearchBudget/Math.pow(10,9) * 100)/100 }}Billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/basic-research'}">Basic Research $</router-link></td>
@@ -128,9 +128,9 @@
                         <td><router-link :to="{path:'/game/oil-research'}">${{ Math.floor(this.oilResearchBudget/Math.pow(10,9)*100)/100}}Billion</router-link></td>
                     </tr>
                     <tr>                        
-                        <td><router-link :to="{path:'/game/recyling-center-subsidy'}">Recycling Center $</router-link></td>
-                        <td><router-link :to="{path:'/game/recyling-center-subsidy'}">{{ Math.floor(this.nuclearResearch * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/recyling-center-subsidy'}">${{ Math.floor(this.nuclearResearchBudget/Math.pow(10,9)* 100)/100}}Billion</router-link></td>
+                        <td><router-link :to="{path:'/game/recycling-center-subsidy'}">Recycling Center $</router-link></td>
+                        <td><router-link :to="{path:'/game/recycling-center-subsidy'}">{{ Math.floor(this.nuclearResearch * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/recycling-center-subsidy'}">${{ Math.floor(this.nuclearResearchBudget/Math.pow(10,9)* 100)/100}}Billion</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/solar-energy'}">Solar Energy $</router-link></td>
@@ -241,7 +241,7 @@ export default {
             }
             const dataset = {
                 label:'Total Treasury(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

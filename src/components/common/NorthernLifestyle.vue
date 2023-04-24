@@ -161,7 +161,7 @@ export default {
             }
             const dataset = {
                 label:'Life Style(Unit: million happies)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

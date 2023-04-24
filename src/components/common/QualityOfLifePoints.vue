@@ -121,7 +121,7 @@ export default {
             }
             const dataset = {
                 label:'Quality of Life Points(Unit:points)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

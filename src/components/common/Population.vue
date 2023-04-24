@@ -119,7 +119,7 @@ export default {
             }
             const dataset = {
                 label:'Population(Unit:billion people)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

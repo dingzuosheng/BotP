@@ -121,7 +121,7 @@ export default {
             }
             const dataset = {
                 label:'Sustainability Points(Unit:Permenence)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

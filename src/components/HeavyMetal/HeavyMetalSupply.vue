@@ -5,7 +5,7 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Heavy Metal Price: {{ Math.floor(this.heavyMetalPrice *100)/100 }} $/ton
+                Heavy Metal Price: {{ Math.floor(this.heavyMetalSupply/Math.pow(10,6) *100)/100 }} million $/ton 
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
@@ -120,16 +120,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const coalUses = [];
+                const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).heavyMetalSupply)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Coal Use (Unit: Exajoules)',
-                    backgroundColor:'#000000',
-                    data: coalUses
+                    label:'Heavy Metal Supply (Unit: million $/ton)',
+                    backgroundColor:'orange',
+                    data: data
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))

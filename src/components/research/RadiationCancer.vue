@@ -135,7 +135,7 @@ export default {
             }
             const dataset = {
                 label:'Radiation Cancer(Unit: deaths)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

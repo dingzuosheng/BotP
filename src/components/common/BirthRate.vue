@@ -16,7 +16,13 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Maximal Birth Rate</span> <span>= {{ this.maximalBirthRate }}</span> <span><input type="range" min="2" max="5" step="1" v-model="value" @change="changeMaximalBirthRate" /></span>
+                                <span>Maximal Birth Rate</span> <span>= {{ maximalBirthRate }}</span> <span><input type="range" min="2" max="5" step="1" v-model="value" @change="changeMaximalBirthRate" /></span>
+                            </div>
+                            <div class="row-formula">
+                                <span>C1</span> <span>= {{ c1 }}</span> <span><input type="range" min="0.0000001" max="0.00001" step="0.0000001" v-model="c1Factor" @change="changeC1Factor" /></span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Family Planning Budget</span> <span>= {{ Math.floor(this.familyPlanningBudget/Math.pow(10,9) * 100)/100 }}</span>($)
                             </div>
                             <div class="row-formula">
                                 <span>Quality of Life</span> <span>= {{ this.qualityOfLife }}</span>(Happies/Cap)
@@ -67,6 +73,8 @@ export default {
             effects:[],
             value:2,
             maximalBirthRate:2,
+            c1:5.5*Math.pow(10,-7),
+            c1Factor:5.5*Math.pow(10,-7),
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -80,6 +88,7 @@ export default {
     props:{
         birthRate:Number,
         qualityOfLife:Number,
+        familyPlanningBudget:Number,
         show:Boolean,
         executed:Number
     },
@@ -106,6 +115,10 @@ export default {
             this.maximalBirthRate = parseInt(this.value);
             this.$emit('changeBirthRate',this.maximalBirthRate);
         },
+        changeC1Factor(){
+            this.c1 = parseInt(this.c1Factor*Math.pow(10,7))/Math.pow(10,7);
+            this.$emit('changeC1FactorBirthRate',this.c1);
+        },
         draw(){
             const labels = [];
             for(let i = localStorage.length - 1; i > -1; i--){
@@ -121,7 +134,7 @@ export default {
             }
             const dataset = {
                 label:'Birth Rate (Unit: %)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

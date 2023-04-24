@@ -118,16 +118,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const coalUses = [];
+                const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).medicines)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Coal Use (Unit: Exajoules)',
-                    backgroundColor:'#000000',
-                    data: coalUses
+                    label:'Medicines (Unit: million pills)',
+                    backgroundColor:'orange',
+                    data: data
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))

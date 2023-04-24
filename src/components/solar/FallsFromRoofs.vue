@@ -122,7 +122,7 @@ export default {
             }
             const dataset = {
                 label:'Falls From Roofs(Unit:deaths)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: coalUses
             }
             this.chartData.datasets = [dataset];

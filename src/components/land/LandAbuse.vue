@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Land Abuse: {{ this.landAbuse }}  hectares
+                    Land Abuse: {{ Math.floor(this.landAbuse/Math.pow(10,6) * 100)/100 }} million  hectares
                 </div>
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
@@ -19,10 +19,10 @@
                                     <span>Land Use</span> <span>= {{ landUse }}</span> <span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="landUseFactor" @change="changeLandUseFactor" /></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Strip Mining</span> <span>= {{ this.stripMing}}</span> <span>(hectares)</span>
+                                    <span>Strip Mining</span> <span>= {{ Math.floor(this.stripMining/Math.pow(10,3) * 100)/100}} thousand</span> <span>(hectares)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Garbage</span> <span>= {{ this.garbage}}</span> <span>(hectares)</span>
+                                    <span>Garbage</span> <span>= {{ Math.floor(this.garbage/Math.pow(10,6) * 100)/100}} million</span> <span>(tons)</span>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                 }
                 const dataset = {
                     label:'Land Abuse(Unit:million hectares)',
-                    backgroundColor:'#000000',
+                    backgroundColor:'orange',
                     data: data
                 }
                 this.chartData.datasets = [dataset];

@@ -134,7 +134,7 @@ export default {
             }
             const dataset = {
                 label:'Lung Disease Death(Unit: thousand deaths)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

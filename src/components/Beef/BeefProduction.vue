@@ -138,16 +138,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const coalUses = [];
+                const beefProductions = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                    beefProductions.push(JSON.parse(localStorage.getItem(labels[i])).beefProduction)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Coal Use (Unit: Exajoules)',
-                    backgroundColor:'#000000',
-                    data: coalUses
+                    label:'Beef Production (Unit: billion tons)',
+                    backgroundColor:'orange',
+                    data: beefProductions
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))

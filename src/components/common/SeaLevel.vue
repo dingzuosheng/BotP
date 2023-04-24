@@ -130,7 +130,7 @@ export default {
             }
             const dataset = {
                 label:'Seelevel(Unit:meters)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

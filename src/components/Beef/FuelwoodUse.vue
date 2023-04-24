@@ -23,7 +23,7 @@
                                     <span>Population</span> <span>= {{ Math.floor(this.population / Math.pow(10,9)*100)/100}} billion</span> <span>(people)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Wood Stove $</span> <span>= {{ Math.floor(this.woodStoveDollar / Math.pow(10,9)*100)/100}} billion </span> <span>($)</span>
+                                    <span>Wood Stove $</span> <span>= {{ Math.floor(this.woodStoveBudget / Math.pow(10,9)*100)/100}} billion </span> <span>($)</span>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
         props: {
             fuelwoodUse:Number,
             population:Number,
-            woodStoveDollar:Number,
+            woodStoveBudget:Number,
             show:Boolean,
             executed:Number
         },
@@ -128,16 +128,16 @@
                 }
                 labels.sort();
                 this.chartData.labels =  labels;
-                const coalUses = [];
+                const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    coalUses.push(JSON.parse(localStorage.getItem(labels[i])).coalUse)
+                    data.push(JSON.parse(localStorage.getItem(labels[i])).fuelwoodUse)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
-                    label:'Coal Use (Unit: Exajoules)',
-                    backgroundColor:'#000000',
-                    data: coalUses
+                    label:'Fuelwood Use (Unit: billion tons)',
+                    backgroundColor:'orange',
+                    data: data
                 }
                 this.chartData.datasets = [dataset];
                 console.log(JSON.stringify(this.chartData))

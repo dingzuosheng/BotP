@@ -110,12 +110,12 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome)
+                data.push(JSON.parse(localStorage.getItem(labels[i])).cfcTaxIncome)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Coal Tax Income(Unit: billion dollars)',
-                backgroundColor:'#000000',
+                label:'CFC Tax Income(Unit: million dollars)',
+                backgroundColor:'orange',
                 data: data,
 
             }

@@ -20,6 +20,7 @@ import OilUse from './components/oil/OilUse'
 import OilTax from './components/oil/OilTax'
 import OilPrice from './components/oil/OilPrice'
 import OilSupply from './components/oil/OilSupply'
+import OilSpills from './components/oil/OilSpills.vue'
 import TotalOilUse from './components/oil/TotalOilUse'
 import GlobalTemperature from './components/common/GlobalTemperature'
 import SeaLevel from './components/common/SeaLevel'
@@ -144,6 +145,16 @@ import ForestHabitats from './components/Lake/ForestHabitats.vue'
 import LakeHabitats from './components/Lake/LakeHabitats.vue'
 import LakeLifePoints from './components/Lake/LakeLifePoints.vue'
 import ForestLifePoints from './components/Lake/ForestLifePoints.vue'
+import LakeAcidity from './components/Lake/LakeAcidity.vue'
+import AcidRain from './components/Lake/AcidRain.vue'
+import RiparianHabitats from './components/Lake/RiparianHabitats.vue'
+import MarineLife from './components/Lake/MarineLife.vue'
+import MarineLifePoints from './components/Lake/MarineLifePoints.vue'
+import Seafood from './components/Lake/Seafood.vue'
+import PropertyDamagePayments from './components/common/PropertyDamagePayments.vue'
+import FloodDeaths from './components/dam/FloodDeaths.vue'
+import FloodDeathPoints from './components/dam/FloodDeathPoints.vue'
+import FamilyPlanningSubsidy from './components/research/FamilyPlanningSubsidy.vue'
 
 const routes = [
     {
@@ -860,6 +871,61 @@ const routes = [
                 name:'ForestLifePoints',
                 path:'/game/forest-life-points',
                 component:ForestLifePoints
+            },
+            {
+                name:'LakeAcidity',
+                path:'/game/lake-acidity',
+                component:LakeAcidity
+            },
+            {
+                name:'AcidRain',
+                path:'/game/acid-rain',
+                component:AcidRain
+            },
+            {
+                name:'RiparianHabitats',
+                path:'/game/riparian-habitats',
+                component:RiparianHabitats
+            },
+            {
+                name:'MarineLife',
+                path:'/game/marine-life',
+                component:MarineLife
+            },
+            {
+                name:'MarineLifePointns',
+                path:'/game/marine-life-points',
+                component:MarineLifePoints
+            },
+            {
+                name:'Seafood',
+                path:'/game/seafood',
+                component:Seafood
+            },
+            {
+                name:'PropertyDamagePayments',
+                path:'/game/property-damage-payments',
+                component:PropertyDamagePayments
+            },
+            {
+                name:'OilSpills',
+                path:'/game/oil-spills',
+                component:OilSpills
+            },
+            {
+                name:'FloodDeaths',
+                path:'/game/flood-deaths',
+                component:FloodDeaths
+            },
+            {
+                name:'FloodDeathPoints',
+                path:'/game/flood-death-points',
+                component:FloodDeathPoints
+            },
+            {
+                name:'FamilyPlanningSubsidy',
+                path:'/game/family-planning-subsidy',
+                component:FamilyPlanningSubsidy
             },
         ]
     },

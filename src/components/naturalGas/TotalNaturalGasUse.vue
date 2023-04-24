@@ -119,7 +119,7 @@ export default {
             }
             const dataset = {
                 label:'Total Natural Gas Use(Unit:Exajoules)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

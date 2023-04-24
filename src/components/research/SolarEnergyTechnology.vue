@@ -132,7 +132,7 @@ export default {
             }
             const dataset = {
                 label:'Solar Energy Technology(Unit:whizbangs)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

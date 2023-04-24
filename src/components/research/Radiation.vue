@@ -126,7 +126,7 @@ export default {
             }
             const dataset = {
                 label:'Radiation(Unit: p-rems)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

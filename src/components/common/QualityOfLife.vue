@@ -11,15 +11,21 @@
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div>Quality of Life = Life Value * Lifestyle / Population</div>
+                        <div>Quality of Life = (Northern Value * Northern Lifestyle + Southern Value * Southern Lifestyle) / Population</div>
                         <br/>
                         Where:<br/>
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Life Value</span> <span>= {{ lifeValue }}</span> <span><input type="range" min="0.1" max="10" step="0.1" v-model="value" @change="changeLifeValue" /></span>
+                                <span>Northern Value</span> <span>= {{ northernLifeValue }}</span> <span><input type="range" min="0.1" max="10" step="0.1" v-model="northernValue" @change="changeNorthernLifeValue" /></span>
                             </div>
                             <div class="row-formula">
-                                <span>Lifestyle</span> <span>= {{ Math.floor(this.lifestyle/Math.pow(10,9)*100)/100 }} billion </span>(happies)
+                                <span>Southern Value</span> <span>= {{ southernValue }}</span> <span><input type="range" min="0.1" max="10" step="0.01" v-model="southernValueFactor" @change="changeSouthernValueFactor" /></span>
+                            </div>
+                            <div class="row-formula">
+                                <span>Northern Lifestyle</span> <span>= {{ Math.floor(this.northernLifestyle/Math.pow(10,9)*100)/100 }} billion </span>(happies)
+                            </div>
+                            <div class="row-formula">
+                                <span>Southern Lifestyle</span> <span>= {{ Math.floor(this.southernLifestyle/Math.pow(10,9)*100)/100 }} billion </span>(happies)
                             </div>
                             <div class="row-formula">
                                 <span>Population</span> <span>= {{ Math.floor(this.population/Math.pow(10,9)*100)/100 }} billion </span>(people)
@@ -68,8 +74,10 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            value:0.1,
-            lifeValue:0.1,
+            northernValue:0.1,
+            northernLifeValue:0.1,
+            southernValue:0.4,
+            southernValueFactor:0.4,
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -82,7 +90,8 @@ export default {
     },
     props:{
         qualityOfLife:Number,
-        lifestyle:Number,
+        northernLifestyle:Number,
+        southernLifestyle:Number,
         population:Number,
         show:Boolean,
         executed:Number
@@ -106,9 +115,13 @@ export default {
                 path:item.path
             });
         },
-        changeLifeValue(){
-            this.lifeValue = parseInt(this.value*10)/10;
-            this.$emit('changeLifeValue',this.lifeValue);
+        changeNorthernLifeValue(){
+            this.northernLifeValue = parseInt(this.northernValue*10)/10;
+            this.$emit('changeNorthernLifeValue',this.northernLifeValue);
+        },
+        changeSouthernValueFactor(){
+            this.southernValue = parseInt(this.southernValueFactor*100)/100;
+            this.$emit('changeSouthernValueFactor',this.southernValue);
         },
         draw(){
             const labels = [];
@@ -125,7 +138,7 @@ export default {
             }
             const dataset = {
                 label:'Quality of Life(Unit:Happies/CAP)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

@@ -224,6 +224,22 @@
             }
         ]
     },
+    "Oil_Spills": {
+        "name": "Oil Spills",
+        "path": "/game/oil-spills",
+        "causes": [
+            {
+                "name": "Oil Use",
+                "path": "/game/oil-use"
+            }
+        ],
+        "effects": [
+            {
+                "name": "Marine Life",
+                "path": "/game/marine-life"
+            }
+        ]
+    },
     "Oil_Price": {
         "name": "Oil Price",
         "path": "/game/oil-price",
@@ -1099,7 +1115,7 @@
             },
             {
                 "name": "Property Damage $",
-                "path": "/game/property-damage"
+                "path": "/game/property-damage-payments"
             }
         ]
     },
@@ -1128,7 +1144,7 @@
             },
             {
                 "name": "Property Damage $",
-                "path": "/game/property-damage"
+                "path": "/game/property-damage-payments"
             }
         ]
     },
@@ -1157,7 +1173,7 @@
             },
             {
                 "name": "Property Damage $",
-                "path": "/game/property-damage"
+                "path": "/game/property-damage-payments"
             }
         ]
     },
@@ -1414,6 +1430,17 @@
         ],
         "effects": []
     },
+    "Family_Planning_Subsidy": {
+        "name": "Family Planning Subsidy",
+        "path": "/game/family-planning-subsidy",
+        "causes": [],
+        "effects": [
+            {
+                "name": "Birth Rate",
+                "path": "/game/birth-rate"
+            }
+        ]
+    },
     "Birth_Rate": {
         "name": "Birth Rate",
         "path": "/game/birth-rate",
@@ -1447,6 +1474,10 @@
             {
                 "name": "Birth Rate",
                 "path": "/game/birth-rate"
+            },
+            {
+                "name": "Starvation",
+                "path": "/game/starvation"
             }
         ],
         "effects": [
@@ -1546,12 +1577,20 @@
             {
                 "name": "Strip Mining",
                 "path": "/game/strip-mining"
+            },
+            {
+                "name": "Garbage",
+                "path": "/game/garbage"
             }
         ],
         "effects": [
             {
                 "name": "Land Abuse Points",
                 "path": "/game/land-abuse-points"
+            },
+            {
+                "name": "Groundwater Use",
+                "path": "/game/groundwater-use"
             }
         ]
     },
@@ -1718,12 +1757,16 @@
             {
                 "name": "Lake Acidity",
                 "path": "/game/lake-acidity"
+            },
+            {
+                "name": "Methane",
+                "path": "/game/methane"
             }
         ]
     },
-    "Property_Damage": {
+    "Property_Damage_Payments": {
         "name": "Property Damage $",
-        "path": "/game/property-damage",
+        "path": "/game/property-damage-payments",
         "causes": [
             {
                 "name": "Nitrous Dioxide",
@@ -1771,14 +1814,14 @@
         ],
         "effects": [
             {
-                "name": "Flood Deaths Points",
-                "path": "/game/flood-deaths-points"
+                "name": "Flood Death Points",
+                "path": "/game/flood-death-points"
             }
         ]
     },
-    "Flood_Deaths_Points": {
+    "Flood_Death_Points": {
         "name": "Flood Deaths",
-        "path": "/game/flood-deaths",
+        "path": "/game/flood-death-points",
         "causes": [
             {
                 "name": "Flood Deaths",
@@ -1811,7 +1854,7 @@
             },
             {
                 "name": "Starvation",
-                "path": "/game/startvation"
+                "path": "/game/starvation"
             }
         ]
     },

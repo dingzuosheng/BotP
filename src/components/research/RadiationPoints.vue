@@ -122,7 +122,7 @@ export default {
             }
             const dataset = {
                 label:'Radiation Points(Unit:points)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];

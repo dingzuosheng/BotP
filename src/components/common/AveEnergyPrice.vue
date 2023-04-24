@@ -172,7 +172,7 @@ export default {
             }
             const dataset = {
                 label:'Average Energy Price(billion dollars)',
-                backgroundColor:'#000000',
+                backgroundColor:'orange',
                 data: data
             }
             this.chartData.datasets = [dataset];
