@@ -17,6 +17,7 @@ Visual Studio Code - Development IDE - https://code.visualstudio.com/
     vue-chartjs                5.2.0          https://vue-chartjs.org/guide/
     vue-router                 4.1.6          https://router.vuejs.org/installation.html
     vue-slider-component       3.2.24         https://www.npmjs.com/package/vue-slider-component
+    chartjs-plugin-datalabels  2.2.0          https://chartjs-plugin-datalabels.netlify.app/guide/
 
 # Deploy process:
 
