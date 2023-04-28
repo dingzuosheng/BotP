@@ -71,10 +71,10 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            baseLevelFactor:0.43,
-            baseLevel:0.43,
-            deathRateFactor:0.06,
-            deathRate:0.06,
+            baseLevelFactor:0.5,
+            baseLevel:0.5,
+            deathRateFactor:0.057,
+            deathRate:0.057,
             chartData:{
                 labels:[],
                 datasets:[] 

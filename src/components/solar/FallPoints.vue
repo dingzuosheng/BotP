@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            value:0.0029,
-            valueOfOneHumanLife_FallPts:0.0029,
+            value:0.02,
+            valueOfOneHumanLife_FallPts:0.02,
             chartData:{
                 labels:[],
                 datasets:[] 

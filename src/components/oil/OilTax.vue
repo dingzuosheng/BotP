@@ -9,8 +9,8 @@
                     Oil Tax Income: {{ Math.floor(this.oilTaxIncome/Math.pow(10,9) * 100)/100 }} billion $
                 </div>
                 <div class="range">
-                    <h3>Oil Tax {{ this.oilTaxRate }} billion $/Exajoule</h3>
-                    <input type="range" min="0.0625" max="9.44" step="0.0005" v-model="rate" @change="changeOilTaxRate"/><!--value is string-->
+                    <h3>Oil Tax {{ Math.floor(this.oilTaxRate/Math.pow(10,6)*100)/100 }} million $/Exajoule</h3>
+                    <input type="range" min="6250000" max="9440000000" step="10000" v-model="rate" @change="changeOilTaxRate"/><!--value is string-->
                     <div>
                         <p class="text">
                             This is the tax that you levy on Oil Use. Increasing it will discourage production. This 
@@ -60,8 +60,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            rate:1.0001,
-            oilTaxRate:1.0001,
+            rate:250*Math.pow(10,6),
+            oilTaxRate:250*Math.pow(10,6),
             chartData:{
                 labels:[],
                 datasets:[] 

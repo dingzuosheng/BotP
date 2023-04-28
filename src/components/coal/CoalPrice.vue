@@ -71,8 +71,8 @@ export default {
             name: "",
             causes: [],
             effects: [],
-            factor: 10,
-            coalPriceFactor: 10,
+            factor: 97.4,
+            coalPriceFactor: 97.4,
             chartData:{
                 labels:[],
                 datasets:[] 

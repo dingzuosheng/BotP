@@ -16,7 +16,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Natural Gas Price Factor</span> <span>= {{ naturalGasPriceFactor }}billion</span> <span><input type="range" min="100" max="10000" step="100" v-model="factor" @change="changeNaturalGasPriceFactor" /></span>
+                                <span>Natural Gas Price Factor</span> <span>= {{ naturalGasPriceFactor }}billion</span> <span><input type="range" min="0.1" max="10" step="0.1" v-model="factor" @change="changeNaturalGasPriceFactor" /></span>
                             </div>
                             <div class="row-formula">
                                 <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span> <span>(Exajoules)</span>
@@ -71,8 +71,8 @@ export default {
             name: "",
             causes: [],
             effects: [],
-            factor:1000,
-            naturalGasPriceFactor:1000,
+            factor:2.84,
+            naturalGasPriceFactor:2.84,
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -111,7 +111,7 @@ export default {
             });
         },
         changeNaturalGasPriceFactor(){
-            this.naturalGasPriceFactor = parseInt(this.factor);
+            this.naturalGasPriceFactor = parseInt(this.factor*10)/10;
             this.$emit('changeNaturalGasPriceFactor',this.naturalGasPriceFactor);
         },
         draw(){

@@ -77,10 +77,10 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            quantity1:10,
-            c1:10*1000,
-            quantity2:100,
-            c2:100*1000,
+            quantity1:280,
+            c1:280000,
+            quantity2:158,
+            c2:158000,
             chartData:{
                 labels:[],
                 datasets:[] 

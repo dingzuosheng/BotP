@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            dangerValueFactor:9.78*Math.pow(10,-4),
-            dangerValue:9.78*Math.pow(10,-4),
+            dangerValueFactor:0.001,
+            dangerValue:0.001,
             chartData:{
                 labels:[],
                 datasets:[] 

@@ -74,8 +74,8 @@ export default {
             name: "",
             causes: [],
             effects: [],
-            optimism:0.0012,
-            nuclearOptimism:0.0012,
+            optimism:0.001,
+            nuclearOptimism:0.001,
             chartData:{
                 labels:[],
                 datasets:[] 

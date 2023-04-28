@@ -68,8 +68,8 @@
                 name: "",
                 causes: [],
                 effects: [],
-                value:1.27*Math.pow(10,-3),
-                valueOfLandAbuse:1.27*Math.pow(10,-3),
+                value:1.5*Math.pow(10,-3),
+                valueOfLandAbuse:1.5*Math.pow(10,-3),
                 chartData:{
                     labels:[],
                     datasets:[] 

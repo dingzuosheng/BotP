@@ -89,8 +89,8 @@ export default {
             c2Factor:0.07,
             c3:2,
             c3Factor:2,
-            quantity:100,
-            c4:100*Math.pow(10,3),
+            quantity:469,
+            c4:469*Math.pow(10,3),
             chartData:{
                 labels:[],
                 datasets:[] 

@@ -71,8 +71,8 @@ export default {
             name: "",
             causes: [],
             effects: [],
-            potential:0.00000000001,
-            solarEnergyPotential:0.00000000001,
+            potential:0.00000000048,
+            solarEnergyPotential:0.00000000048,
             chartData:{
                 labels:[],
                 datasets:[] 

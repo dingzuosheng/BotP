@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[], 
-            fallRateFactor:200,
-            fallRate:200,
+            fallRateFactor:100,
+            fallRate:100,
             chartData:{
                 labels:[],
                 datasets:[] 

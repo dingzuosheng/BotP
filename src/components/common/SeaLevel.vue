@@ -70,8 +70,8 @@ export default {
             effects:[],
             temperature:60,
             basicTemperature:60,
-            rate:0.49,
-            meltingRate:0.49,
+            rate:0.5,
+            meltingRate:0.5,
             chartData:{
                 labels:[],
                 datasets:[] 

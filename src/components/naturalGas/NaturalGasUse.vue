@@ -77,8 +77,8 @@ export default {
             name: "",
             causes: [],
             effects: [],
-            useRate:0.263,
-            naturalGasUseRate:0.263,
+            useRate:0.220,
+            naturalGasUseRate:0.220,
             chartData:{
                 labels:[],
                 datasets:[] 

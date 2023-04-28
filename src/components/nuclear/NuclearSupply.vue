@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Nuclear Supply: {{ this.nuclearSupply }} Exajoules
+                    Nuclear Supply: {{ Math.floor(this.nuclearSupply/1000 * 100)/100 }} thousand Exajoules
                 </div> 
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
@@ -16,7 +16,7 @@
                             Where:<br />
                             <div class="formula">
                                 <div class="row-formula">
-                                    <span>Nuclear Supply Elasticity</span> <span>= {{ Math.floor(nuclearSupplyElasticity*Math.pow(10,7))/Math.pow(10,7) }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNuclearSupplyElasticity" /></span>
+                                    <span>Nuclear Supply Elasticity</span> <span>= {{ Math.floor(nuclearSupplyElasticity*Math.pow(10,9))/Math.pow(10,9) }}</span> <span><input type="range" min=0.0000001 max="0.000001" step="0.0000001" v-model="elasticity" @change="changeNuclearSupplyElasticity" /></span>
                                 </div>
                                 <div class="row-formula">
                                     <span>Nuclear Price</span> <span>= {{ Math.floor(this.nuclearPrice/Math.pow(10,9)*100)/100 }} billion</span> <span>($/Exajoule)</span>
@@ -68,8 +68,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            elasticity:Math.pow(10,-7),
-            nuclearSupplyElasticity:Math.pow(10,-7),
+            elasticity:4.8*Math.pow(10,-7),
+            nuclearSupplyElasticity:4.8*Math.pow(10,-7),
             chartData:{
                 labels:[],
                 datasets:[] 

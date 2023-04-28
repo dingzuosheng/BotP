@@ -16,7 +16,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Nuclear Price Factor</span> <span>= {{ nuclearPriceFactor }} billion</span> <span><input type="range" min="100" max="1000000" step="100" v-model="factor" @change="changeNuclearPriceFactor" /></span>
+                                <span>Nuclear Price Factor</span> <span>= {{ nuclearPriceFactor }} trillion</span> <span><input type="range" min="0.1" max="1000" step="0.1" v-model="factor" @change="changeNuclearPriceFactor" /></span>
                             </div>
                             <div class="row-formula">
                                 <span>Nuclear Use</span> <span>= {{ this.nuclearUse }}</span> <span>(Exajoules)</span>
@@ -71,8 +71,8 @@ export default {
             name: "",
             causes: [],
             effects: [],
-            factor:23000,
-            nuclearPriceFactor:23000,
+            factor:33.3,
+            nuclearPriceFactor:33.3,
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -111,7 +111,7 @@ export default {
             });
         },
         changeNuclearPriceFactor(){
-            this.nuclearPriceFactor = parseInt(this.factor);
+            this.nuclearPriceFactor = parseInt(this.factor*10)/10;
             this.$emit('changeNuclearPriceFactor',this.nuclearPriceFactor);
         },
         draw(){

@@ -71,10 +71,10 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            so2ToxicityFactor:0.0055,
-            so2Toxicity:0.0055,
-            no2ToxicityFactor:0.0055,
-            no2Toxicity:0.0055,
+            so2ToxicityFactor:0.005,
+            so2Toxicity:0.005,
+            no2ToxicityFactor:0.002,
+            no2Toxicity:0.002,
             chartData:{
                 labels:[],
                 datasets:[] 

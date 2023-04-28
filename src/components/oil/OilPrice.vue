@@ -16,7 +16,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Oil Price Factor</span> <span>= {{ oilPriceFactor }} billion</span> <span><input type="range" min="100" max="10000" step="100" v-model="factor" @change="changeOilPriceFactor" /></span>
+                                <span>Oil Price Factor</span> <span>= {{ oilPriceFactor }} billion</span> <span><input type="range" min="0.1" max="10" step="0.1" v-model="factor" @change="changeOilPriceFactor" /></span>
                             </div>
                             <div class="row-formula">
                                 <span>Oil Use</span> <span>= {{ this.oilUse }}</span> <span>(Exajoules)</span>
@@ -71,8 +71,8 @@ export default {
             name: "",
             causes: [],
             effects: [],
-            factor:1000,
-            oilPriceFactor:1000,
+            factor:1.39,
+            oilPriceFactor:1.39,
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -111,7 +111,7 @@ export default {
             });
         },
         changeOilPriceFactor(){
-            this.oilPriceFactor = parseInt(this.factor);
+            this.oilPriceFactor = parseInt(this.factor*10)/10;
             this.$emit('changeOilPriceFactor',this.oilPriceFactor);
         },
         draw(){

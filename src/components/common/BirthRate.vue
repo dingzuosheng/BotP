@@ -11,7 +11,7 @@
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div>Birth Rate = Maximal Birth Rate / (1 + Quality of Life)</div>
+                        <div>Birth Rate = Maximal Birth Rate / (1 + C1 * Sqrt(Family Planning $) + Quality of Life)</div>
                         <br />
                         Where:<br />
                         <div class="formula">
@@ -71,8 +71,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            value:2,
-            maximalBirthRate:2,
+            value:4,
+            maximalBirthRate:4,
             c1:5.5*Math.pow(10,-7),
             c1Factor:5.5*Math.pow(10,-7),
             chartData:{

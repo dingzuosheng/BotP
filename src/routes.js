@@ -4,6 +4,7 @@ import {createWebHistory,createRouter} from 'vue-router'
 import Home from './components/Home.vue'
 import Game from './components/Game.vue'
 import Policy from './components/Policy.vue'
+import About from './components/About.vue'
 import Results from './components/Results.vue'
 import CoalTax from './components/coal/CoalTax.vue'
 import CoalUse from './components/coal/CoalUse.vue'
@@ -181,6 +182,11 @@ const routes = [
                 name:'Results',
                 path:'/game/results',
                 component:Results
+            },
+            {
+                name:'About',
+                path:'/game/about',
+                component:About
             },
             {
                 name:'CoalTax',

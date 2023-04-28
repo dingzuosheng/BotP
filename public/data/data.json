@@ -79,6 +79,10 @@
             {
                 "name": "Total Coal Use",
                 "path": "/game/total-coal-use"
+            },
+            {
+                "name": "Strip Mining",
+                "path": "/game/strip-mining"
             }
         ]
     },

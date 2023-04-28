@@ -68,8 +68,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            exposureRateFactor:30000,
-            exposureRate:30000,
+            exposureRateFactor:90000,
+            exposureRate:90000,
             chartData:{
                 labels:[],
                 datasets:[] 

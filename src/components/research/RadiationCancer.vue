@@ -71,10 +71,10 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            radiationDangerFactor:0.0029,
-            radiationDanger:0.0029,
-            accidentDangerFactor:5000,
-            accidentDanger:5000,
+            radiationDangerFactor:0.0002,
+            radiationDanger:0.0002,
+            accidentDangerFactor:8200,
+            accidentDanger:8200,
             chartData:{
                 labels:[],
                 datasets:[] 

@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            valueOfOneHumanLifeFactor:9.84*Math.pow(10,-3),
-            valueOfOneHumanLife_lungDiseasePts:9.84*Math.pow(10,-3),
+            valueOfOneHumanLifeFactor:0.01,
+            valueOfOneHumanLife_lungDiseasePts:0.01,
             chartData:{
                 labels:[],
                 datasets:[] 

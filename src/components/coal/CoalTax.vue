@@ -9,8 +9,8 @@
                     Coal Tax Income: {{  Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100 }} billion $
                 </div>        
                 <div class="range">
-                    <h3>Coal Tax {{ this.coalTaxRate }} billion $/Exajoule</h3>
-                    <input type="range" min="0.0625" max="9.44" step="0.0005"  v-model="rate" @change="changeCoalTaxRate"/><!--value is string-->
+                    <h3>Coal Tax {{ Math.floor(this.coalTaxRate/Math.pow(10,6)*100)/100 }} million $/Exajoule</h3>
+                    <input type="range" min="62500000" max="9440000000" step="10000"  v-model="rate" @change="changeCoalTaxRate"/><!--value is string-->
                     <div>
                         <p class="text">
                             This is the tax that you levy on Coal Use. Increasing it will discourage production. This 
@@ -58,8 +58,8 @@ export default {
     data(){
         return{
             name:"",
-            rate:1.0001,
-            coalTaxRate:1.0001,
+            rate:250000000,
+            coalTaxRate:250000000,
             causes:[],
             effects:[],
             chartData:{
@@ -97,7 +97,7 @@ export default {
             });
         },
         changeCoalTaxRate(){
-            this.coalTaxRate = parseInt(this.rate*10000)/10000;
+            this.coalTaxRate = parseInt(this.rate);
             this.$emit('changeCoalTaxRate',this.coalTaxRate);
         },
         draw(){

@@ -9,8 +9,8 @@
                     Natural Gas Tax Income: {{ Math.floor(this.naturalGasTaxIncome/Math.pow(10,9)*100)/100 }} billion $
                 </div> 
                 <div class="range">
-                    <h3>Natural Gas Tax {{ this.naturalGasTaxRate }} billion $/Exajoule</h3>
-                    <input type="range" min="0.0625" max="9.44" step="0.0005" v-model="rate" @change="changeNaturalGasTaxRate"/><!--value is string-->
+                    <h3>Natural Gas Tax {{ Math.floor(this.naturalGasTaxRate/Math.pow(10,6)*100)/100 }} million $/Exajoule</h3>
+                    <input type="range" min="6250000" max="9440000000" step="10000" v-model="rate" @change="changeNaturalGasTaxRate"/><!--value is string-->
                     <div>
                         <p class="text">
                             This is the tax that you levy on Natural Gas Use. Increasing it will discourage production. This 
@@ -60,8 +60,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            rate:1.0001,
-            naturalGasTaxRate:1.0001,
+            rate:250*Math.pow(10,6),
+            naturalGasTaxRate:250*Math.pow(10,6),
             chartData:{
                 labels:[],
                 datasets:[] 
@@ -97,7 +97,7 @@ export default {
             });
         },
         changeNaturalGasTaxRate(){
-            this.naturalGasTaxRate = parseInt(this.rate*10000)/10000;
+            this.naturalGasTaxRate = parseInt(this.rate);
             this.$emit('changeNaturalGasTaxRate',this.naturalGasTaxRate);
         },
         draw(){

@@ -68,8 +68,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            accidentProbabilityFactor:0.0055,
-            accidentProbability:0.0055,
+            accidentProbabilityFactor:0.01,
+            accidentProbability:0.01,
             chartData:{
                 labels:[],
                 datasets:[] 

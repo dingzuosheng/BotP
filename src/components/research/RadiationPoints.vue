@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            valueOfOneHumanLifeFactor:0.038,
-            valueOfOneHumanLife_RadiationPts:0.038,
+            valueOfOneHumanLifeFactor:0.01,
+            valueOfOneHumanLife_RadiationPts:0.01,
             chartData:{
                 labels:[],
                 datasets:[] 

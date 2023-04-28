@@ -71,8 +71,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            elasticity:0.0001,
-            priceEleasticity:0.0001,
+            elasticity:0.00038,
+            priceEleasticity:0.00038,
             energySaved:2.5*Math.pow(10,-11),
             energySavedFactor:2.5*Math.pow(10,-11),
             chartData:{

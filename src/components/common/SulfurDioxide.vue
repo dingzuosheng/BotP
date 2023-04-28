@@ -68,8 +68,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            content:100,
-            sulfurContent:100000,
+            content:779,
+            sulfurContent:779000,
             chartData:{
                 labels:[],
                 datasets:[] 

@@ -65,8 +65,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            value:5000,
-            valueOfQualityOfLife:5000,
+            value:7500,
+            valueOfQualityOfLife:7500,
             chartData:{
                 labels:[],
                 datasets:[] 

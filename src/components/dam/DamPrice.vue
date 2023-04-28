@@ -68,8 +68,8 @@ export default {
             name: "",
             causes: [],
             effects: [],
-            potential:0.00000000001,
-            damPotential:0.00000000001,
+            potential:0.00000000072,
+            damPotential:0.00000000072,
             chartData:{
                 labels:[],
                 datasets:[] 
