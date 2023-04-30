@@ -6,7 +6,7 @@
             </div>  
             <div v-if="!this.show">
                 <div>
-                    Birth Rate: {{ this.birthRate}} %
+                    Birth Rate: {{ Math.ceil(this.birthRate*100)/100}} %
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -25,7 +25,7 @@
                                 <span>Family Planning Budget</span> <span>= {{ Math.floor(this.familyPlanningBudget/Math.pow(10,9) * 100)/100 }}</span>($)
                             </div>
                             <div class="row-formula">
-                                <span>Quality of Life</span> <span>= {{ this.qualityOfLife }}</span>(Happies/Cap)
+                                <span>Quality of Life</span> <span>= {{ Math.ceil(this.qualityOfLife*100)/100 }}</span>(Happies/Cap)
                             </div>
                         </div>
                     </div>

@@ -20,10 +20,10 @@
                                     <span>Price of Forest Land</span> <span>= {{ this.priceOfForestLand }}</span> <span><input type="range" min="100" max="10000" step="100" v-model="priceRate" @change="changePriceOfForestLand" />(hectares/ton)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Starvation</span> <span>= {{ Math.floor(this.starvation / Math.pow(10,6)*100/100)}} million</span> <span>(deaths)</span>
+                                    <span>Starvation</span> <span>= {{ Math.ceil(this.starvation / Math.pow(10,6)*100/100)}} million</span> <span>(deaths)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Debt for Nature $</span> <span>= {{ Math.floor(this.debtForNatureSubsidy / Math.pow(10,9)*100 ) / 100}} billion </span> <span>($)</span>
+                                    <span>Debt for Nature $</span> <span>= {{ Math.ceil(this.debtForNatureBudget / Math.pow(10,9)*100 ) / 100}} billion </span> <span>($)</span>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
         props: {
             forestClearing:Number,
             starvation:Number,
-            debtForNatureSubsidy:Number,
+            debtForNatureBudget:Number,
             show:Boolean,
             executed:Number
         },

@@ -19,7 +19,7 @@
                                 <span>Population</span> <span>= {{ Math.floor(this.population/Math.pow(10,9)*100)/100 }} billion</span>(people)
                             </div>
                             <div class="row-formula">
-                                <span>Birth Rate</span> <span>= {{ this.birthRate }}</span><span>%</span> 
+                                <span>Birth Rate</span> <span>= {{ Math.ceil(this.birthRate*100)/100 }}</span><span>%</span> 
                             </div>
                             <div class="row-formula">
                                 <span>Starvation</span> <span>= {{ Math.floor(this.starvation/Math.pow(10,6)*100)/100 }} Million</span>(deaths)

@@ -74,8 +74,8 @@ export default {
             name:"",
             causes:[],
             effects:[],
-            northernValue:0.1,
-            northernLifeValue:0.1,
+            northernValue:2,
+            northernLifeValue:2,
             southernValue:0.4,
             southernValueFactor:0.4,
             chartData:{

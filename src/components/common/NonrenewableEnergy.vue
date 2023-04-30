@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Norenewable Energy: {{ this.nonrenewableEnergy }} Exajoules
+                Norenewable Energy: {{ Math.ceil(this.nonrenewableEnergy*100)/100 }} Exajoules
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -16,16 +16,16 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>
+                                <span>Coal Use</span> <span>= {{ Math.ceil(this.coalUse*100)/100 }}</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Oil Use</span> <span>= {{ this.oilUse }}</span> <span>(Exajoules)</span>
+                                <span>Oil Use</span> <span>= {{ Math.ceil(this.oilUse*100)/100 }}</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span> <span>(Exajoules)</span>
+                                <span>Natural Gas Use</span> <span>= {{ Math.ceil(this.naturalGasUse*100)/100 }}</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Use</span> <span>= {{ this.nuclearUse }}</span> <span>(Exajoules)</span>
+                                <span>Nuclear Use</span> <span>= {{ Math.ceil(this.nuclearUse*100)/100 }}</span> <span>(Exajoules)</span>
                             </div>
                         </div>
                     </div>

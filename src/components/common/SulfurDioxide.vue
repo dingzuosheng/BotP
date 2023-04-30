@@ -16,13 +16,13 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Sulfur Content</span> <span>= {{ sulfurContent }} thousand</span> <span><input type="range" min="100" max="1000" step="10" v-model="content" @change="changeSulfurContent"/></span>
+                                <span>Sulfur Content</span> <span>= {{ Math.ceil(sulfurContent/1000 * 100)/100 }} thousand</span> <span><input type="range" min="100" max="1000" step="10" v-model="content" @change="changeSulfurContent"/></span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoule)</span>
+                                <span>Coal Use</span> <span>= {{ Math.ceil(this.coalUse*100)/100 }}</span> <span>(Exajoule)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Technology</span> <span>= {{ this.coalTechnology }}</span><span>(Whizbangs)</span>
+                                <span>Coal Technology</span> <span>= {{ Math.ceil(this.coalTechnology*100)/100 }}</span><span>(Whizbangs)</span>
                             </div>
                         </div>
                     </div>

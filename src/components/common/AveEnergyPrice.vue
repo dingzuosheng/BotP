@@ -16,49 +16,49 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Coal Price</span> <span>= {{ this.coalPrice }}</span>
+                                <span>Coal Price</span> <span>= {{ Math.ceil(this.coalPrice/Math.pow(10,9)*100)/100 }} billion</span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Tax</span> <span>= {{ this.coalTaxRate }}</span>
+                                <span>Coal Tax</span> <span>= {{ Math.ceil(this.coalTaxRate/Math.pow(10,6)*100)/100 }} million</span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Use</span> <span>= {{ this.coalUse }}</span>
+                                <span>Coal Use</span> <span>= {{ this.coalUse }} </span>
                             </div>
                             <div class="row-formula">
-                                <span>Oil Price</span> <span>= {{ this.oilPrice }}</span>
+                                <span>Oil Price</span> <span>= {{ Math.ceil(this.oilPrice/Math.pow(10,9)*100)/100 }} billion</span>
                             </div>
                             <div class="row-formula">
-                                <span>Oil Tax</span> <span>= {{ this.oilTaxRate }}</span>
+                                <span>Oil Tax</span> <span>= {{ Math.ceil(this.oilTaxRate/Math.pow(10,6)*100)/100 }} million</span>
                             </div>
                             <div class="row-formula">
                                 <span>Oil Use</span> <span>= {{ this.oilUse }}</span>
                             </div>
                             <div class="row-formula">
-                                <span>Natural Gas Price</span> <span>= {{ this.naturalGasPrice }}</span>
+                                <span>Natural Gas Price</span> <span>= {{  Math.ceil(this.naturalGasPrice/Math.pow(10,9)*100)/100 }} billion</span>
                             </div>
                             <div class="row-formula">
-                                <span>Natural Gas Tax</span> <span>= {{ this.naturalGasTaxRate }}</span>
+                                <span>Natural Gas Tax</span> <span>= {{ Math.ceil(this.naturalGasTaxRate/Math.pow(10,6)*100)/100 }} million</span>
                             </div>
                             <div class="row-formula">
                                 <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Price</span> <span>= {{ this.nuclearPrice }}</span>
+                                <span>Nuclear Price</span> <span>= {{ Math.ceil(this.nuclearPrice/Math.pow(10,9)*100)/100 }} billion</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Tax</span> <span>= {{ this.nuclearTaxRate }}</span>
+                                <span>Nuclear Tax</span> <span>= {{ Math.ceil(this.nuclearTaxRate/Math.pow(10,6)*100)/100 }} million</span>
                             </div>
                             <div class="row-formula">
                                 <span>Nuclear Use</span> <span>= {{ this.nuclearUse }}</span>
                             </div>
                             <div class="row-formula">
-                                <span>Solar Energy Price</span> <span>= {{ this.solarPrice }}</span>
+                                <span>Solar Energy Price</span> <span>= {{ Math.ceil(this.solarPrice/Math.pow(10,9)*100)/100 }} billion</span>
                             </div>
                             <div class="row-formula">
                                 <span>Solar Energy Use</span> <span>= {{ this.solarUse }}</span>
                             </div>
                             <div class="row-formula">
-                                <span>Dam Price</span> <span>= {{ this.damPrice }}</span>
+                                <span>Dam Price</span> <span>= {{ Math.ceil(this.damPrice/Math.pow(10,9)*100)/100 }} billion</span>
                             </div>
                             <div class="row-formula">
                                 <span>Dam Use</span> <span>= {{ this.damUse }}</span>

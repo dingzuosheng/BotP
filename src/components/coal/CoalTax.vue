@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Coal Tax Income: {{  Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100 }} billion $
+                    Coal Tax Income: {{  Math.ceil(this.coalTaxIncome/Math.pow(10,9)*100)/100 }} billion $
                 </div>        
                 <div class="range">
                     <h3>Coal Tax {{ Math.floor(this.coalTaxRate/Math.pow(10,6)*100)/100 }} million $/Exajoule</h3>
@@ -110,14 +110,13 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).coalTaxIncome/Math.pow(10,9)*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
                 label:'Coal Tax Income(Unit: billion dollars)',
                 backgroundColor:'orange',
                 data: data,
-
             }
             this.chartData.datasets = [dataset];
             console.log(JSON.stringify(this.chartData))

@@ -292,7 +292,6 @@ export default {
             coalResearchBudget: 3.2 * Math.pow(10, 9),
             oilResearchBudget: 3.2 * Math.pow(10, 9),
             nuclearResearchBudget: 3.2 * Math.pow(10, 9),
-            totalTreasury: 1.6* Math.pow(10,9),
             accidentProbability:0.01,
             nuclearAccidents:0.0874,
             exposureRate:90000,
@@ -347,8 +346,8 @@ export default {
             propertyDamagePayments:44.0*Math.pow(10,9),
             sulfurCorrosiveness:400,
             nitrousCorrosiveness:400,
-            c1: 280000,
-            c2: 158000,
+            c1_no2: 280000,
+            c2_no2: 158000,
             so2: 58.9 * Math.pow(10, 6),
             sulfurContent:779000,
             so2Toxicity:0.005,
@@ -389,6 +388,7 @@ export default {
             totalPoints:0,
             northernLifeValue:2.0,
             southernLifeValue:0.400,
+            totalTreasury: 1.6* Math.pow(10,9),
 
             /*Beef */
             beefTaxRate:6,
@@ -586,6 +586,191 @@ export default {
             gameover:false,
         }
     },
+    created(){
+       const data = {
+            totalCoalUse: 4080,
+            coalUse: 76.3,
+            coalPrice: 24.9 * Math.pow(10, 9),
+            coalSupply: 299000,
+            acidRain:107*Math.pow(10,6),
+
+            oilUse: 178,
+            oilPrice: 25.1 * Math.pow(10, 9),
+            oilSupply: 9880,
+            totalOilUse: 9180,
+
+            naturalGasUse: 65.3,
+            naturalGasPrice: 25.0 * Math.pow(10, 9),
+            naturalGasSupply: 7430,
+            totalNaturalGasUse: 2070,
+
+            nuclearUse: 8.91,
+            nuclearPrice: 24.9 * Math.pow(10, 9),
+            nuclearSupply: 11900,
+            totalNuclearUse: 108,
+
+            coalTaxIncome:19.25*Math.pow(10,9),
+            oilTaxIncome:45*Math.pow(10,9),
+            naturalGasTaxIncome:16.5*Math.pow(10,9),
+            nuclearTaxIncome:2.25*Math.pow(10,9),
+
+            solarUse: 12.1,
+            solarPrice: 24.8 * Math.pow(10, 9),
+            solarEnergyBudget: 3.20 * Math.pow(10, 9),
+            fallsFromRoofs:1210,
+            fallPoints:24.2,
+
+            solarTechnology: 1.02,
+            bioTechnology: 1.02,
+            coalTechnology: 1.01,
+            oilTechnology: 1.01,
+            nuclearTechnology: 1.02,
+
+
+            solarResearchBudget: 3.2 * Math.pow(10, 9),
+            basicResearchBudget: 3.2 * Math.pow(10, 9),
+            bioResearchBudget: 3.2 * Math.pow(10, 9),
+            coalResearchBudget: 3.2 * Math.pow(10, 9),
+            oilResearchBudget: 3.2 * Math.pow(10, 9),
+            nuclearResearchBudget: 3.2 * Math.pow(10, 9),
+            totalTreasury: 1.6* Math.pow(10,9),
+
+            nuclearAccidents:0.0874,
+            radiation:787000,
+            radiationCancer:874,
+            radiationPoints:8.74,
+            radioactiveWaste:88700,
+            radWastePoints:88.7,
+            familyPlanningBudget:3.2*Math.pow(10,9),
+
+            stripMining:22.9 * Math.pow(10,3),
+            landAbuse:1.02*Math.pow(10,6),
+            landUse:1.0*Math.pow(10,-3),
+            garbage:999*Math.pow(10,6),
+            landAbusePoints:1.53*Math.pow(10,3),
+
+            damUseBudget: 3.2 * Math.pow(10, 9),
+            damUse: 18,
+            damPrice: 25.0 * Math.pow(10, 9),
+            floodDeaths:8.96*Math.pow(10,3),
+            floodDeathPoints:50.2,
+
+            co2: 2.72 * Math.pow(10, 12),
+            globalTemperature: 60.3,
+            seeLevel: 0.149,
+            inundationPoints:297,
+            no2: 49.1 * Math.pow(10, 6),
+            propertyDamagePayments:44.0*Math.pow(10,9),
+            so2: 58.9 * Math.pow(10, 6),
+            lungDiseaseDeath:392000,
+            lungDiseasePts:3930,
+
+            energyDemand: 303,
+            aveEnergyPrice: 25.2 * Math.pow(10, 9),
+            energyConservation: 60.3,
+            energySaved:2.5*Math.pow(10,-11),
+            netEnergy: 419,
+            nonrenewableEnergy: 328, 
+            renewableEnergy:30.1,
+            northernLifestyle: 2.12 * Math.pow(10, 9),
+            qualityOfLife: 1.03,
+            population: 5.26 * Math.pow(10, 9),
+            starvation:41.4*Math.pow(10,6),
+            starvationPoints:4140,
+
+            birthRate: 1.97,
+            sustainability: 0.17,
+            sustainabilityPts: 681,
+            qualityPoints: 7700,
+            totalPoints:0,
+            
+            beefTaxIncome:804*Math.pow(10,6),
+            beefProduction:134 * Math.pow(10,6),
+            grasslands:1.59 * Math.pow(10,9),
+            overgrazing:8.00 * Math.pow(10,6),
+            soilErosion:40.3*Math.pow(10,6),
+            methane:5.85*Math.pow(10,9),
+            
+            sustainableFuelwoodUse:1.40 * Math.pow(10,9),
+            desertification:25.5 * Math.pow(10,6),
+            fuelwoodUse:1.48 * Math.pow(10,9),
+            woodStoveBudget: 3.2 * Math.pow(10,9),
+            forestLand: 7.89 * Math.pow(10,9),
+            forestClearing:14.8 * Math.pow(10,6),
+            logging:22 * Math.pow(10,6),
+            debtForNatureBudget:3.2*Math.pow(10,9),
+            farmLand:1.0 * Math.pow(10,9),
+            crops:1.69*Math.pow(10,9),
+            cropYields:2.36,
+            cropTechnology:11.5 * Math.pow(10,6),
+            waterSupply:4.54 * Math.pow(10,12),
+            ultravioletLight:0.485,
+            cropStrains: 51.6 * Math.pow(10,3),
+            
+            pesticideUse:2.41 * Math.pow(10,6),
+            pesticideTaxIncome:25.0 * Math.pow(10,6),
+            pesticideDeaths:24.1 * Math.pow(10,3),
+            pesticidePoints:36.2,
+
+            fertilizerUse:1.54 * Math.pow(10,6),
+            industrialOutput:3.88*Math.pow(10,12),
+            fertilizerTaxIncome:16.0 * Math.pow(10,6),
+            
+            industrialInput:3.88 * Math.pow(10,12),
+            globalGenePool:5.07* Math.pow(10,6),
+            heavyMetalUse: 3.54* Math.pow(10,6),
+            cfcProduction: 599 * Math.pow(10,3),
+            heavyMetalPrice: 794,
+            materialsDemand:151 * Math.pow(10,9),
+            heavyMetalTaxIncome:29.6 * Math.pow(10,6),
+            heavyMetalSupply:131*Math.pow(10,6),
+            totalHeavyMetalUse:103*Math.pow(10,6),
+            heavyMetalDeaths:95.5 * Math.pow(10,3),
+            heavyMetalPoints:190,
+            grossGlobalProduction:14.3*Math.pow(10,12),
+            valueOfIndustrialOutput:3.69,
+            consumerGoods:953*Math.pow(10,6),
+            computerGamesPoints:2.00,
+            
+            waterPollution:9.64*Math.pow(10,9),
+            groundwaterUse:4.45*Math.pow(10,12),
+            reservoirCapacity:100*Math.pow(10,9),
+            groundwaterSupply:8.4*Math.pow(10,15),
+            drinkingWater:147*Math.pow(10,9),
+            
+            southernLifestyle:2.92*Math.pow(10,9),
+            housing:1.03*Math.pow(10,9),
+            foodSupply:1.91*Math.pow(10,9),
+            seafood:84.6*Math.pow(10,6),
+            medicines:5.16*Math.pow(10,6),
+
+            loggingTaxIncome:8*Math.pow(10,6),
+            
+            recycledPaper:0.264,
+            recycledAluminum:5.53*Math.pow(10,6),
+            recyclingCenterBudget:3.20*Math.pow(10,9),
+            
+            cfcTax:40,
+            cfcTaxIncome:24*Math.pow(10,6),
+            troposphericCFCs:17.5*Math.pow(10,6),
+            stratosphericCFCs:175*Math.pow(10,3),
+            ozone:4.12 * Math.pow(10,9),
+            phytoplankton:15*Math.pow(10,9),
+            skinCancerDeaths:48.5 * Math.pow(10,3),
+            skinCancerPoints:485,
+            
+            biodiversityPoints:1.013*Math.pow(10,3),
+            forestHabitats:2.98*Math.pow(10,6),
+            marineLife:19.1*Math.pow(10,9),
+            riparianHabitats:490*Math.pow(10,3),
+            lakeHabitats:454*Math.pow(10,3),
+            lakeAcidity:5.0*Math.pow(10,-6),
+            lakeLifePoints:151,
+            forestLifePoints:990,
+            marineLifePoints:238,    
+       }
+       localStorage.setItem(this.year,JSON.stringify(data));
+    },
     methods: {
         back() {
             window.history.back();
@@ -619,353 +804,288 @@ export default {
             this.show = false;
         },
         calculateTaxIncome(){
-            debugger;
-            this.coalTaxIncome = Math.floor(parseInt(this.coalTaxRate * this.coalUse * 100) / 100 *100)/100  ;
+            this.coalTaxIncome = this.coalTaxRate * JSON.parse(localStorage.getItem(this.year-1)).coalUse;
             if(this.coalTaxIncome < 0){
                 this.coalTaxIncome = 0;
             }
-            this.oilTaxIncome = Math.floor(parseInt(this.oilTaxRate * this.oilUse * 100 ) / 100  * 100)/100;
+            this.oilTaxIncome = this.oilTaxRate * JSON.parse(localStorage.getItem(this.year-1)).oilUse;
             if(this.oilTaxIncomde < 0){
                 this.oilTaxIncome = 0;
             }
-            this.naturalGasTaxIncome = Math.floor(parseInt(this.naturalGasTaxRate * this.naturalGasUse * 100)/100 * 100)/100;
+            this.naturalGasTaxIncome = this.naturalGasTaxRate * JSON.parse(localStorage.getItem(this.year-1)).naturalGasUse;
             if(this.naturalGasTaxIncome < 0){
                 this.naturalGasTaxIncome = 0;
             }
-            this.nuclearTaxIncome = Math.floor(parseInt(this.nuclearTaxRate * this.nuclearUse * 100)/100 *100)/100;
+            this.nuclearTaxIncome = this.nuclearTaxRate * JSON.parse(localStorage.getItem(this.year-1)).nuclearUse;
             if(this.nuclearTaxIncome < 0){
                 this.nuclearTaxIncome = 0;
             }
-            this.beefTaxIncome = Math.floor(parseInt(this.beefTaxRate * this.beefProduction * 100)/100 * 100)/100;//ja
+            this.beefTaxIncome = this.beefTaxRate * JSON.parse(localStorage.getItem(this.year-1)).beefProduction;//ja
             if(this.beefTaxIncome < 0){
                 this.beefTaxIncome = 0;
             }
-            this.cfcTaxIncome = Math.floor(parseInt(this.cfcTax * this.cfcProduction * 100)/100 * 100)/100;//ja
+            this.cfcTaxIncome = this.cfcTax * JSON.parse(localStorage.getItem(this.year-1)).cfcProduction;//ja
             if(this.cfcTaxIncome < 0){
                 this.cfcTaxIncome = 0;
             }
-            this.fertilizerTaxIncome = Math.floor(parseInt(this.fertilizerTax * this.fertilizerUse * 100)/100 *100)/100;//ja
+            this.fertilizerTaxIncome = this.fertilizerTax * JSON.parse(localStorage.getItem(this.year-1)).fertilizerUse;//ja
             if(this.fertilizerTaxIncome < 0){
                 this.fertilizerTaxIncome = 0;
             }
-            this.heavyMetalTaxIncome = Math.floor(parseInt(this.heavyMetalTax * this.heavyMetalUse * 100)/100 * 100)/100;//ja
+            this.heavyMetalTaxIncome = this.heavyMetalTax * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse;//ja
             if(this.heavyMetalTaxIncome < 0){
                 this.heavyMetalTaxIncome = 0;
             }
-            this.loggingTaxIncome = Math.floor(parseInt(this.loggingTax * this.logging * 100)/100 * 100)/100;//ja
+            this.loggingTaxIncome = this.loggingTax * JSON.parse(localStorage.getItem(this.year-1)).logging;//ja
             if(this.loggingTaxIncome < 0){
                 this.loggingTaxIncome = 0;
             }
-            this.pesticideTaxIncome = Math.floor(parseInt(this.pesticideTax * this.pesticideUse * 100) / 100 * 100)/100;//ja
+            this.pesticideTaxIncome = this.pesticideTax * JSON.parse(localStorage.getItem(this.year-1)).pesticideUse;//ja
             if(this.pesticideTaxIncome < 0){
                 this.pesticideTaxIncome = 0;
             }
-            this.totalTaxIncome = Math.floor((this.beefTaxIncome + this.cfcTaxIncome + this.coalTaxIncome + this.fertilizerTaxIncome + this.heavyMetalTaxIncome + this.loggingTaxIncome 
-                                  + this. naturalGasTaxIncome + this.nuclearTaxIncome + this.oilTaxIncome + this.pesticideTaxIncome)*100)/100;
-            /*console.log("====================================tax Income===============================")
-            console.log("beefTaxIncome = beefTaxRate * beefProduction")
-            console.log("beefTaxIncome = " + this.beefTaxIncome)
-            console.log("beefTaxRate = " + this.beefTaxRate)
-            console.log("beefProduction = " + this.beefProduction)
-            console.log("====================================================")
-            console.log("cfcTaxIncome = cfcTax * cfcProduction")
-            console.log("cfcTaxIncome = " + this.cfcTaxIncome)
-            console.log("cfcTax = " + this.cfcTax)
-            console.log("cfcProduction = " + this.cfcProduction)
-            console.log("====================================================")
-            console.log("fertilizerTaxIncome = fertilizerTax * fertilizerUse")
-            console.log("fertilizerTaxIncome = " + this.fertilizerTaxIncome)
-            console.log("fertilizerTaxIncome = " + this.fertilizerTax)
-            console.log("fertilizerTaxIncome = " + this.fertilizerUse)
-            console.log("====================================================")
-            console.log("pesticideTaxIncome = pesticideTax * pesticideUse")
-            console.log("pesticideTaxIncome = " + this.pesticideTaxIncome)
-            console.log("pesticideTax = " + this.pesticideTax)
-            console.log("pesticideUse = " + this.pesticideUse)
-            console.log("====================================================")
-            console.log("heavyMetalTaxIncome = heavyMetalTax * heavyMetalUse")
-            console.log("heavyMetalTaxIncome = " + this.heavyMetalTaxIncome)
-            console.log("heavyMetalTax = " + this.heavyMetalTax)
-            console.log("heavyMetalTaxUse = " + this.heavyMetalUse)
-            console.log("====================================================")
-            console.log("loggingTaxIncome = loggingTax * logging")
-            console.log("loggingTaxIncome = " + this.loggingTaxIncome)
-            console.log("loggingTax = " + this.loggingTax)
-            console.log("logging = " + this.logging)
-            console.log("====================================tax Income===============================")*/
+            this.totalTaxIncome = JSON.parse(localStorage.getItem(this.year-1)).beefTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).cfcTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).coalTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).fertilizerTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).heavyMetalTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).loggingTaxIncome 
+                                  + JSON.parse(localStorage.getItem(this.year-1)). naturalGasTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).nuclearTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).oilTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).pesticideTaxIncome;
         },
         calculateTotalPoints(){
-            this.totalPoints = Math.floor((this.biodiversityPoints + this.forestLifePoints + this.lakeLifePoints + this.marineLifePoints + this.qualityPoints + this.sustainabilityPts
-                                         - this.inundationPoints - this.fallPoints - this.floodDeathPoints - this.heavyMetalPoints - this.landAbusePoints - this.lungDiseasePts 
-                                         - this.pesticidePoints - this.radWastePoints - this.radiationPoints - this.skinCancerPoints - this.starvationPoints)*100)/100;
-            /*console.log("this.totalPoints = Math.floor((this.biodiversityPoints + this.forestLifePoints + this.lakeLifePoints + this.marineLifePoints + this.qualityPoints + this.sustainabilityPts" +
-                                        " - this.inundationPoints - this.fallPoints - this.floodDeathPoints - this.heavyMetalPoints - this.landAbusePoints - this.lungDiseasePts " +
-                                        " - this.pesticidePoints - this.radWastePoints - this.radiationPoints - this.skinCancerPoints - this.starvationPoints)*100)/100")
-            console.log("this.totalPoints = " + this.totalPoints)
-            console.log("biodiversityPoints = " + this.biodiversityPoints)
-            console.log("forestLifePoints = " + this.forestLifePoints)
-            console.log("lakeLifePoints = " + this.lakeLifePoints)
-            console.log("marineLifePoints = " + this.marineLifePoints)
-            console.log("qualityPoints = " + this.qualityPoints)
-            console.log("sustainabilityPts = " + this.sustainabilityPts)
-            console.log("inundationPoints = " + this.inundationPoints)
-            console.log("fallPoints = " + this.fallPoints)
-            console.log("floodDeathPoints = " + this.floodDeathPoints)
-            console.log("heavyMetalPoints = " + this.heavyMetalPoints)
-            console.log("landAbusePoints = " + this.landAbusePoints)
-            console.log("lungDiseasePts = " + this.lungDiseasePts)
-            console.log("pesticidePoints = " + this.pesticidePoints)
-            console.log("radWastePoints = " + this.radWastePoints)
-            console.log("radiationPoints = " + this.radiationPoints)
-            console.log("skinCancerPoints = " + this.skinCancerPoints)
-            console.log("starvationPoints = " + this.starvationPoints)*/
+            this.totalPoints = JSON.parse(localStorage.getItem(this.year-1)).biodiversityPoints + JSON.parse(localStorage.getItem(this.year-1)).forestLifePoints + JSON.parse(localStorage.getItem(this.year-1)).lakeLifePoints + JSON.parse(localStorage.getItem(this.year-1)).marineLifePoints + JSON.parse(localStorage.getItem(this.year-1)).qualityPoints + JSON.parse(localStorage.getItem(this.year-1)).sustainabilityPts
+                                         - JSON.parse(localStorage.getItem(this.year-1)).inundationPoints - JSON.parse(localStorage.getItem(this.year-1)).fallPoints - JSON.parse(localStorage.getItem(this.year-1)).floodDeathPoints - JSON.parse(localStorage.getItem(this.year-1)).heavyMetalPoints - JSON.parse(localStorage.getItem(this.year-1)).landAbusePoints - JSON.parse(localStorage.getItem(this.year-1)).lungDiseasePts 
+                                         - JSON.parse(localStorage.getItem(this.year-1)).pesticidePoints - JSON.parse(localStorage.getItem(this.year-1)).radWastePoints - JSON.parse(localStorage.getItem(this.year-1)).radiationPoints - JSON.parse(localStorage.getItem(this.year-1)).skinCancerPoints - JSON.parse(localStorage.getItem(this.year-1)).starvationPoints;
         },
         calculateCoalFormulas(){
-            this.coalUse = Math.floor(this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate)*100)/100;//对
-            this.coalPrice = Math.floor((this.coalPrice + (this.coalPriceFactor * this.coalUse / this.coalSupply)) / 2 * 100)/100; //对
+            this.coalUse = this.coaluserate * JSON.parse(localStorage.getItem(this.year-1)).energyDemand * JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice / (JSON.parse(localStorage.getItem(this.year-1)).coalPrice + this.coalTaxRate);//对
+            this.coalPrice = (JSON.parse(localStorage.getItem(this.year-1)).coalPrice + (this.coalPriceFactor * JSON.parse(localStorage.getItem(this.year-1)).coalUse / JSON.parse(localStorage.getItem(this.year-1)).coalSupply)) / 2; //对
             if(this.coalPrice < 0){
                 this.coalPrice = 0;
             }
-            this.coalSupply = Math.floor((this.coalSupplyElasticity * this.coalPrice - this.totalCoalUse)*100)/100;//对
-            this.totalCoalUse = Math.floor((this.totalCoalUse + this.coalUse)*100)/100;//对
+            this.coalSupply = this.coalSupplyElasticity * JSON.parse(localStorage.getItem(this.year-1)).coalPrice - JSON.parse(localStorage.getItem(this.year-1)).totalCoalUse;//对
+            this.totalCoalUse = JSON.parse(localStorage.getItem(this.year-1)).totalCoalUse + JSON.parse(localStorage.getItem(this.year-1)).coalUse;//对
         },
         calculateOilFormulas(){
-            this.oilUse = Math.floor(this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate)*100)/100;//对
-            this.oilPrice = Math.floor((this.oilPrice + (this.oilPriceFactor * this.oilUse / this.oilSupply)) / 2 * 100)/100 //对;
+            this.oilUse = this.oiluserate * JSON.parse(localStorage.getItem(this.year-1)).energyDemand * JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice / (JSON.parse(localStorage.getItem(this.year-1)).oilPrice + this.oilTaxRate);//对
+            this.oilPrice = (JSON.parse(localStorage.getItem(this.year-1)).oilPrice + (this.oilPriceFactor * JSON.parse(localStorage.getItem(this.year-1)).oilUse / JSON.parse(localStorage.getItem(this.year-1)).oilSupply)) / 2  //对;
             if(this.oilPrice < 0){
                 this.oilPrice = 0;
             }
-            this.oilSupply = Math.floor((this.oilSupplyElasticity * this.oilPrice - this.totalOilUse)*100)/100;// 对
-            this.totalOilUse = Math.floor((this.totalOilUse + this.oilUse)*100)/100;//对
-            this.oilSpills = this.spillRate * this.oilUse;
+            this.oilSupply = this.oilSupplyElasticity * JSON.parse(localStorage.getItem(this.year-1)).oilPrice - JSON.parse(localStorage.getItem(this.year-1)).totalOilUse;// 对
+            this.totalOilUse = JSON.parse(localStorage.getItem(this.year-1)).totalOilUse + JSON.parse(localStorage.getItem(this.year-1)).oilUse;//对
+            this.oilSpills = this.spillRate * JSON.parse(localStorage.getItem(this.year-1)).oilUse;
         },
         calculateNaturalGasFormulas(){
-            this.naturalGasUse = Math.floor(this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate)*100)/100; //对
-            this.naturalGasPrice = Math.floor((this.naturalGasPrice + (this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply)) / 2*100)/100;//对 minus because of supply
+            this.naturalGasUse = this.naturalGasuserate * JSON.parse(localStorage.getItem(this.year-1)).energyDemand * JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice / (JSON.parse(localStorage.getItem(this.year-1)).naturalGasPrice + this.naturalGasTaxRate); //对
+            this.naturalGasPrice = (JSON.parse(localStorage.getItem(this.year-1)).naturalGasPrice + (this.naturalGasPriceFactor * JSON.parse(localStorage.getItem(this.year-1)).naturalGasUse / JSON.parse(localStorage.getItem(this.year-1)).naturalGasSupply)) / 2;//对 minus because of supply
             if(this.naturalGasPrice < 0){
                 this.naturalGasPrice = 0;
             }
-            this.naturalGasSupply = Math.floor((this.naturalGasSupplyElasticity * this.naturalGasPrice - this.totalNaturalGasUse)*100)/100; //对 minus    
-            this.totalNaturalGasUse = Math.floor((this.totalNaturalGasUse + this.naturalGasUse)*100)/100;//对
+            this.naturalGasSupply = this.naturalGasSupplyElasticity * JSON.parse(localStorage.getItem(this.year-1)).naturalGasPrice - JSON.parse(localStorage.getItem(this.year-1)).totalNaturalGasUse; //对 minus    
+            this.totalNaturalGasUse = JSON.parse(localStorage.getItem(this.year-1)).totalNaturalGasUse + JSON.parse(localStorage.getItem(this.year-1)).naturalGasUse;//对
         },
 
         calculateNuclearFormulas(){
-            this.nuclearUse = Math.floor(this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate)*100)/100; //对
-            this.nuclearPrice = Math.floor((this.nuclearPrice + (this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply)) / 2 *100)/100//对;
+            this.nuclearUse = this.nuclearUseRate * JSON.parse(localStorage.getItem(this.year-1)).energyDemand * JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice / (JSON.parse(localStorage.getItem(this.year-1)).nuclearPrice + this.nuclearTaxRate); //对
+            this.nuclearPrice = (JSON.parse(localStorage.getItem(this.year-1)).nuclearPrice + (this.nuclearPriceFactor * JSON.parse(localStorage.getItem(this.year-1)).nuclearUse / JSON.parse(localStorage.getItem(this.year-1)).nuclearSupply)) / 2//对;
             if(this.nuclearPrice < 0){
                 this.nuclearPrice = 0;
             }
-            this.nuclearSupply = Math.floor((this.nuclearSupplyElasticity * this.nuclearPrice - this.totalNuclearUse)*100)/100;// 对 minus
-            this.totalNuclearUse = Math.floor((this.totalNuclearUse + this.nuclearUse)*100)/100;//对
-            
+            this.nuclearSupply = this.nuclearSupplyElasticity * JSON.parse(localStorage.getItem(this.year-1)).nuclearPrice - JSON.parse(localStorage.getItem(this.year-1)).totalNuclearUse;// 对 minus
+            this.totalNuclearUse = JSON.parse(localStorage.getItem(this.year-1)).totalNuclearUse + JSON.parse(localStorage.getItem(this.year-1)).nuclearUse;//对
         },
         calculateDamFormulas(){
-            this.damUse = Math.floor((this.damUseRate * this.energyDemand * this.aveEnergyPrice + this.damUseBudget) / this.damPrice * 100)/100;//对
+            this.damUse = parseFloat((this.damUseRate * JSON.parse(localStorage.getItem(this.year-1)).energyDemand * JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice + JSON.parse(localStorage.getItem(this.year-1)).damUseBudget) / (JSON.parse(localStorage.getItem(this.year-1)).damPrice));//对
             //this.damPrice = this.damUse / this.damPotential;
-            this.damPrice = Math.floor((this.damPrice + (this.damUse / this.damPotential)) / 2 * 100)/100 //对
+            this.damPrice = (JSON.parse(localStorage.getItem(this.year-1)).damPrice + (JSON.parse(localStorage.getItem(this.year-1)).damUse / this.damPotential)) / 2  //对
             if(this.damPrice < 0){
                 this.damPrice = 0;
             }
-            this.floodDeaths = this.floodRate * this.soilErosion / this.damUse;
-            this.floodDeathPoints = this.valueOfOneHumanLifeFloodDeathPts * this.floodDeaths;
+            this.floodDeaths = this.floodRate * JSON.parse(localStorage.getItem(this.year-1)).soilErosion / JSON.parse(localStorage.getItem(this.year-1)).damUse;
+            console.log("this.floodRate: "+ this.floodRate);
+            console.log("this.soilErosion: "+ JSON.parse(localStorage.getItem(this.year-1)).soilErosion);
+            console.log("floodDeaths: "+this.floodDeaths);
+            console.log("damUse: " + JSON.parse(localStorage.getItem(this.year-1)).damUse);
+            this.floodDeathPoints = this.valueOfOneHumanLifeFloodDeathPts * JSON.parse(localStorage.getItem(this.year-1)).floodDeaths;
         },
         calculateLandFormulas(){
-            this.stripMining = this.stripMiningProductivity * this.coalUse;  
-            this.landAbuse = this.stripMining + (this.landUse * this.garbage);
-            this.landAbusePoints = this.valueOfLandAbuse * this.landAbuse;
+            this.stripMining = this.stripMiningProductivity * JSON.parse(localStorage.getItem(this.year-1)).coalUse;  
+            this.landAbuse = JSON.parse(localStorage.getItem(this.year-1)).stripMining + (this.landUse * JSON.parse(localStorage.getItem(this.year-1)).garbage);
+            this.landAbusePoints = this.valueOfLandAbuse * JSON.parse(localStorage.getItem(this.year-1)).landAbuse;
         },
         calculateSolarFormulas(){
-            this.solarUse = Math.floor((this.solarUseRate * this.energyDemand * this.aveEnergyPrice + this.solarEnergyBudget) / this.solarPrice * 100)/100;//对
+            this.solarUse = (this.solarUseRate * JSON.parse(localStorage.getItem(this.year-1)).energyDemand * JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice + JSON.parse(localStorage.getItem(this.year-1)).solarEnergyBudget) / JSON.parse(localStorage.getItem(this.year-1)).solarPrice;//对
             //this.solarPrice = this.solarUse / (this.solarEnergyPotential * this.solarTechnology);
-            this.solarPrice = Math.floor((this.solarPrice + (this.solarUse / (this.solarEnergyPotential * this.solarTechnology))) / 2 * 100)/100; // andere Formula als display
+            this.solarPrice = (JSON.parse(localStorage.getItem(this.year-1)).solarPrice + (JSON.parse(localStorage.getItem(this.year-1)).solarUse / (this.solarEnergyPotential * JSON.parse(localStorage.getItem(this.year-1)).solarTechnology))) / 2; // andere Formula als display
             if(this.solarPrice < 0){
                 this.solarPrice = 0;
             }
-            this.fallsFromRoofs = Math.floor(this.fallRate * this.solarUse * 100)/100;//对
-            this.fallPoints = Math.floor(this.valueOfOneHumanLife_FallPts * this.fallsFromRoofs * 100)/100;//对
+            this.fallsFromRoofs = this.fallRate * JSON.parse(localStorage.getItem(this.year-1)).solarUse;//对
+            this.fallPoints = this.valueOfOneHumanLife_FallPts * JSON.parse(localStorage.getItem(this.year-1)).fallsFromRoofs;//对
         },
         calculateTechnologyFormulas(){ //these formulas have problems, because of 1  
-            this.solarTechnology = Math.floor((this.solarTechnology + this.solarOptimism * Math.log((this.solarResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
-            this.bioTechnology = Math.floor((this.bioTechnology + this.bioOptimism * Math.log((this.bioResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
-            this.coalTechnology = Math.floor((this.coalTechnology + this.coalOptimism * Math.log((this.coalResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
-            this.oilTechnology = Math.floor((this.oilTechnology + this.oilOptimism * Math.log((this.oilResearchBudget + Math.pow(10,9)) * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
-            this.nuclearTechnology = Math.floor((this.nuclearTechnology + this.nuclearOptimism * Math.log((this.nuclearResearchBudget + Math.pow(10,9))  * (this.basicResearchBudget + Math.pow(10,9)))/2.3)*100)/100;
+            this.solarTechnology = (JSON.parse(localStorage.getItem(this.year-1))).solarTechnology + this.solarOptimism * Math.log(((JSON.parse(localStorage.getItem(this.year-1))).solarResearchBudget + Math.pow(10,9)) * ((JSON.parse(localStorage.getItem(this.year-1))).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.bioTechnology = (JSON.parse(localStorage.getItem(this.year-1))).bioTechnology + this.bioOptimism * Math.log(((JSON.parse(localStorage.getItem(this.year-1))).bioResearchBudget + Math.pow(10,9)) * ((JSON.parse(localStorage.getItem(this.year-1))).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.coalTechnology = (JSON.parse(localStorage.getItem(this.year-1))).coalTechnology + this.coalOptimism * Math.log(((JSON.parse(localStorage.getItem(this.year-1))).coalResearchBudget + Math.pow(10,9)) * ((JSON.parse(localStorage.getItem(this.year-1))).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.oilTechnology = (JSON.parse(localStorage.getItem(this.year-1))).oilTechnology + this.oilOptimism * Math.log(((JSON.parse(localStorage.getItem(this.year-1))).oilResearchBudget + Math.pow(10,9)) * ((JSON.parse(localStorage.getItem(this.year-1))).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.nuclearTechnology = (JSON.parse(localStorage.getItem(this.year-1))).nuclearTechnology + this.nuclearOptimism * Math.log(((JSON.parse(localStorage.getItem(this.year-1))).nuclearResearchBudget + Math.pow(10,9))  * ((JSON.parse(localStorage.getItem(this.year-1))).basicResearchBudget + Math.pow(10,9)))/2.3;
 
-            this.nuclearAccidents = Math.floor(this.accidentProbability * this.nuclearUse / this.nuclearTechnology * 10000)/10000; //对
-            this.radiation = Math.floor(this.exposureRate * this.nuclearUse / this.nuclearTechnology * 100)/100;//对
-            this.radiationCancer = Math.floor((this.radiationDanger * this.radiation + this.accidentDanger * this.nuclearAccidents)*100)/100;//对
-            this.radiationPoints = Math.floor(this.valueOfOneHumanLife_RadiationPts * this.radiationCancer * 100) / 100;//对
-            this.radioactiveWaste = Math.floor((this.radioactiveWaste + this.nuclearUse * this.wasteProduction / this.nuclearTechnology)*100)/100;//对
-            this.radWastePoints = Math.floor(this.dangerValue * this.radioactiveWaste * 100)/100;//对
+            this.nuclearAccidents = this.accidentProbability * JSON.parse(localStorage.getItem(this.year-1)).nuclearUse / JSON.parse(localStorage.getItem(this.year-1)).nuclearTechnology; //对
+            this.radiation = this.exposureRate * JSON.parse(localStorage.getItem(this.year-1)).nuclearUse / JSON.parse(localStorage.getItem(this.year-1)).nuclearTechnology;//对
+            this.radiationCancer = this.radiationDanger * JSON.parse(localStorage.getItem(this.year-1)).radiation + this.accidentDanger * JSON.parse(localStorage.getItem(this.year-1)).nuclearAccidents;//对
+            this.radiationPoints = this.valueOfOneHumanLife_RadiationPts * JSON.parse(localStorage.getItem(this.year-1)).radiationCancer ;//对
+            this.radioactiveWaste = JSON.parse(localStorage.getItem(this.year-1)).radioactiveWaste + JSON.parse(localStorage.getItem(this.year-1)).nuclearUse * this.wasteProduction / JSON.parse(localStorage.getItem(this.year-1)).nuclearTechnology;//对
+            this.radWastePoints = this.dangerValue * JSON.parse(localStorage.getItem(this.year-1)).radioactiveWaste;//对
         },
         calculateAirPolutionFormulas(){
-            this.co2 = Math.floor((this.co2 + this.co2Quantity * (this.coalUse + this.oilUse + this.naturalGasUse) + this.c3CarbonDioxide * this.forestClearing)*100)/100;//对
-            this.globalTemperature = Math.floor((this.t0 + this.cfcEff * this.stratosphericCFCs + this.methaneEff * this.methane + this.co2Eff * this.co2)*100)/100;//对
-            this.seeLevel = Math.floor((this.globalTemperature - this.basicTemperature) * this.meltingRate * 100) / 100;//对
-            this.inundationPoints = Math.floor(this.pointCost * this.seeLevel * 100)/100;
-            this.no2 = Math.floor(((this.c1 * this.coalUse / this.coalTechnology) + (this.c2 * this.oilUse / this.oilTechnology))*100)/100;//对
-            this.so2 = Math.floor(this.sulfurContent * this.coalUse / this.coalTechnology * 100) / 100; //对
-            this.lungDiseaseDeath = Math.floor((this.so2Toxicity * this.so2 + this.no2Toxicity * this.no2)*100)/100;//对
-            this.lungDiseasePts = Math.floor(this.valueOfOneHumanLifeLungDisease * this.lungDiseaseDeath * 100)/100;//对
+            this.co2 = JSON.parse(localStorage.getItem(this.year-1)).co2 + this.co2Quantity * (JSON.parse(localStorage.getItem(this.year-1)).coalUse + JSON.parse(localStorage.getItem(this.year-1)).oilUse + JSON.parse(localStorage.getItem(this.year-1)).naturalGasUse) + this.c3CarbonDioxide * JSON.parse(localStorage.getItem(this.year-1)).forestClearing;//对
+            this.globalTemperature = this.t0 + this.cfcEff * JSON.parse(localStorage.getItem(this.year-1)).stratosphericCFCs + this.methaneEff * JSON.parse(localStorage.getItem(this.year-1)).methane + this.co2Eff * JSON.parse(localStorage.getItem(this.year-1)).co2;//对
+            this.seeLevel = (JSON.parse(localStorage.getItem(this.year-1)).globalTemperature - this.basicTemperature) * this.meltingRate;//对
+            this.inundationPoints = this.pointCost * JSON.parse(localStorage.getItem(this.year-1)).seeLevel;
+            this.no2 = this.c1_no2 * JSON.parse(localStorage.getItem(this.year-1)).coalUse / JSON.parse(localStorage.getItem(this.year-1)).coalTechnology + this.c2_no2 * JSON.parse(localStorage.getItem(this.year-1)).oilUse / JSON.parse(localStorage.getItem(this.year-1)).oilTechnology;//对
+            this.so2 = this.sulfurContent * JSON.parse(localStorage.getItem(this.year-1)).coalUse / JSON.parse(localStorage.getItem(this.year-1)).coalTechnology; //对
+            this.lungDiseaseDeath = this.so2Toxicity * JSON.parse(localStorage.getItem(this.year-1)).so2 + this.no2Toxicity * JSON.parse(localStorage.getItem(this.year-1)).no2;//对
+            this.lungDiseasePts = this.valueOfOneHumanLifeLungDisease * JSON.parse(localStorage.getItem(this.year-1)).lungDiseaseDeath;//对
+            this.energyDemand = JSON.parse(localStorage.getItem(this.year-1)).energyDemand * 1.01;
         },
         calculateEnergyFormulas(){
-            this.energyConservation = Math.floor((this.priceElasticity * Math.sqrt(this.aveEnergyPrice) + (this.energySaved * this.recycledAluminum))  *100)/100;//对
-            this.netEnergy =Math.floor((this.energyConservation + this.renewableEnergy + this.nonrenewableEnergy)*100)/100;//对
-            this.renewableEnergy = Math.floor((this.solarUse + this.damUse)*100)/100; //对
-            this.nonrenewableEnergy = Math.floor((this.coalUse + this.oilUse + this.naturalGasUse + this.nuclearUse)*100)/100;//对
-            this.aveEnergyPrice = Math.floor((((this.coalPrice + this.coalTaxRate) * this.coalUse 
-                                + (this.oilPrice + this.oilTaxRate) * this.oilUse 
-                                + (this.naturalGasPrice + this.naturalGasTaxIncome) * this.naturalGasUse
-                                + (this.nuclearPrice + this.nuclearTaxRate) * this.nuclearUse 
-                                + (this.solarPrice + 0) * this.solarUse 
-                                + (this.damPrice + 0) * this.damUse) 
-                                / (this.coalUse + this.oilUse + this.naturalGasUse + this.solarUse + this.damUse))*100)/100;//对
+            this.energyConservation = this.priceElasticity * Math.sqrt(JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice) + (this.energySaved * JSON.parse(localStorage.getItem(this.year-1)).recycledAluminum);//对
+            this.netEnergy = JSON.parse(localStorage.getItem(this.year-1)).energyConservation + JSON.parse(localStorage.getItem(this.year-1)).renewableEnergy + JSON.parse(localStorage.getItem(this.year-1)).nonrenewableEnergy;//对
+            this.renewableEnergy = JSON.parse(localStorage.getItem(this.year-1)).solarUse + JSON.parse(localStorage.getItem(this.year-1)).damUse; //对
+            this.nonrenewableEnergy = JSON.parse(localStorage.getItem(this.year-1)).coalUse + JSON.parse(localStorage.getItem(this.year-1)).oilUse + JSON.parse(localStorage.getItem(this.year-1)).naturalGasUse + JSON.parse(localStorage.getItem(this.year-1)).nuclearUse;//对
+            this.aveEnergyPrice = ((JSON.parse(localStorage.getItem(this.year-1)).coalPrice + this.coalTaxRate) * JSON.parse(localStorage.getItem(this.year-1)).coalUse 
+                                + (JSON.parse(localStorage.getItem(this.year-1)).oilPrice + this.oilTaxRate) * JSON.parse(localStorage.getItem(this.year-1)).oilUse 
+                                + (JSON.parse(localStorage.getItem(this.year-1)).naturalGasPrice + this.naturalGasTaxRate) * JSON.parse(localStorage.getItem(this.year-1)).naturalGasUse
+                                + (JSON.parse(localStorage.getItem(this.year-1)).nuclearPrice + this.nuclearTaxRate) * JSON.parse(localStorage.getItem(this.year-1)).nuclearUse 
+                                + (JSON.parse(localStorage.getItem(this.year-1)).solarPrice + 0) * JSON.parse(localStorage.getItem(this.year-1)).solarUse 
+                                + (JSON.parse(localStorage.getItem(this.year-1)).damPrice + 0) * JSON.parse(localStorage.getItem(this.year-1)).damUse) 
+                                / (JSON.parse(localStorage.getItem(this.year-1)).coalUse + JSON.parse(localStorage.getItem(this.year-1)).oilUse + JSON.parse(localStorage.getItem(this.year-1)).naturalGasUse + JSON.parse(localStorage.getItem(this.year-1)).solarUse + JSON.parse(localStorage.getItem(this.year-1)).damUse);//对
             if(this.aveEnergyPrice < 0){
                 this.aveEnergyPrice = 0;
             }
         },
         calculatePopulationFormulas(){
-            this.birthRate = Math.floor((this.maximalBirthRate / (1 + this.c1BirthRate*Math.sqrt(this.familyPlanningBudget)) + this.qualityOfLife) *100)/100; //对
-            this.population = Math.floor((this.population * (1 + this.birthRate/100) - this.starvation)*100)/100;//对
-            this.starvation = Math.floor((this.baseLevel - this.foodSupply/ this.population) * this.deathRate * this.population * 100)/100;//对
+            this.birthRate = this.maximalBirthRate / (1 + this.c1BirthRate*Math.sqrt(JSON.parse(localStorage.getItem(this.year-1)).familyPlanningBudget)) + JSON.parse(localStorage.getItem(this.year-1)).qualityOfLife; //对
+            this.population = (JSON.parse(localStorage.getItem(this.year-1)).population * (1 + JSON.parse(localStorage.getItem(this.year-1)).birthRate/100) - JSON.parse(localStorage.getItem(this.year-1)).starvation);//对
+            this.starvation = (this.baseLevel - JSON.parse(localStorage.getItem(this.year-1)).foodSupply/ JSON.parse(localStorage.getItem(this.year-1)).population) * this.deathRate * JSON.parse(localStorage.getItem(this.year-1)).population;//对
             if(this.starvation < 0){
                 this.starvation = 0;
             }
-            this.starvationPoints = Math.floor(this.valueOfOneHumanLife * this.starvation * 100)/100;//对
-            console.log("birthRate = " + this.birthRate);
+            this.starvationPoints = this.valueOfOneHumanLife * JSON.parse(localStorage.getItem(this.year-1)).starvation;//对
         },
         calculateSustainabilityFormulas(){
-            this.sustainabilityPts = Math.floor(this.valueOfSustainability * this.sustainability*100)/100; //对
+            this.sustainabilityPts = this.valueOfSustainability * JSON.parse(localStorage.getItem(this.year-1)).sustainability; //对
             if(this.sustainabilityPts < 0){
                 this.sustainabilityPts = 0;
             }
-            this.sustainability = Math.floor(this.renewableEnergy * (4 - this.birthRate) / (this.renewableEnergy + this.nonrenewableEnergy)*100)/100;//对
+            this.sustainability = JSON.parse(localStorage.getItem(this.year-1)).renewableEnergy * (4 - JSON.parse(localStorage.getItem(this.year-1)).birthRate) / (JSON.parse(localStorage.getItem(this.year-1)).renewableEnergy + JSON.parse(localStorage.getItem(this.year-1)).nonrenewableEnergy);//对
         },
         calculateQualityOfLifeFormulas(){
-            this.northernLifestyle = Math.floor(this.c1 * this.medicines + this.c2 * this.beefProduction + this.c3 * this.consumerGoods + this.c4 * this.netEnergy * 100)/100;//对
-            this.qualityOfLife = Math.floor((this.northernLifeValue * this.northernLifestyle + this.southernLifeValue * this.southernLifestyle) / this.population * 100)/100;//对
-            this.qualityPoints = Math.floor(this.valueOfQualityOfLife * this.qualityOfLife * 100)/100; // 对
-            this.housing = this.woodRequirements * this.logging + this.scaleFactorHousing * this.industrialOutput;//ja
-            this.medicines = this.bioTechnology * this.globalGenePool;//ja
-            this.southernLifestyle = this.w1_s * this.housing + this.w2_s * this.drinkingWater + this.w3_s * this.foodSupply;//ja
+            this.northernLifestyle = this.c1 * JSON.parse(localStorage.getItem(this.year-1)).medicines + this.c2 * JSON.parse(localStorage.getItem(this.year-1)).beefProduction + this.c3 * JSON.parse(localStorage.getItem(this.year-1)).consumerGoods + this.c4 * JSON.parse(localStorage.getItem(this.year-1)).netEnergy ;//对
+            this.qualityOfLife = (this.northernLifeValue * JSON.parse(localStorage.getItem(this.year-1)).northernLifestyle + this.southernLifeValue * JSON.parse(localStorage.getItem(this.year-1)).southernLifestyle) / JSON.parse(localStorage.getItem(this.year-1)).population ;//对
+            this.qualityPoints = this.valueOfQualityOfLife * JSON.parse(localStorage.getItem(this.year-1)).qualityOfLife; // 对
+            this.housing = this.woodRequirements * JSON.parse(localStorage.getItem(this.year-1)).logging + this.scaleFactorHousing * JSON.parse(localStorage.getItem(this.year-1)).industrialOutput;//ja
+            this.medicines = JSON.parse(localStorage.getItem(this.year-1)).bioTechnology * JSON.parse(localStorage.getItem(this.year-1)).globalGenePool;//ja
+            this.southernLifestyle = this.w1_s * JSON.parse(localStorage.getItem(this.year-1)).housing + this.w2_s * JSON.parse(localStorage.getItem(this.year-1)).drinkingWater + this.w3_s * JSON.parse(localStorage.getItem(this.year-1)).foodSupply;//ja
         },
         calculateResearchBudget(){//对
-            this.basicResearchBudget = Math.floor((this.basicResearch * this.totalTreasury)*100)/100;
-            this.bioResearchBudget = Math.floor(this.bioResearch * this.totalTreasury*100)/100;
-            this.coalResearchBudget = Math.floor(this.coalResearch * this.totalTreasury * 100)/100;
-            this.damUseBudget = Math.floor(this.damSubsidy * this.totalTreasury * 100)/100;
-            this.nuclearResearchBudget = Math.floor(this.nuclearResearch * this.totalTreasury * 100)/100;
-            this.oilResearchBudget = Math.floor(this.oilResearch * this.totalTreasury * 100)/100;
-            this.solarEnergyBudget = Math.floor(this.solarEnergySubsidy * this.totalTreasury * 100)/100;
-            this.solarResearchBudget = Math.floor(this.solarResearch * this.totalTreasury * 100)/100;
-            this.woodStoveBudget = Math.floor(this.totalTreasury * this.woodStoveSubsidy * 100)/100;
-            this.debtForNatureBudget = Math.floor(this.totalTreasury * this.debtForNatureSubsidyRate * 100)/100;
-            this.recyclingCenterBudget = Math.floor(this.totalTreasury * this.recyclingCenterSubsidyRate * 100)/100;
-            this.propertyDamagePayments = Math.floor((this.sulfurCorrosiveness * this.so2 + this.nitrousCorrosiveness * this.no2) * 100)/100;
-            this.familyPlanningBudget = Math.floor(this.totalTreasury * this.familyPlanningSubsidy * 100)/100;
-            this.totalTreasury = Math.floor((this.coalTaxIncome + this.oilTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome + this.beefTaxIncome
-                                + this.fertilizerTaxIncome + this.heavyMetalTaxIncome + this.pesticideTaxIncome + this.loggingTaxIncome + this.cfcTaxIncome 
-                                - this.basicResearchBudget - this.bioResearchBudget - this.coalResearchBudget - this.oilResearchBudget
-                                - this.solarResearchBudget - this.damUseBudget - this.woodStoveBudget - this.debtForNatureBudget - this.recyclingCenterBudget - this.propertyDamagePayments
-                                - this.familyPlanningBudget
-                                )*100)/100;   
-            this.totalBudget = Math.floor((this.basicResearchBudget + this.propertyDamagePayments + this.bioResearchBudget + this.coalResearchBudget + this.damUseBudget + this.familyPlanningBudget
-                                + this.nuclearResearchBudget + this.oilResearchBudget + this.recyclingCenterBudget + this.solarEnergyBudget + this.solarEnergyBudget + this.woodStoveBudget)*100)/100
+            this.basicResearchBudget = this.basicResearch * (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments);
+            this.bioResearchBudget = this.bioResearch * (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments);
+            this.coalResearchBudget = this.coalResearch * (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments);
+            this.damUseBudget = this.damSubsidy * (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments);
+            this.nuclearResearchBudget = this.nuclearResearch * (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) ;
+            this.oilResearchBudget = this.oilResearch * (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments);
+            this.solarEnergyBudget = this.solarEnergySubsidy * (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments);
+            this.solarResearchBudget = this.solarResearch * (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments);
+            this.woodStoveBudget = (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) * this.woodStoveSubsidy;
+            this.debtForNatureBudget = (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) * this.debtForNatureSubsidyRate;
+            this.recyclingCenterBudget = (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) * this.recyclingCenterSubsidyRate;
+            this.propertyDamagePayments = this.sulfurCorrosiveness * JSON.parse(localStorage.getItem(this.year-1)).so2 + this.nitrousCorrosiveness * JSON.parse(localStorage.getItem(this.year-1)).no2;
+            this.familyPlanningBudget = (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) * this.familyPlanningSubsidy;
+            this.totalTreasury = this.totalTaxIncome - this.totalBudget;   
+            this.totalBudget = JSON.parse(localStorage.getItem(this.year-1)).basicResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments + JSON.parse(localStorage.getItem(this.year-1)).bioResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).coalResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).damUseBudget + JSON.parse(localStorage.getItem(this.year-1)).familyPlanningBudget + JSON.parse(localStorage.getItem(this.year-1)).debtForNatureBudget
+                                + JSON.parse(localStorage.getItem(this.year-1)).nuclearResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).oilResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).recyclingCenterBudget + JSON.parse(localStorage.getItem(this.year-1)).solarEnergyBudget + JSON.parse(localStorage.getItem(this.year-1)).solarResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).woodStoveBudget
             this.totalBudgetRate = this.basicResearch + this.bioResearch + this.coalResearch + this.damSubsidy + this.nuclearResearch + this.oilResearch + this.solarEnergySubsidy + this.solarResearch
                                     + this.woodStoveSubsidy + this.debtForNatureSubsidyRate + this.recyclingCenterSubsidyRate + this.familyPlanningSubsidy;
-            console.log("=======================================Budget===============================================") 
-            console.log("this.totalTreasury = Math.floor((this.totalTreasury + this.coalTaxIncome + this.oilTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome + this.beefTaxIncome" + 
-                                " + this.fertilizerTaxIncome + this.heavyMetalTaxIncome + this.pesticideTaxIncome + this.loggingTaxIncome + this.cfcTaxIncome " +
-                                " - this.basicResearchBudget - this.bioResearchBudget - this.coalResearchBudget - this.oilResearchBudget" +
-                                "- this.solarResearchBudget - this.damUseBudget - this.woodStoveBudget - this.debtForNatureBudget - this.recyclingCenterBudget - this.propertyDamagePayments" +
-                                "- this.familyPlanningBudget)*100)/100;")      
-            console.log("totalTreasury = " + Math.floor(this.totalTreasury/Math.pow(10,9)*100)/100);   
-            console.log("totalTaxIncome =" + Math.floor(this.totalTaxIncome/Math.pow(10,9)*100)/100); 
-            console.log("totalBudget =" + Math.floor(this.totalBudget/Math.pow(10,9)*100)/100);    
-            console.log("=======================================Budget===============================================")
         },
         calculateBeefFormulas(){
-            this.beefProduction = this.cowFactor * this.grasslands / (this.costToProduce + this.taxEffect * this.beefTaxRate);//ja
-            this.grasslands = this.grasslands - this.overgrazing;//ja
-            this.fuelwoodUse = this.population * this.demandPerCapita - this.woodSavedPerDollar * this.woodStoveBudget;//ja
-            this.desertification = (this.fuelwoodUse - this.sustainableFuelwoodUse) * this.damageRate + this.overgrazing;//ja
-            this.overgrazing = this.starvation * this.overgrazingRate;//ja
-            this.soilErosion = this.desertification + this.forestClearing;//ja
-            this.forestClearing = this.starvation * this.clearingRate - this.debtForNatureBudget / this.priceOfForestLand;//ja
-            this.forestLand = this.forestLand - this.logging - this.fuelwoodUse * this.wood - this.forestClearing - this.acidRain * this.damage;//ja
-            this.farmLand = this.farmLand + this.forestClearing * this.valueOfClearedLand;//ja
-            this.crops = this.cropYields * this.farmLand - this.beefGrainConsumption * this.beefProduction;//ja
-            this.cropYields = this.weight1 * this.cropTechnology + this.weight2 * this.waterSupply - this.weight3 * this.ultravioletLight;//ja
+            this.beefProduction = this.cowFactor * JSON.parse(localStorage.getItem(this.year-1)).grasslands / (this.costToProduce + this.taxEffect * this.beefTaxRate);//ja
+            this.grasslands = JSON.parse(localStorage.getItem(this.year-1)).grasslands - JSON.parse(localStorage.getItem(this.year-1)).overgrazing;//ja
+            this.fuelwoodUse = JSON.parse(localStorage.getItem(this.year-1)).population * this.demandPerCapita - this.woodSavedPerDollar * JSON.parse(localStorage.getItem(this.year-1)).woodStoveBudget;//ja
+            this.desertification = (JSON.parse(localStorage.getItem(this.year-1)).fuelwoodUse - this.sustainableFuelwoodUse) * this.damageRate + JSON.parse(localStorage.getItem(this.year-1)).overgrazing;//ja
+            this.overgrazing = JSON.parse(localStorage.getItem(this.year-1)).starvation * this.overgrazingRate;//ja
+            this.soilErosion = JSON.parse(localStorage.getItem(this.year-1)).desertification + JSON.parse(localStorage.getItem(this.year-1)).forestClearing;//ja
+            this.forestClearing = JSON.parse(localStorage.getItem(this.year-1)).starvation * this.clearingRate - JSON.parse(localStorage.getItem(this.year-1)).debtForNatureBudget / this.priceOfForestLand;//ja
+            this.forestLand = JSON.parse(localStorage.getItem(this.year-1)).forestLand - JSON.parse(localStorage.getItem(this.year-1)).logging - JSON.parse(localStorage.getItem(this.year-1)).fuelwoodUse * this.wood - JSON.parse(localStorage.getItem(this.year-1)).forestClearing - JSON.parse(localStorage.getItem(this.year-1)).acidRain * this.damage;//ja
+            this.farmLand = JSON.parse(localStorage.getItem(this.year-1)).farmLand + JSON.parse(localStorage.getItem(this.year-1)).forestClearing * this.valueOfClearedLand;//ja
+            this.crops = JSON.parse(localStorage.getItem(this.year-1)).cropYields * JSON.parse(localStorage.getItem(this.year-1)).farmLand - this.beefGrainConsumption * JSON.parse(localStorage.getItem(this.year-1)).beefProduction;//ja
+            this.cropYields = this.weight1 * JSON.parse(localStorage.getItem(this.year-1)).cropTechnology + this.weight2 * JSON.parse(localStorage.getItem(this.year-1)).waterSupply - this.weight3 * JSON.parse(localStorage.getItem(this.year-1)).ultravioletLight;//ja
             this.cropTechnology = this.weight1_tech * this.cropStrains + this.weight2_tech * this.pesticideUse + this.weight3_tech * this.fertilizerUse;//ja
-            this.cropStrains = this.bioTechnology * this.globalGenePool * this.cropTechOptimism;//ja
-            this.foodSupply = this.seafood + this.beefProduction + this.crops;//ja
-            this.methane = this.methane * (1 - this.decayRate) + this.beefProduction * this.burpFactor + this.acidRain * this.soilFactor;//ja
+            this.cropStrains = JSON.parse(localStorage.getItem(this.year-1)).bioTechnology * JSON.parse(localStorage.getItem(this.year-1)).globalGenePool * this.cropTechOptimism;//ja
+            this.foodSupply = JSON.parse(localStorage.getItem(this.year-1)).seafood + JSON.parse(localStorage.getItem(this.year-1)).beefProduction + JSON.parse(localStorage.getItem(this.year-1)).crops;//ja
+            this.methane = JSON.parse(localStorage.getItem(this.year-1)).methane * (1 - this.decayRate) + JSON.parse(localStorage.getItem(this.year-1)).beefProduction * this.burpFactor + JSON.parse(localStorage.getItem(this.year-1)).acidRain * this.soilFactor;//ja
         },
         calculateCFCFormulas(){
-            this.cfcProduction = this.useRateCFCPro * this.materialsDemand / (this.costToProduceCFCPro + this.taxEffectCFCPro * this.cfcTax);//ja
-            this.troposphericCFCs = this.troposphericCFCs * (1.0 - this.destructionRate) + this.cfcProduction;//ja
-            this.stratosphericCFCs = this.equilibriumConstant * this.troposphericCFCs;//ja
-            this.ozone = this.equillibriumOzone - this.cfcKillerRate * this.stratosphericCFCs;//ja
-            this.ultravioletLight = this.solarUV / (this.ozoneAbsorption * this.ozone);//ja
-            this.phytoplankton = this.normalPhytoplankton * (1 - this.phytoplanktonDamageRate * this.ultravioletLight);//ja
-            this.skinCancerDeaths = this.skinCancerIncidence * this.ultravioletLight;//ja
-            this.skinCancerPoints = this.valueOfOneHumanLifeSkinCancer * this.skinCancerDeaths;//ja
+            this.cfcProduction = this.useRateCFCPro * JSON.parse(localStorage.getItem(this.year-1)).materialsDemand / (this.costToProduceCFCPro + this.taxEffectCFCPro * this.cfcTax);//ja
+            this.troposphericCFCs = JSON.parse(localStorage.getItem(this.year-1)).troposphericCFCs * (1.0 - this.destructionRate) + JSON.parse(localStorage.getItem(this.year-1)).cfcProduction;//ja
+            this.stratosphericCFCs = this.equilibriumConstant * JSON.parse(localStorage.getItem(this.year-1)).troposphericCFCs;//ja
+            this.ozone = this.equillibriumOzone - this.cfcKillerRate * JSON.parse(localStorage.getItem(this.year-1)).stratosphericCFCs;//ja
+            this.ultravioletLight = this.solarUV / (this.ozoneAbsorption * JSON.parse(localStorage.getItem(this.year-1)).ozone);//ja
+            this.phytoplankton = this.normalPhytoplankton * (1 - this.phytoplanktonDamageRate * JSON.parse(localStorage.getItem(this.year-1)).ultravioletLight);//ja
+            this.skinCancerDeaths = this.skinCancerIncidence * JSON.parse(localStorage.getItem(this.year-1)).ultravioletLight;//ja
+            this.skinCancerPoints = this.valueOfOneHumanLifeSkinCancer * JSON.parse(localStorage.getItem(this.year-1)).skinCancerDeaths;//ja
         },
         calculateFertilizerFormulas(){
-            this.fertilizerUse = (this.industrialOutput * this.scaleFactor) / (this.costToProduce_fertilizerUse + this.taxEffect_fertilizerUse * this.fertilizerTax);//ja
+            this.fertilizerUse = (JSON.parse(localStorage.getItem(this.year-1)).industrialOutput * this.scaleFactor) / (this.costToProduce_fertilizerUse + this.taxEffect_fertilizerUse * this.fertilizerTax);//ja
         },
         calculateHeavyMetalFormulas(){
-            this.heavyMetalUse = this.useRate_heavyMetalUse * this.materialsDemand / (this.heavyMetalPrice + this.taxEffect_heavyMetalUse * this.heavyMetalTax);//ja
-            this.heavyMetalPrice = (this.heavyMetalPrice + this.heavyMetalPriceFactor * this.heavyMetalUse / this.heavyMetalSupply) / 2;//ja anders als display
-            this.heavyMetalSupply = this.heavyMetalSupplyElasticity * this.heavyMetalPrice - this.totalHeavyMetalUse;//ja
-            this.totalHeavyMetalUse = this.totalHeavyMetalUse + this.heavyMetalUse;//ja
-            this.heavyMetalDeaths = this.heavyMetalDeathRate * this.heavyMetalUse;//ja
-            this.heavyMetalPoints = this.valueOfOneHumanLife_heavyMetal * this.heavyMetalDeaths;//ja
-            this.industrialInput = this.netEnergy * Math.sqrt(this.globalGenePool) * (this.heavyMetalUse + this.cfcProduction);//ja
-            this.industrialOutput = this.industrialInput;//ja
-            this.grossGlobalProduction = this.valueOfIndustrialOutput * this.industrialOutput;//ja
-            this.materialsDemand = 1.01 * this.materialsDemand;//ja
-            this.garbage = (this.grossGlobalProduction * this.garbagePerGGP) - (this.recycledPaper * (this.logging / 3));//ja
-            this.consumerGoods = this.consumerGoodsRatio * this.industrialOutput;//ja
-            this.computerGamesPoints = 2;//ja
+            this.heavyMetalUse = this.useRate_heavyMetalUse * JSON.parse(localStorage.getItem(this.year-1)).materialsDemand / (JSON.parse(localStorage.getItem(this.year-1)).heavyMetalPrice + this.taxEffect_heavyMetalUse * this.heavyMetalTax);//ja
+            this.heavyMetalPrice = (JSON.parse(localStorage.getItem(this.year-1)).heavyMetalPrice + this.heavyMetalPriceFactor * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse / JSON.parse(localStorage.getItem(this.year-1)).heavyMetalSupply) / 2;//ja anders als display
+            this.heavyMetalSupply = this.heavyMetalSupplyElasticity * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalPrice - JSON.parse(localStorage.getItem(this.year-1)).totalHeavyMetalUse;//ja
+            this.totalHeavyMetalUse = JSON.parse(localStorage.getItem(this.year-1)).totalHeavyMetalUse + JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse;//ja
+            this.heavyMetalDeaths = this.heavyMetalDeathRate * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse;//ja
+            this.heavyMetalPoints = this.valueOfOneHumanLife_heavyMetal * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalDeaths;//ja
+            this.industrialInput = JSON.parse(localStorage.getItem(this.year-1)).netEnergy * Math.sqrt(JSON.parse(localStorage.getItem(this.year-1)).globalGenePool) * (JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse + JSON.parse(localStorage.getItem(this.year-1)).cfcProduction);//ja
+            this.industrialOutput = JSON.parse(localStorage.getItem(this.year-1)).industrialInput;//ja
+            this.grossGlobalProduction = this.valueOfIndustrialOutput * JSON.parse(localStorage.getItem(this.year-1)).industrialOutput;//ja
+            this.materialsDemand = 1.01 * JSON.parse(localStorage.getItem(this.year-1)).materialsDemand;//ja
+            this.garbage = (JSON.parse(localStorage.getItem(this.year-1)).grossGlobalProduction * this.garbagePerGGP) - (JSON.parse(localStorage.getItem(this.year-1)).recycledPaper * (JSON.parse(localStorage.getItem(this.year-1)).logging / 3));//ja
+            this.consumerGoods = this.consumerGoodsRatio * JSON.parse(localStorage.getItem(this.year-1)).industrialOutput;//ja
+            this.computerGamesPoints = JSON.parse(localStorage.getItem(this.year-1)).computerGamesPoints;//ja
         },
         calculateLakeFormulas(){
-            this.lakeLifePoints = this.lakeLifeValue * this.lakeHabitats;//JA
-            this.lakeHabitats = this.virginLakeHabitats / ((this.naturalLakeAcidity + this.lakeAcidity) * this.destruction);//ja
-            this.lakeAcidity = (this.lakeAcidity * this.lakeWater + this.acidRain) * this.purgeRate / this.lakeWater;//ja
-            this.acidRain = this.so2 + this.no2;//ja
-            this.forestHabitats = this.proportionalityConstant * Math.sqrt(this.forestLand);//ja
-            this.forestLifePoints = this.valueOfForestLife * this.forestHabitats;//ja
-            this.globalGenePool = this.forestHabitats + this.c1GlobalGenePool * this.marineLife + this.riparianHabitats + this.lakeHabitats;//JA
-            this.marineLife = this.pyramidFactor * this.phytoplankton - this.seafood - this.pToxicity * this.pesticideUse - this.oilToxicity * this.oilSpills;//ja
-            this.marineLifePoints = this.valueOfMarineLife * this.marineLife;//ja
-            this.riparianHabitats = this.initialRiparianHabitats - this.damageRateOfDams * this.damUse;//ja
-            this.biodiversityPoints = this.valueOfBiodiversity * this.globalGenePool;//ja
-            this.seafood = this.marineLife * this.maxSustainableFraction;//ja
+            this.lakeLifePoints = this.lakeLifeValue * JSON.parse(localStorage.getItem(this.year-1)).lakeHabitats;//JA
+            this.lakeHabitats = this.virginLakeHabitats / ((this.naturalLakeAcidity + JSON.parse(localStorage.getItem(this.year-1)).lakeAcidity) * this.destruction);//ja
+            this.lakeAcidity = (JSON.parse(localStorage.getItem(this.year-1)).lakeAcidity * this.lakeWater + JSON.parse(localStorage.getItem(this.year-1)).acidRain) * this.purgeRate / this.lakeWater;//ja
+            this.acidRain = JSON.parse(localStorage.getItem(this.year-1)).so2 + JSON.parse(localStorage.getItem(this.year-1)).no2;//ja
+            this.forestHabitats = this.proportionalityConstant * Math.sqrt(JSON.parse(localStorage.getItem(this.year-1)).forestLand);//ja
+            this.forestLifePoints = this.valueOfForestLife * JSON.parse(localStorage.getItem(this.year-1)).forestHabitats;//ja
+            this.globalGenePool = JSON.parse(localStorage.getItem(this.year-1)).forestHabitats + this.c1GlobalGenePool * JSON.parse(localStorage.getItem(this.year-1)).marineLife + JSON.parse(localStorage.getItem(this.year-1)).riparianHabitats + JSON.parse(localStorage.getItem(this.year-1)).lakeHabitats;//JA
+            this.marineLife = this.pyramidFactor * JSON.parse(localStorage.getItem(this.year-1)).phytoplankton - JSON.parse(localStorage.getItem(this.year-1)).seafood - this.pToxicity * JSON.parse(localStorage.getItem(this.year-1)).pesticideUse - this.oilToxicity * JSON.parse(localStorage.getItem(this.year-1)).oilSpills;//ja
+            this.marineLifePoints = this.valueOfMarineLife * JSON.parse(localStorage.getItem(this.year-1)).marineLife;//ja
+            this.riparianHabitats = this.initialRiparianHabitats - this.damageRateOfDams * JSON.parse(localStorage.getItem(this.year-1)).damUse;//ja
+            this.biodiversityPoints = this.valueOfBiodiversity * JSON.parse(localStorage.getItem(this.year-1)).globalGenePool;//ja
+            this.seafood = JSON.parse(localStorage.getItem(this.year-1)).marineLife * this.maxSustainableFraction;//ja
         },
         calculateLoggingFormulas(){
-            this.logging = (this.materialsDemand * this.useRateLogging / (this.costLogging + this.taxEffectLogging *  this.loggingTax)) * (1 - 0.3 * this.recycledPaper);//ja
+            this.logging = (JSON.parse(localStorage.getItem(this.year-1)).materialsDemand * this.useRateLogging / (this.costLogging + this.taxEffectLogging *  this.loggingTax)) * (1 - 0.3 * JSON.parse(localStorage.getItem(this.year-1)).recycledPaper);//ja
         },
         calculatePesticideFormulas(){
-            this.pesticideUse = (this.industrialOutput * this.useRate)/ (this.costToProduce_pesticide + this.taxEffect_pesticide * this.pesticideTax);//ja
-            this.pesticideDeaths = this.effectiveToxicity * this.pesticideUse;//JA
-            this.pesticidePoints = this.valueOfFarmLaborersLife * this.pesticideDeaths;//ja
+            this.pesticideUse = (JSON.parse(localStorage.getItem(this.year-1)).industrialOutput * this.useRate)/ (this.costToProduce_pesticide + this.taxEffect_pesticide * this.pesticideTax);//ja
+            this.pesticideDeaths = this.effectiveToxicity * JSON.parse(localStorage.getItem(this.year-1)).pesticideUse;//JA
+            this.pesticidePoints = this.valueOfFarmLaborersLife * JSON.parse(localStorage.getItem(this.year-1)).pesticideDeaths;//ja
         },
         calculateRecycleFormulas(){
-            this.recycledPaper = 1 - Math.exp(-this.recyclingEffectiveness * this.recyclingCenterBudget);//ja
-            this.recycledAluminum = this.aluminumRecycling * this.recyclingCenterBudget;//ja
+            this.recycledPaper = 1 - Math.exp(-this.recyclingEffectiveness * JSON.parse(localStorage.getItem(this.year-1)).recyclingCenterBudget);//ja
+            this.recycledAluminum = this.aluminumRecycling * JSON.parse(localStorage.getItem(this.year-1)).recyclingCenterBudget;//ja
         },
         calculateWaterFormulas(){
-           this.waterSupply = this.groundwaterUse + this.reservoirCapacity - this.waterPollution;//ja
-           this.waterPollution = this.hmToxic * this.heavyMetalUse + this.pToxic * this.pesticideUse + this.fToxic * this.fertilizerUse;//ja
-           this.groundwaterUse = this.c1GroundwaterUse * (this.groundwaterSupply - this.landAbuse * this.contamination) / Math.sqrt(this.aveEnergyPrice);//ja
-           this.groundwaterSupply = this.groundwaterSupply - this.groundwaterUse;//JA
-           this.drinkingWater = this.drinkingFraction * this.waterSupply;//ja
-           this.reservoirCapacity = this.capacityPerDam * this.damUse;//JA
+           this.waterSupply = JSON.parse(localStorage.getItem(this.year-1)).groundwaterUse + JSON.parse(localStorage.getItem(this.year-1)).reservoirCapacity - JSON.parse(localStorage.getItem(this.year-1)).waterPollution;//ja
+           this.waterPollution = this.hmToxic * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse + this.pToxic * JSON.parse(localStorage.getItem(this.year-1)).pesticideUse + this.fToxic * JSON.parse(localStorage.getItem(this.year-1)).fertilizerUse;//ja
+           this.groundwaterUse = this.c1GroundwaterUse * (JSON.parse(localStorage.getItem(this.year-1)).groundwaterSupply - JSON.parse(localStorage.getItem(this.year-1)).landAbuse * this.contamination) / Math.sqrt(JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice);//ja
+           this.groundwaterSupply = JSON.parse(localStorage.getItem(this.year-1)).groundwaterSupply - JSON.parse(localStorage.getItem(this.year-1)).groundwaterUse;//JA
+           this.drinkingWater = this.drinkingFraction * JSON.parse(localStorage.getItem(this.year-1)).waterSupply;//ja
+           this.reservoirCapacity = this.capacityPerDam * JSON.parse(localStorage.getItem(this.year-1)).damUse;//JA
         },
         execute() {
             /*formula execute*/
-            for(let i = 0; i < 5; i++){
+            //for(let i = 0; i < 5; i++){
                 this.year++;
                 console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
                 console.log("<<============================================="+this.year+"======================================>");
@@ -1001,49 +1121,49 @@ export default {
 
                 const data = {
                     coalUse: this.coalUse,
-                    coalPrice: Math.floor(this.coalPrice/Math.pow(10,9)*100)/100,
-                    coalSupply: Math.floor(this.coalSupply/Math.pow(10,3)*100)/100,
+                    coalPrice: this.coalPrice,
+                    coalSupply: this.coalSupply,
                     totalCoalUse: this.totalCoalUse,
 
                     oilUse:this.oilUse,
-                    oilPrice:Math.floor(this.oilPrice/Math.pow(10,9)*100)/100,
-                    oilSupply:Math.floor(this.oilSupply/Math.pow(10,3)*100)/100,
+                    oilPrice:this.oilPrice,
+                    oilSupply:this.oilSupply,
                     totalOilUse:this.totalOilUse,
 
                     naturalGasUse:this.naturalGasUse,
-                    naturalGasPrice:Math.floor(this.naturalGasPrice/Math.pow(10,9)*100)/100,
-                    naturalGasSupply:Math.floor(this.naturalGasSupply/Math.pow(10,3)*100)/100,
+                    naturalGasPrice:this.naturalGasPrice,
+                    naturalGasSupply:this.naturalGasSupply,
                     totalNaturalGasUse:this.totalNaturalGasUse,
 
                     nuclearUse:this.nuclearUse,
-                    nuclearPrice:Math.floor(this.nuclearPrice/Math.pow(10,9)*100)/100,
-                    nuclearSupply:Math.floor(this.nuclearSupply/Math.pow(10,3)*100)/100,
+                    nuclearPrice:this.nuclearPrice,
+                    nuclearSupply:this.nuclearSupply,
                     totalNuclearUse:this.totalNuclearUse,
 
-                    coalTaxIncome:Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100,
-                    oilTaxIncome:Math.floor(this.oilTaxIncome/Math.pow(10,9)*100)/100,
-                    naturalGasTaxIncome:Math.floor(this.naturalGasTaxIncome/Math.pow(10,9)*100)/100,
-                    nuclearTaxIncome:Math.floor(this.nuclearTaxIncome/Math.pow(10,9)*100)/100,
+                    coalTaxIncome:this.coalTaxIncome,
+                    oilTaxIncome:this.oilTaxIncome,
+                    naturalGasTaxIncome:this.naturalGasTaxIncome,
+                    nuclearTaxIncome:this.nuclearTaxIncome,
 
                     solarUse:this.solarUse,
-                    solarPrice:Math.floor(this.solarPrice/Math.pow(10,9)*100)/100,
+                    solarPrice:this.solarPrice,
                     fallsFromRoofs:this.fallsFromRoofs,
                     fallPoints:this.fallPoints,
 
                     damUse:this.damUse,
-                    damPrice:Math.floor(this.damPrice/Math.pow(10,9)*100)/100,
+                    damPrice:this.damPrice,
 
-                    stripMining:Math.floor(this.stripMining/Math.pow(10,3)*100)/100,
-                    landAbuse:Math.floor(this.landAbuse/Math.pow(10,6)*100)/100,
-                    landAbusePoints:Math.floor(this.landAbusePoints*100)/100,
+                    stripMining:this.stripMining,
+                    landAbuse:this.landAbuse,
+                    landAbusePoints:this.landAbusePoints,
 
-                    co2:Math.floor(this.co2/Math.pow(10,9)*100)/100,
+                    co2:this.co2,
                     globalTemperature:this.globalTemperature,
                     seeLevel:this.seeLevel,
                     inundationPoints:this.inundationPoints,
-                    no2:Math.floor(this.no2/Math.pow(10,6)*100)/100,
-                    so2:Math.floor(this.so2/Math.pow(10,6)*100)/100,
-                    lungDiseaseDeath:Math.floor(this.lungDiseaseDeath/Math.pow(10,3)*100)/100,
+                    no2:this.no2,
+                    so2:this.so2,
+                    lungDiseaseDeath:this.lungDiseaseDeath,
                     lungDiseasePts:this.lungDiseasePts,
 
                     coalResearch:this.coalResearch,
@@ -1065,7 +1185,7 @@ export default {
                     radioactiveWaste:this.radioactiveWaste,
                     radWastePoints:this.radWastePoints,
 
-                    aveEnergyPrice:Math.floor(this.aveEnergyPrice/Math.pow(10,9)*100)/100,
+                    aveEnergyPrice:this.aveEnergyPrice,
                     energyDemand:this.energyDemand,
                     netEnergy:this.netEnergy,
                     renewableEnergy:this.renewableEnergy,
@@ -1074,131 +1194,130 @@ export default {
 
                     qualityOfLife:this.qualityOfLife,
                     qualityPoints:this.qualityPoints,
-                    northernLifestyle:Math.floor(this.northernLifestyle/Math.pow(10,6)*100)/100,
+                    northernLifestyle:this.northernLifestyle,
 
-                    population:Math.floor(this.population/Math.pow(10,9)*100)/100,
-                    starvation:Math.floor(this.starvation/Math.pow(10,6)*100)/100,
+                    population:this.population,
+                    starvation:this.starvation,
                     starvationPoints:this.starvationPoints,
                     birthRate:this.birthRate,
 
                     sustainability:this.sustainability,
                     sustainabilityPts:this.sustainabilityPts,
 
-                    basicResearchBudget:Math.floor(this.basicResearchBudget/Math.pow(10,9)*100)/100,
-                    bioResearchBudget:Math.floor(this.bioResearchBudget/Math.pow(10,9)*100)/100,
-                    coalResearchBudget:Math.floor(this.coalResearchBudget/Math.pow(10,9)*100)/100,
-                    oilResearchBudget:Math.floor(this.oilResearchBudget/Math.pow(10,9)*100)/100,
-                    solarResearchBudget:Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100,
-                    solarEnergyBudget:Math.floor(this.solarEnergyBudget/Math.pow(10,9)*100)/100,
-                    nuclearResearchBudget:Math.floor(this.nuclearResearchBudget/Math.pow(10,9)*100)/100,
-                    damUseBudget:Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100,
-                    totalTreasury:Math.floor(this.totalTreasury/Math.pow(10,9)*100)/100,
+                    basicResearchBudget:this.basicResearchBudget,
+                    bioResearchBudget:this.bioResearchBudget,
+                    coalResearchBudget:this.coalResearchBudget,
+                    oilResearchBudget:this.oilResearchBudget,
+                    solarResearchBudget:this.solarResearchBudget,
+                    solarEnergyBudget:this.solarEnergyBudget,
+                    nuclearResearchBudget:this.nuclearResearchBudget,
+                    damUseBudget:this.damUseBudget,
+                    totalTreasury:this.totalTreasury,
                     totalPoints:this.totalPoints,
 
-                    beefProduction: Math.floor(this.beefProduction/ Math.pow(10,9) * 100)/100,
-                    beefTaxIncome: Math.floor(this.beefTaxIncome / Math.pow(10,6) * 100)/100,
-                    crops:Math.floor(this.crops / Math.pow(10,9) * 100)/100,
-                    cropStrains:Math.floor(this.cropStrains/ Math.pow(10,3) * 100)/100,
-                    cropTechnology:Math.floor(this.cropTechnology/ Math.pow(10,6) * 100)/100,
+                    beefProduction: this.beefProduction,
+                    beefTaxIncome: this.beefTaxIncome,
+                    crops:this.crops,
+                    cropStrains:this.cropStrains,
+                    cropTechnology:this.cropTechnology,
                     cropYields:this.cropYields,
-                    debtForNatureBudget:Math.floor(this.debtForNatureBudget/Math.pow(10,9) * 100)/100,
-                    desertification:Math.floor(this.desertification/Math.pow(10,6)*100)/100,
-                    farmLand:Math.floor(this.farmLand/Math.pow(10,9) * 100)/100,
-                    foodSupply:Math.floor(this.foodSupply/Math.pow(10,9) * 100)/100,
-                    forestClearing:Math.floor(this.forestClearing / Math.pow(10,6) * 100)/100,
-                    forestLand:Math.floor(this.forestLand/Math.pow(10,9) * 100)/100,
-                    fuelwoodUse:Math.floor(this.fuelwoodUse/Math.pow(10,9) * 100)/100,
-                    grasslands:Math.floor(this.grasslands / Math.pow(10,9) *100)/100,
-                    methane:Math.floor(this.methane/Math.pow(10,9) * 100)/100,
-                    overgrazing:Math.floor(this.overgrazing/Math.pow(10,6) * 100)/100,
-                    soilErosion:Math.floor(this.soilErosion/Math.pow(10,6) * 100)/100,
-                    woodStoveBudget:Math.floor(this.woodStoveBudget/Math.pow(10,9) * 100)/100,
+                    debtForNatureBudget:this.debtForNatureBudget,
+                    desertification:this.desertification,
+                    farmLand:this.farmLand,
+                    foodSupply:this.foodSupply,
+                    forestClearing:this.forestClearing,
+                    forestLand:this.forestLand,
+                    fuelwoodUse:this.fuelwoodUse,
+                    grasslands:this.grasslands,
+                    methane:this.methane,
+                    overgrazing:this.overgrazing,
+                    soilErosion:this.soilErosion,
+                    woodStoveBudget:this.woodStoveBudget,
 
-                    cfcProduction:Math.floor(this.cfcProduction/Math.pow(10,3) * 100)/100,
-                    cfcTaxIncome:Math.floor(this.cfcTaxIncome/Math.pow(10,6) * 100)/100,
-                    ozone:Math.floor(this.ozone/Math.pow(10,9)*100)/100,
-                    phytoplankton:Math.floor(this.phytoplankton/Math.pow(10,9)*100)/100,
-                    skinCancerDeaths:Math.floor(this.skinCancerDeaths/Math.pow(10,3)*100)/100,
+                    cfcProduction:this.cfcProduction,
+                    cfcTaxIncome:this.cfcTaxIncome,
+                    ozone:this.ozone,
+                    phytoplankton:this.phytoplankton,
+                    skinCancerDeaths:this.skinCancerDeaths,
                     skinCancerPoints:this.skinCancerPoints,
-                    stratosphericCFCs:Math.floor(this.stratosphericCFCs/Math.pow(10,6)*100)/100,
-                    troposphericCFCs:Math.floor(this.troposphericCFCs/Math.pow(10,6)*100)/100,
+                    stratosphericCFCs:this.stratosphericCFCs,
+                    troposphericCFCs:this.troposphericCFCs,
                     ultravioletLight:this.ultravioletLight,
 
-                    propertyDamagePayments:Math.floor(this.propertyDamagePayments/Math.pow(10,9)*100)/100,
+                    propertyDamagePayments:this.propertyDamagePayments,
 
                     floodDeathPoints:this.floodDeathPoints,
-                    floodDeaths:Math.floor(this.floodDeaths/Math.pow(10,3)*100)/100,
+                    floodDeaths:this.floodDeaths,
 
-                    fertilizerTaxIncome:Math.floor(this.fertilizerTaxIncome/Math.pow(10,6)*100)/100,
-                    fertilizerUse:Math.floor(this.fertilizerUse/Math.pow(10,6)*100)/100,
+                    fertilizerTaxIncome:this.fertilizerTaxIncome,
+                    fertilizerUse:this.fertilizerUse,
 
-                    heavyMetalTaxIncome:Math.floor(this.heavyMetalTaxIncome/Math.pow(10,6)*100)/100,
-                    heavyMetalUse:Math.floor(this.heavyMetalUse/Math.pow(10,6)*100)/100,
+                    heavyMetalTaxIncome:this.heavyMetalTaxIncome,
+                    heavyMetalUse:this.heavyMetalUse,
                     heavyMetalPrice:this.heavyMetalPrice,
-                    heavyMetalSupply:Math.floor(this.heavyMetalSupply/Math.pow(10,6) * 100)/100,
-                    heavyMetalDeaths:Math.floor(this.heavyMetalDeaths/Math.pow(10,3)*100)/100,
+                    heavyMetalSupply:this.heavyMetalSupply,
+                    heavyMetalDeaths:this.heavyMetalDeaths,
                     heavyMetalPoints:this.heavyMetalPoints,
-                    totalHeavyMetalUse:Math.floor(this.totalHeavyMetalUse/Math.pow(10,6)*100)/100,
+                    totalHeavyMetalUse:this.totalHeavyMetalUse,
                     computerGamesPoints:this.computerGamesPoints,
-                    consumerGoods:Math.floor(this.consumerGoods/Math.pow(10,6)*100)/100,
-                    garbage:Math.floor(this.garbage/Math.pow(10,6)*100)/100,
-                    grossGlobalProduction:Math.floor(this.grossGlobalProduction/Math.pow(10,12)*100)/100,
-                    industrialInput:Math.floor(this.industrialInput/Math.pow(10,12)*100)/100,
-                    industrialOutput:Math.floor(this.industrialOutput/Math.pow(10,12)*100)/100,
-                    materialsDemand:Math.floor(this.materialsDemand/Math.pow(10,9)*100)/100,
+                    consumerGoods:this.consumerGoods,
+                    garbage:this.garbage,
+                    grossGlobalProduction:this.grossGlobalProduction,
+                    industrialInput:this.industrialInput,
+                    industrialOutput:this.industrialOutput,
+                    materialsDemand:this.materialsDemand,
 
-                    acidRain:Math.floor(this.acidRain/Math.pow(10,6)*100)/100,
-                    biodiversityPoints:Math.floor(this.biodiversityPoints/1000 * 100)/100,
-                    forestHabitats:Math.floor(this.forestHabitats/Math.pow(10,6)*100)/100,
+                    acidRain:this.acidRain,
+                    biodiversityPoints:this.biodiversityPoints,
+                    forestHabitats:this.forestHabitats,
                     forestLifePoints:this.forestLifePoints,
-                    globalGenePool:Math.floor(this.globalGenePool/Math.pow(10,6)*100)/100,
+                    globalGenePool:this.globalGenePool,
                     lakeAcidity:this.lakeAcidity,
-                    lakeHabitats:Math.floor(this.lakeHabitats/1000 * 100)/100,
+                    lakeHabitats:this.lakeHabitats,
                     lakeLifePoints:this.lakeLifePoints,
-                    marineLife:Math.floor(this.marineLife/Math.pow(10,9)*100)/100,
+                    marineLife:this.marineLife,
                     marineLifePoints:this.marineLifePoints,
-                    riparianHabitats:Math.floor(this.riparianHabitats/Math.pow(10,3) * 100)/100,
-                    seafood:Math.floor(this.seafood/Math.pow(10,6)*100)/100,
+                    riparianHabitats:this.riparianHabitats,
+                    seafood:this.seafood,
 
-                    housing:Math.floor(this.housing/Math.pow(10,9)*100)/100,
-                    medicines:Math.floor(this.medicines/Math.pow(10,6)*100)/100,
-                    southernLifestyle:Math.floor(this.southernLifestyle/Math.pow(10,9)*100)/100,
+                    housing:this.housing,
+                    medicines:this.medicines,
+                    southernLifestyle:this.southernLifestyle,
 
-                    logging:Math.floor(this.logging/Math.pow(10,6)*100)/100,
-                    loggingTaxIncome:Math.floor(this.loggingTaxIncome/Math.pow(10,6)*100)/100,
+                    logging:this.logging,
+                    loggingTaxIncome:this.loggingTaxIncome,
 
-                    oilSpills:Math.floor(this.oilSpills/Math.pow(10,6)*100)/100,
+                    oilSpills:this.oilSpills,
 
-                    pesticideDeaths:Math.floor(this.pesticideDeaths/1000 * 100)/100,
+                    pesticideDeaths:this.pesticideDeaths,
                     pesticidePoints:this.pesticidePoints,
-                    pesticideTaxIncome:Math.floor(this.pesticideTaxIncome/Math.pow(10,6)*100)/100,
-                    pesticideUse:Math.floor(this.pesticideUse/Math.pow(10,6)*100)/100,
+                    pesticideTaxIncome:this.pesticideTaxIncome,
+                    pesticideUse:this.pesticideUse,
 
-                    recycledAluminum:Math.floor(this.recycledAluminum/Math.pow(10,6)*100)/100,
+                    recycledAluminum:this.recycledAluminum,
                     recycledPaper:this.recycledPaper,
-                    recyclingCenterBudget:Math.floor(this.recyclingCenterBudget/Math.pow(10,9)*100)/100,
+                    recyclingCenterBudget:this.recyclingCenterBudget,
 
-                    familyPlanningBudget:Math.floor(this.familyPlanningBudget/Math.pow(10,9)*100)/100,
+                    familyPlanningBudget:this.familyPlanningBudget,
 
-                    drinkingWater:Math.floor(this.drinkingWater/Math.pow(10,9)*100)/100,
-                    groundwaterSupply:Math.floor(this.groundwaterSupply/Math.pow(10,12)*100)/100,
-                    groundwaterUse:Math.floor(this.groundwaterUse/Math.pow(10,12)*100)/100,
-                    reservoirCapacity:Math.floor(this.reservoirCapacity/Math.pow(10,9)*100)/100,
-                    waterPollution:Math.floor(this.waterPollution/Math.pow(10,9)*100)/100,
-                    waterSupply:Math.floor(this.waterSupply/Math.pow(10,12)*100)/100
+                    drinkingWater:this.drinkingWater,
+                    groundwaterSupply:this.groundwaterSupply,
+                    groundwaterUse:this.groundwaterUse,
+                    reservoirCapacity:this.reservoirCapacity,
+                    waterPollution:this.waterPollution,
+                    waterSupply:this.waterSupply
                 }
 
                 //localStorage.setItem(this.year,JSON.stringify(data)); 
                 //to be saved is from the year 1990
                 
                 localStorage.setItem(this.year,JSON.stringify(data));
-                this.energyDemand = Math.floor(this.energyDemand * 1.01 * 100)/100;
                 this.executed++;
                 if(this.totalPoints < -12200){
                     this.gameover = true;
                     this.$router.push("/game/gameover");
                 }
-            }
+            //}
         },
         /* coal */
         changeCoalTaxRate(coalTaxRate) {
@@ -1341,10 +1460,10 @@ export default {
             this.pointCost = pointCost;
         },
         changeC1Quantity(c1) {
-            this.c1 = c1;
+            this.c1_no2 = c1;
         },
         changeNO2Quantity(c2) {
-            this.c2 = c2;
+            this.c2_no2 = c2;
         },
         changeSO2Quantity(sulfurContent) {
             this.sulfurContent = sulfurContent;

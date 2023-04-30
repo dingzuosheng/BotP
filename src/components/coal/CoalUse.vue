@@ -5,7 +5,7 @@
             <h1>{{ this.name }}</h1>
         </div>
         <div v-if="!this.show">
-            Coal Use: {{ this.coalUse }} Exajoules
+            Coal Use: {{ Math.ceil(this.coalUse*100)/100 }} Exajoules
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
                     <div class="formula">
@@ -17,16 +17,16 @@
                                 <span>Use Rate</span> <span>= {{ coalUserate }}</span> <span><input type="range" min="0.01" max="1.00" step="0.01" v-model="userate" @change="changeCoalUserate" /></span>
                             </div>
                             <div class="row-formula">
-                                <span>Energy Demand</span> <span>= {{ this.energyDemand }}</span> <span>(Exajoules)</span>
+                                <span>Energy Demand</span> <span>= {{ Math.ceil(this.energyDemand*100)/100 }}</span> <span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Ave Energy Price</span> <span>= {{ Math.floor(this.aveEnergyPrice / Math.pow(10,9)*100)/100}} billion</span> <span>($/Exajoules)</span>
+                                <span>Ave Energy Price</span> <span>= {{ Math.ceil(this.aveEnergyPrice / Math.pow(10,9)*100)/100}} billion</span> <span>($/Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Price</span> <span>= {{ Math.floor(this.coalPrice / Math.pow(10,9)*100)/100}} billion</span> <span>($/Exajoules)</span>
+                                <span>Coal Price</span> <span>= {{ Math.ceil(this.coalPrice / Math.pow(10,9)*100)/100}} billion</span> <span>($/Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Tax</span> <span>= {{ Math.floor(this.coalTaxRate / Math.pow(10,9)*100)/100}} billion</span> <span>($/Exajoules)</span>
+                                <span>Coal Tax</span> <span>= {{ Math.ceil(this.coalTaxRate / Math.pow(10,6)*100)/100}} million</span> <span>($/Exajoules)</span>
                             </div>
                         </div>
                     </div>

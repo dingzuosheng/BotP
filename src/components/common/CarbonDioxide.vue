@@ -22,19 +22,19 @@
                                     <span>C3</span> <span>= {{ c3 }}</span> <span><input type="range" min="100" max="1000" step="1" v-model="c3Factor" @change="changeC3Factor" /> (tons/hectare)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Carbon Dioxide</span> <span>= {{ Math.floor(this.co2 / Math.pow(10,12)*100)/100}} trillion</span> <span>(tons)</span>
+                                    <span>Carbon Dioxide</span> <span>= {{ Math.ceil(this.co2 / Math.pow(10,12)*100)/100}} trillion</span> <span>(tons)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoules)</span>
+                                    <span>Coal Use</span> <span>= {{ Math.ceil(this.coalUse*100)/100 }}</span> <span>(Exajoules)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Oil Use</span> <span>= {{ this.oilUse }}</span> <span>(Exajoules)</span>
+                                    <span>Oil Use</span> <span>= {{ Math.ceil(this.oilUse*100)/100 }}</span> <span>(Exajoules)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Natural Gas Use</span> <span>= {{ this.naturalGasUse }}</span> <span>(Exajoules)</span>
+                                    <span>Natural Gas Use</span> <span>= {{ Math.ceil(this.naturalGasUse*100)/100 }}</span> <span>(Exajoules)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Forest Clearing</span> <span>= {{ Math.floor(this.forestClearing/Math.pow(10,6) * 100)/100 }} million</span> <span>(hectares)</span>
+                                    <span>Forest Clearing</span> <span>= {{ Math.ceil(this.forestClearing/Math.pow(10,6) * 100)/100 }} million</span> <span>(hectares)</span>
                                 </div>
                             </div>
                         </div>

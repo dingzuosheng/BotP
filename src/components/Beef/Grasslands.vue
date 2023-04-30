@@ -19,7 +19,7 @@
                                     <span>Grasslands</span> <span>= {{  Math.floor(this.grasslands/Math.pow(10,9)*100)/100 }} billion </span> <span>(hectares)</span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Overgrazing</span> <span>= {{ Math.floor(this.overgrazing/Math.pow(10,9)*100)/100}}</span> <span>(hectares)</span>
+                                    <span>Overgrazing</span> <span>= {{ Math.floor(this.overgrazing/Math.pow(10,6)*100)/100}} million</span> <span>(hectares)</span>
                                 </div>
                             </div>
                         </div>

@@ -6,7 +6,7 @@
             </div> 
             <div v-if="!this.show">
                 <div>
-                    Sustainability: {{ this.sustainability }} Permenence
+                    Sustainability: {{ Math.ceil(this.sustainability*100)/100 }} Permenence
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -16,13 +16,13 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Renewable Energy</span><span>= {{ this.renewableEnergy }}</span>  (Exajoules)
+                                <span>Renewable Energy</span><span>= {{ Math.ceil(this.renewableEnergy*100)/100 }}</span>  (Exajoules)
                             </div>
                             <div class="row-formula">
                                 <span>Birth Rate</span><span>= {{ Math.floor(this.birthRate * 100)/100 }}%</span><span></span>
                             </div>
                             <div class="row-formula">
-                                <span>Nonrenewable Energy</span><span>= {{ this.nonrenewableEnergy }}</span>(Exajoules)
+                                <span>Nonrenewable Energy</span><span>= {{ Math.ceil(this.nonrenewableEnergy*100)/100 }}</span>(Exajoules)
                             </div>
                         </div>
                     </div>

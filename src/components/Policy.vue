@@ -2,6 +2,7 @@
 <div class="policy">
     <div>
         <h1>Policy of Summary {{ this.year }}</h1>
+        <h1><strong>Treasury: {{ Math.floor(this.totalTreasury / Math.pow(10,9)*100)/100}} billion</strong></h1>
     </div>
     <div class="tables">
         <div>
@@ -17,7 +18,7 @@
                     <tr>
                         <td><router-link :to="{path:'/game/beef-tax'}">Beef Tax</router-link></td>
                         <td><router-link :to="{path:'/game/beef-tax'}">{{ Math.floor(this.beefTaxRate*100)/100}}</router-link></td>
-                        <td><router-link :to="{path:'/game/beef-tax'}">${{Math.floor(this.beefTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/beef-tax'}">${{Math.ceil(this.beefTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td><!--Genaurigkeit-->
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/cfc-tax'}">CFC Tax</router-link></td>
@@ -157,7 +158,6 @@
         </div>
     </div>
     <div>
-        <h1><strong>Treasury: {{ Math.floor(this.totalTreasury / Math.pow(10,9)*100)/100}} billion</strong></h1>
         <div v-if="this.show">
             <BarChart :chartData="chartData" :key="chartKey"></BarChart>
         </div>
