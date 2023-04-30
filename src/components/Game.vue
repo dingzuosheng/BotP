@@ -898,10 +898,6 @@ export default {
                 this.damPrice = 0;
             }
             this.floodDeaths = this.floodRate * JSON.parse(localStorage.getItem(this.year-1)).soilErosion / JSON.parse(localStorage.getItem(this.year-1)).damUse;
-            console.log("this.floodRate: "+ this.floodRate);
-            console.log("this.soilErosion: "+ JSON.parse(localStorage.getItem(this.year-1)).soilErosion);
-            console.log("floodDeaths: "+this.floodDeaths);
-            console.log("damUse: " + JSON.parse(localStorage.getItem(this.year-1)).damUse);
             this.floodDeathPoints = this.valueOfOneHumanLifeFloodDeathPts * JSON.parse(localStorage.getItem(this.year-1)).floodDeaths;
         },
         calculateLandFormulas(){
@@ -997,12 +993,16 @@ export default {
             this.debtForNatureBudget = (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) * this.debtForNatureSubsidyRate;
             this.recyclingCenterBudget = (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) * this.recyclingCenterSubsidyRate;
             this.propertyDamagePayments = this.sulfurCorrosiveness * JSON.parse(localStorage.getItem(this.year-1)).so2 + this.nitrousCorrosiveness * JSON.parse(localStorage.getItem(this.year-1)).no2;
-            this.familyPlanningBudget = (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) * this.familyPlanningSubsidy;
-            this.totalTreasury = this.totalTaxIncome - this.totalBudget;   
+            console.log("propertyDamagePayments: " + this.propertyDamagePayments);
+            this.familyPlanningBudget = (this.totalTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments) * this.familyPlanningSubsidy;   
             this.totalBudget = JSON.parse(localStorage.getItem(this.year-1)).basicResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments + JSON.parse(localStorage.getItem(this.year-1)).bioResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).coalResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).damUseBudget + JSON.parse(localStorage.getItem(this.year-1)).familyPlanningBudget + JSON.parse(localStorage.getItem(this.year-1)).debtForNatureBudget
                                 + JSON.parse(localStorage.getItem(this.year-1)).nuclearResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).oilResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).recyclingCenterBudget + JSON.parse(localStorage.getItem(this.year-1)).solarEnergyBudget + JSON.parse(localStorage.getItem(this.year-1)).solarResearchBudget + JSON.parse(localStorage.getItem(this.year-1)).woodStoveBudget
             this.totalBudgetRate = this.basicResearch + this.bioResearch + this.coalResearch + this.damSubsidy + this.nuclearResearch + this.oilResearch + this.solarEnergySubsidy + this.solarResearch
                                     + this.woodStoveSubsidy + this.debtForNatureSubsidyRate + this.recyclingCenterSubsidyRate + this.familyPlanningSubsidy;
+            this.totalTreasury = JSON.parse(localStorage.getItem(this.year-1)).beefTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).cfcTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).coalTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).fertilizerTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).heavyMetalTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).loggingTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).naturalGasTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).nuclearTaxIncome
+                                + JSON.parse(localStorage.getItem(this.year-1)).oilTaxIncome + JSON.parse(localStorage.getItem(this.year-1)).pesticideTaxIncome - JSON.parse(localStorage.getItem(this.year-1)).propertyDamagePayments - JSON.parse(localStorage.getItem(this.year-1)).basicResearchBudget - JSON.parse(localStorage.getItem(this.year-1)).bioResearchBudget - JSON.parse(localStorage.getItem(this.year-1)).coalResearchBudget - JSON.parse(localStorage.getItem(this.year-1)).damUseBudget - JSON.parse(localStorage.getItem(this.year-1)).debtForNatureBudget
+                                - JSON.parse(localStorage.getItem(this.year-1)).familyPlanningBudget - JSON.parse(localStorage.getItem(this.year-1)).nuclearResearchBudget - JSON.parse(localStorage.getItem(this.year-1)).oilResearchBudget - JSON.parse(localStorage.getItem(this.year-1)).recyclingCenterBudget - JSON.parse(localStorage.getItem(this.year-1)).solarEnergyBudget - JSON.parse(localStorage.getItem(this.year-1)).solarResearchBudget - JSON.parse(localStorage.getItem(this.year-1)).woodStoveBudget;
+
         },
         calculateBeefFormulas(){
             this.beefProduction = this.cowFactor * JSON.parse(localStorage.getItem(this.year-1)).grasslands / (this.costToProduce + this.taxEffect * this.beefTaxRate);//ja
@@ -1085,7 +1085,7 @@ export default {
         },
         execute() {
             /*formula execute*/
-            //for(let i = 0; i < 5; i++){
+            for(let i = 0; i < 5; i++){
                 this.year++;
                 console.log("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
                 console.log("<<============================================="+this.year+"======================================>");
@@ -1317,7 +1317,7 @@ export default {
                     this.gameover = true;
                     this.$router.push("/game/gameover");
                 }
-            //}
+            }
         },
         /* coal */
         changeCoalTaxRate(coalTaxRate) {

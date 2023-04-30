@@ -17,58 +17,58 @@
                 <tbody>
                     <tr>
                         <td><router-link :to="{path:'/game/beef-tax'}">Beef Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/beef-tax'}">{{ Math.floor(this.beefTaxRate*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/beef-tax'}">{{ Math.ceil(this.beefTaxRate*100)/100}}</router-link></td>
                         <td><router-link :to="{path:'/game/beef-tax'}">${{Math.ceil(this.beefTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td><!--Genaurigkeit-->
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/cfc-tax'}">CFC Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/cfc-tax'}">{{ Math.floor(this.cfcTax*100)/100}}</router-link></td>
-                        <td><router-link :to="{path:'/game/cfc-tax'}">${{Math.floor(this.cfcTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/cfc-tax'}">{{ Math.ceil(this.cfcTax*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/cfc-tax'}">${{Math.ceil(this.cfcTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/coal-tax'}">Coal Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">{{ Math.floor(this.coalTaxRate/Math.pow(10,6)*100)/100}} million</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-tax'}">${{Math.floor(this.coalTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/coal-tax'}">{{ Math.ceil(this.coalTaxRate/Math.pow(10,6)*100)/100}} million</router-link></td>
+                        <td><router-link :to="{path:'/game/coal-tax'}">${{Math.ceil(this.coalTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/fertilizer-tax'}">Fertilizer Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/fertilizer-tax'}">{{ Math.floor(this.fertilizerTax*100)/100}}</router-link></td>
-                        <td><router-link :to="{path:'/game/fertilizer-tax'}">${{Math.floor(this.fertilizerTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/fertilizer-tax'}">{{ Math.ceil(this.fertilizerTax*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/fertilizer-tax'}">${{Math.ceil(this.fertilizerTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/heavy-metal-tax'}">Heavy Metal Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/heavy-metal-tax'}">{{ Math.floor(this.heavyMetalTax*100)/100}}</router-link></td>
-                        <td><router-link :to="{path:'/game/heavy-metal-tax'}">${{Math.floor(this.heavyMetalTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/heavy-metal-tax'}">{{ Math.ceil(this.heavyMetalTax*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/heavy-metal-tax'}">${{Math.ceil(this.heavyMetalTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/logging-tax'}">Logging Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/logging-tax'}">{{ Math.floor(this.loggingTax*100)/100}}</router-link></td>
-                        <td><router-link :to="{path:'/game/logging-tax'}">${{Math.floor(this.loggingTaxIncome/Math.pow(10,9)*1000)/1000}}</router-link></td>
+                        <td><router-link :to="{path:'/game/logging-tax'}">{{ Math.ceil(this.loggingTax*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/logging-tax'}">${{Math.ceil(this.loggingTaxIncome/Math.pow(10,9)*1000)/1000}}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/natural-gas-tax'}">Natural Gas Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/natural-gas-tax'}">{{ Math.floor(this.naturalGasTaxRate/Math.pow(10,6)*100)/100}} million</router-link></td>
-                        <td><router-link :to="{path:'/game/natural-gas-tax'}">${{ Math.floor(this.naturalGasTaxIncome /Math.pow(10,9)*100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/natural-gas-tax'}">{{ Math.ceil(this.naturalGasTaxRate/Math.pow(10,6)*100)/100}} million</router-link></td>
+                        <td><router-link :to="{path:'/game/natural-gas-tax'}">${{ Math.ceil(this.naturalGasTaxIncome /Math.pow(10,9)*100)/100 }}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/nuclear-tax'}">Nuclear Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-tax'}">{{ Math.floor(this.nuclearTaxRate /Math.pow(10,6)*100)/100}} million</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-tax'}">${{ Math.floor(this.nuclearTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/nuclear-tax'}">{{ Math.ceil(this.nuclearTaxRate /Math.pow(10,6)*100)/100}} million</router-link></td>
+                        <td><router-link :to="{path:'/game/nuclear-tax'}">${{ Math.ceil(this.nuclearTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/oil-tax'}">Oil Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/oil-tax'}">{{ Math.floor(this.oilTaxRate /Math.pow(10,6)*100)/100}} million</router-link></td>
-                        <td><router-link :to="{path:'/game/oil-tax'}">${{ Math.floor(this.oilTaxIncome/Math.pow(10,9)*100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/oil-tax'}">{{ Math.ceil(this.oilTaxRate /Math.pow(10,6)*100)/100}} million</router-link></td>
+                        <td><router-link :to="{path:'/game/oil-tax'}">${{ Math.ceil(this.oilTaxIncome/Math.pow(10,9)*100)/100 }}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/pesticide-tax'}">Pesticide Tax</router-link></td>
-                        <td><router-link :to="{path:'/game/pesticide-tax'}">{{ Math.floor(this.pesticideTax*100)/100}}</router-link></td>
-                        <td><router-link :to="{path:'/game/pesticide-tax'}">${{Math.floor(this.pesticideTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/pesticide-tax'}">{{ Math.ceil(this.pesticideTax*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/pesticide-tax'}">${{Math.ceil(this.pesticideTaxIncome/Math.pow(10,9)*100)/100}}</router-link></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>$ {{ Math.floor(this.totalTaxIncome/Math.pow(10,9) * 100)/100 }}</td>
+                        <td>$ {{ Math.ceil(this.totalTaxIncome/Math.pow(10,9) * 100)/100 }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -86,72 +86,72 @@
                     <tr>                        
                         <td><router-link :to="{path:'/game/property-damage-payments'}">Property Damage $</router-link></td>
                         <td></td>
-                        <td><router-link :to="{path:'/game/property-damage-payments'}">${{ Math.floor(this.propertyDamagePayments/Math.pow(10,9) * 100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/property-damage-payments'}">${{ Math.ceil(this.propertyDamagePayments/Math.pow(10,9) * 100)/100 }}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/basic-research'}">Basic Research $</router-link></td>
-                        <td><router-link :to="{path:'/game/basic-research'}">{{ Math.floor(this.basicResearch * 100 * 100)/100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/basic-research'}">${{ Math.floor(this.basicResearchBudget/Math.pow(10,9) * 100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/basic-research'}">{{ Math.ceil(this.basicResearch * 100 * 100)/100 }}%</router-link></td>
+                        <td><router-link :to="{path:'/game/basic-research'}">${{ Math.ceil(this.basicResearchBudget/Math.pow(10,9) * 100)/100 }}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/bioresearch'}">Bio Research $</router-link></td>
-                        <td><router-link :to="{path:'/game/bioresearch'}">{{ Math.floor(this.bioResearch * 100 * 100)/100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/bioresearch'}">${{ Math.floor(this.bioResearchBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/bioresearch'}">{{ Math.ceil(this.bioResearch * 100 * 100)/100 }}%</router-link></td>
+                        <td><router-link :to="{path:'/game/bioresearch'}">${{ Math.ceil(this.bioResearchBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/coal-research'}">Coal Research $</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-research'}">{{ Math.floor(this.coalResearch * 100 * 100)/100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/coal-research'}">${{Math.floor(this.coalResearchBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/coal-research'}">{{ Math.ceil(this.coalResearch * 100 * 100)/100 }}%</router-link></td>
+                        <td><router-link :to="{path:'/game/coal-research'}">${{Math.ceil(this.coalResearchBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/dam-use-budget'}">Dam Use $</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-budget'}">{{ Math.floor(this.damSubsidy * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/dam-use-budget'}">${{ Math.floor(this.damUseBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/dam-use-budget'}">{{ Math.ceil(this.damSubsidy * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/dam-use-budget'}">${{ Math.ceil(this.damUseBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/debt-for-nature-subsidy'}">Debt for Nature $</router-link></td>
-                        <td><router-link :to="{path:'/game/debt-for-nature-subsidy'}">{{ Math.floor(this.debtForNatureSubsidyRate * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/debt-for-nature-subsidy'}">${{ Math.floor(this.debtForNatureBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/debt-for-nature-subsidy'}">{{ Math.ceil(this.debtForNatureSubsidyRate * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/debt-for-nature-subsidy'}">${{ Math.ceil(this.debtForNatureBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/family-planning-subsidy'}">Family Planning $</router-link></td>
-                        <td><router-link :to="{path:'/game/family-planning-subsidy'}">{{ Math.floor(this.familyPlanningSubsidy * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/family-planning-subsidy'}">${{ Math.floor(this.familyPlanningBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/family-planning-subsidy'}">{{ Math.ceil(this.familyPlanningSubsidy * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/family-planning-subsidy'}">${{ Math.ceil(this.familyPlanningBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/nuclear-research'}">Nuclear Research $</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-research'}">{{ Math.floor(this.nuclearResearch * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/nuclear-research'}">${{ Math.floor(this.nuclearResearchBudget/Math.pow(10,9)* 100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/nuclear-research'}">{{ Math.ceil(this.nuclearResearch * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/nuclear-research'}">${{ Math.ceil(this.nuclearResearchBudget/Math.pow(10,9)* 100)/100}}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/oil-research'}">Oil Research $</router-link></td>
-                        <td><router-link :to="{path:'/game/oil-research'}">{{ Math.floor(this.oilResearch * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/oil-research'}">${{ Math.floor(this.oilResearchBudget/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/oil-research'}">{{ Math.ceil(this.oilResearch * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/oil-research'}">${{ Math.ceil(this.oilResearchBudget/Math.pow(10,9)*100)/100}}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/recycling-center-subsidy'}">Recycling Center $</router-link></td>
-                        <td><router-link :to="{path:'/game/recycling-center-subsidy'}">{{ Math.floor(this.recyclingCenterSubsidyRate * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/recycling-center-subsidy'}">${{ Math.floor(this.recyclingCenterBudget/Math.pow(10,9)* 100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/recycling-center-subsidy'}">{{ Math.ceil(this.recyclingCenterSubsidyRate * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/recycling-center-subsidy'}">${{ Math.ceil(this.recyclingCenterBudget/Math.pow(10,9)* 100)/100}}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/solar-energy'}">Solar Energy $</router-link></td>
-                        <td><router-link :to="{path:'/game/solar-energy'}">{{ Math.floor(this.solarResearch * 100 * 100)/100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/solar-energy'}">${{ Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/solar-energy'}">{{ Math.ceil(this.solarResearch * 100 * 100)/100 }}%</router-link></td>
+                        <td><router-link :to="{path:'/game/solar-energy'}">${{ Math.ceil(this.solarResearchBudget/Math.pow(10,9)*100)/100}}</router-link></td>
                     </tr>
                     <tr>
                         <td><router-link :to="{path:'/game/solar-research'}">Solar Research $</router-link></td>
-                        <td><router-link :to="{path:'/game/solar-research'}">{{ Math.floor(this.solarResearch * 100 * 100)/100 }}%</router-link></td>
-                        <td><router-link :to="{path:'/game/solar-research'}">${{Math.floor(this.solarResearchBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
+                        <td><router-link :to="{path:'/game/solar-research'}">{{ Math.ceil(this.solarResearch * 100 * 100)/100 }}%</router-link></td>
+                        <td><router-link :to="{path:'/game/solar-research'}">${{Math.ceil(this.solarResearchBudget/Math.pow(10,9)*100)/100 }}</router-link></td>
                     </tr>
                     <tr>                        
                         <td><router-link :to="{path:'/game/wood-stove-subsidy'}">Wood Stove $</router-link></td>
-                        <td><router-link :to="{path:'/game/wood-stove-subsidy'}">{{ Math.floor(this.woodStoveSubsidy * 100 * 100)/100}}%</router-link></td>
-                        <td><router-link :to="{path:'/game/wood-stove-subsidy'}">${{ Math.floor(this.woodStoveBudget/Math.pow(10,9)* 100)/100}}</router-link></td>
+                        <td><router-link :to="{path:'/game/wood-stove-subsidy'}">{{ Math.ceil(this.woodStoveSubsidy * 100 * 100)/100}}%</router-link></td>
+                        <td><router-link :to="{path:'/game/wood-stove-subsidy'}">${{ Math.ceil(this.woodStoveBudget/Math.pow(10,9)* 100)/100}}</router-link></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>{{ Math.floor(this.totalBudgetRate * 100 * 100)/100 }} %</td>
-                        <td>$ {{ Math.floor(this.totalBudget/Math.pow(10,9) * 100)/100}}</td>
+                        <td>{{ Math.ceil(this.totalBudgetRate * 100 * 100)/100 }} %</td>
+                        <td>$ {{ Math.ceil(this.totalBudget/Math.pow(10,9) * 100)/100}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -268,7 +268,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).totalTreasury)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).totalTreasury/Math.pow(10,9)*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

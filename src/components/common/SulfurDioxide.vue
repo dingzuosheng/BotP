@@ -120,7 +120,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).so2)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).so2/Math.pow(10,6)*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

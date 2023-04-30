@@ -119,7 +119,7 @@
                 const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    data.push(JSON.parse(localStorage.getItem(labels[i])).waterSupply)
+                    data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).waterSupply/Math.pow(10,12)*100)/100)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {

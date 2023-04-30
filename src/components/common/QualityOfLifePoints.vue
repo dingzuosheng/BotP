@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show"> 
                 <div>
-                    Quality Points: {{ this.qualityPoints }} points
+                    Quality Points: {{ Math.ceil(this.qualityPoints*100)/100 }} points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                 <span>Value of Quality of Life</span> <span>= {{ this.valueOfQualityOfLife }}</span> <span><input type="range" min="100" max="10000" step="10" v-model="value" @change="changeValueOfQualityOfLife" /></span>
                             </div>
                             <div class="row-formula">
-                                <span>Quality of Life</span> <span>= {{ this.qualityOfLife }}</span>(Happies/Cap)
+                                <span>Quality of Life</span> <span>= {{ Math.ceil(this.qualityOfLife*100)/100 }}</span>(Happies/Cap)
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).qualityPoints)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).qualityPoints*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

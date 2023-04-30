@@ -114,7 +114,7 @@ export default {
             const totaloilUses = [];
             
             for(let i = 0; i < labels.length; i++){
-                totaloilUses.push(JSON.parse(localStorage.getItem(labels[i])).totalOilUse)
+                totaloilUses.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).totalOilUse*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

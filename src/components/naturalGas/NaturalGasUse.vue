@@ -132,7 +132,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).naturalGasUse)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).naturalGasUse*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

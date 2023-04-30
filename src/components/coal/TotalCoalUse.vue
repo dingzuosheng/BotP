@@ -114,7 +114,7 @@ export default {
             const totalCoalUses = [];
             
             for(let i = 0; i < labels.length; i++){
-                totalCoalUses.push(JSON.parse(localStorage.getItem(labels[i])).totalCoalUse)
+                totalCoalUses.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).totalCoalUse))
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

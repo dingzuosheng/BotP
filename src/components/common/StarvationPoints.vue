@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Starvation Points: {{ Math.floor(this.starvationPoints/1000*100)/100 }} thousand points
+                    Starvation Points: {{ Math.ceil(this.starvationPoints/1000*100)/100 }} thousand points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -16,10 +16,10 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Value of One Human Life</span> <span>= {{ this.valueOfOneHumanLife }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="valueOfOneHumanLifeFactor" @change="changeValueOfOneHumanLifeFactor"/>(tons/person)</span>
+                                <span>Value of One Human Life</span> <span>= {{ Math.ceil(this.valueOfOneHumanLife*1000)/10000 }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="valueOfOneHumanLifeFactor" @change="changeValueOfOneHumanLifeFactor"/>(tons/person)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Starvation</span> <span>= {{ Math.floor(this.starvation/Math.pow(10,9)*100)/100 }} billion </span> (deaths)
+                                <span>Starvation</span> <span>= {{ Math.ceil(this.starvation/Math.pow(10,9)*100)/100 }} billion </span> (deaths)
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).starvationPoints)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).starvationPoints/Math.pow(10,3)*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

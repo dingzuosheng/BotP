@@ -124,7 +124,7 @@ export default {
             const oilPrices = [];
             
             for(let i = 0; i < labels.length; i++){
-                oilPrices.push(JSON.parse(localStorage.getItem(labels[i])).oilPrice)
+                oilPrices.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).oilPrice/Math.pow(10,9)*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

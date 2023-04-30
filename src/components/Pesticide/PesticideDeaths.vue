@@ -119,7 +119,7 @@
                 const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    data.push(JSON.parse(localStorage.getItem(labels[i])).pesticideDeaths)
+                    data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).pesticideDeaths/Math.pow(10,3)*100)/100)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {

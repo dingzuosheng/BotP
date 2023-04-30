@@ -108,7 +108,7 @@ export default {
             const energyDemands = [];
             
             for(let i = 0; i < labels.length; i++){
-                energyDemands.push(JSON.parse(localStorage.getItem(labels[i])).energyDemand)
+                energyDemands.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).energyDemand))
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

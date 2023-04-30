@@ -39,7 +39,10 @@
                         datalabels:{
                             align:'start',
                             anchor:"end",
-                            color:'black'
+                            color:'black',
+                            font:{
+                                size:30
+                            }
                         },
                     },
                     scales: {

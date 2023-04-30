@@ -123,7 +123,7 @@
                 const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    data.push(JSON.parse(localStorage.getItem(labels[i])).heavyMetalPrice)
+                    data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).heavyMetalPrice))
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {

@@ -121,7 +121,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).nuclearAccidents)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).nuclearAccidents*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

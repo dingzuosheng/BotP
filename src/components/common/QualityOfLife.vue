@@ -6,7 +6,7 @@
             </div>   
             <div v-if="!this.show">
                 <div>
-                    Quality of Life: {{ this.qualityOfLife }} Happies/CAP
+                    Quality of Life: {{ Math.ceil(this.qualityOfLife*100)/100 }} Happies/CAP
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -133,7 +133,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).qualityOfLife)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).qualityOfLife*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

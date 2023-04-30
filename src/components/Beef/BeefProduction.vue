@@ -141,7 +141,7 @@
                 const beefProductions = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    beefProductions.push(JSON.parse(localStorage.getItem(labels[i])).beefProduction)
+                    beefProductions.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).beefProduction/Math.pow(10,9)*100)/100);
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {

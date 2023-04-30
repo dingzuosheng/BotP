@@ -111,7 +111,7 @@ export default {
             const coalUses = [];
             
             for(let i = 0; i < labels.length; i++){
-                coalUses.push(JSON.parse(localStorage.getItem(labels[i])).bioResearchBudget)
+                coalUses.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).bioResearchBudget/Math.pow(10,9)*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

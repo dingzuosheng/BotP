@@ -121,7 +121,7 @@ export default {
             const coalSupplies = [];
             
             for(let i = 0; i < labels.length; i++){
-                coalSupplies.push(JSON.parse(localStorage.getItem(labels[i])).coalSupply)
+                coalSupplies.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).coalSupply/1000 * 100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

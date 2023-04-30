@@ -119,7 +119,7 @@
                 const data = [];
                 
                 for(let i = 0; i < labels.length; i++){
-                    data.push(JSON.parse(localStorage.getItem(labels[i])).skinCancerDeaths)
+                    data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).skinCancerDeaths/1000 *100)/100)
                     console.log(labels[i],localStorage.key(i))
                 }
                 const dataset = {
