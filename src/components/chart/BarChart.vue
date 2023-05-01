@@ -41,7 +41,7 @@
                             anchor:"end",
                             color:'black',
                             font:{
-                                size:30
+                                size:20
                             }
                         },
                     },

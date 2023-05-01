@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Radioactive Waste: {{ this.radioactiveWaste }} tons
+                    Radioactive Waste: {{ Math.ceil(this.radioactiveWaste/1000 *100)/100 }} thousand tons
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,10 +19,10 @@
                                 <span>Waste Production</span> <span>= {{ wasteProduction }}</span><span><input type="range" min="10" max="10000" step="10" v-model="wasteProductionFactor" @change="changeWasteProductionFactor"/></span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Use</span><span>= {{ this.nuclearUse }}</span><span>(Exajoules)</span>
+                                <span>Nuclear Use</span><span>= {{ Math.ceil(this.nuclearUse*100)/100 }}</span><span>(Exajoules)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Technology</span>= {{ this.nuclearTechnology }}<span></span><span>(Whizbangs)</span>
+                                <span>Nuclear Technology</span>= {{ Math.ceil(this.nuclearTechnology*100)/100 }}<span></span><span>(Whizbangs)</span>
                             </div>
                         </div>
                     </div>
@@ -121,11 +121,11 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).radioactiveWaste*100)/100)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).radioactiveWaste/1000*100)/100)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
-                label:'Radioactive Waste(Unit:tons)',
+                label:'Radioactive Waste(Unit: thousand tons)',
                 backgroundColor:'orange',
                 data: data
             }

@@ -7,7 +7,7 @@
             <thead>
                 <tr>
                     <th>Positive Points</th>
-                    <th>Total Points: {{ Math.floor(this.totalPoints * 100) / 100 }}</th>
+                    <th>Total Points: {{ Math.ceil(this.totalPoints * 100) / 100 }}</th>
                     <th>Negative Points</th>
                 </tr>
             </thead>

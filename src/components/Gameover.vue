@@ -70,7 +70,7 @@
             </div>
         </div>
         <div>
-            <h2>Your final score is {{ this.totalPoints }} points.</h2>
+            <h2>Your final score is {{ Math.ceil(this.totalPoints) }} points.</h2>
         </div>
     </div>
 </template>

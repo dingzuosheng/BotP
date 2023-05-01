@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Lung Disease Points: {{ this.lungDiseasePts }} (points)
+                    Lung Disease Points: {{ Math.ceil(this.lungDiseasePts) }} (points)
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                 <span>Value of One Human Life</span> <span>= {{ this.valueOfOneHumanLife_lungDiseasePts }}</span><span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="valueOfOneHumanLifeFactor" @change="changeValueOfOneHumanLifeLungDiseasePts"/>(points/death)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Lung Disease Death</span> <span>= {{ this.lungDiseaseDeath }}</span><span>(deaths)</span>
+                                <span>Lung Disease Death</span> <span>= {{ Math.ceil(this.lungDiseaseDeath/1000) }} thousand</span><span>(deaths)</span>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).lungDiseasePts)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).lungDiseasePts))
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

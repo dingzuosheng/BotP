@@ -22,16 +22,16 @@
                                 <span>C2</span> <span>= {{ Math.ceil(c2/1000 * 100)/100 }} thousand</span> <span><input type="range" min="100" max="500" step="1" v-model="quantity2" @change="changeC2Quanty" /> (tons/Exajoule)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Use</span> <span>= {{ this.coalUse }}</span> <span>(Exajoule)</span>
+                                <span>Coal Use</span> <span>= {{ Math.ceil(this.coalUse*100)/100 }}</span> <span>(Exajoule)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Coal Technology</span> <span>= {{ this.coalTechnology }}</span><span>(Whizbangs)</span>
+                                <span>Coal Technology</span> <span>= {{ Math.ceil(this.coalTechnology*100)/100 }}</span><span>(Whizbangs)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Oil Use</span> <span>= {{ this.oilUse }}</span> <span>(Exajoule)</span>
+                                <span>Oil Use</span> <span>= {{ Math.ceil(this.oilUse*100)/100 }}</span> <span>(Exajoule)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Oil Technology</span> <span>= {{ this.oilTechnology }}</span><span>(Whizbangs)</span>
+                                <span>Oil Technology</span> <span>= {{ Math.ceil(this.oilTechnology*100)/100 }}</span><span>(Whizbangs)</span>
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,7 @@
                                 <span>Value of One Human Life</span> <span>= {{ Math.ceil(this.valueOfOneHumanLife*1000)/10000 }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="valueOfOneHumanLifeFactor" @change="changeValueOfOneHumanLifeFactor"/>(tons/person)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Starvation</span> <span>= {{ Math.ceil(this.starvation/Math.pow(10,9)*100)/100 }} billion </span> (deaths)
+                                <span>Starvation</span> <span>= {{ Math.ceil(this.starvation/Math.pow(10,6)*100)/100 }} million </span> (deaths)
                             </div>
                         </div>
                     </div>

@@ -103,7 +103,7 @@
                         @changeBaseLevelFactor="changeBaseLevelFactor($event)" :starvation="starvation"
                         @changeDeathRateFactor="changeDeathRateFactor($event)" 
 
-                        @changeValueOfOneHumanLifeFactor="changeValueOfOneHumanLifeFactor($event)" :starvationPoints="starvationPoints"
+                        @changeValueOfOneHumanLifeFactor_StarvationPts="changeValueOfOneHumanLifeFactor_StarvationPts($event)" :starvationPoints="starvationPoints"
                         
                         :renewableEnergy="renewableEnergy" :nonrenewableEnergy="nonrenewableEnergy" :sustainability="sustainability"
                         @changeSustainability="changeSustainability($event)" :sustainabilityPts="sustainabilityPts" 
@@ -374,7 +374,7 @@ export default {
             starvation:41.4*Math.pow(10,6),
             baseLevel:0.5,
             deathRate:0.057,
-            valueOfOneHumanLife:1.0*Math.pow(10,-4),
+            valueOfOneHumanLife_starvationPts:1.0*Math.pow(10,-4),
             starvationPoints:4140,
 
             birthRate: 1.97,
@@ -388,7 +388,7 @@ export default {
             totalPoints:0,
             northernLifeValue:2.0,
             southernLifeValue:0.400,
-            totalTreasury: 1.6* Math.pow(10,9),
+            totalTreasury: 40* Math.pow(10,9),
 
             /*Beef */
             beefTaxRate:6,
@@ -633,7 +633,7 @@ export default {
             coalResearchBudget: 3.2 * Math.pow(10, 9),
             oilResearchBudget: 3.2 * Math.pow(10, 9),
             nuclearResearchBudget: 3.2 * Math.pow(10, 9),
-            totalTreasury: 1.6* Math.pow(10,9),
+            totalTreasury: 40* Math.pow(10,9),
 
             nuclearAccidents:0.0874,
             radiation:787000,
@@ -898,12 +898,12 @@ export default {
                 this.damPrice = 0;
             }
             this.floodDeaths = this.floodRate * JSON.parse(localStorage.getItem(this.year-1)).soilErosion / JSON.parse(localStorage.getItem(this.year-1)).damUse;
-            this.floodDeathPoints = this.valueOfOneHumanLifeFloodDeathPts * JSON.parse(localStorage.getItem(this.year-1)).floodDeaths;
+            this.floodDeathPoints = this.valueOfOneHumanLifeFloodDeathPts * this.floodDeaths;
         },
         calculateLandFormulas(){
             this.stripMining = this.stripMiningProductivity * JSON.parse(localStorage.getItem(this.year-1)).coalUse;  
             this.landAbuse = JSON.parse(localStorage.getItem(this.year-1)).stripMining + (this.landUse * JSON.parse(localStorage.getItem(this.year-1)).garbage);
-            this.landAbusePoints = this.valueOfLandAbuse * JSON.parse(localStorage.getItem(this.year-1)).landAbuse;
+            this.landAbusePoints = this.valueOfLandAbuse * this.landAbuse;
         },
         calculateSolarFormulas(){
             this.solarUse = (this.solarUseRate * JSON.parse(localStorage.getItem(this.year-1)).energyDemand * JSON.parse(localStorage.getItem(this.year-1)).aveEnergyPrice + JSON.parse(localStorage.getItem(this.year-1)).solarEnergyBudget) / JSON.parse(localStorage.getItem(this.year-1)).solarPrice;//对
@@ -913,7 +913,7 @@ export default {
                 this.solarPrice = 0;
             }
             this.fallsFromRoofs = this.fallRate * JSON.parse(localStorage.getItem(this.year-1)).solarUse;//对
-            this.fallPoints = this.valueOfOneHumanLife_FallPts * JSON.parse(localStorage.getItem(this.year-1)).fallsFromRoofs;//对
+            this.fallPoints = this.valueOfOneHumanLife_FallPts * this.fallsFromRoofs;//对
         },
         calculateTechnologyFormulas(){ //these formulas have problems, because of 1  
             this.solarTechnology = (JSON.parse(localStorage.getItem(this.year-1))).solarTechnology + this.solarOptimism * Math.log(((JSON.parse(localStorage.getItem(this.year-1))).solarResearchBudget + Math.pow(10,9)) * ((JSON.parse(localStorage.getItem(this.year-1))).basicResearchBudget + Math.pow(10,9)))/2.3;
@@ -925,19 +925,19 @@ export default {
             this.nuclearAccidents = this.accidentProbability * JSON.parse(localStorage.getItem(this.year-1)).nuclearUse / JSON.parse(localStorage.getItem(this.year-1)).nuclearTechnology; //对
             this.radiation = this.exposureRate * JSON.parse(localStorage.getItem(this.year-1)).nuclearUse / JSON.parse(localStorage.getItem(this.year-1)).nuclearTechnology;//对
             this.radiationCancer = this.radiationDanger * JSON.parse(localStorage.getItem(this.year-1)).radiation + this.accidentDanger * JSON.parse(localStorage.getItem(this.year-1)).nuclearAccidents;//对
-            this.radiationPoints = this.valueOfOneHumanLife_RadiationPts * JSON.parse(localStorage.getItem(this.year-1)).radiationCancer ;//对
+            this.radiationPoints = this.valueOfOneHumanLife_RadiationPts * this.radiationCancer ;//对
             this.radioactiveWaste = JSON.parse(localStorage.getItem(this.year-1)).radioactiveWaste + JSON.parse(localStorage.getItem(this.year-1)).nuclearUse * this.wasteProduction / JSON.parse(localStorage.getItem(this.year-1)).nuclearTechnology;//对
-            this.radWastePoints = this.dangerValue * JSON.parse(localStorage.getItem(this.year-1)).radioactiveWaste;//对
+            this.radWastePoints = this.dangerValue * this.radioactiveWaste;//对
         },
         calculateAirPolutionFormulas(){
             this.co2 = JSON.parse(localStorage.getItem(this.year-1)).co2 + this.co2Quantity * (JSON.parse(localStorage.getItem(this.year-1)).coalUse + JSON.parse(localStorage.getItem(this.year-1)).oilUse + JSON.parse(localStorage.getItem(this.year-1)).naturalGasUse) + this.c3CarbonDioxide * JSON.parse(localStorage.getItem(this.year-1)).forestClearing;//对
             this.globalTemperature = this.t0 + this.cfcEff * JSON.parse(localStorage.getItem(this.year-1)).stratosphericCFCs + this.methaneEff * JSON.parse(localStorage.getItem(this.year-1)).methane + this.co2Eff * JSON.parse(localStorage.getItem(this.year-1)).co2;//对
             this.seeLevel = (JSON.parse(localStorage.getItem(this.year-1)).globalTemperature - this.basicTemperature) * this.meltingRate;//对
-            this.inundationPoints = this.pointCost * JSON.parse(localStorage.getItem(this.year-1)).seeLevel;
+            this.inundationPoints = this.pointCost * this.seeLevel;
             this.no2 = this.c1_no2 * JSON.parse(localStorage.getItem(this.year-1)).coalUse / JSON.parse(localStorage.getItem(this.year-1)).coalTechnology + this.c2_no2 * JSON.parse(localStorage.getItem(this.year-1)).oilUse / JSON.parse(localStorage.getItem(this.year-1)).oilTechnology;//对
             this.so2 = this.sulfurContent * JSON.parse(localStorage.getItem(this.year-1)).coalUse / JSON.parse(localStorage.getItem(this.year-1)).coalTechnology; //对
             this.lungDiseaseDeath = this.so2Toxicity * JSON.parse(localStorage.getItem(this.year-1)).so2 + this.no2Toxicity * JSON.parse(localStorage.getItem(this.year-1)).no2;//对
-            this.lungDiseasePts = this.valueOfOneHumanLifeLungDisease * JSON.parse(localStorage.getItem(this.year-1)).lungDiseaseDeath;//对
+            this.lungDiseasePts = this.valueOfOneHumanLifeLungDisease * this.lungDiseaseDeath;//对
             this.energyDemand = JSON.parse(localStorage.getItem(this.year-1)).energyDemand * 1.01;
         },
         calculateEnergyFormulas(){
@@ -957,16 +957,16 @@ export default {
             }
         },
         calculatePopulationFormulas(){
-            this.birthRate = this.maximalBirthRate / (1 + this.c1BirthRate*Math.sqrt(JSON.parse(localStorage.getItem(this.year-1)).familyPlanningBudget)) + JSON.parse(localStorage.getItem(this.year-1)).qualityOfLife; //对
+            this.birthRate = this.maximalBirthRate / (1 + this.c1BirthRate*Math.sqrt(JSON.parse(localStorage.getItem(this.year-1)).familyPlanningBudget) + JSON.parse(localStorage.getItem(this.year-1)).qualityOfLife); //对
             this.population = (JSON.parse(localStorage.getItem(this.year-1)).population * (1 + JSON.parse(localStorage.getItem(this.year-1)).birthRate/100) - JSON.parse(localStorage.getItem(this.year-1)).starvation);//对
             this.starvation = (this.baseLevel - JSON.parse(localStorage.getItem(this.year-1)).foodSupply/ JSON.parse(localStorage.getItem(this.year-1)).population) * this.deathRate * JSON.parse(localStorage.getItem(this.year-1)).population;//对
             if(this.starvation < 0){
                 this.starvation = 0;
             }
-            this.starvationPoints = this.valueOfOneHumanLife * JSON.parse(localStorage.getItem(this.year-1)).starvation;//对
+            this.starvationPoints = this.valueOfOneHumanLife_starvationPts * this.starvation;//对
         },
         calculateSustainabilityFormulas(){
-            this.sustainabilityPts = this.valueOfSustainability * JSON.parse(localStorage.getItem(this.year-1)).sustainability; //对
+            this.sustainabilityPts = this.valueOfSustainability * this.sustainability; //对
             if(this.sustainabilityPts < 0){
                 this.sustainabilityPts = 0;
             }
@@ -1029,7 +1029,7 @@ export default {
             this.ultravioletLight = this.solarUV / (this.ozoneAbsorption * JSON.parse(localStorage.getItem(this.year-1)).ozone);//ja
             this.phytoplankton = this.normalPhytoplankton * (1 - this.phytoplanktonDamageRate * JSON.parse(localStorage.getItem(this.year-1)).ultravioletLight);//ja
             this.skinCancerDeaths = this.skinCancerIncidence * JSON.parse(localStorage.getItem(this.year-1)).ultravioletLight;//ja
-            this.skinCancerPoints = this.valueOfOneHumanLifeSkinCancer * JSON.parse(localStorage.getItem(this.year-1)).skinCancerDeaths;//ja
+            this.skinCancerPoints = this.valueOfOneHumanLifeSkinCancer * this.skinCancerDeaths;//ja
         },
         calculateFertilizerFormulas(){
             this.fertilizerUse = (JSON.parse(localStorage.getItem(this.year-1)).industrialOutput * this.scaleFactor) / (this.costToProduce_fertilizerUse + this.taxEffect_fertilizerUse * this.fertilizerTax);//ja
@@ -1040,7 +1040,7 @@ export default {
             this.heavyMetalSupply = this.heavyMetalSupplyElasticity * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalPrice - JSON.parse(localStorage.getItem(this.year-1)).totalHeavyMetalUse;//ja
             this.totalHeavyMetalUse = JSON.parse(localStorage.getItem(this.year-1)).totalHeavyMetalUse + JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse;//ja
             this.heavyMetalDeaths = this.heavyMetalDeathRate * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse;//ja
-            this.heavyMetalPoints = this.valueOfOneHumanLife_heavyMetal * JSON.parse(localStorage.getItem(this.year-1)).heavyMetalDeaths;//ja
+            this.heavyMetalPoints = this.valueOfOneHumanLife_heavyMetal * this.heavyMetalDeaths;//ja
             this.industrialInput = JSON.parse(localStorage.getItem(this.year-1)).netEnergy * Math.sqrt(JSON.parse(localStorage.getItem(this.year-1)).globalGenePool) * (JSON.parse(localStorage.getItem(this.year-1)).heavyMetalUse + JSON.parse(localStorage.getItem(this.year-1)).cfcProduction);//ja
             this.industrialOutput = JSON.parse(localStorage.getItem(this.year-1)).industrialInput;//ja
             this.grossGlobalProduction = this.valueOfIndustrialOutput * JSON.parse(localStorage.getItem(this.year-1)).industrialOutput;//ja
@@ -1069,7 +1069,7 @@ export default {
         calculatePesticideFormulas(){
             this.pesticideUse = (JSON.parse(localStorage.getItem(this.year-1)).industrialOutput * this.useRate)/ (this.costToProduce_pesticide + this.taxEffect_pesticide * this.pesticideTax);//ja
             this.pesticideDeaths = this.effectiveToxicity * JSON.parse(localStorage.getItem(this.year-1)).pesticideUse;//JA
-            this.pesticidePoints = this.valueOfFarmLaborersLife * JSON.parse(localStorage.getItem(this.year-1)).pesticideDeaths;//ja
+            this.pesticidePoints = this.valueOfFarmLaborersLife * this.pesticideDeaths;//ja
         },
         calculateRecycleFormulas(){
             this.recycledPaper = 1 - Math.exp(-this.recyclingEffectiveness * JSON.parse(localStorage.getItem(this.year-1)).recyclingCenterBudget);//ja
@@ -1510,8 +1510,8 @@ export default {
         changeDeathRateFactor(deathRate){
             this.deathRate = deathRate;
         },
-        changeValueOfOneHumanLifeFactor(valueOfOneHumanLife){
-            this.valueOfOneHumanLife = valueOfOneHumanLife;
+        changeValueOfOneHumanLifeFactor_StarvationPts(valueOfOneHumanLife){
+            this.valueOfOneHumanLife_starvationPts = valueOfOneHumanLife;
         },
         changeSO2ToxicityFactor(so2Toxicity){
             this.so2Toxicity = so2Toxicity;

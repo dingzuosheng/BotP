@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Inundation Points: {{ this.inundationPoints }} points
+                    Inundation Points: {{ Math.ceil(this.inundationPoints *100)/100 }} points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -116,7 +116,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(JSON.parse(localStorage.getItem(labels[i])).inundationPoints)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).inundationPoints))
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
