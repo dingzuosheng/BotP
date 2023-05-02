@@ -121,7 +121,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).nuclearSupply/Math.pow(10,3)*100)/100)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).nuclearSupply/Math.pow(10,3)*10)/10)
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

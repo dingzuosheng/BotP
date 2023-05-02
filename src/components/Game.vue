@@ -388,7 +388,7 @@ export default {
             totalPoints:0,
             northernLifeValue:2.0,
             southernLifeValue:0.400,
-            totalTreasury: 40* Math.pow(10,9),
+            totalTreasury: 1.6* Math.pow(10,9),
 
             /*Beef */
             beefTaxRate:6,
@@ -633,7 +633,7 @@ export default {
             coalResearchBudget: 3.2 * Math.pow(10, 9),
             oilResearchBudget: 3.2 * Math.pow(10, 9),
             nuclearResearchBudget: 3.2 * Math.pow(10, 9),
-            totalTreasury: 40* Math.pow(10,9),
+            totalTreasury: 1.6* Math.pow(10,9),
 
             nuclearAccidents:0.0874,
             radiation:787000,
@@ -1313,7 +1313,7 @@ export default {
                 
                 localStorage.setItem(this.year,JSON.stringify(data));
                 this.executed++;
-                if(this.totalPoints < -12200){
+                if(this.totalPoints < -12600){
                     this.gameover = true;
                     this.$router.push("/game/gameover");
                 }

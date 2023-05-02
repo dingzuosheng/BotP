@@ -156,7 +156,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).lifestyle/Math.pow(10,6)*100)/100)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).northernLifestyle/Math.pow(10,6)))
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

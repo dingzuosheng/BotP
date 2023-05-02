@@ -104,7 +104,7 @@ export default {
         },
         changeValueOfOneHumanLifeFactor(){
             this.valueOfOneHumanLife = parseInt(this.valueOfOneHumanLifeFactor*10000)/10000;
-            this.$emit("changeValueOfOneHumanLifeFactor",this.valueOfOneHumanLife);
+            this.$emit("changeValueOfOneHumanLifeFactor_StarvationPts",this.valueOfOneHumanLife);
         },
         draw(){
             const labels = [];
@@ -116,7 +116,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).starvationPoints/Math.pow(10,3)*100)/100)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).starvationPoints/Math.pow(10,3)))
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

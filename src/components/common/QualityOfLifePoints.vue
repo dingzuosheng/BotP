@@ -116,7 +116,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).qualityPoints*100)/100)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).qualityPoints))
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {
