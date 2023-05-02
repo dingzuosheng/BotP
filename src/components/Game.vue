@@ -1319,9 +1319,18 @@ export default {
                 }
             }
         },
+        calculateTotalTreasury(){
+            this.totalTreasury = this.beefTaxIncome + this.cfcTaxIncome + this.coalTaxIncome + this.fertilizerTaxIncome + this.heavyMetalTaxIncome + this.loggingTaxIncome + this.naturalGasTaxIncome + this.nuclearTaxIncome
+                                + this.oilTaxIncome + this.pesticideTaxIncome - this.propertyDamagePayments - this.basicResearchBudget - this.bioResearchBudget - this.coalResearchBudget - this.damUseBudget - this.debtForNatureBudget
+                                - this.familyPlanningBudget - this.nuclearResearchBudget - this.oilResearchBudget - this.recyclingCenterBudget - this.solarEnergyBudget - this.solarResearchBudget - this.woodStoveBudget;
+            this.totalTaxIncome = this.beefTaxIncome + this.cfcTaxIncome + this.coalTaxIncome + this.fertilizerTaxIncome + this.heavyMetalTaxIncome + this.loggingTaxIncome 
+                                  + this.naturalGasTaxIncome + this.nuclearTaxIncome + this.oilTaxIncome + this.pesticideTaxIncome;
+        },
         /* coal */
         changeCoalTaxRate(coalTaxRate) {
             this.coalTaxRate = coalTaxRate;
+            this.coalTaxIncome = this.coalTaxRate * this.coalUse;
+            this.calculateTotalTreasury();
         },
         changeCoalUserate(coaluserate) {
             this.coaluserate = coaluserate;
@@ -1335,6 +1344,8 @@ export default {
         /* oil */
         changeOilTaxRate(oilTaxRate) {
             this.oilTaxRate = oilTaxRate;
+            this.oilTaxIncome = this.oilTaxRate * this.oilUse;
+            this.calculateTotalTreasury();
         },
         changeOilUseRate(oilUseRate) {
             this.oiluserate = oilUseRate;
@@ -1348,6 +1359,8 @@ export default {
         /*natural gas */
         changeNaturalGasTaxRate(naturalGasTaxRate) {
             this.naturalGasTaxRate = naturalGasTaxRate;
+            this.naturalGasTaxIncome = this.naturalGasTaxRate * this.naturalGasUse;
+            this.calculateTotalTreasury();
         },
         changeNaturalGasUseRate(naturalGasUseRate) {
             this.naturalGasuserate = naturalGasUseRate;
@@ -1361,6 +1374,8 @@ export default {
         /*nuclear */
         changeNuclearTaxRate(nuclearTaxRate) {
             this.nuclearTaxRate = nuclearTaxRate;
+            this.nuclearTaxIncome = this.nuclearTaxRate * this.nuclearUse;
+            this.calculateTotalTreasury();
         },
         changeNulearUseRate(nuclearUseRate) {
             this.nuclearUseRate = nuclearUseRate;
@@ -1556,6 +1571,8 @@ export default {
         /* Beef */
         changeBeefTaxRate(beefTaxRate){
             this.beefTaxRate = beefTaxRate;
+            this.beefTaxIncome = this.beefTaxRate * this.beefProduction;
+            this.calculateTotalTreasury();
         },
         changeCowFactorRate(cowFactorRate){
             this.cowFactor = cowFactorRate;
@@ -1622,6 +1639,8 @@ export default {
         },
         changePesticideTaxRate(pesticideTax){
             this.pesticideTax = pesticideTax;
+            this.pesticideTaxIncome = this.pesticideTax * this.pesticideUse;
+            this.calculateTotalTreasury();
         },
         changeEffectiveToxicity(effectiveToxicity){
             this.effectiveToxicity = effectiveToxicity;
@@ -1631,6 +1650,8 @@ export default {
         },
         changeFertilizerTaxRate(fertilizerTax){
             this.fertilizerTax = fertilizerTax;
+            this.fertilizerTaxIncome = this.fertilizerTax * this.fertilizerUse;
+            this.calculateTotalTreasury();
         },
         changeScaleFactorRate(scaleFactor){
             this.scaleFactor = scaleFactor;
@@ -1649,6 +1670,8 @@ export default {
         },
         changeHeavyMetalTaxRate(heavyMetalTax){
             this.heavyMetalTax = heavyMetalTax;
+            this.heavyMetalTaxIncome = this.heavyMetalTax * this.heavyMetalUse;
+            this.calculateTotalTreasury();
         },
         changeHeavyMetalPriceFactor(priceFactor){
             this.heavyMetalPriceFactor = priceFactor;
@@ -1700,6 +1723,8 @@ export default {
         },
         changeLoggingTaxRate(loggingTax){
             this.loggingTax = loggingTax;
+            this.loggingTaxIncome = this.loggingTax * this.logging;
+            this.calculateTotalTreasury();
         },
         changeUseRateFactorLogging(useRate){
             this.useRateLogging = useRate;
@@ -1730,6 +1755,8 @@ export default {
         },
         changeCFCTaxRate(cfcTax){
             this.cfcTax = cfcTax;
+            tis.cfcTaxIncome = this.cfcTax * this.cfcProduction;
+            this.calculateTotalTreasury();
         },
         changeUseRateFactorCFCPro(useRate){
             this.useRateCFCPro = useRate;
