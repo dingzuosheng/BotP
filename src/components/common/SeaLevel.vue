@@ -22,7 +22,7 @@
                                 <span>Melting Rate</span> <span>= {{ meltingRate }}</span> <span><input type="range" min="0.1" max="2" step="0.1" v-model="rate" @change="changeMeltingRate" /> (meters/degrees)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Global Temperature</span> <span>= {{ this.globalTemperature }}</span>(degrees)
+                                <span>Global Temperature</span> <span>= {{ Math.ceil(this.globalTemperature*10)/10 }}</span>(degrees)
                             </div>
                         </div>
                     </div>
