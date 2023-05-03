@@ -34,10 +34,13 @@ body{
 }
 #home{
     display: flex;
+    height:100%;
+    margin-bottom:100px;
 }
 img{
-    width:auto;
-    height:1060px;
+    width:50%;
+    height:1200px;
+    margin:70px 50px;
 }
 #container{
     display: grid;
