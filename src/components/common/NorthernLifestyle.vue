@@ -11,7 +11,7 @@
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
                     <div class="formula">
-                        <div>Lifestyle = C4 * Net Energy</div>
+                        <div>Northern Lifestyle =  C1 * Medicines + C2 * Beef Production + C3 * Consumer Goods + C4 * Net Energy</div>
                         <br />
                         Where:<br />
                         <div class="formula">
