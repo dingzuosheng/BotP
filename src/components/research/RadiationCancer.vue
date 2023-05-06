@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Radiation Cancer: {{ this.radiationCancer }} deaths
+                    Radiation Cancer: {{ Math.ceil(this.radiationCancer*10)/10 }} deaths
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -130,7 +130,7 @@ export default {
             const data = [];
             
             for(let i = 0; i < labels.length; i++){
-                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).radiationCancer*100)/100)
+                data.push(Math.ceil(JSON.parse(localStorage.getItem(labels[i])).radiationCancer))
                 console.log(labels[i],localStorage.key(i))
             }
             const dataset = {

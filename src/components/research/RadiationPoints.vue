@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Radiation Points: {{ this.radiationPoints }} points
+                    Radiation Points: {{ Math.ceil(this.radiationPoints) }} points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                 <span>Value of One Human Life</span> <span>= {{ this.valueOfOneHumanLife_RadiationPts }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="valueOfOneHumanLifeFactor" @change="changeValueOfOneHumanLife_RadiationPts"/>(tons/person)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Radiation Cancer</span><span>= {{ this.radiationCancer }}</span><span>(deaths)</span>
+                                <span>Radiation Cancer</span><span>= {{ Math.ceil(this.radiationCancer) }}</span><span>(deaths)</span>
                             </div>
                         </div>
                     </div>

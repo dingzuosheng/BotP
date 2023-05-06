@@ -6,7 +6,7 @@
             </div> 
             <div v-if="!this.show">  
                 <div>
-                    Sustainability Pts: {{ this.sustainabilityPts }} Points
+                    Sustainability Pts: {{ Math.ceil(this.sustainabilityPts) }} Points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                 <span>Value of Sustainability</span> <span>= {{ valueOfSustainability }}</span> <span><input type="range" min="100" max="10000" step="10" v-model="value" @change="changeValueOfSustainability" /></span>
                             </div>
                             <div class="row-formula">
-                                <span>Sustainability</span> <span>= {{ this.sustainability }} </span><span>(Permanences)</span>
+                                <span>Sustainability</span> <span>= {{ Math.ceil(this.sustainability*100)/100 }} </span><span>(Permanences)</span>
                             </div>
                         </div>
                     </div>

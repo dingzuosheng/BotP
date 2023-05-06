@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Rad Waste Points: {{ this.radWastePoints }} points
+                    Rad Waste Points: {{ Math.ceil(this.radWastePoints) }} points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                 <span>Danger Value</span> <span>= {{ this.dangerValue }}</span><span><input type="range" min="0.0001" max="0.1" step="0.001" v-model="dangerValueFactor" @change="changeDangerValueFactor"/>(points/ton)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Radioactive Waste</span><span>= {{ this.radioactiveWaste }}</span> <span>(tons)</span>
+                                <span>Radioactive Waste</span><span>= {{ Math.ceil(this.radioactiveWaste*100)/100 }}</span> <span>(tons)</span>
                             </div>
                         </div>
                     </div>

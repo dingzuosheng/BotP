@@ -5,7 +5,7 @@
             <h1>{{ this.name }}</h1>
         </div>
         <div v-if="!this.show">
-            Energy Demand: {{ this.energyDemand }} Exajoules
+            Energy Demand: {{ Math.ceil(this.energyDemand) }} Exajoules
             <!-- Hier gibt es noch ein Problem, weil der Wert gerade nicht generieren kann-->
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -15,7 +15,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Energy Demand</span> <span>= {{ this.energyDemand }}</span><span>(Exajoules)</span>
+                                <span>Energy Demand</span> <span>= {{ Math.ceil(this.energyDemand) }}</span><span>(Exajoules)</span>
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@
                             Where:<br />
                             <div>
                                 <div class="row-formula">
-                                    <span>Use Rate</span> <span>= {{ this.useRate }}</span> <span><input type="range" min="0.0001" max="0.001" step="0.0001" v-model="useRateFactor" @change="changeUseRateFactor" />($/hectare)</span>
+                                    <span>Use Rate</span> <span>= {{ Math.ceil(this.useRate*10000)/10000 }}</span> <span><input type="range" min="0.0001" max="0.001" step="0.0001" v-model="useRateFactor" @change="changeUseRateFactor" />($/hectare)</span>
                                 </div>
                                 <div class="row-formula">
                                     <span>Cost to Produce</span> <span>= {{ this.costToProduce_pesticide }}</span> <span><input type="range" min="200" max="1000" step="1" v-model="costToProduceRate" @change="changeCostToProduceRate" />($/ton)</span>
