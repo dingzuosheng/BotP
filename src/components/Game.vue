@@ -915,11 +915,11 @@ export default {
             this.fallPoints = this.valueOfOneHumanLife_FallPts * this.fallsFromRoofs;//对
         },
         calculateTechnologyFormulas(){ //these formulas have problems, because of 1  
-            this.solarTechnology = (this).solarTechnology + this.solarOptimism * Math.log(((this).solarResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.bioTechnology = (this).bioTechnology + this.bioOptimism * Math.log(((this).bioResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.coalTechnology = (this).coalTechnology + this.coalOptimism * Math.log(((this).coalResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.oilTechnology = (this).oilTechnology + this.oilOptimism * Math.log(((this).oilResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.nuclearTechnology = (this).nuclearTechnology + this.nuclearOptimism * Math.log(((this).nuclearResearchBudget + Math.pow(10,9))  * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.solarTechnology = this.solarTechnology + this.solarOptimism * Math.log(((this).solarResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(((this).bioResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.coalTechnology = this.coalTechnology + this.coalOptimism * Math.log(((this).coalResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.oilTechnology = this.oilTechnology + this.oilOptimism * Math.log(((this).oilResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * Math.log(((this).nuclearResearchBudget + Math.pow(10,9))  * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
 
             this.nuclearAccidents = this.accidentProbability * this.nuclearUse / this.nuclearTechnology; //对
             this.radiation = this.exposureRate * this.nuclearUse / this.nuclearTechnology;//对
