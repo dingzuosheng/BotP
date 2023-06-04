@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><router-link :to="{path:'/game/biodiversity-points'}">Biodiversity Points:  {{ Math.floor(this.biodiversityPoints * 100)/100 }}</router-link></td>
+                    <td><router-link :to="{path:'/game/biodiversity-pts'}">Biodiversity Points:  {{ Math.floor(this.biodiversityPoints * 100)/100 }}</router-link></td>
                     <td style="text-align:center"><el-button type="info" height="50px" width="200px" @click="this.showFeedback=!this.showFeedback">Feedback</el-button></td>
                     <td><router-link :to="{path:'/game/fall-points'}">Fall Points: {{ Math.floor(this.fallPoints * 100)/100 }}</router-link></td>
                 </tr>

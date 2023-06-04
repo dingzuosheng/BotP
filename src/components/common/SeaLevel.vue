@@ -6,7 +6,7 @@
             </div>  
             <div v-if="!this.show"> 
                 <div>
-                    See Level: {{ this.seeLevel }} meters
+                    See Level: {{ Math.ceil(this.seeLevel*1000)/1000 }} meters
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">

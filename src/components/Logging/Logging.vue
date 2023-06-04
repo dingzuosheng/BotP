@@ -5,7 +5,7 @@
                 <h1>{{ this.name }}</h1>
             </div>
             <div v-if="!this.show">
-                Logging: {{ Math.floor(this.logging / Math.pow(10,6)*100)/100 }} million heactares
+                Logging: {{ Math.ceil(this.logging / Math.pow(10,6)*100)/100 }} million heactares
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">

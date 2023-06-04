@@ -511,7 +511,7 @@ export default {
             medicines:5.16*Math.pow(10,6),
 
             /*logging */
-            loggingTaxIncome:8*Math.pow(10,6),
+            loggingTaxIncome:10*Math.pow(10,6),
             loggingTax:0.4,
             useRateLogging:0.00653,
             costLogging:40.0,
@@ -854,6 +854,7 @@ export default {
         calculateCoalFormulas(){
             this.coalUse = this.coaluserate * this.energyDemand * this.aveEnergyPrice / (this.coalPrice + this.coalTaxRate);//对
             this.coalPrice = (this.coalPrice + (this.coalPriceFactor * this.coalUse / this.coalSupply)) / 2; //对
+            //this.coalPrice = this.coalPriceFactor * this.coalUse / this.coalSupply;
             if(this.coalPrice < 0){
                 this.coalPrice = 0;
             }
@@ -863,6 +864,7 @@ export default {
         calculateOilFormulas(){
             this.oilUse = this.oiluserate * this.energyDemand * this.aveEnergyPrice / (this.oilPrice + this.oilTaxRate);//对
             this.oilPrice = (this.oilPrice + (this.oilPriceFactor * this.oilUse / this.oilSupply)) / 2  //对;
+            //this.oilPrice = this.oilPriceFactor * this.oilUse / this.oilSupply;
             if(this.oilPrice < 0){
                 this.oilPrice = 0;
             }
@@ -873,6 +875,7 @@ export default {
         calculateNaturalGasFormulas(){
             this.naturalGasUse = this.naturalGasuserate * this.energyDemand * this.aveEnergyPrice / (this.naturalGasPrice + this.naturalGasTaxRate); //对
             this.naturalGasPrice = (this.naturalGasPrice + (this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply)) / 2;//对 minus because of supply
+            //this.naturalGasPrice = this.naturalGasPriceFactor * this.naturalGasUse / this.naturalGasSupply;
             if(this.naturalGasPrice < 0){
                 this.naturalGasPrice = 0;
             }
@@ -883,6 +886,7 @@ export default {
         calculateNuclearFormulas(){
             this.nuclearUse = this.nuclearUseRate * this.energyDemand * this.aveEnergyPrice / (this.nuclearPrice + this.nuclearTaxRate); //对
             this.nuclearPrice = (this.nuclearPrice + (this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply)) / 2//对;
+            //this.nuclearPrice = this.nuclearPriceFactor * this.nuclearUse / this.nuclearSupply;
             if(this.nuclearPrice < 0){
                 this.nuclearPrice = 0;
             }
@@ -915,11 +919,11 @@ export default {
             this.fallPoints = this.valueOfOneHumanLife_FallPts * this.fallsFromRoofs;//对
         },
         calculateTechnologyFormulas(){ //these formulas have problems, because of 1  
-            this.solarTechnology = this.solarTechnology + this.solarOptimism * Math.log(((this).solarResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(((this).bioResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.coalTechnology = this.coalTechnology + this.coalOptimism * Math.log(((this).coalResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.oilTechnology = this.oilTechnology + this.oilOptimism * Math.log(((this).oilResearchBudget + Math.pow(10,9)) * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
-            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * Math.log(((this).nuclearResearchBudget + Math.pow(10,9))  * ((this).basicResearchBudget + Math.pow(10,9)))/2.3;
+            this.solarTechnology = this.solarTechnology + this.solarOptimism * Math.log(((this).solarResearchBudget + 1) * ((this).basicResearchBudget + 1))/2.3;
+            this.bioTechnology = this.bioTechnology + this.bioOptimism * Math.log(((this).bioResearchBudget + 1) * ((this).basicResearchBudget + 1))/2.3;
+            this.coalTechnology = this.coalTechnology + this.coalOptimism * Math.log(((this).coalResearchBudget + 1) * ((this).basicResearchBudget + 1))/2.3;
+            this.oilTechnology = this.oilTechnology + this.oilOptimism * Math.log(((this).oilResearchBudget + 1) * ((this).basicResearchBudget + 1))/2.3;
+            this.nuclearTechnology = this.nuclearTechnology + this.nuclearOptimism * Math.log(((this).nuclearResearchBudget + 1)  * ((this).basicResearchBudget + 1))/2.3;
 
             this.nuclearAccidents = this.accidentProbability * this.nuclearUse / this.nuclearTechnology; //对
             this.radiation = this.exposureRate * this.nuclearUse / this.nuclearTechnology;//对

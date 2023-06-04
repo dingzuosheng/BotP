@@ -6,7 +6,7 @@
         </div>
         <div v-if="!this.show">
             <div>
-                Nuclear Technology: {{ this.nuclearTechnology }} Whizbangs
+                Nuclear Technology: {{ Math.ceil(this.nuclearTechnology*100)/100 }} Whizbangs
             </div>
             <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                 <span>Nuclear Optimism</span> <span>= {{ nuclearOptimism }}</span> <span><input type="range" min="0.0001" max="0.01" step="0.0001" v-model="optimism" @change="changeNuclearOptimism" /></span>
                             </div>
                             <div class="row-formula">
-                                <span>Nuclear Technology</span> <span>= {{ this.nuclearTechnology }}</span> <span>(Whizbangs)</span>
+                                <span>Nuclear Technology</span> <span>= {{ Math.ceil(this.nuclearTechnology*100)/100 }}</span> <span>(Whizbangs)</span>
                             </div>
                             <div class="row-formula">
                                 <span>Nuclear Research</span> <span>= {{ Math.floor(this.nuclearResearchBudget / Math.pow(10,9)*100)/100 }} billion</span> <span>($)</span>

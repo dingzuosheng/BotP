@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Fall Points: {{ this.fallPoints }} points
+                    Fall Points: {{ Math.ceil(this.fallPoints*100)/100 }} points
                 </div> 
                 <el-collapse class="collapse-part">
                 <el-collapse-item title="Formula ">
@@ -19,7 +19,7 @@
                                 <span>Value of One Human Life</span> <span>= {{ this.valueOfOneHumanLife_FallPts }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="value" @change="changeValueOfOneHumanLife_FallPts"/>(points/death)</span>
                             </div>
                             <div class="row-formula">
-                                <span>Falls From Roofs</span><span>= {{ this.fallsFromRoofs }}</span> <span> (deaths)</span>
+                                <span>Falls From Roofs</span><span>= {{ Math.ceil(this.fallsFromRoofs*100)/100 }}</span> <span> (deaths)</span>
                             </div>
                         </div>
                     </div>

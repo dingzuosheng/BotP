@@ -6,7 +6,7 @@
             </div>
             <div v-if="!this.show">
                 <div>
-                    Logging Tax Income: {{  Math.floor(this.loggingTaxIncome/Math.pow(10,6)*100)/100 }} million $
+                    Logging Tax Income: {{  Math.ceil(this.loggingTaxIncome/Math.pow(10,6)*100)/100 }} million $
                 </div>        
                 <div class="range">
                     <h3>Logging Tax {{ this.loggingTax }} $/ton</h3>
