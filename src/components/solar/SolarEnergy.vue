@@ -12,7 +12,7 @@
                 </div>
                 <div class="range">
                     <h3>Solar Energy {{ this.solarEnergySubsidy * 100}} % Subsidy</h3>
-                    <input type="range" min="0" max="0.12" step="0.01" v-model="percent" @change="changeSolarEnergySusidyPercent"/><!--value is string-->
+                    <input type="range" min="0" max="0.08" step="0.01" v-model="percent" @change="changeSolarEnergySusidyPercent"/><!--value is string-->
                     <div>
                         <p class="text">
                             This is your subsidy for Solar Energy. You can see incresase its precentage of your budget, 

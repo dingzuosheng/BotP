@@ -10,7 +10,7 @@
                 </div>
                 <div class="range">
                     <h3>Basic Research Subsidy  {{ this.basicResearchSubsidy * 100}}%</h3>
-                    <input type="range" min="0" max="0.12" step="0.01" v-model="percent" @change="changeBasicResearchSusidyPercent"/><!--value is string-->
+                    <input type="range" min="0" max="0.08" step="0.01" v-model="percent" @change="changeBasicResearchSusidyPercent"/><!--value is string-->
                     <div>
                         <p class="text">
                             This is your subsidy for Basic Research. You can see incresase its precentage of your budget, 

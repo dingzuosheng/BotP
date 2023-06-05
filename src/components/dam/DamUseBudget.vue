@@ -15,7 +15,7 @@
                             <br />
                             <div class="formula">
                                 <div class="row-formula">
-                                    <span>= {{ damSubsidy }}</span> <span><input type="range" min="0" max="0.12" step="0.01" v-model="subsidy" @change="changeDamSubsidy" /></span>
+                                    <span>= {{ damSubsidy }}</span> <span><input type="range" min="0" max="0.08" step="0.01" v-model="subsidy" @change="changeDamSubsidy" /></span>
                                 </div>
                             </div>
                         </div>

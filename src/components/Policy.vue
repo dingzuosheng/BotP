@@ -2,7 +2,7 @@
 <div class="policy">
     <div>
         <h1>Policy of Summary {{ this.year }}</h1>
-        <h1><strong>Treasury: {{ Math.floor(this.totalTreasury / Math.pow(10,9)*100)/100}} billion</strong></h1>
+        <h1><strong>Treasury: ${{ Math.floor(this.totalTreasury / Math.pow(10,9)*100)/100}} billion</strong></h1>
     </div>
     <div class="tables">
         <div>

@@ -93,7 +93,6 @@
 
                         :energyConservation="energyConservation" :netEnergy="netEnergy" 
 
-
                         @changeC1Factor="changeC1Factor($event)" @changeC2Factor="changeC2Factor($event)" @changeC3Factor="changeC3Factor($event)"
                         @changeC4Value="changeC4Value($event)" :northernLifestyle="northernLifestyle" :southernLifestyle="southernLifestyle"
                         @changeNorthernLifeValue="changeNorthernLifeValue($event)" :qualityOfLife="qualityOfLife" @changeSouthernValueFactor="changeSouthernValueFactor($event)"
@@ -1000,9 +999,11 @@ export default {
             this.familyPlanningBudget = (this.totalTaxIncome - this.propertyDamagePayments) * this.familyPlanningSubsidy;   
             this.totalBudget = this.basicResearchBudget + this.propertyDamagePayments + this.bioResearchBudget + this.coalResearchBudget + this.damUseBudget + this.familyPlanningBudget + this.debtForNatureBudget
                                 + this.nuclearResearchBudget + this.oilResearchBudget + this.recyclingCenterBudget + this.solarEnergyBudget + this.solarResearchBudget + this.woodStoveBudget
+            this.calculateTotalTreasury();
+        },
+        calculateTotalResearchBudgetRate(){
             this.totalBudgetRate = this.basicResearch + this.bioResearch + this.coalResearch + this.damSubsidy + this.nuclearResearch + this.oilResearch + this.solarEnergySubsidy + this.solarResearch
                                     + this.woodStoveSubsidy + this.debtForNatureSubsidyRate + this.recyclingCenterSubsidyRate + this.familyPlanningSubsidy;
-            this.calculateTotalTreasury();
         },
         calculateBeefFormulas(){
             this.beefProduction = this.cowFactor * this.grasslands / (this.costToProduce + this.taxEffect * this.beefTaxRate);//ja
@@ -1405,6 +1406,8 @@ export default {
         /*solar */
         changeSolarEnergySubsidy(solarEnergySubsidy) {
             this.solarEnergySubsidy = solarEnergySubsidy;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeSolarUseRate(solarUseRate) {
             this.solarUseRate = solarUseRate;
@@ -1424,30 +1427,42 @@ export default {
         },
         changeSolarResearchSubsidy(solarResearchSubsidy) {
             this.solarResearch = solarResearchSubsidy;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeBasicResearchSubsidy(basicResearchSubsidy) {
             this.basicResearch = basicResearchSubsidy;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeBioResearchSubsidy(bioResearchSubsidy) {
             this.bioResearch = bioResearchSubsidy;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeBioOptimism(bioOptimism) {
             this.bioOptimism = bioOptimism;
         },
         changeCoalResearchSubsidy(coalResearchSubsidy) {
             this.coalResearch = coalResearchSubsidy;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeCoalOptimism(coalOptimism) {
             this.coalOptimism = coalOptimism;
         },
-        changeOilResearchSubsidy(coalResearchSubsidy) {
-            this.coalResearch = coalResearchSubsidy;
+        changeOilResearchSubsidy(oilResearchSubsidy) {
+            this.oilResearch = oilResearchSubsidy;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeOilOptimism(oilOptimism) {
             this.oilOptimism = oilOptimism;
         },
         changeNuclearResearchSubsidy(nuclearResearchSubsidy) {
             this.nuclearResearch = nuclearResearchSubsidy;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeNuclearOptimism(nuclearOptimism) {
             this.nuclearOptimism = nuclearOptimism;
@@ -1604,6 +1619,8 @@ export default {
         },
         changeWoodStoveSubsidyRate(woodStoveSubsidy){
             this.woodStoveSubsidy = woodStoveSubsidy;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeWoodRate(wood){
             this.wood = wood;
@@ -1619,6 +1636,8 @@ export default {
         },
         changeDebtForNatureSubsidyRate(debtForNatureSubsidyRate){
             this.debtForNatureSubsidyRate = debtForNatureSubsidyRate;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeValueOfClearedLandRate(valueOfClearedLand){
             this.valueOfClearedLand = valueOfClearedLand;
@@ -1751,6 +1770,8 @@ export default {
         },
         changeRecyclingCenterSubsidyRate(rate){
             this.recyclingCenterSubsidyRate = rate;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeAluminumRecyclingFactor(aluminumRecycling){
             this.aluminumRecycling = aluminumRecycling;
@@ -1892,6 +1913,8 @@ export default {
         },
         changeFamilyPlanningSusidyPercent(percent){
             this.familyPlanningSubsidy = percent;
+            this.calculateTotalResearchBudgetRate();
+            this.calculateResearchBudget();
         },
         changeCropTechOptimism(optimism){
             this.cropTechOptimism = this.optimism;

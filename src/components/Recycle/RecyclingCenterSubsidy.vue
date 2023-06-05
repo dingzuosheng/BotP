@@ -10,7 +10,7 @@
                 </div>
                 <div class="range">
                     <h3>Recycling Center Subsidy {{ Math.floor(this.recyclingCenterSubsidyRate * 100) / 100 * 100}}  %</h3>
-                    <input type="range" min="0" max="0.12" step="0.01"  v-model="rate" @change="changeRecyclingCenterSubsidyRate"/><!--value is string-->
+                    <input type="range" min="0" max="0.08" step="0.01"  v-model="rate" @change="changeRecyclingCenterSubsidyRate"/><!--value is string-->
                 </div>
             </div>
             <div v-if="this.show">

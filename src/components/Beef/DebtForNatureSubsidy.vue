@@ -10,7 +10,7 @@
                 </div>        
                 <div class="range">
                     <h3>Debt for Nature Subsidy {{ this.debtForNatureSubsidyRate * 100}}  %</h3>
-                    <input type="range" min="0" max="0.12" step="0.01"  v-model="debtForNatureSubsidyrate" @change="changeDebtForNatureSubsidyRate"/><!--value is string-->
+                    <input type="range" min="0" max="0.08" step="0.01"  v-model="debtForNatureSubsidyrate" @change="changeDebtForNatureSubsidyRate"/><!--value is string-->
                 </div>
             </div>
             <div v-if="this.show">

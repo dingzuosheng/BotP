@@ -9,8 +9,8 @@
                     Wood Stove Budget: {{  Math.floor(this.woodStoveBudget/Math.pow(10,9)*100)/100 }} billion $
                 </div>        
                 <div class="range">
-                    <h3>Wood Stove Subsidy {{ this.woodStoveSubsidy }}  %</h3>
-                    <input type="range" min="0" max="0.12" step="0.01"  v-model="woodStoveSubsidyRate" @change="changeWoodStoveSubsidyRate"/><!--value is string-->
+                    <h3>Wood Stove Subsidy: {{ this.woodStoveSubsidy * 100}} %</h3>
+                    <input type="range" min="0" max="0.08" step="0.01"  v-model="woodStoveSubsidyRate" @change="changeWoodStoveSubsidyRate"/><!--value is string-->
                 </div>
             </div>
             <div v-if="this.show">
