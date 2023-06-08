@@ -16,7 +16,12 @@
                         Where:<br />
                         <div>
                             <div class="row-formula">
-                                <span>Use Rate</span> <span>= {{ nuclearUseRate }}</span> <span><input type="range" min="0.01" max="1.00" step="0.01" v-model="useRate" @change="changeNuclearUseRate" /></span>
+                                <span>Use Rate</span> <span>= {{ Math.ceil(nuclearUseRate*100)/100 }}</span> 
+                                <span>
+                                    <button @click="add">+0.01</button>
+                                    <input type="range" min="0.01" max="1.00" step="0.01" v-model="useRate" @change="changeNuclearUseRate" />
+                                    <button @click="minus">-0.01</button>
+                                </span>
                             </div>
                             <div class="row-formula">
                                 <span>Energy Demand</span> <span>= {{ Math.ceil(this.energyDemand) }}</span> <span>(Exajoules)</span>
@@ -113,6 +118,26 @@ export default {
         })
     },
     methods: {
+        add(){
+            let n = parseFloat(this.useRate);
+            if(n < 0.99){
+                n += 0.01;
+            }else{
+                n = 1;
+            }
+            this.useRate = n.toString();
+            this.changeNuclearUseRate();
+        },
+        minus(){
+            let n = parseFloat(this.useRate);
+            if(n > 0.02){
+                n -= 0.01;    
+            }else{
+                n = 0.01;
+            }
+            this.useRate = n.toString();
+            this.changeNuclearUseRate();
+        },
         toPage(item) {
             this.$router.push({
                 path: item.path

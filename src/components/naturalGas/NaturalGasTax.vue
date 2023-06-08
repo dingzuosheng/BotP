@@ -12,6 +12,12 @@
                     <h3>Natural Gas Tax {{ Math.floor(this.naturalGasTaxRate/Math.pow(10,6)*100)/100 }} million $/Exajoule</h3>
                     <input type="range" min="6250000" max="9440000000" step="10000" v-model="rate" @change="changeNaturalGasTaxRate"/><!--value is string-->
                     <div>
+                        <button @click="add(1000000)">+1M</button>
+                        <button @click="add(10000)">+10K</button>
+                        <button @click="minus(1000000)">-1M</button>
+                        <button @click="minus(10000)">-10K</button>
+                    </div>
+                    <div>
                         <p class="text">
                             This is the tax that you levy on Natural Gas Use. Increasing it will discourage production. This 
                             will have both environmental and economic consequences. Although you can change the numbers
@@ -91,6 +97,26 @@ export default {
         }) 
     },
     methods:{
+        add(number){
+            let n = parseFloat(this.rate);
+            if(n < 9439 * Math.pow(10,6)){
+                n += number;
+            }else{
+                n = 9440 * Math.pow(10,6);
+            }
+            this.rate = n.toString();
+            this.changeNaturalGasTaxRate();
+        },
+        minus(number){
+            let n = parseFloat(this.rate);
+            if(n > 7.25 * Math.pow(10,6)){
+                n -= number;    
+            }else{
+                n = 6.25 * Math.pow(10,6);
+            }
+            this.rate = n.toString();
+            this.changeNaturalGasTaxRate();
+        },
         toPage(item){
             this.$router.push({
                 path:item.path

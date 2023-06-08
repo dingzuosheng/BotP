@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="range">
-                    <h3>Solar Energy {{ this.solarEnergySubsidy * 100}} % Subsidy</h3>
+                    <h3>Solar Energy {{ Math.ceil(this.solarEnergySubsidy*100)/100 * 100}} % Subsidy</h3>
                     <input type="range" min="0" max="0.08" step="0.01" v-model="percent" @change="changeSolarEnergySusidyPercent"/><!--value is string-->
                     <div>
                         <p class="text">
@@ -99,7 +99,7 @@ export default {
                 path:item.path
             });
         },
-        changeSolarEnergySusidyPercent(){
+        changeSolarEnergySubsidyPercent(){
             this.solarEnergySubsidy = parseInt(this.percent * 100) / 100;
             this.$emit('changeSolarEnergySubsidy',this.solarEnergySubsidy);
         },

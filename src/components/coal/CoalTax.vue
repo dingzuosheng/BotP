@@ -10,7 +10,14 @@
                 </div>        
                 <div class="range">
                     <h3>Coal Tax {{ Math.floor(this.coalTaxRate/Math.pow(10,6)*100)/100 }} million $/Exajoule</h3>
+                    {{ typeof(this.coalTaxRate) }}
                     <input type="range" min="62500000" max="9440000000" step="10000"  v-model="rate" @change="changeCoalTaxRate"/><!--value is string-->
+                    <div>
+                        <button @click="add(1000000)">+1M</button>
+                        <button @click="add(10000)">+10K</button>
+                        <button @click="minus(1000000)">-1M</button>
+                        <button @click="minus(10000)">-10K</button>
+                    </div>
                     <div>
                         <p class="text">
                             This is the tax that you levy on Coal Use. Increasing it will discourage production. This 
@@ -91,12 +98,33 @@ export default {
         }) 
     },
     methods:{
+        add(number){
+            let n = parseFloat(this.rate)
+            if(n < 9439 * Math.pow(10,6)){
+                n += number;
+            }else{
+                n = 9440 * Math.pow(10,6);
+            }
+            this.rate = n.toString();
+            this.changeCoalTaxRate();
+        },
+        minus(number){
+            let n = parseFloat(this.rate);
+            if(n > 7.25 * Math.pow(10,6)){
+                n -= number;    
+            }else{
+                n = 6.25 * Math.pow(10,6);
+            }
+            this.rate = n.toString();
+            this.changeCoalTaxRate();
+        },
         toPage(item){
             this.$router.push({
                 path:item.path
             });
         },
         changeCoalTaxRate(){
+            console.log(typeof(this.rate))
             this.coalTaxRate = parseInt(this.rate);
             this.$emit('changeCoalTaxRate',this.coalTaxRate);
         },

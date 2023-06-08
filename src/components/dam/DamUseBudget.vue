@@ -11,11 +11,14 @@
                 <el-collapse class="collapse-part">
                     <el-collapse-item title="Formula ">
                         <div class="formula">
-                            <div>Dam Subsidy {{ this.damSubsidy * 100}}%</div>
+                            <div>Dam Subsidy {{ Math.ceil(this.damSubsidy*100)/100 * 100}}%</div>
                             <br />
                             <div class="formula">
                                 <div class="row-formula">
-                                    <span>= {{ damSubsidy }}</span> <span><input type="range" min="0" max="0.08" step="0.01" v-model="subsidy" @change="changeDamSubsidy" /></span>
+                                    <span>= {{ damSubsidy }}</span> 
+                                    <span>
+                                        <input type="range" min="0" max="0.08" step="0.01" v-model="subsidy" @change="changeDamSubsidy" />
+                                    </span>
                                 </div>
                             </div>
                         </div>
