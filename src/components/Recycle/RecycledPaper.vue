@@ -17,7 +17,7 @@
                                     <span>Recycling Effectiveness</span> <span>= {{ Math.floor(recyclingEffectiveness * Math.pow(10,11))/Math.pow(10,11) }}</span> <span><input type="range" min="0.00000000001" max="0.000000001" step="0.00000000001" v-model="recyclingEffectivenessFactor" @change="changeRecyclingEffectivenessFactor"/></span>
                                 </div>
                                 <div class="row-formula">
-                                    <span>Recycling Center $</span> <span>= {{ Math.floor(this.recyclingCenterSubsidy / Math.pow(10,9) * 100)/100 }} billion</span> <span>($)</span>
+                                    <span>Recycling Center $</span> <span>= {{ Math.floor(this.recyclingCenterBudget / Math.pow(10,9) * 100)/100 }} billion</span> <span>($)</span>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
         },
         props: {
             recycledPaper:Number,
-            recyclingCenterSubsidy:Number,
+            recyclingCenterBudget:Number,
             show:Boolean,
             executed:Number
         },

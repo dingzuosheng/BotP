@@ -16,7 +16,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Oil Price Factor</span> <span>= {{ oilPriceFactor }} billion</span> <span><input type="range" min="0.1" max="10" step="0.1" v-model="factor" @change="changeOilPriceFactor" /></span>
+                                <span>Oil Price Factor</span> <span>= {{ oilPriceFactor }} trillion</span> <span><input type="range" min="0.1" max="10" step="0.1" v-model="factor" @change="changeOilPriceFactor" /></span>
                             </div>
                             <div class="row-formula">
                                 <span>Oil Use</span> <span>= {{ this.oilUse }}</span> <span>(Exajoules)</span>

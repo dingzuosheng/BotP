@@ -16,7 +16,7 @@
                         Where:<br />
                         <div class="formula">
                             <div class="row-formula">
-                                <span>Danger Value</span> <span>= {{ this.dangerValue }}</span><span><input type="range" min="0.0001" max="0.1" step="0.001" v-model="dangerValueFactor" @change="changeDangerValueFactor"/>(points/ton)</span>
+                                <span>Danger Value</span> <span>= {{ Math.ceil(this.dangerValue*10000)/10000 }}</span><span><input type="range" min="0.0001" max="0.1" step="0.0001" v-model="dangerValueFactor" @change="changeDangerValueFactor"/>(points/ton)</span>
                             </div>
                             <div class="row-formula">
                                 <span>Radioactive Waste</span><span>= {{ Math.ceil(this.radioactiveWaste*100)/100 }}</span> <span>(tons)</span>
@@ -104,7 +104,7 @@ export default {
             });
         },
         changeDangerValueFactor(){
-            this.dangerValue = parseInt(this.dangerValue*10000)/10000;
+            this.dangerValue = parseInt(this.dangerValueFactor*10000)/10000;
             this.$emit("changeDangerValueFactor",this.dangerValue);
         },
         draw(){
