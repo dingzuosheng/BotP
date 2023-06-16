@@ -31,7 +31,7 @@
                     <h2>Your attempt to improve the life of marine has been failured, they have worse life than before</h2>
                 </div>
                 <div v-else>
-                    <h2>Your effort to improve the quality of the life for the human was worthy, the live better than before.</h2>
+                    <h2>Your effort to improve the quality of the life for the human was worthy, they live better than before.</h2>
                 </div>
             </div>
             <div>
@@ -53,7 +53,7 @@
 
             <div>
                 <div v-if="this.fallPoints_d < 0">
-                    <h2>Due to your effort, fall Accidente because of Solar Maschine has been reduced </h2>
+                    <h2>Due to your effort, fall accidents because of solar machine has been reduced </h2>
                 </div>
                 <div v-else>
                     <h2>You did ignore to solve the problems of Fall Accidents</h2>
@@ -69,7 +69,7 @@
             </div>
             <div>
                 <div v-if="this.heavyMetalPoints_d < 0">
-                    <h2>You did a lot to avoid heavy metal deseases, it's successful</h2>
+                    <h2>You did a lot to avoid heavy metal diseases, it's successful</h2>
                 </div>
                 <div v-else>
                     <h2>You did so little to improve heavy metal problems</h2>
@@ -106,7 +106,7 @@
                     <h2>less and less people dead on pesticide use.</h2>
                 </div>
                 <div v-else>
-                    <h2>Your attempt to decrease pesticide deaths have been failured.</h2>
+                    <h2>Your attempt to decrease pesticide deaths have been failed.</h2>
                 </div>
             </div>
             <div>
